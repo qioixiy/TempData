@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+   <filter>
+       <filter-name>CharsetFilter</filter-name>
+       <filter-class>cn.fingerdata.filter.CharsetFilter</filter-class>
+   </filter>
+   <filter-mapping>
+        <filter-name>CharsetFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+   </filter-mapping>
+  
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>cn.fingerdata.action.LoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>addCusServlet</servlet-name>
+    <servlet-class>cn.fingerdata.action.addCusServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CusViewSrevlet</servlet-name>
+    <servlet-class>cn.fingerdata.action.CusViewSrevlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>CusViewServlet</servlet-name>
+    <servlet-class>cn.fingerdata.action.CusViewServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ListServlet</servlet-name>
+    <servlet-class>cn.fingerdata.action.ListServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/login.action</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>addCusServlet</servlet-name>
+    <url-pattern>/addCusServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CusViewSrevlet</servlet-name>
+    <url-pattern>/CusViewSrevlet</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet-mapping>
+    <servlet-name>ListServlet</servlet-name>
+    <url-pattern>/ListServlet</url-pattern>
+  </servlet-mapping>
+ 
+ <welcome-file-list>
+    <welcome-file>login.jsp</welcome-file>
+ </welcome-file-list>
+ 
+</web-app>
