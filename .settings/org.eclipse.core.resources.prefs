@@ -1,3 +1,6 @@
 eclipse.preferences.version=1
+encoding//src/cn/fingerdata/action/ListCusServlet.java=UTF-8
 encoding//src/cn/fingerdata/action/ListServlet.java=UTF-8
 encoding//src/cn/fingerdata/action/addCusServlet.java=UTF-8
+encoding//src/cn/fingerdata/dao/impl/CustomerDaoImpl.java=UTF-8
+encoding//src/cn/fingerdata/dao1/BaseDataBaseDao.java=UTF-8

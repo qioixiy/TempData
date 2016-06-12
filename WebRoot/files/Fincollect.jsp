@@ -7,7 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    
+    <base href="<%=basePath%>">
     <title>My JSP 'Fincollect.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
@@ -32,9 +32,9 @@ document.getElementById("aa").style.display="";
 }
 
 
-function link(){
+function link0(){
 alert('保存成功！');
-    document.getElementById("fom").action="xuqiumingxi.htm";
+    document.getElementById("fom").action="";
    document.getElementById("fom").submit();
 }
 
@@ -44,12 +44,12 @@ function link1(){
 }
 
 function link2(){
-    document.getElementById("fom").action="listCustomer11.jsp";
+    document.getElementById("fom").action="CollectS";
    document.getElementById("fom").submit();
 }
 
 function link3(){
-    document.getElementById("fom").action="listFintype.jsp";
+    document.getElementById("fom").action="files/listFintype.jsp";
    document.getElementById("fom").submit();
 }
 
@@ -92,7 +92,7 @@ function on_load(){
 	              <input  name="Submit" type="button" class="right-button08" value="打&nbsp;开&nbsp;记&nbsp;录"   onclick="link2();"/>&nbsp;&nbsp;&nbsp;&nbsp;
 	              <input  name="Submit" type="button" class="right-button08" value="查看所有纹型" onclick="link3();"/>&nbsp;&nbsp;
 	              
-		          <input type="button" name="Submit2" value="返回" class="button" onclick="window.history.go(-1);"/>
+		          <input type="button" name="Submit2" value="返回" class="right-button02" onclick="window.history.go(-1);"/>
 		        
 	              </td>
               
@@ -154,29 +154,12 @@ function on_load(){
 					        <tr bordercolor="#8FBC8F"  height="70" >
 					             <td    align="center" >
 					                  <table    width="100%"     height="70"   border="1"    bordercolor="#8FBC8F">
-					                        <tr   height="35"  align="center" >
-					                            <td  width="40%"  rowspan="2">正面</td>
-					                            <td  width="60%">左面</td>
+					                        <tr   height="35"  align="center"   bordercolor="#8FBC8F">
+					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick=''/></td>
+					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick=''/></td>
 					                        </tr>
-					                         <tr   height="35"  align="center">
-					                            <td  width="60%"  >右面</td>
-					                           
-					                        </tr>
-					                  </table>
-					             
-					             </td>
-					           </tr>
-					           
-					           
-					          <tr bordercolor="#8FBC8F"  height="70" >
-					             <td    align="center" >
-					                  <table    width="100%"     height="70"   border="1"      bordercolor="#8FBC8F">
-					                        <tr   height="35"  align="center" >
-					                            <td  width="40%"  rowspan="2">正面</td>
-					                            <td  width="60%">左面</td>
-					                        </tr>
-					                         <tr   height="35"  align="center">
-					                            <td  width="60%"  >右面</td>
+					                         <tr   height="35"  align="center"  bordercolor="#8FBC8F">
+					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick=''/></td>
 					                           
 					                        </tr>
 					                  </table>
@@ -187,12 +170,28 @@ function on_load(){
 					          <tr bordercolor="#8FBC8F"  height="70" >
 					             <td    align="center" >
 					                  <table    width="100%"     height="70"   border="1"    bordercolor="#8FBC8F">
-					                        <tr   height="35"  align="center"   bordercolor="#8FBC8F" >
-					                            <td  width="40%"  rowspan="2">正面</td>
-					                            <td  width="60%">左面</td>
+					                        <tr   height="35"  align="center"   bordercolor="#8FBC8F">
+					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick=''/></td>
+					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick=''/></td>
 					                        </tr>
-					                         <tr   height="35"  align="center">
-					                            <td  width="60%"  >右面</td>
+					                         <tr   height="35"  align="center"  bordercolor="#8FBC8F">
+					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick=''/></td>
+					                           
+					                        </tr>
+					                  </table>
+					             
+					             </td>
+					           </tr>
+					           
+					          <tr bordercolor="#8FBC8F"  height="70" >
+					             <td    align="center" >
+					                  <table    width="100%"     height="70"   border="1"    bordercolor="#8FBC8F">
+					                        <tr   height="35"  align="center"   bordercolor="#8FBC8F">
+					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick=''/></td>
+					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick=''/></td>
+					                        </tr>
+					                         <tr   height="35"  align="center"  bordercolor="#8FBC8F">
+					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick=''/></td>
 					                           
 					                        </tr>
 					                  </table>
@@ -203,13 +202,13 @@ function on_load(){
 					           
 					         <tr bordercolor="#8FBC8F"  height="70" >
 					             <td    align="center" >
-					                  <table    width="100%"     height="70"   border="1"     bordercolor="#8FBC8F" >
-					                        <tr   height="35"  align="center" >
-					                            <td  width="40%"  rowspan="2">正面</td>
-					                            <td  width="60%">左面</td>
+					                  <table    width="100%"     height="70"   border="1"    bordercolor="#8FBC8F">
+					                        <tr   height="35"  align="center"   bordercolor="#8FBC8F">
+					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick=''/></td>
+					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick=''/></td>
 					                        </tr>
-					                         <tr   height="35"  align="center">
-					                            <td  width="60%"  >右面</td>
+					                         <tr   height="35"  align="center"  bordercolor="#8FBC8F">
+					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick=''/></td>
 					                           
 					                        </tr>
 					                  </table>
@@ -219,13 +218,13 @@ function on_load(){
 					           
 					            <tr bordercolor="#8FBC8F"  height="70" >
 					             <td    align="center" >
-					                  <table    width="100%"     height="70"   border="1"    bordercolor="#8FBC8F" >
-					                        <tr   height="35"  align="center" >
-					                            <td  width="40%"  rowspan="2">正面</td>
-					                            <td  width="60%">左面</td>
+					                  <table    width="100%"     height="70"   border="1"    bordercolor="#8FBC8F">
+					                        <tr   height="35"  align="center"   bordercolor="#8FBC8F">
+					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick=''/></td>
+					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick=''/></td>
 					                        </tr>
-					                         <tr   height="35"  align="center">
-					                            <td  width="60%"  >右面</td>
+					                         <tr   height="35"  align="center"  bordercolor="#8FBC8F">
+					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick=''/></td>
 					                           
 					                        </tr>
 					                  </table>
@@ -258,7 +257,7 @@ function on_load(){
                         </select>
 					                  </td>
 					                   <td width="40%"    align="right">
-					                         <input name="Submit" type="button" class="" value="采&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;集"  onclick="link();  " />
+					                         <input name="Submit" type="submit"  class="right-button08" value="采&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;集"  onclick="link0();  " />
 					                   </td>
 					                  </tr>
 					               <tr  bordercolor="#8FBC8F"  height="10">
@@ -277,13 +276,13 @@ function on_load(){
 					      <table    width="100%"   height="350" border="1" cellpadding="0" cellspacing="0"  bordercolor="#8FBC8F" > 
 					        <tr bordercolor="#8FBC8F"  height="70" >
 					             <td    align="center" >
-					                  <table    width="100%"     height="70"   border="2"     bordercolor="#8FBC8F">
-					                        <tr   height="35"  align="center" >
-					                            <td  width="40%"  rowspan="2">正面</td>
-					                            <td  width="60%">左面</td>
+					                  <table    width="100%"     height="70"   border="1"    bordercolor="#8FBC8F">
+					                        <tr   height="35"  align="center"   bordercolor="#8FBC8F">
+					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick=''/></td>
+					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick=''/></td>
 					                        </tr>
-					                         <tr   height="35"  align="center">
-					                            <td  width="60%"  >右面</td>
+					                         <tr   height="35"  align="center"  bordercolor="#8FBC8F">
+					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick=''/></td>
 					                           
 					                        </tr>
 					                  </table>
@@ -294,13 +293,13 @@ function on_load(){
 					           
 					          <tr bordercolor="#8FBC8F"  height="70" >
 					             <td    align="center" >
-					                  <table    width="100%"     height="70"   border="1"     bordercolor="#8FBC8F" >
-					                        <tr   height="35"  align="center" >
-					                            <td  width="40%"  rowspan="2">正面</td>
-					                            <td  width="60%">左面</td>
+					                  <table    width="100%"     height="70"   border="1"    bordercolor="#8FBC8F">
+					                        <tr   height="35"  align="center"   bordercolor="#8FBC8F">
+					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick=''/></td>
+					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick=''/></td>
 					                        </tr>
-					                         <tr   height="35"  align="center">
-					                            <td  width="60%"  >右面</td>
+					                         <tr   height="35"  align="center"  bordercolor="#8FBC8F">
+					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick=''/></td>
 					                           
 					                        </tr>
 					                  </table>
@@ -311,46 +310,46 @@ function on_load(){
 					           
 					           <tr bordercolor="#8FBC8F"  height="70" >
 					             <td    align="center" >
-					                  <table    width="100%"     height="70"   border="1"     bordercolor="#8FBC8F">
-					                        <tr   height="35"  align="center" >
-					                            <td  width="40%"  rowspan="2">正面</td>
-					                            <td  width="60%">左面</td>
+					                  <table    width="100%"     height="70"   border="1"    bordercolor="#8FBC8F">
+					                        <tr   height="35"  align="center"   bordercolor="#8FBC8F">
+					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick=''/></td>
+					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick=''/></td>
 					                        </tr>
-					                         <tr   height="35"  align="center">
-					                            <td  width="60%"  >右面</td>
+					                         <tr   height="35"  align="center"  bordercolor="#8FBC8F">
+					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick=''/></td>
 					                           
 					                        </tr>
 					                  </table>
 					             
 					             </td>
 					           </tr>
+					           
+					            <tr bordercolor="#8FBC8F"  height="70" >
+					             <td    align="center" >
+					                  <table    width="100%"     height="70"   border="1"    bordercolor="#8FBC8F">
+					                        <tr   height="35"  align="center"   bordercolor="#8FBC8F">
+					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick=''/></td>
+					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick=''/></td>
+					                        </tr>
+					                         <tr   height="35"  align="center"  bordercolor="#8FBC8F">
+					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick=''/></td>
+					                           
+					                        </tr>
+					                  </table>
+					             
+					             </td>
+					           </tr>
+					           
 					           
 					           <tr bordercolor="#8FBC8F"  height="70" >
 					             <td    align="center" >
-					                  <table    width="100%"     height="70"   border="1"      bordercolor="#8FBC8F">
-					                        <tr   height="35"  align="center" >
-					                            <td  width="40%"  rowspan="2">正面</td>
-					                            <td  width="60%">左面</td>
+					                  <table    width="100%"     height="70"   border="1"    bordercolor="#8FBC8F">
+					                        <tr   height="35"  align="center"   bordercolor="#8FBC8F">
+					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick=''/></td>
+					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick=''/></td>
 					                        </tr>
-					                         <tr   height="35"  align="center">
-					                            <td  width="60%"  >右面</td>
-					                           
-					                        </tr>
-					                  </table>
-					             
-					             </td>
-					           </tr>
-					           
-					           
-					          <tr bordercolor="#8FBC8F"  height="70" >
-					             <td    align="center" >
-					                  <table    width="100%"     height="70"   border="1"      bordercolor="#8FBC8F">
-					                        <tr   height="35"  align="center" >
-					                            <td  width="40%"  rowspan="2">正面</td>
-					                            <td  width="60%">左面</td>
-					                        </tr>
-					                         <tr   height="35"  align="center">
-					                            <td  width="60%"  >右面</td>
+					                         <tr   height="35"  align="center"  bordercolor="#8FBC8F">
+					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick=''/></td>
 					                           
 					                        </tr>
 					                  </table>

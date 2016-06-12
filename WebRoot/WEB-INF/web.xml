@@ -48,6 +48,32 @@
     <servlet-name>InterServlet</servlet-name>
     <servlet-class>cn.fingerdata.action.InterServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>CustomerS</servlet-name>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <description>This is the description of my J2EE component</description>
+    <servlet-class>cn.fingerdata.action.CustomerS</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CustomerServlet</servlet-name>
+    <servlet-class>cn.fingerdata.action.CustomerServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CollectS</servlet-name>
+    <servlet-class>cn.fingerdata.action.CollectS</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CollectServlet</servlet-name>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <description>This is the description of my J2EE component</description>
+    <servlet-class>cn.fingerdata.action.CollectServlet</servlet-class>
+  </servlet>
+
+
+
+
+  
+
 
 
 
@@ -88,6 +114,23 @@
     <servlet-name>InterServlet</servlet-name>
     <url-pattern>/InterServlet</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CustomerS</servlet-name>
+    <url-pattern>/CustomerS</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CustomerServlet</servlet-name>
+    <url-pattern>/CustomerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CollectS</servlet-name>
+    <url-pattern>/CollectS</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CollectServlet</servlet-name>
+    <url-pattern>/CollectServlet</url-pattern>
+  </servlet-mapping>
+  
  
  <welcome-file-list>
     <welcome-file>login.jsp</welcome-file>
