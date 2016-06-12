@@ -115,4 +115,10 @@ public class AccountDaoImpl extends BaseDataBaseDao implements AccountDao {
 		return null;
 	}
 
+	@Override
+	public Account getById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

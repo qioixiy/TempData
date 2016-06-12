@@ -1,13 +1,17 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@page  import="cn.fingerdata.bean.Customer" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%
+   Customer  customer=(Customer)request.getAttribute("customer");
+ %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
+    <base href="<%=basePath%>">
     
     <title>My JSP 'Finanalysis.jsp' starting page</title>
     
@@ -128,31 +132,30 @@ function on_load(){
 					 
 			      <tr  bordercolor="#5F9EA0">
 					    <td nowrap align="right" width="5%">编&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:</td>
-					    <td  align="left"   width="10%"><input name="text" class="text" style="width: 109px" type="text" size="40" />
-				              <span class="red"> *</span></td>
-					    <td align="right" width="5%">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:</td>
-					    <td width="10%"><input name="Input22" id="Input22" class="text" style="width:115px" /></td>
+					    <td  align="left"   width="10%"><%=customer.getName()%> </td>
+				    	 <td align="right" width="5%">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:</td>
+					    <td width="10%"><%=customer.getName()%></td>
 					    <td nowrap align="right" width="5%">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别:</td>
-					    <td nowrap align="left" width="10%">
-					       <input name="Input22" id="Input22" class="text" style="width:80px" />
+					    <td nowrap align="left" width="10%"><%=customer.getGender()%>
+					       
 					    </td>
 					    <td nowrap align="right" width="6%">出生日期:</td>
 					    <td nowrap align="left" width="10%">
-					        <input name="Input22" id="Input22" class="text" style="width:115px" />
+					     <%=customer.getBirthday() %>   
 					    </td> 
 					 </tr>
 					 
 					 <tr  bordercolor="#5F9EA0">
 					  <td nowrap align="right" width="5%">判读师编号:</td>
-					    <td  align="left"   width="10%"><input name="text" class="text" style="width: 109px" type="text" size="40" />
+					    <td  align="left"   width="10%"><%=customer.getDisId() %>
 				              <span class="red"> *</span></td>
 					    <td align="right" width="5%">判读师姓名:</td>
-					    <td width="10%"><input name="Input22" id="Input22" class="text" style="width:115px" /></td>
+					    <td width="10%"><%=customer.getDisName() %></td>
 					    <td nowrap align="right" width="5%"  colspan="2">&nbsp;</td>
 					    
 					    <td nowrap align="right" width="6%">判读日期:</td>
 					    <td nowrap align="left" width="10%">
-					        <input name="Input22" id="Input22" class="text" style="width:115px" />
+					     <%=customer.getDisdate() %>   
 					    </td> 
 					 </tr>
 					 </table>
@@ -211,7 +214,7 @@ function on_load(){
 				    <td  width="45%">
 				       <table    width="100%"  border="1" cellpadding="2" cellspacing="0"   bordercolor="#8FBC8F">
 				         <tr  bordercolor="#8FBC8F"  height="35"  bgcolor="#AFEEEE">
-				            <td  align="center"  width="23%"  >左手</td>
+				            <td  align="center"  width="23%"  >右手</td>
 				            <td  align="center"  width="26%">纹型</td>
 				            <td  align="center"  width="27%">RC/L</td>
 				            <td  align="center"  withd="26%">RC/R</td>

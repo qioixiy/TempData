@@ -153,7 +153,7 @@ function on_load(){
 					      <table    width="100%"   height="350" border="1" cellpadding="0" cellspacing="0"  bordercolor="#8FBC8F"  > 
 					        <tr bordercolor="#8FBC8F"  height="70" >
 					             <td    align="center" >
-					                  <table    width="100%"     height="70"   border="2" >
+					                  <table    width="100%"     height="70"   border="1"    bordercolor="#8FBC8F">
 					                        <tr   height="35"  align="center" >
 					                            <td  width="40%"  rowspan="2">正面</td>
 					                            <td  width="60%">左面</td>
@@ -170,7 +170,7 @@ function on_load(){
 					           
 					          <tr bordercolor="#8FBC8F"  height="70" >
 					             <td    align="center" >
-					                  <table    width="100%"     height="70"   border="2" >
+					                  <table    width="100%"     height="70"   border="1"      bordercolor="#8FBC8F">
 					                        <tr   height="35"  align="center" >
 					                            <td  width="40%"  rowspan="2">正面</td>
 					                            <td  width="60%">左面</td>
@@ -186,8 +186,8 @@ function on_load(){
 					           
 					          <tr bordercolor="#8FBC8F"  height="70" >
 					             <td    align="center" >
-					                  <table    width="100%"     height="70"   border="2" >
-					                        <tr   height="35"  align="center" >
+					                  <table    width="100%"     height="70"   border="1"    bordercolor="#8FBC8F">
+					                        <tr   height="35"  align="center"   bordercolor="#8FBC8F" >
 					                            <td  width="40%"  rowspan="2">正面</td>
 					                            <td  width="60%">左面</td>
 					                        </tr>
@@ -203,7 +203,7 @@ function on_load(){
 					           
 					         <tr bordercolor="#8FBC8F"  height="70" >
 					             <td    align="center" >
-					                  <table    width="100%"     height="70"   border="2" >
+					                  <table    width="100%"     height="70"   border="1"     bordercolor="#8FBC8F" >
 					                        <tr   height="35"  align="center" >
 					                            <td  width="40%"  rowspan="2">正面</td>
 					                            <td  width="60%">左面</td>
@@ -219,7 +219,7 @@ function on_load(){
 					           
 					            <tr bordercolor="#8FBC8F"  height="70" >
 					             <td    align="center" >
-					                  <table    width="100%"     height="70"   border="2" >
+					                  <table    width="100%"     height="70"   border="1"    bordercolor="#8FBC8F" >
 					                        <tr   height="35"  align="center" >
 					                            <td  width="40%"  rowspan="2">正面</td>
 					                            <td  width="60%">左面</td>
@@ -277,7 +277,7 @@ function on_load(){
 					      <table    width="100%"   height="350" border="1" cellpadding="0" cellspacing="0"  bordercolor="#8FBC8F" > 
 					        <tr bordercolor="#8FBC8F"  height="70" >
 					             <td    align="center" >
-					                  <table    width="100%"     height="70"   border="2" >
+					                  <table    width="100%"     height="70"   border="2"     bordercolor="#8FBC8F">
 					                        <tr   height="35"  align="center" >
 					                            <td  width="40%"  rowspan="2">正面</td>
 					                            <td  width="60%">左面</td>
@@ -294,7 +294,7 @@ function on_load(){
 					           
 					          <tr bordercolor="#8FBC8F"  height="70" >
 					             <td    align="center" >
-					                  <table    width="100%"     height="70"   border="2" >
+					                  <table    width="100%"     height="70"   border="1"     bordercolor="#8FBC8F" >
 					                        <tr   height="35"  align="center" >
 					                            <td  width="40%"  rowspan="2">正面</td>
 					                            <td  width="60%">左面</td>
@@ -311,7 +311,7 @@ function on_load(){
 					           
 					           <tr bordercolor="#8FBC8F"  height="70" >
 					             <td    align="center" >
-					                  <table    width="100%"     height="70"   border="2" >
+					                  <table    width="100%"     height="70"   border="1"     bordercolor="#8FBC8F">
 					                        <tr   height="35"  align="center" >
 					                            <td  width="40%"  rowspan="2">正面</td>
 					                            <td  width="60%">左面</td>
@@ -327,7 +327,7 @@ function on_load(){
 					           
 					           <tr bordercolor="#8FBC8F"  height="70" >
 					             <td    align="center" >
-					                  <table    width="100%"     height="70"   border="2" >
+					                  <table    width="100%"     height="70"   border="1"      bordercolor="#8FBC8F">
 					                        <tr   height="35"  align="center" >
 					                            <td  width="40%"  rowspan="2">正面</td>
 					                            <td  width="60%">左面</td>
@@ -344,7 +344,7 @@ function on_load(){
 					           
 					          <tr bordercolor="#8FBC8F"  height="70" >
 					             <td    align="center" >
-					                  <table    width="100%"     height="70"   border="2" >
+					                  <table    width="100%"     height="70"   border="1"      bordercolor="#8FBC8F">
 					                        <tr   height="35"  align="center" >
 					                            <td  width="40%"  rowspan="2">正面</td>
 					                            <td  width="60%">左面</td>

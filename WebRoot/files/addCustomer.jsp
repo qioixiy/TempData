@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
- 
+       <base href="<%=basePath%>">
     
     <title>客户基本信息录入</title>
     
@@ -58,11 +58,11 @@ function on_load(){
 
 <body onload="on_load()">
 
-  <form   name="form"   id="form" action="/addCusServlet" method="post">
+  <form   name="form"   id="form" action="addCusServlet" method="post">
   
 <div class="MainDiv">
 
-<table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent"  background="../images/nav04.gif">
+<table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent"   style="background-image:url(../images/nav04.gif)" >
   <tr>
       <th class="tablestyle_title" >客户基本信息录入</th>
   </tr>
@@ -234,10 +234,10 @@ function on_load(){
 		
 		<TR>
 			<TD colspan="3" align="center" height="50px">
-			<input type="button" name="Submit" value="添加" class="button" onclick="alert('保存成功！');" style="width: 71px; "/>　
+			<input type="submit" name="submit" value="添加" class="button" onclick="alert('保存成功！');" style="width: 71px; "/>　
 			
 			<input name="Submit" type="button" class="right-button08" value="开&nbsp;始&nbsp;采&nbsp;集"   onclick="link1();  " />&nbsp;&nbsp;
-			<input type="button" name="Submit2" value="返回" class="button" onclick="window.history.go(-1);" style="width: 62px; "/></TD>
+			<input type="submit" name="Submit" value="返回" class="button" onclick="window.history.go(-1);" style="width: 62px; "/></TD>
 		</TR>
 		</TABLE>
 	

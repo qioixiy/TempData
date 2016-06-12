@@ -125,7 +125,7 @@ function link(){
 			   <input name="textfield" type="text" size="35" readonly="readonly"/>	
 			   <input name="Submit" type="button" class="right-button02" value="查 询" /></td>
 			   <td width="679" align="left"><a href="#" onclick="sousuo()">
-			     <input name="Submit" type="button" class="right-button07" value="高级搜索" />
+			    
 			   </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>	
 		    </tr>
           </table></td>
@@ -148,32 +148,32 @@ function link(){
   <tr>
     <td><table id="subtree1" style="DISPLAY: " width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
-          <td><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+          <td><table width="95%" border="1" align="center" cellpadding="0" cellspacing="0">
 	
 					                  <tr>
                     <td height="30" colspan="9" align="center" bgcolor="#EEEEEE"class="tablestyle_title"><center>客户记录列表</center></td>
                     </tr>
               <tr>
-                <td height="40" class="font42"><table width="100%" border="0" cellpadding="4" cellspacing="1"   bordercolor="#8FBC8F" bgcolor="#464646" class="newfont03">
-                  <tr>
-                     <td width="5%" align="center" bgcolor="#EEEEEE">选择</td>
-				    <td width="4%" align="center" bgcolor="#EEEEEE">序号</td>
-                    <td width="6%" height="20" align="center" bgcolor="#EEEEEE">编号</td>
-                    <td width="6%" align="center" bgcolor="#EEEEEE">姓名</td>
-                    <td width="4%" align="center" bgcolor="#EEEEEE">性别</td>
-                    <td width="5%" align="center" bgcolor="#EEEEEE">版本</td>
-                    <td width="8%" align="center" bgcolor="#EEEEEE">出生日期</td>
-                    <td width="6%" align="center" bgcolor="#EEEEEE">年龄</td>
-                    <td width="8%" align="center" bgcolor="#EEEEEE">联系电话</td>
-                    <td width="8%" align="center" bgcolor="#EEEEEE">采集师编号</td>
-                    <td width="8%" align="center" bgcolor="#EEEEEE">采集师</td>
+                <td height="40" class="font42"><table width="100%" border="1"    bordercolor="#8FBC8F"  cellpadding="4" cellspacing="0"  >
+                  <tr  bgcolor="#AFEEEE">
+                     <td width="5%" align="center"   bgcolor="#AFEEEE">选择</td>
+				    <td width="4%" align="center"  bgcolor="#AFEEEE">序号</td>
+                    <td width="6%" height="20" align="center"  bgcolor="#AFEEEE">编号</td>
+                    <td width="6%" align="center"  bgcolor="#AFEEEE">姓名</td>
+                    <td width="4%" align="center" bgcolor="#AEEEEE">性别</td>
+                    <td width="5%" align="center" bgcolor="#AEEEEE">版本</td>
+                    <td width="8%" align="center" bgcolor="#AEEEEE">出生日期</td>
+                    <td width="6%" align="center" bgcolor="#AEEEEE">年龄</td>
+                    <td width="8%" align="center" bgcolor="#AEEEEE">联系电话</td>
+                    <td width="8%" align="center" bgcolor="#AEEEEE">采集师编号</td>
+                    <td width="8%" align="center" bgcolor="#AEEEEE">采集师</td>
                   
-                    <td width="8%" align="center" bgcolor="#EEEEEE">采集日期</td>
-                    <td width="8%" align="center" bgcolor="#EEEEEE">判别师</td>
-                    <td width="20%" align="center" bgcolor="#EEEEEE">操作</td>
+                    <td width="8%" align="center" bgcolor="#AEEEEE">采集日期</td>
+                    <td width="8%" align="center" bgcolor="#AEEEEE">判别师</td>
+                    <td width="20%" align="center" bgcolor="#AEEEEE">操作</td>
                   </tr>
                   <% for(Customer customer:customers){  %> 
-                    
+                   
                   
                   
                  

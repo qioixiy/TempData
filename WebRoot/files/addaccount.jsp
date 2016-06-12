@@ -93,16 +93,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					          <table  width="100%"   height="140" border="0">
 					               <tr  >
 					                 <td   width="25%"  align="center" >
-					                     <label><input  name="1"  type="checkbox"  value=""/><font  size="5">采样</font></label>
+					                     <label><input  name="1"  type="checkbox"  value=""/><font  size="4">采样</font></label>
 					                  </td>
 					                  <td   width="25%"  align="center" >
-					                     <label><input  name="1"  type="checkbox"  value=""/><font  size="5">判读</font></label>
+					                     <label><input  name="1"  type="checkbox"  value=""/><font  size="4">判读</font></label>
 					                  </td>
 					                  <td   width="25%"  align="center" >
-					                     <label><input  name="1"  type="checkbox"  value=""/><font  size="5">所有人</font></label>
+					                     <label><input  name="1"  type="checkbox"  value=""/><font  size="4">所有人</font></label>
 					                  </td>
 					                  <td   width="25%"  align="center" >
-					                     <label><input  name="1"  type="checkbox"  value=""/><font  size="5">系统</font></label>
+					                     <label><input  name="1"  type="checkbox"  value=""/><font  size="4">系统</font></label>
 					                  </td>
 					               </tr>
 					               
