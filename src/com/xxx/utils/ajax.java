@@ -82,12 +82,14 @@ public class ajax extends HttpServlet {
 			case "captureFrame":
 
 				String FingerPostion = request.getParameter("FingerPostion");
-				String UserName = request.getParameter("UserName");
-				String UserNumber = request.getParameter("UserNumber");
+				String _UserName = request.getParameter("UserName");
+				String _UserNumber = request.getParameter("UserNumber");
+				String UserName = new String(_UserName.getBytes("ISO-8859-1"), "UTF-8");
+				String UserNumber = new String(_UserNumber.getBytes("ISO-8859-1"), "UTF-8");
 				System.out.println(
 						"FingerPostion:" + FingerPostion + ",UserName:" + UserName + ",UserNumber:" + UserNumber);
 
-				String DirName = UserName + UserNumber;
+				String DirName = /*UserName + */UserNumber;
 				
 				String RealDirName = FprCap_data + "/" + DirName;
 				if (!(new java.io.File(RealDirName).isDirectory())) {
@@ -100,6 +102,7 @@ public class ajax extends HttpServlet {
 				String LocalFilePath = FprCap_data + "/" + DirName + "/" + fileName;
 				System.out.println("LocalFilePath:" + LocalFilePath);
 				
+				String tmpFilePath = FprCap_tmp + "";
 				if (0 == FprCap.GetFrame(LocalFilePath)) {
 					String url = basePath + "/images/FprCap/data/" + DirName + "/" + fileName;
 					System.out.println("image url " + url);
