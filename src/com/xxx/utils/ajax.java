@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.FprCap.*;
 import com.FprCap.FprCap;
+import com.xxx.zip.Zip;
 
 /**
  * Servlet implementation class ajax
@@ -115,6 +116,13 @@ public class ajax extends HttpServlet {
 						file.delete();
 					}
 				}
+				break;
+			case "exportPackage":
+				String zipFile = FprCap_data + ".zip";
+				Zip.zip(FprCap_data, zipFile);
+				String url = basePath + "images/FprCap/data.zip";
+				System.out.println("zip url " + url);
+				response.getWriter().append(url);
 				break;
 			}
 		}
