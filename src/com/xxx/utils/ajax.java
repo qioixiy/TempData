@@ -87,19 +87,27 @@ public class ajax extends HttpServlet {
 				System.out.println(
 						"FingerPostion:" + FingerPostion + ",UserName:" + UserName + ",UserNumber:" + UserNumber);
 
-				String fileName = UserName + UserNumber + FingerPostion;
+				String DirName = UserName + UserNumber;
+				
+				String RealDirName = FprCap_data + "/" + DirName;
+				if (!(new java.io.File(RealDirName).isDirectory())) {
+					new java.io.File(RealDirName).mkdir();
+					System.out.println("create dir " + RealDirName);
+				}
+				
+				String fileName = FingerPostion + "_" + MyDate.getFormatDate() + ".bmp";
 
-				String date = MyDate.getFormatDate();
-				String BmpFileName = fileName + date + ".bmp";
-				String BmpPath = FprCap_data + "/" + BmpFileName;
-				System.out.println("BmpPath:" + BmpPath);
-				if (0 == FprCap.GetFrame(BmpPath)) {
-					System.out.println("GetFrame complete");
-					response.getWriter().append(basePath + "/images/FprCap/data/" + BmpFileName);
+				String LocalFilePath = FprCap_data + "/" + DirName + "/" + fileName;
+				System.out.println("LocalFilePath:" + LocalFilePath);
+				
+				if (0 == FprCap.GetFrame(LocalFilePath)) {
+					String url = basePath + "/images/FprCap/data/" + DirName + "/" + fileName;
+					System.out.println("image url " + url);
+					response.getWriter().append(url);
 				} else {
 					System.out.println("GetFrame field");
 					response.getWriter().append("filed");
-					File file = new File(BmpPath);
+					File file = new File(LocalFilePath);
 					if (file.isFile() && file.exists()) {
 						file.delete();
 					}
