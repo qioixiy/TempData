@@ -19,6 +19,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="<%=basePath%>/js/ajax.js"></script>
 
 <script language="JavaScript" type="text/javascript">
+
+var FingerPostion = "";
+function updateFP(postion)
+{
+	FingerPostion = postion;
+}
+
 function tishi()
 {
   var a=confirm('数据库中保存有该人员基本信息，您可以修改或保留该信息。');
@@ -33,7 +40,22 @@ document.getElementById("aa").style.display="";
 
 function captureFrame()
 {
-	ajax_request("<%=basePath%>", "captureFrame");
+	UserName = document.getElementById("Input22").value;
+	UserNumber = document.getElementById("UserNumber").value;
+	if (FingerPostion == "") {
+		alert("请选择采集对应的手指");
+		return;
+	}
+	if (UserName == "") {
+		alert("用户名不能为空");
+		return;
+	}
+	if (UserNumber == "") {
+		alert("编号不能为空");
+		return;
+	}
+	url_param = "&FingerPostion=" + FingerPostion + "&UserName=" + UserName + "&UserNumber=" + UserNumber;
+	ajax_request("<%=basePath%>", "captureFrame", url_param);
 }
 
 
@@ -113,7 +135,7 @@ function on_load(){
 					 
 			      <tr  bordercolor="#5F9EA0">
 					    <td nowrap align="right" width="5%">编&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:</td>
-					    <td  align="left"   width="10%"><input name="text" class="text" style="width: 109px" type="text" size="40" />
+					    <td  align="left"   width="10%"><input id="UserNumber" name="text" class="text" style="width: 109px" type="text" size="40" />
 				              <span class="red"> *</span></td>
 					    <td align="right" width="5%">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:</td>
 					    <td width="10%"><input name="Input22" id="Input22" class="text" style="width:115px" /></td>
@@ -160,11 +182,11 @@ function on_load(){
 					             <td    align="center" >
 					                  <table    width="100%"     height="70"   border="1"    bordercolor="#8FBC8F">
 					                        <tr   height="35"  align="center"   bordercolor="#8FBC8F">
-					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick=''/></td>
-					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick=''/></td>
+					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick="updateFP('L1C')"/></td>
+					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick="updateFP('L1L')"/></td>
 					                        </tr>
 					                         <tr   height="35"  align="center"  bordercolor="#8FBC8F">
-					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick=''/></td>
+					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick="updateFP('L1R')"/></td>
 					                           
 					                        </tr>
 					                  </table>
@@ -176,11 +198,11 @@ function on_load(){
 					             <td    align="center" >
 					                  <table    width="100%"     height="70"   border="1"    bordercolor="#8FBC8F">
 					                        <tr   height="35"  align="center"   bordercolor="#8FBC8F">
-					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick=''/></td>
-					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick=''/></td>
+					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick="updateFP('L2C')"/></td>
+					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick="updateFP('L2L')"/></td>
 					                        </tr>
 					                         <tr   height="35"  align="center"  bordercolor="#8FBC8F">
-					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick=''/></td>
+					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick="updateFP('L2R')"/></td>
 					                           
 					                        </tr>
 					                  </table>
@@ -192,11 +214,11 @@ function on_load(){
 					             <td    align="center" >
 					                  <table    width="100%"     height="70"   border="1"    bordercolor="#8FBC8F">
 					                        <tr   height="35"  align="center"   bordercolor="#8FBC8F">
-					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick=''/></td>
-					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick=''/></td>
+					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick="updateFP('L3C')"/></td>
+					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick="updateFP('L3L')"/></td>
 					                        </tr>
 					                         <tr   height="35"  align="center"  bordercolor="#8FBC8F">
-					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick=''/></td>
+					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick="updateFP('L3R')"/></td>
 					                           
 					                        </tr>
 					                  </table>
@@ -209,11 +231,11 @@ function on_load(){
 					             <td    align="center" >
 					                  <table    width="100%"     height="70"   border="1"    bordercolor="#8FBC8F">
 					                        <tr   height="35"  align="center"   bordercolor="#8FBC8F">
-					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick=''/></td>
-					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick=''/></td>
+					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick="updateFP('L4C')"/></td>
+					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick="updateFP('L4L')"/></td>
 					                        </tr>
 					                         <tr   height="35"  align="center"  bordercolor="#8FBC8F">
-					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick=''/></td>
+					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick="updateFP('L4R')"/></td>
 					                           
 					                        </tr>
 					                  </table>
@@ -225,11 +247,11 @@ function on_load(){
 					             <td    align="center" >
 					                  <table    width="100%"     height="70"   border="1"    bordercolor="#8FBC8F">
 					                        <tr   height="35"  align="center"   bordercolor="#8FBC8F">
-					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick=''/></td>
-					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick=''/></td>
+					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick="updateFP('L5C')"/></td>
+					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick="updateFP('L5L')"/></td>
 					                        </tr>
 					                         <tr   height="35"  align="center"  bordercolor="#8FBC8F">
-					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick=''/></td>
+					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick="updateFP('L5R')"/></td>
 					                           
 					                        </tr>
 					                  </table>
@@ -285,11 +307,11 @@ function on_load(){
 					             <td    align="center" >
 					                  <table    width="100%"     height="70"   border="1"    bordercolor="#8FBC8F">
 					                        <tr   height="35"  align="center"   bordercolor="#8FBC8F">
-					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick=''/></td>
-					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick=''/></td>
+					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick="updateFP('R1C')"/></td>
+					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick="updateFP('R1L')"/></td>
 					                        </tr>
 					                         <tr   height="35"  align="center"  bordercolor="#8FBC8F">
-					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick=''/></td>
+					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick="updateFP('R1R')"/></td>
 					                           
 					                        </tr>
 					                  </table>
@@ -302,11 +324,11 @@ function on_load(){
 					             <td    align="center" >
 					                  <table    width="100%"     height="70"   border="1"    bordercolor="#8FBC8F">
 					                        <tr   height="35"  align="center"   bordercolor="#8FBC8F">
-					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick=''/></td>
-					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick=''/></td>
+					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick="updateFP('R2C')"/></td>
+					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick="updateFP('R2L')"/></td>
 					                        </tr>
 					                         <tr   height="35"  align="center"  bordercolor="#8FBC8F">
-					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick=''/></td>
+					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick="updateFP('R2R')"/></td>
 					                           
 					                        </tr>
 					                  </table>
@@ -319,11 +341,11 @@ function on_load(){
 					             <td    align="center" >
 					                  <table    width="100%"     height="70"   border="1"    bordercolor="#8FBC8F">
 					                        <tr   height="35"  align="center"   bordercolor="#8FBC8F">
-					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick=''/></td>
-					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick=''/></td>
+					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick="updateFP('R3C')"/></td>
+					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick="updateFP('R3L')"/></td>
 					                        </tr>
 					                         <tr   height="35"  align="center"  bordercolor="#8FBC8F">
-					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick=''/></td>
+					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick="updateFP('R3R')"/></td>
 					                           
 					                        </tr>
 					                  </table>
@@ -335,11 +357,11 @@ function on_load(){
 					             <td    align="center" >
 					                  <table    width="100%"     height="70"   border="1"    bordercolor="#8FBC8F">
 					                        <tr   height="35"  align="center"   bordercolor="#8FBC8F">
-					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick=''/></td>
-					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick=''/></td>
+					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick="updateFP('R4C')"/></td>
+					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick="updateFP('R4L')"/></td>
 					                        </tr>
 					                         <tr   height="35"  align="center"  bordercolor="#8FBC8F">
-					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick=''/></td>
+					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick="updateFP('R4R')"/></td>
 					                           
 					                        </tr>
 					                  </table>
@@ -352,11 +374,11 @@ function on_load(){
 					             <td    align="center" >
 					                  <table    width="100%"     height="70"   border="1"    bordercolor="#8FBC8F">
 					                        <tr   height="35"  align="center"   bordercolor="#8FBC8F">
-					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick=''/></td>
-					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick=''/></td>
+					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick="updateFP('R5C')"/></td>
+					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick="updateFP('R5L')"/></td>
 					                        </tr>
 					                         <tr   height="35"  align="center"  bordercolor="#8FBC8F">
-					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick=''/></td>
+					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick="updateFP('R5R')"/></td>
 					                           
 					                        </tr>
 					                  </table>
