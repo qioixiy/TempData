@@ -23,6 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	<style type="text/css">
+
 <!--
 body {
 	margin-left: 0px;
@@ -58,12 +59,19 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 </style>
 
 <link href="../css/css.css" rel="stylesheet" type="text/css" />
-<script type="text/JavaScript">
-
-</script>
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
 </head>
+<script type="text/javascript" src="<%=basePath%>/js/ajax.js"></script>
 <SCRIPT language=JavaScript>
+function export_package()
+{
+	ajax_request("<%=basePath%>", "exportPackage", "");
+}
+
+function import_package()
+{
+	ajax_request("<%=basePath%>", "importPackage", "");
+}
 
 function selectAll(){
 	var obj = document.fom.elements;
@@ -142,8 +150,8 @@ function   showAnalysis(id){
                <td height="35"><span class="newfont07">选择：<a href="#" class="right-font08" onclick="selectAll();">全选</a>-<a href="#" class="right-font08" onclick="unselectAll();">反选</a></span>
 		           <input name="Submit" type="button" class="right-button08" value="删除所选人员" style="height: 21px; width: 100px"/> &nbsp;&nbsp;&nbsp;<input name="Submit" type="button" class="right-button08" value="添加人员信息"   style="height: 21px; width: 100px"onclick="link1();  " />&nbsp;&nbsp;&nbsp;
 		           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		          <input name="Submit" type="submit" class="right-button08" value="导出数据"   style="height: 21px; width: 100px"onclick="link();  " />&nbsp;&nbsp;&nbsp;
-		          <input name="Submit" type="submit" class="right-button08" value="导入数据"   style="height: 21px; width: 100px"onclick="link();  " />
+		          <input name="Submit" type="button" class="right-button08" value="导出数据"   style="height: 21px; width: 100px" onclick="export_package();" />&nbsp;&nbsp;&nbsp;
+		          <input name="Submit" type="button" class="right-button08" value="导入数据"   style="height: 21px; width: 100px" onclick="import_package();" />
 		           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 	              </td>
           </tr>

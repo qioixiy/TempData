@@ -46,6 +46,27 @@ function callBack_captureFrame() {
 		}
 	}
 }
+function callBack_ExportPackage() {
+	if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
+		var result = xmlHttpRequest.responseText;
+		if (result != "") {
+			window.open(result);
+		} else {
+			alert("导出失败");
+		}
+	}
+}
+
+function callBack_ImportPackage() {
+	if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
+		var result = xmlHttpRequest.responseText;
+		if (result != "") {
+			window.open(result);
+		} else {
+			alert("导入失败");
+		}
+	}
+}
 
 //提交ajax请求
 function ajax_request(server, param1, param2) {
@@ -70,6 +91,13 @@ function ajax_request(server, param1, param2) {
 	xmlHttpRequest.onreadystatechange = callBack_default;
 	if (param1 === "captureFrame") {
 		xmlHttpRequest.onreadystatechange = callBack_captureFrame;
+	} else if (param1 == "exportPackage") {
+		xmlHttpRequest.onreadystatechange = callBack_ExportPackage;
+	} else if (param1 == "importPackage") {
+		xmlHttpRequest.onreadystatechange = callBack_ImportPackage;
+	} else {
+		alert("不支持子功能");
+		return;
 	}
 	xmlHttpRequest.setRequestHeader("Content-type",
 			"application/x-www-form-urlencoded");
