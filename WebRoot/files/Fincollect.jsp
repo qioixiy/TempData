@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	<link rel="stylesheet" rev="stylesheet" href="../css/style.css" type="text/css" media="all" />
-
+	<script type="text/javascript" src="<%=basePath%>/js/ajax.js"></script>
 
 <script language="JavaScript" type="text/javascript">
 function tishi()
@@ -29,6 +29,11 @@ function tishi()
 function check()
 {
 document.getElementById("aa").style.display="";
+}
+
+function captureFrame()
+{
+	ajax_request("<%=basePath%>", "captureFrame");
 }
 
 
@@ -239,7 +244,9 @@ function on_load(){
 					    <td   width="20%" >
 					         <table    width="100%"   height="350" border="0" cellpadding="0" cellspacing="0" bordercolor="#8FBC8F" >
 					             <tr bordercolor="#8FBC8F"  height="330">
-					                  <td  colspan="2"   bgcolor="#000000">41</td>
+					                  <td  colspan="2"   bgcolor="#000000">
+					                  	<img id="captureBmp" style="visibility:hidden;" width="100%" height="350"/>
+									  </td>
 					                  </tr>
 					                 
 					              <tr  bordercolor="#8FBC8F"   height="10">
@@ -257,7 +264,7 @@ function on_load(){
                         </select>
 					                  </td>
 					                   <td width="40%"    align="right">
-					                         <input name="Submit" type="submit"  class="right-button08" value="采&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;集"  onclick="link0();  " />
+					                         <input name="Submit" type="button"  class="right-button08" value="采&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;集"  onclick="captureFrame();  " />
 					                   </td>
 					                  </tr>
 					               <tr  bordercolor="#8FBC8F"  height="10">
