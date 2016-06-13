@@ -124,6 +124,8 @@ public class ajax extends HttpServlet {
 				System.out.println("zip url " + url);
 				response.getWriter().append(url);
 				break;
+			case "importPackage":
+				break;
 			}
 		}
 		response.getWriter().append("");
