@@ -2,6 +2,7 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+request.getAttribute("urls");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -138,7 +139,7 @@ function link1(){
                             <td colspan="3"  >左&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;手</td>
                          </tr>
                          <tr  width="100%" height="70"  bgcolor="#FFFFFF"  bordercolor="#8FBC8F"  align="center"> 
-                            <td  width="15%">&nbsp;</td>
+                            <td  width="15%"><img id="L1L" width="70" height="70" src="<%=dataBasePath%>"/></td>
                             <td  width="15%">&nbsp;</td>
                             <td  width="15%">&nbsp;</td>
                          </tr>
