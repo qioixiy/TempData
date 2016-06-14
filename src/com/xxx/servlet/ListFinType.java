@@ -53,7 +53,9 @@ public class ListFinType extends HttpServlet {
 
 		System.out.println("ListFinType enter");
 		
-		String sql = String.format("SELECT * FROM `tempimage` WHERE userid = %d", 2);
+		int userid = 2;
+		
+		String sql = String.format("SELECT * FROM `tempimage` WHERE userid = %d", userid);
 		System.out.println(sql);
 		try{
 			Connection conn=(new jdbc()).GetConnection();

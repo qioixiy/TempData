@@ -118,6 +118,7 @@ public class ajax extends HttpServlet {
 				}
 				break;
 			case "exportPackage":
+				int userid = 2;
 				String zipFile = FprCap_data + ".zip";
 				Zip.zip(FprCap_data, zipFile);
 				String url = basePath + "images/FprCap/data.zip";

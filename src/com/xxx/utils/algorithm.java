@@ -18,8 +18,8 @@ public class algorithm {
 		}
 
 		// finger data left and right, size = 5
-		FingerData mFingerDataLeft[];
-		FingerData mFingerDataRight[];
+		public FingerData mFingerDataLeft[];
+		public FingerData mFingerDataRight[];
 
 		public algorithmInput() {
 			mFingerDataLeft = new FingerData[5];
