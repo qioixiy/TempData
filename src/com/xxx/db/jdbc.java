@@ -19,7 +19,7 @@ public class jdbc {
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			// 数据库地址 用户名 密码
-			String url = "jdbc:mysql://" + dbip + ":3306/FprCap" + "?user=" + user + "&password=" + password;
+			String url = "jdbc:mysql://" + dbip + ":3306/tempdata" + "?user=" + user + "&password=" + password;
 			conn = DriverManager.getConnection(url);
 		} catch (Exception e) {
 			e.printStackTrace();

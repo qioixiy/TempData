@@ -162,7 +162,7 @@ function link(){
 					<td height="20" bgcolor="#FFFFFF"   align="center">1985-04-06</td>
 					<td height="20" bgcolor="#FFFFFF"   align="center">123456789</td>
 					<td height="20" bgcolor="#FFFFFF"   align="center">2016-05-01</td>
-                    <td bgcolor="#FFFFFF"   align="center"><a href="listFintype.jsp">查&nbsp;&nbsp;看&nbsp;&nbsp;纹&nbsp;&nbsp;型</a></td>
+                    <td bgcolor="#FFFFFF"   align="center"><a href="/listFintype">查&nbsp;&nbsp;看&nbsp;&nbsp;纹&nbsp;&nbsp;型</a></td>
                   </tr>
                   <tr>
 				   	<td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
@@ -177,7 +177,7 @@ function link(){
 					<td height="20" bgcolor="#FFFFFF"     align="center">1985-04-06</td>
 					<td height="20" bgcolor="#FFFFFF"     align="center">123456789</td>
 					<td height="20" bgcolor="#FFFFFF"     align="center">2016-05-01</td>
-                     <td bgcolor="#FFFFFF"    align="center"><a href="listFintype.jsp">查&nbsp;&nbsp;看&nbsp;&nbsp;纹&nbsp;&nbsp;型</a></td>
+                     <td bgcolor="#FFFFFF"    align="center"><a href="/listFintype">查&nbsp;&nbsp;看&nbsp;&nbsp;纹&nbsp;&nbsp;型</a></td>
                   </tr>
                   <tr>
 				    	    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
@@ -192,7 +192,7 @@ function link(){
 					<td height="20" bgcolor="#FFFFFF"    align="center">1985-04-06</td>
 					<td height="20" bgcolor="#FFFFFF"    align="center">123456789</td>
 					<td height="20" bgcolor="#FFFFFF"     align="center">2016-05-01</td>
-                     <td bgcolor="#FFFFFF"     align="center"><a href="listFintype.jsp">查&nbsp;&nbsp;看&nbsp;&nbsp;纹&nbsp;&nbsp;型</a></td>
+                     <td bgcolor="#FFFFFF"     align="center"><a href="/listFintype">查&nbsp;&nbsp;看&nbsp;&nbsp;纹&nbsp;&nbsp;型</a></td>
                   </tr>
                   <tr>
 				      <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>	  
@@ -207,7 +207,7 @@ function link(){
 					<td height="20" bgcolor="#FFFFFF"     align="center">1985-04-06</td>
 					<td height="20" bgcolor="#FFFFFF"    align="center">123456789</td>
 					<td height="20" bgcolor="#FFFFFF"     align="center">2016-05-01</td>
-                     <td bgcolor="#FFFFFF"    align="center"><a href="listFintype.jsp">查&nbsp;&nbsp;看&nbsp;&nbsp;纹&nbsp;&nbsp;型</a></td>
+                     <td bgcolor="#FFFFFF"    align="center"><a href="/listFintype">查&nbsp;&nbsp;看&nbsp;&nbsp;纹&nbsp;&nbsp;型</a></td>
                   </tr>
                   <tr>
 				    	    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
@@ -222,7 +222,7 @@ function link(){
 					<td height="20" bgcolor="#FFFFFF"    align="center">1985-04-06</td>
 					<td height="20" bgcolor="#FFFFFF"    align="center">123456789</td>
 					<td height="20" bgcolor="#FFFFFF"    align="center">2016-05-01</td>
-                     <td bgcolor="#FFFFFF"    align="center"><a href="listFintype.jsp">查&nbsp;&nbsp;看&nbsp;&nbsp;纹&nbsp;&nbsp;型</a></td>
+                     <td bgcolor="#FFFFFF"    align="center"><a href="/listFintype">查&nbsp;&nbsp;看&nbsp;&nbsp;纹&nbsp;&nbsp;型</a></td>
                   </tr>
                   <tr>
 				    	    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
@@ -237,7 +237,7 @@ function link(){
 					<td height="20" bgcolor="#FFFFFF"    align="center">1985-04-06</td>
 					<td height="20" bgcolor="#FFFFFF"    align="center">123456789</td>
                     <td height="20" bgcolor="#FFFFFF"     align="center">2016-05-01</td>
-                     <td bgcolor="#FFFFFF"     align="center"><a href="listFintype.jsp">查&nbsp;&nbsp;看&nbsp;&nbsp;纹&nbsp;&nbsp;型</a></td>
+                     <td bgcolor="#FFFFFF"     align="center"><a href="/listFintype">查&nbsp;&nbsp;看&nbsp;&nbsp;纹&nbsp;&nbsp;型</a></td>
                   </tr>
                   <tr>
 				    	    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
@@ -252,7 +252,7 @@ function link(){
 					<td height="20" bgcolor="#FFFFFF"     align="center">1985-04-06</td>
 					<td height="20" bgcolor="#FFFFFF"      align="center">123456789</td>
 					<td height="20" bgcolor="#FFFFFF"       align="center">2016-05-01</td>
-                     <td bgcolor="#FFFFFF"         align="center"><a href="listFintype.jsp">查&nbsp;&nbsp;看&nbsp;&nbsp;纹&nbsp;&nbsp;型</a></a></td>
+                     <td bgcolor="#FFFFFF"         align="center"><a href="/listFintype">查&nbsp;&nbsp;看&nbsp;&nbsp;纹&nbsp;&nbsp;型</a></a></td>
                   </tr>
                   <tr>
 				   	    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
@@ -267,7 +267,7 @@ function link(){
 					<td height="20" bgcolor="#FFFFFF"      align="center">1985-04-06</td>
 					<td height="20" bgcolor="#FFFFFF"     align="center" >123456789</td>
 					<td height="20" bgcolor="#FFFFFF"      align="center">2016-05-01</td>
-                    <td bgcolor="#FFFFFF"    align="center" ><a href="listFintype.jsp">查&nbsp;&nbsp;看&nbsp;&nbsp;纹&nbsp;&nbsp;型</a></td>
+                    <td bgcolor="#FFFFFF"    align="center" ><a href="/listFintype">查&nbsp;&nbsp;看&nbsp;&nbsp;纹&nbsp;&nbsp;型</a></td>
                   </tr>
                   <tr>
 				   	    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
@@ -282,7 +282,7 @@ function link(){
 					<td height="20" bgcolor="#FFFFFF"    align="center">1985-04-06</td>
 					<td height="20" bgcolor="#FFFFFF"   align="center" >123456789</td>
 					<td height="20" bgcolor="#FFFFFF"    align="center">2016-05-01</td>
-                    <td bgcolor="#FFFFFF"    align="center"><a href="listFintype.jsp">查&nbsp;&nbsp;看&nbsp;&nbsp;纹&nbsp;&nbsp;型</a></a></td>
+                    <td bgcolor="#FFFFFF"    align="center"><a href="/listFintype">查&nbsp;&nbsp;看&nbsp;&nbsp;纹&nbsp;&nbsp;型</a></a></td>
                   </tr>
                    <tr>
 				   	    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
@@ -297,7 +297,7 @@ function link(){
 					<td height="20" bgcolor="#FFFFFF"       align="center">1985-04-06</td>
 					<td height="20" bgcolor="#FFFFFF"       align="center">123456789</td>
 					<td height="20" bgcolor="#FFFFFF"       align="center">2016-05-01</td>
-                   <td bgcolor="#FFFFFF"   align="center" ><a href="listFintype.jsp">查&nbsp;&nbsp;看&nbsp;&nbsp;纹&nbsp;&nbsp;型</a></td>
+                   <td bgcolor="#FFFFFF"   align="center" ><a href="/listFintype">查&nbsp;&nbsp;看&nbsp;&nbsp;纹&nbsp;&nbsp;型</a></td>
                   </tr>
                    <tr>
 				   	    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
@@ -312,7 +312,7 @@ function link(){
 					<td height="20" bgcolor="#FFFFFF"    align="center">1985-04-06</td>
 					<td height="20" bgcolor="#FFFFFF"     align="center">123456789</td>
 					<td height="20" bgcolor="#FFFFFF"     align="center">2016-05-01</td>
-                    <td bgcolor="#FFFFFF"     align="center"><a href="listFintype.jsp">查&nbsp;&nbsp;看&nbsp;&nbsp;纹&nbsp;&nbsp;型</a></a></td>
+                    <td bgcolor="#FFFFFF"     align="center"><a href="/listFintype">查&nbsp;&nbsp;看&nbsp;&nbsp;纹&nbsp;&nbsp;型</a></a></td>
                   </tr>
                    <tr>
 				   	    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
@@ -327,7 +327,7 @@ function link(){
 					<td height="20" bgcolor="#FFFFFF"     align="center">1985-04-06</td>
 					<td height="20" bgcolor="#FFFFFF"      align="center">123456789</td>
 					<td height="20" bgcolor="#FFFFFF"     align="center">2016-05-01</td>
-                    <td bgcolor="#FFFFFF"     align="center"><a href="listFintype.jsp">查&nbsp;&nbsp;看&nbsp;&nbsp;纹&nbsp;&nbsp;型</a></td>
+                    <td bgcolor="#FFFFFF"     align="center"><a href="/listFintype">查&nbsp;&nbsp;看&nbsp;&nbsp;纹&nbsp;&nbsp;型</a></td>
                   </tr>
                  
                 </table></td>
