@@ -220,29 +220,29 @@ function on_load(){
 				              </tr>
 				             <tr  height="40"   bordercolor="#8FBC8F"  align="center">
 				                 <td  width="12%"   bgcolor="#5F9EA0">纹型代码</td>
-				                  <td  width="9%">&nbsp;</td>
-				                 <td  width="9%">&nbsp;</td>
-				                 <td  width="9%">&nbsp;</td> 
-				                 <td  width="9%">&nbsp;</td>
-				                 <td  width="9%">&nbsp;</td>
-				                 <td  width="9%">&nbsp;</td>
-				                 <td  width="9%">&nbsp;</td>
-				                 <td  width="9%">&nbsp;</td> 
-				                 <td  width="9%">&nbsp;</td>
-				                 <td  width="8%">&nbsp;</td>
+				                  <td  width="9%"><%=FinData.L1temp %></td>
+				                 <td  width="9%"><%=FinData.L2temp %></td>
+				                 <td  width="9%"><%=FinData.L3temp %></td> 
+				                 <td  width="9%"><%=FinData.L4temp %></td>
+				                 <td  width="9%"><%=FinData.L5temp %></td>
+				                 <td  width="9%"><%=FinData.R1temp %></td>
+				                 <td  width="9%"><%=FinData.R2temp %></td>
+				                 <td  width="9%"><%=FinData.R3temp %></td> 
+				                 <td  width="9%"><%=FinData.R4temp %></td>
+				                 <td  width="8%"><%=FinData.R5temp %></td>
 				              </tr>
 				        <tr  height="40"   bordercolor="#8FBC8F"  align="center">
 				                 <td  width="12%"  bgcolor="#5F9EA0">强度排序</td>
-				                 <td  width="9%">&nbsp;</td>
-				                 <td  width="9%">&nbsp;</td>
-				                 <td  width="9%">&nbsp;</td> 
-				                 <td  width="9%">&nbsp;</td>
-				                 <td  width="9%">&nbsp;</td>
-				                 <td  width="9%">&nbsp;</td>
-				                 <td  width="9%">&nbsp;</td>
-				                 <td  width="9%">&nbsp;</td> 
-				                 <td  width="9%">&nbsp;</td>
-				                 <td  width="8%">&nbsp;</td>
+				                 <td  width="9%"><%=FinData.intensityL1 %></td>
+				                 <td  width="9%"><%=FinData.intensityL2 %></td>
+				                 <td  width="9%"><%=FinData.intensityL3 %></td> 
+				                 <td  width="9%"><%=FinData.intensityL4 %></td>
+				                 <td  width="9%"><%=FinData.intensityL5 %></td>
+				                 <td  width="9%"><%=FinData.intensityR1 %></td>
+				                 <td  width="9%"><%=FinData.intensityR2 %></td>
+				                 <td  width="9%"><%=FinData.intensityR3 %></td> 
+				                 <td  width="9%"><%=FinData.intensityR4 %></td>
+				                 <td  width="8%"><%=FinData.intensityR5 %></td>
 				              </tr>
 				             <tr  height="25"   bordercolor="#8FBC8F">
 				                 <td  width="9%"  colspan="11">&nbsp;</td>
@@ -267,11 +267,11 @@ function on_load(){
 				              </tr>
 				               <tr  height="40"   bordercolor="#8FBC8F"  align="center" >
 				                 <td  width="12%"    bgcolor="#5F9EA0">理性/感性</td>
-				                  <td  width="18%">&nbsp;</td>
-				                 <td  width="18%">&nbsp;</td>
-				                 <td  width="18%">&nbsp;</td>
-				                 <td  width="18%">&nbsp;</td>
-				                 <td  width="18%">&nbsp;</td>
+				                  <td  width="18%"><%=FinData.reason1%>/<%=FinData.Sensibility1%></td>
+				                 <td  width="18%"><%=FinData.reason2%>/<%=FinData.Sensibility2%></td>
+				                 <td  width="18%"><%=FinData.reason3%>/<%=FinData.Sensibility3%></td>
+				                 <td  width="18%"><%=FinData.reason4%>/<%=FinData.Sensibility4%></td>
+				                 <td  width="18%"><%=FinData.reason5%>/<%=FinData.Sensibility5%></td>
 				              </tr>
 				               <tr  height="25"   bordercolor="#8FBC8F"  align="center"  >
 				                 <td  width="12%"   colspan="6">&nbsp;</td>
@@ -293,9 +293,9 @@ function on_load(){
 				              </tr>
 				               <tr  height="40"   bordercolor="#8FBC8F"  align="center">
 				                 <td  width="12%" bgcolor="#5F9EA0" >百分比</td>
-				                 <td  width="29%">&nbsp;</td>
-				                 <td  width="29%">&nbsp;</td>
-				                 <td  width="30%">&nbsp;</td>
+				                 <td  width="29%"><%=FinData.Visual%></td>
+				                 <td  width="29%"><%=FinData.AuditorySense%></td>
+				                 <td  width="30%"><%=FinData.Somatosensory%></td>
 				                 
 				              </tr>
 				               <tr  height="25"   bordercolor="#8FBC8F"  align="center"  >
@@ -321,9 +321,9 @@ function on_load(){
 				              </tr>
 				               <tr  height="40"   bordercolor="#8FBC8F"  align="center" >
 				                 <td  width="12%"    bgcolor="#5F9EA0">ATD(L/R)</td>
-				                  <td  width="22%">0</td>
+				                  <td  width="22%"><%=FinData.motivation%></td>
 				                 <td  width="22%">0</td>
-				                 <td  width="22%">AFRC</td>
+				                 <td  width="22%"><%=FinData.Idea%>AFRC</td>
 				                 <td  width="22%" >&nbsp;</td>
 				               
 				              </tr>

@@ -2,10 +2,10 @@
 -- version 3.3.10
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 13, 2016 at 02:43 PM
--- Server version: 5.1.56
--- PHP Version: 5.2.17
+-- 主机: 127.0.0.1
+-- 生成日期: 2016 年 06 月 15 日 16:27
+-- 服务器版本: 5.1.56
+-- PHP 版本: 5.2.17
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -16,7 +16,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `tempdata`
+-- 数据库: `tempdata`
 --
 CREATE DATABASE `tempdata` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `tempdata`;
@@ -24,7 +24,7 @@ USE `tempdata`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customer`
+-- 表的结构 `customer`
 --
 
 CREATE TABLE IF NOT EXISTS `customer` (
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `customer` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `customer`
+-- 转存表中的数据 `customer`
 --
 
 INSERT INTO `customer` (`id`, `userid`, `name`, `gender`, `birthday`, `age`, `version`, `collectDate`, `constellation`, `bloodtype`, `fatherName`, `farBirthday`, `fphone`, `matherName`, `marBirthday`, `mphone`, `career`, `address`, `phone`, `QQ`, `MSN`, `leftATD`, `rightATD`, `note`, `collId`, `collName`, `colldate`, `disId`, `disName`, `disdate`) VALUES
@@ -72,7 +72,7 @@ INSERT INTO `customer` (`id`, `userid`, `name`, `gender`, `birthday`, `age`, `ve
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tempimage`
+-- 表的结构 `tempimage`
 --
 
 CREATE TABLE IF NOT EXISTS `tempimage` (
@@ -109,17 +109,19 @@ CREATE TABLE IF NOT EXISTS `tempimage` (
   `R5left` varchar(100) DEFAULT NULL,
   `R5right` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`Image_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `tempimage`
+-- 转存表中的数据 `tempimage`
 --
 
+INSERT INTO `tempimage` (`Image_id`, `userid`, `L1post`, `L1left`, `L1right`, `L2post`, `L2left`, `L2right`, `L3post`, `L3left`, `L3right`, `L4post`, `L4left`, `L4right`, `L5post`, `L5left`, `L5right`, `R1post`, `R1left`, `R1right`, `R2post`, `R2left`, `R2right`, `R3post`, `R3left`, `R3right`, `R4post`, `R4left`, `R4right`, `R5post`, `R5left`, `R5right`) VALUES
+(1, 2, '1/L1C_20160614_011215.bmp', '1/L1L_20160614_011220.bmp', '1/L1R_20160614_011223.bmp', '1/L2C_20160614_011229.bmp', '1/L2L_20160614_011232.bmp', '1/L2R_20160614_011235.bmp', '1/L3C_20160614_011237.bmp', '1/L3L_20160614_011239.bmp', '1/L3R_20160614_011241.bmp', '1/L4C_20160614_011244.bmp', '1/L4L_20160614_011245.bmp', '1/L4R_20160614_011247.bmp', '1/L5C_20160614_011248.bmp', '1/L5L_20160614_011251.bmp', '1/L5R_20160614_011253.bmp', '1/R1C_20160614_011255.bmp', '1/R1L_20160614_011257.bmp', '1/R1R_20160614_011258.bmp', '1/R2C_20160614_011300.bmp', '1/R2L_20160614_011302.bmp', '1/R2R_20160614_011304.bmp', '1/R3C_20160614_011305.bmp', '1/R3L_20160614_011307.bmp', '1/R3R_20160614_011309.bmp', '1/R4C_20160614_011311.bmp', '1/R4L_20160614_011313.bmp', '1/R4R_20160614_011314.bmp', '1/R5C_20160614_011316.bmp', '1/R5L_20160614_011317.bmp', '1/R5R_20160614_011319.bmp');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tempinter`
+-- 表的结构 `tempinter`
 --
 
 CREATE TABLE IF NOT EXISTS `tempinter` (
@@ -160,9 +162,8 @@ CREATE TABLE IF NOT EXISTS `tempinter` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `tempinter`
+-- 转存表中的数据 `tempinter`
 --
 
 INSERT INTO `tempinter` (`Inter_id`, `userid`, `name`, `L1temp`, `L1RCL`, `L1RCR`, `L2temp`, `L2RCL`, `L2RCR`, `L3temp`, `L3RCL`, `L3RCR`, `L4temp`, `L4RCL`, `L4RCR`, `L5temp`, `L5RCL`, `L5RCR`, `R1temp`, `R1RCL`, `R1RCR`, `R2temp`, `R2RCL`, `R2RCR`, `R3temp`, `R3RCL`, `R3RCR`, `R4Ttemp`, `R4RCL`, `R4RCR`, `R5temp`, `R5RCL`, `R5RCR`) VALUES
-(1, 2, 'ss', 'cc', 1, 0, '8', 9, 0, '2', 0, 5, '2', 7, 1, '4', 5, 5, '4', 2, 4, '4', 2, 2, '1', 3, 3, '1', 1, 1, '3', 3, 3),
-(2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(1, 2, 'ss', '2', 1, 0, '8', 9, 0, '2', 0, 5, '2', 7, 1, '4', 5, 5, '4', 2, 4, '4', 2, 2, '1', 3, 3, '1', 1, 1, '3', 3, 3);

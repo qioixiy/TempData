@@ -38,43 +38,43 @@ public class algorithm {
 	}
 
 	public class algorithmOutput {
-		String L1temp;
-		String L2temp;
-		String L3temp;
-		String L4temp;
-		String L5temp;
-		String R1temp;
-		String R2temp;
-		String R3temp;
-		String R4temp;
-		String R5temp;
-		float intensityL1; // 强度
-		float intensityL2;
-		float intensityL3;
-		float intensityL4;
-		float intensityL5;
-		float intensityR1;
-		float intensityR2;
-		float intensityR3;
-		float intensityR4;
-		float intensityR5;
-		float LeftBrain;// 左脑
-		float RightBrain;// 右脑
-		float reason1;// 理性
-		float reason2;
-		float reason3;
-		float reason4;
-		float reason5;
-		float Sensibility1;// 感性
-		float Sensibility2;
-		float Sensibility3;
-		float Sensibility4;
-		float Sensibility5;
-		float motivation;// 动机
-		float Idea;// 构思
-		float Visual;// 视觉
-		float AuditorySense;// 听觉
-		float Somatosensory;// 体觉
+		public String L1temp; //纹型
+		public String L2temp;
+		public String L3temp;
+		public String L4temp;
+		public String L5temp;
+		public String R1temp;
+		public String R2temp;
+		public String R3temp;
+		public String R4temp;
+		public String R5temp;
+		public float intensityL1; // 强度
+		public float intensityL2;
+		public float intensityL3;
+		public float intensityL4;
+		public float intensityL5;
+		public float intensityR1;
+		public float intensityR2;
+		public float intensityR3;
+		public float intensityR4;
+		public float intensityR5;
+		public float LeftBrain;// 左脑
+		public float RightBrain;// 右脑
+		public float reason1;// 理性
+		public float reason2;
+		public float reason3;
+		public float reason4;
+		public float reason5;
+		public float Sensibility1;// 感性
+		public float Sensibility2;
+		public float Sensibility3;
+		public float Sensibility4;
+		public float Sensibility5;
+		public float motivation;// 动机
+		public float Idea;// 构思
+		public float Visual;// 视觉
+		public float AuditorySense;// 听觉
+		public float Somatosensory;// 体觉
 	}
 
 	public algorithm() {
@@ -688,6 +688,34 @@ public class algorithm {
 		retOut.AuditorySense = 100 * (ALn[4] + ARn[4]) / (ALn[3] + ARn[3] + ALn[4] + ARn[4] + ALn[5] + ARn[5]);
 		retOut.Somatosensory = 100 * (ALn[3] + ARn[3]) / (ALn[3] + ARn[3] + ALn[4] + ARn[4] + ALn[5] + ARn[5]);
 
+		retOut.intensityL1 = (float)(Math.round(retOut.intensityL1*1000))/1000; // 强度
+		retOut.intensityL2 = (float)(Math.round(retOut.intensityL2*1000))/1000;
+		retOut.intensityL3 = (float)(Math.round(retOut.intensityL3*1000))/1000;
+		retOut.intensityL4 = (float)(Math.round(retOut.intensityL4*1000))/1000;
+		retOut.intensityL5 = (float)(Math.round(retOut.intensityL5*1000))/1000;
+		retOut.intensityR1 = (float)(Math.round(retOut.intensityR1*1000))/1000;
+		retOut.intensityR2 = (float)(Math.round(retOut.intensityR2*1000))/1000;
+		retOut.intensityR3 = (float)(Math.round(retOut.intensityR3*1000))/1000;
+		retOut.intensityR4 = (float)(Math.round(retOut.intensityR4*1000))/1000;
+		retOut.intensityR5 = (float)(Math.round(retOut.intensityR5*1000))/1000;
+		retOut.LeftBrain = (float)(Math.round(retOut.LeftBrain*1000))/1000;// 左脑
+		retOut.RightBrain = (float)(Math.round(retOut.RightBrain*1000))/1000;// 右脑
+		retOut.reason1 = (float)(Math.round(retOut.reason1*1000))/1000;// 理性
+		retOut.reason2 = (float)(Math.round(retOut.reason2*1000))/1000;
+		retOut.reason3 = (float)(Math.round(retOut.reason3*1000))/1000;
+		retOut.reason4 = (float)(Math.round(retOut.reason4*1000))/1000;
+		retOut.reason5 = (float)(Math.round(retOut.reason5*1000))/1000;
+		retOut.Sensibility1 = (float)(Math.round(retOut.Sensibility1*1000))/1000;// 感性
+		retOut.Sensibility2 = (float)(Math.round(retOut.Sensibility2*1000))/1000;
+		retOut.Sensibility3 = (float)(Math.round(retOut.Sensibility3*1000))/1000;
+		retOut.Sensibility4 = (float)(Math.round(retOut.Sensibility4*1000))/1000;
+		retOut.Sensibility5 = (float)(Math.round(retOut.Sensibility5*1000))/1000;
+		retOut.motivation = (float)(Math.round(retOut.motivation*1000))/1000;// 动机
+		retOut.Idea = (float)(Math.round(retOut.Idea*1000))/1000;// 构思
+		retOut.Visual = (float)(Math.round(retOut.Visual*1000))/1000;// 视觉
+		retOut.AuditorySense = (float)(Math.round(retOut.AuditorySense*1000))/1000;// 听觉
+		retOut.Somatosensory = (float)(Math.round(retOut.Somatosensory*1000))/1000;// 体觉
+		
 		return retOut;
 	}
 
