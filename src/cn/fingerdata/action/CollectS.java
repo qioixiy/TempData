@@ -36,7 +36,7 @@ public class CollectS extends HttpServlet {
 		CustomerListBiz  customerListBiz= new  CustomerListBizImpl();
 		List<Customer> customers=customerListBiz.getAllCustomers();
 		System.out.println(customers.size());
-		request.setAttribute("urls", customers);
+		request.setAttribute("customers", customers);
 		
 		RequestDispatcher  drDispatcher=request.getRequestDispatcher("files/listCustomer11.jsp");
 		drDispatcher.forward(request, response);

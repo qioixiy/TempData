@@ -43,6 +43,7 @@ public class CollectServlet extends HttpServlet {
 		 int   id=Integer.valueOf(request.getParameter("id"));
 	     CustomerListBiz  customerListBiz=new  CustomerListBizImpl();
 	     Customer  customer=customerListBiz.getCustomer(id);
+	    System.out.println(customer + "---===--"); 
 	     request.setAttribute("customer",customer);
 	    /*
 	     * 根据id类型不同进行跳转
@@ -50,7 +51,7 @@ public class CollectServlet extends HttpServlet {
 	     if(type.equals("Collect")){
 				rd=request.getRequestDispatcher("files/Fincollect.jsp");
 			}else  if(type.equals("Listtype")){
-				rd=request.getRequestDispatcher("/listFintype");
+				rd=request.getRequestDispatcher("files/listFintype.jsp");
 				
 			}
 			

@@ -1,5 +1,6 @@
 package cn.fingerdata.biz.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.fingerdata.bean.Customer;
@@ -13,7 +14,8 @@ public class CustomerBizImpl implements CustomerBiz {
 		this.customerDao=new CustomerDaoImpl();
 	}
 
-	@Override
+
+	
 	public boolean add(Customer customer) {
 		try{
 			Customer  customer1=customerDao.add(customer);
@@ -28,6 +30,12 @@ public class CustomerBizImpl implements CustomerBiz {
 		
 		
 	}
+	
+
+	public Customer getCustomer(int id) {
+		return customerDao.getById(id);
+	}
+
 
 	@Override
 	public Customer CustomerById(Integer id) {
@@ -41,16 +49,26 @@ public class CustomerBizImpl implements CustomerBiz {
 		return customers;
 	}
 
-	@Override
-	public Customer getCustomer(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	@Override
 	public boolean updateCustomer(Customer customer) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+
+
+	@Override
+	public List<Customer> getCustomer8Conditions(String conditions,Object obj) {
+		List<Customer> customers= new ArrayList<Customer>();
+		
+		if(conditions.equals("姓名")){
+			System.out.println(conditions + "----------" + obj);
+			customers = customerDao.find8Object("name", obj);
+		}else if(conditions.equals("年龄")){
+			customers = customerDao.find8Object("age", obj);
+		}
+		return customers;
 	}
 
 }

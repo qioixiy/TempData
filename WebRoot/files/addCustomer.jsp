@@ -79,7 +79,7 @@ function on_load(){
 			<TD width="100%"   border="10">
 				<fieldset style="height:100%;">
 				<legend>客户基本信息录入</legend>
-					  <table border="4" cellpadding="2" cellspacing="0" style="width:100%"  bordercolor="#8FBC8F">
+					  <table border="4" cellpadding="2" cellspacing="1" style="width:100%"  bordercolor="#8FBC8F">
 					 
 					  <tr  bordercolor="#8FBC8F">
 					    <td nowrap align="right" width="10%" style="height: 47px; ">编&nbsp;&nbsp;&nbsp;&nbsp;号:</td>

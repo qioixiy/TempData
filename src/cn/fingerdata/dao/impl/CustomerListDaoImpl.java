@@ -13,8 +13,8 @@ import cn.fingerdata.bean.Customer;
 import cn.fingerdata.dao1.BaseDataBaseDao;
 import cn.fingerdata.dao1.CustomerListDao;
 
-public class CustomerListDaoImpl extends BaseDataBaseDao implements
-		CustomerListDao {
+public class CustomerListDaoImpl extends BaseDataBaseDao implements   CustomerListDao {
+		
 	
 	private  Connection  conn=null;
 	private  PreparedStatement  stmt=null;
@@ -24,18 +24,18 @@ public class CustomerListDaoImpl extends BaseDataBaseDao implements
 
 	@Override
 	public Customer getById(int id) {
+		System.out.println("enter dao");
 		
-	String   sql="select  * from   customer";
-    System.out.println(sql);
+	Customer customer = null;
+	String sql= "select * from customer where id = ?";
     try{
     	conn=getConnection();
-		System.out.println(conn);
 		stmt=conn.prepareStatement(sql);
 		stmt.setInt(1, id);
-		rs=stmt.executeQuery(sql);//执行此sql语句
+		rs=stmt.executeQuery();//执行此sql语句
 		if(rs !=null){
 			if(rs.next()){
-				 Customer  customer=new   Customer();
+				 customer=new   Customer();
 				 customer.setId(rs.getInt("id"));
 				 customer.setUserid(rs.getInt("userid"));
 				 customer.setName(rs.getString("name"));
@@ -67,7 +67,7 @@ public class CustomerListDaoImpl extends BaseDataBaseDao implements
 				 customer.setDisName(rs.getString("disName"));
 				 customer.setDisdate(rs.getString("disdate"));
 				 
-				 return   customer;
+			
 			}
 			
 		}
@@ -80,7 +80,7 @@ public class CustomerListDaoImpl extends BaseDataBaseDao implements
     	closeAll(conn,stmt,rs);
     }
     
-		return null;
+		return customer;
 	}
 
 	
@@ -107,7 +107,7 @@ public class CustomerListDaoImpl extends BaseDataBaseDao implements
 			rs=stmt.executeQuery(sql);//执行此sql语句
 			while(rs.next()){//遍历数据，存入customerList1中
 			 Customer  customer=new   Customer();
-			 
+			 customer.setId(rs.getInt("id"));
 			 customer.setUserid(rs.getInt("userid"));
 			 customer.setName(rs.getString("name"));
 			 customer.setGender(rs.getString("gender"));

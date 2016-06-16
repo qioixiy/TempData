@@ -2,6 +2,7 @@ package cn.fingerdata.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -47,13 +48,15 @@ public class CusListServlet extends HttpServlet {
 	     CustomerListBiz  customerListBiz=new  CustomerListBizImpl();
 	     Customer  customer=customerListBiz.getCustomer(id);
 	     request.setAttribute("customer",customer);
+	     System.out.println("娃哈" + customer);
+ 
 	    /*
 	     * 根据id类型不同进行跳转
 	     */
 	     if(type.equals("Inter")){
 				rd=request.getRequestDispatcher("files/FinInter.jsp");
 			}else  if(type.equals("Analysis")){
-				rd=request.getRequestDispatcher("files/Finanalysis.jsp");
+				rd=request.getRequestDispatcher("/IntAnalyServlet?Inter_id=" + customer.getId()+"&type="+"Analysis");
 				
 			}
 			

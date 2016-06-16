@@ -2,6 +2,7 @@ package cn.fingerdata.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import cn.fingerdata.bean.Customer;
+import cn.fingerdata.biz.impl.CustomerBizImpl;
 import cn.fingerdata.biz.impl.CustomerListBizImpl;
+import cn.fingerdata.bizz.CustomerBiz;
 import cn.fingerdata.bizz.CustomerListBiz;
 
 public class CustomerServlet extends HttpServlet {
@@ -42,10 +45,14 @@ public class CustomerServlet extends HttpServlet {
 	     
 		 RequestDispatcher  rd=null;
 		 String  type=request.getParameter("type");
-		 int   id=Integer.valueOf(request.getParameter("id"));
+		 int  id=Integer.valueOf(request.getParameter("id"));
+		 
+		
 	     CustomerListBiz  customerListBiz=new  CustomerListBizImpl();
-	     Customer  customer=customerListBiz.getCustomer(id);
+	     Customer  customer= customerListBiz.getCustomer(id);
 	     request.setAttribute("customer",customer);
+	    
+	     
 	    /*
 	     * 根据id类型不同进行跳转
 	     */

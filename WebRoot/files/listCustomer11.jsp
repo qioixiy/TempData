@@ -146,26 +146,26 @@ function   showListtype(id){
 	              </td>
           </tr>
               <tr>
-                <td height="40" class="font42"><table width="100%" border="0" cellpadding="4" cellspacing="1" bgcolor="#464646" class="newfont03">
+                <td height="40" class="font42"><table width="100%" border="1" cellpadding="4" cellspacing="1"  class="newfont03">
 
 					                  <tr>
-                    <td height="30" colspan="15" align="center" bgcolor="#EEEEEE"class="tablestyle_title"> <center>客&nbsp;户&nbsp;记&nbsp;录&nbsp;列&nbsp;表</center></td>
+                    <td height="30" colspan="15" align="center"  bgcolor="#5F9EA0"  bordercolor="#8FBC8F"  class="tablestyle_title"> <center>客&nbsp;户&nbsp;记&nbsp;录&nbsp;列&nbsp;表</center></td>
                     </tr>
-                   <tr>
-				    <td width="6%" align="center" bgcolor="#EEEEEE">选择</td>
+                   <tr  bgcolor="#5F9EA0"   bordercolor="#8FBC8F">
+				    <td width="6%" align="center" >选择</td>
 				  
-					 <td width="9%" height="20" align="center" bgcolor="#EEEEEE">唯一编号</td>
-                    <td width="9%" align="center" bgcolor="#EEEEEE">真实姓名</td>
+					 <td width="9%" height="20" align="center"> 唯一编号</td>
+                    <td width="9%" align="center" >真实姓名</td>
                   
-					<td width="6%" align="center" bgcolor="#EEEEEE">版本</td>
+					<td width="6%" align="center" >版本</td>
 					
-					<td width="4%" align="center" bgcolor="#EEEEEE">性别</td>
-					<td width="4%" align="center" bgcolor="#EEEEEE">年龄</td>
-					<td width="11%" align="center" bgcolor="#EEEEEE">出生年月</td>
-					<td width="10%" align="center" bgcolor="#EEEEEE">采样师编号</td>
-					 <td width="9%" align="center" bgcolor="#EEEEEE">采集师</td>
-					<td width="11%" align="center" bgcolor="#EEEEEE">采集日期</td>
-                    <td width="19%" align="center" bgcolor="#EEEEEE">操作</td>
+					<td width="4%" align="center" >性别</td>
+					<td width="4%" align="center" >年龄</td>
+					<td width="11%" align="center" >出生年月</td>
+					<td width="10%" align="center" >采样师编号</td>
+					 <td width="9%" align="center" >采集师</td>
+					<td width="11%" align="center" >采集日期</td>
+                    <td width="19%" align="center" >操作</td>
                   </tr>
                   
                   
@@ -173,7 +173,7 @@ function   showListtype(id){
                   <%for(Customer  customer:customers) {%>
                   
                   
-                  <tr>
+                  <tr  bordercolor="#8FBC8F">
 				    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
 				   
 					<td height="20" bgcolor="#FFFFFF"   align="center"><%=customer.getUserid()%></td>

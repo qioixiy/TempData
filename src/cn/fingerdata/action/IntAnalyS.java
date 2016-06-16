@@ -11,15 +11,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import cn.fingerdata.bean.Customer;
-import cn.fingerdata.biz.impl.CustomerBizImpl;
-import cn.fingerdata.bizz.CustomerBiz;
+import cn.fingerdata.bean.TempInter;
+import cn.fingerdata.biz.impl.CustomerListBizImpl;
+import cn.fingerdata.biz.impl.IntAnalyBizImpl;
+import cn.fingerdata.bizz.CustomerListBiz;
+import cn.fingerdata.bizz.IntAnalyBiz;
 
-public class ListServlet extends HttpServlet {
+public class IntAnalyS extends HttpServlet {
 
 	/**
 	 * Constructor of the object.
 	 */
-	public ListServlet() {
+	public IntAnalyS() {
 		super();
 	}
 
@@ -30,35 +33,32 @@ public class ListServlet extends HttpServlet {
 		super.destroy(); // Just puts "destroy" string in log
 		// Put your code here
 	}
-
-	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("进入ListServlet");
-		CustomerBiz  customerBiz= new  CustomerBizImpl();
-		List<Customer> customers=customerBiz.getAllCustomers();
-		System.out.println(customers.get(0).getId()+"------------------");
-		System.out.println(customers.size());
-		request.setAttribute("customers", customers);
+		System.out.println("进入IntAnalyS");
 		
-		RequestDispatcher  drDispatcher=request.getRequestDispatcher("files/CustomerView.jsp");
+		IntAnalyBiz   intAnalyBiz=new  IntAnalyBizImpl();  
+		
+		List<TempInter>   tempInters=intAnalyBiz.getAllTempInters();
+		System.out.println(tempInters.size());
+		request.setAttribute("tempInters", tempInters);
+		
+		RequestDispatcher  drDispatcher=request.getRequestDispatcher("files/Finanalysis.jsp");
 		drDispatcher.forward(request, response);
 	}
+		
+
 	
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	
+
+	
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	        doGet(request, response);
+
+		doGet(request,response);
 	}
 
-
 	
-	/**
-	 * Initialization of the servlet. <br>
-	 *
-	 * @throws ServletException if an error occurs
-	 */
 	public void init() throws ServletException {
 		// Put your code here
 	}

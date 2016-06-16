@@ -1,7 +1,14 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+
+<%@page  import="cn.fingerdata.bean.Customer" %>
+
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<%
+  Customer   customer= (Customer)request.getAttribute("customer");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -16,21 +23,60 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	<link rel="stylesheet" rev="stylesheet" href="../css/style.css" type="text/css" media="all" />
-	<script type="text/javascript" src="<%=basePath%>/js/ajax.js"></script>
+
 
 <script language="JavaScript" type="text/javascript">
-
-var FingerPostion = "";
-function updateFP(postion)
-{
-	FingerPostion = postion;
-}
-
 function tishi()
 {
   var a=confirm('数据库中保存有该人员基本信息，您可以修改或保留该信息。');
   if(a!=true)return false;
   window.open("冲突页.htm","","depended=0,alwaysRaised=1,width=800,height=400,location=0,menubar=0,resizable=0,scrollbars=0,status=0,toolbar=0");
+}
+
+function check()
+{
+document.getElementById("aa").style.display="";
+}
+
+
+function link0(){
+alert('保存成功！');
+    document.getElementById("fom").action="";
+   document.getElementById("fom").submit();
+}
+
+function link1(){
+    document.getElementById("fom").action="files/addCustomer.jsp";
+   document.getElementById("fom").submit();
+}
+
+function link2(){
+    document.getElementById("fom").action="CollectS";
+   document.getElementById("fom").submit();
+}
+
+function link3(){
+    document.getElementById("fom").action="files/listFintype.jsp";
+   document.getElementById("fom").submit();
+}
+
+
+function on_load(){
+	var loadingmsg=document.getElementById("loadingmsg");
+	var mainpage=document.getElementById("mainpage");
+	loadingmsg.style.display="";
+	mainpage.style.display="none";
+	
+	loadingmsg.style.display="none";
+	mainpage.style.display="";
+}
+
+
+var FingerPostion = "";
+
+function updateFP(postion)
+{
+	FingerPostion = postion;
 }
 
 function check()
@@ -59,37 +105,8 @@ function captureFrame()
 }
 
 
-function link0(){
-alert('保存成功！');
-    document.getElementById("fom").action="";
-   document.getElementById("fom").submit();
-}
-
-function link1(){
-    document.getElementById("fom").action="addCustomer.jsp";
-   document.getElementById("fom").submit();
-}
-
-function link2(){
-    document.getElementById("fom").action="CollectS";
-   document.getElementById("fom").submit();
-}
-
-function link3(){
-    document.getElementById("fom").action="files/listFintype.jsp";
-   document.getElementById("fom").submit();
-}
 
 
-function on_load(){
-	var loadingmsg=document.getElementById("loadingmsg");
-	var mainpage=document.getElementById("mainpage");
-	loadingmsg.style.display="";
-	mainpage.style.display="none";
-	
-	loadingmsg.style.display="none";
-	mainpage.style.display="";
-}
 
 </script>
 <style type="text/css">
@@ -131,36 +148,32 @@ function on_load(){
 			<TD width="100%" >
 				<fieldset >
 				<legend>基本信息</legend>
-				 <table    width="100%"  border="1" cellpadding="2" cellspacing="0"  bordercolor="#5F9EA0" ">
+				 <table    width="100%"  border="1" cellpadding="2" cellspacing="1"  bordercolor="#5F9EA0" ">
 					 
-			      <tr  bordercolor="#5F9EA0">
+			      <tr   bordercolor="#8FBC8F">
 					    <td nowrap align="right" width="5%">编&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:</td>
-					    <td  align="left"   width="10%"><input id="UserNumber" name="text" class="text" style="width: 109px" type="text" size="40" />
-				              <span class="red"> *</span></td>
+					    <td  align="center"   bgcolor="#FFFFFF"  width="10%"><%=customer.getUserid()%></td>
 					    <td align="right" width="5%">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:</td>
-					    <td width="10%"><input name="Input22" id="Input22" class="text" style="width:115px" /></td>
-					    <td nowrap align="right" width="5%">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别:</td>
-					    <td nowrap align="left" width="10%">
-					       <input name="Input22" id="Input22" class="text" style="width:80px" />
+					    <td width="10%"  align="center"    bgcolor="#FFFFFF"><%=customer.getName()%></td>
+					    <td nowrap align="right" width="5%"   >性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别:</td>
+					    <td nowrap align="center" width="10%"     bgcolor="#FFFFFF">
+					      <%=customer.getGender()%> 
 					    </td>
 					    <td nowrap align="right" width="6%">出生日期:</td>
-					    <td nowrap align="left" width="10%">
-					        <input name="Input22" id="Input22" class="text" style="width:115px" />
+					    <td nowrap align="center" width="10%"    bgcolor="#FFFFFF">
+					       <%=customer.getBirthday()%>
 					    </td> 
 					 </tr>
 					 
-					 <tr  bordercolor="#5F9EA0">
+					 <tr   bordercolor="#8FBC8F">
 					  <td nowrap align="right" width="5%">采集师编号:</td>
-					    <td  align="left"   width="10%"><input name="text" class="text" style="width: 109px" type="text" size="40" />
-				              <span class="red"> *</span></td>
-					    <td align="right" width="5%">采集师姓名:</td>
-					    <td width="10%"><input name="Input22" id="Input22" class="text" style="width:115px" /></td>
-					    <td nowrap align="right" width="5%"  colspan="2">&nbsp;</td>
+					    <td  align="center"  width="10%"   bgcolor="#FFFFFF" ><%=customer.getCollId()%></td>
+					    <td align="right" width="5%">采集师:</td>
+					    <td width="10%"  align="center"   bgcolor="#FFFFFF" ><%=customer.getCollName()%></td>
+					    <td nowrap align="right" width="5%"    bgcolor="#FFFFFF" colspan="2">&nbsp;</td>
 					    
 					    <td nowrap align="right" width="6%">采集日期:</td>
-					    <td nowrap align="left" width="10%">
-					        <input name="Input22" id="Input22" class="text" style="width:115px" />
-					    </td> 
+					    <td nowrap align="center" width="10%"  bgcolor="#FFFFFF" ><%=customer.getColldate()%></td> 
 					 </tr>
 					 </table>
 			</fieldset>	
@@ -266,9 +279,7 @@ function on_load(){
 					    <td   width="20%" >
 					         <table    width="100%"   height="350" border="0" cellpadding="0" cellspacing="0" bordercolor="#8FBC8F" >
 					             <tr bordercolor="#8FBC8F"  height="330">
-					                  <td  colspan="2"   bgcolor="#000000">
-					                  	<img id="captureBmp" style="visibility:hidden;" width="100%" height="350"/>
-									  </td>
+					                  <td  colspan="2"   bgcolor="#000000">41</td>
 					                  </tr>
 					                 
 					              <tr  bordercolor="#8FBC8F"   height="10">
@@ -286,7 +297,7 @@ function on_load(){
                         </select>
 					                  </td>
 					                   <td width="40%"    align="right">
-					                         <input name="Submit" type="button"  class="right-button08" value="采&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;集"  onclick="captureFrame();  " />
+					                         <input name="Submit" type="submit"  class="right-button08" value="采&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;集"  onclick="link0();  " />
 					                   </td>
 					                  </tr>
 					               <tr  bordercolor="#8FBC8F"  height="10">
@@ -308,10 +319,10 @@ function on_load(){
 					                  <table    width="100%"     height="70"   border="1"    bordercolor="#8FBC8F">
 					                        <tr   height="35"  align="center"   bordercolor="#8FBC8F">
 					                            <td  width="40%"  rowspan="2"><input type='button'  name='Submit2' value='正面' class='right-button02' onclick="updateFP('R1C')"/></td>
-					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick="updateFP('R1L')"/></td>
+					                            <td  width="60%"><input type='button'  name='Submit2' value='左面' class='right-button02' onclick="updateFP('R2L')"/></td>
 					                        </tr>
 					                         <tr   height="35"  align="center"  bordercolor="#8FBC8F">
-					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick="updateFP('R1R')"/></td>
+					                            <td  width="60%"  ><input type='button'  name='Submit2' value='右面' class='right-button02' onclick="updateFP('R2R')"/></td>
 					                           
 					                        </tr>
 					                  </table>

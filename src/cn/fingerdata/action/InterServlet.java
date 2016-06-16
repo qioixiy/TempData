@@ -30,6 +30,7 @@ public class InterServlet extends HttpServlet   implements Action {
 		request.getRequestDispatcher(result).forward(request,response);
 	
 		
+		
 	}
 	
 	

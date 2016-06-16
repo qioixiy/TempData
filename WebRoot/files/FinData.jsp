@@ -1,15 +1,27 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" import="com.xxx.utils.*" %>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@page  import="cn.fingerdata.bean.Customer" %>
+ <%@page import="com.xxx.utils.*" %>
+<%@page  import="com.xxx.servlet.FinData" %>
+<%
+   Customer  customer=(Customer)request.getAttribute("customer");
+ %>
+ 
+ 
+ <%
+ 
+    algorithm.algorithmOutput FinData = (algorithm.algorithmOutput)request.getAttribute("FinData");
+%>
+
+
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-
-algorithm.algorithmOutput FinData = (algorithm.algorithmOutput)request.getAttribute("FinData");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
+     <base href="<%=basePath%>">
     
     <title>My JSP 'FinData.jsp' starting page</title>
     
@@ -128,8 +140,8 @@ function on_load(){
                                    </select>&nbsp;&nbsp;&nbsp;	
 			                       <input name="Submit2" type="button" class="right-button08" value="生成报表" onclick="link();"/>
 			                </td>
-			                <td width="132" align="left"><a href="#" onclick="sousuo()">
-			                        <input name="Submit" type="button" class="right-button07" value="高级搜索" /></a></td>	
+			                <td width="132" align="left">&nbsp;
+			                        </a></td>	
 		                    </tr>
                     </table>
                   </td>
@@ -162,35 +174,35 @@ function on_load(){
 			<TD width="100%" >
 				<fieldset >
 				<legend>基本信息</legend>
-				 <table    width="100%"  border="1" cellpadding="2" cellspacing="0"   bordercolor="#5F9EA0" ">
+				 <table    width="100%"  border="1" cellpadding="4" cellspacing="2"   bordercolor="#5F9EA0" ">
 					 
 			      <tr  bordercolor="#5F9EA0">
 					    <td nowrap align="right" width="5%">编&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:</td>
-					    <td  align="left"   width="10%"><input name="text" class="text" style="width: 109px" type="text" size="40" />
-				              <span class="red"> *</span></td>
+					    <td  align="center"   width="10%"><%=customer.getUserid()%>
+				             </td>
 					    <td align="right" width="5%">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:</td>
-					    <td width="10%"><input name="Input22" id="Input22" class="text" style="width:115px" /></td>
+					    <td width="10%"  align="center"><%=customer.getName()%></td>
 					    <td nowrap align="right" width="5%">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别:</td>
-					    <td nowrap align="left" width="10%">
-					       <input name="Input22" id="Input22" class="text" style="width:80px" />
+					    <td align="center" width="10%">
+					       <%=customer.getGender()%>
 					    </td>
 					    <td nowrap align="right" width="6%">出生日期:</td>
-					    <td nowrap align="left" width="10%">
-					        <input name="Input22" id="Input22" class="text" style="width:115px" />
+					    <td align="center" width="10%">
+					        <%=customer.getBirthday() %>
 					    </td> 
 					 </tr>
 					 
 					 <tr  bordercolor="#5F9EA0">
 					  <td nowrap align="right" width="5%">判读师编号:</td>
-					    <td  align="left"   width="10%"><input name="text" class="text" style="width: 109px" type="text" size="40" />
-				              <span class="red"> *</span></td>
-					    <td align="right" width="5%">判读师姓名:</td>
-					    <td width="10%"><input name="Input22" id="Input22" class="text" style="width:115px" /></td>
+					    <td align="center"   width="10%"><%=customer.getDisId() %>
+				            </td>
+					    <td align="right" width="5%">判读师:</td>
+					    <td width="10%"  align="center"><%=customer.getDisName() %></td>
 					    <td nowrap align="right" width="5%"  colspan="2">&nbsp;</td>
 					    
 					    <td nowrap align="right" width="6%">判读日期:</td>
-					    <td nowrap align="left" width="10%">
-					        <input name="Input22" id="Input22" class="text" style="width:115px" />
+					    <td nowrap align="center" width="10%">
+					        <%=customer.getDisdate() %>
 					    </td> 
 					 </tr>
 					 </table>
@@ -198,13 +210,22 @@ function on_load(){
 					 </td>
 </tr>
  <tr>
-	<TD width="100%"  height="475">
+	<TD width="100%"  height="605">
 		<fieldset >
 		<legend>数据报表</legend>
 			 <table    width="100%"  border="1" cellpadding="2" cellspacing="0"  bordercolor="#8FBC8F" >
 				<tr height="100"  align="center"  bordercolor="#8FBC8F">
 				   <td  width="100%">
-				         <table    width="100%"  border="1" cellpadding="2" cellspacing="0"  bordercolor="#8FBC8F" >
+				         <table    width="100%"  border="1" cellpadding="4" cellspacing="1"  bordercolor="#8FBC8F" >
+				              
+				              <tr  height="40"   bordercolor="#8FBC8F"  align="center"  bgcolor="#5F9EA0">
+				                 <td  width="12%"  bgcolor="#5F9EA0">脑区</td>
+				                 <td  width="9%"   colspan="5"><font  size="4">右&nbsp;&nbsp;脑</font></td>
+				                
+				                 <td  width="9%"   colspan="5"><font  size="4">左&nbsp;&nbsp;脑</font></td>
+				                
+				              </tr>
+				              
 				              <tr  height="40"   bordercolor="#8FBC8F"  align="center"  bgcolor="#5F9EA0">
 				                 <td  width="12%"  bgcolor="#5F9EA0">指位</td>
 				                 <td  width="9%">L1</td>
@@ -231,19 +252,8 @@ function on_load(){
 				                 <td  width="9%"><%=FinData.R4temp %></td>
 				                 <td  width="8%"><%=FinData.R5temp %></td>
 				              </tr>
-				        <tr  height="40"   bordercolor="#8FBC8F"  align="center">
-				                 <td  width="12%"  bgcolor="#5F9EA0">强度排序</td>
-				                 <td  width="9%"><%=FinData.intensityL1 %></td>
-				                 <td  width="9%"><%=FinData.intensityL2 %></td>
-				                 <td  width="9%"><%=FinData.intensityL3 %></td> 
-				                 <td  width="9%"><%=FinData.intensityL4 %></td>
-				                 <td  width="9%"><%=FinData.intensityL5 %></td>
-				                 <td  width="9%"><%=FinData.intensityR1 %></td>
-				                 <td  width="9%"><%=FinData.intensityR2 %></td>
-				                 <td  width="9%"><%=FinData.intensityR3 %></td> 
-				                 <td  width="9%"><%=FinData.intensityR4 %></td>
-				                 <td  width="8%"><%=FinData.intensityR5 %></td>
-				              </tr>
+				              
+				           
 				             <tr  height="25"   bordercolor="#8FBC8F">
 				                 <td  width="9%"  colspan="11">&nbsp;</td>
 				                
@@ -253,18 +263,76 @@ function on_load(){
 				         </table>
 				   </td>
 				
+				</tr>
+				
+				<tr height="105"  align="center"  bordercolor="#8FBC8F">
+				   <td  width="100%">
+				      <table    width="100%"  border="1" cellpadding="2" cellspacing="0"  bordercolor="#8FBC8F" >
+				              <tr  height="40"   bordercolor="#8FBC8F"  align="center" >
+				                 <td  width="12%"   bgcolor="#5F9EA0">ATD角(L/R)</td>
+				                 <td  width="44%"  bgcolor="#5F9EA0">ATD(L)</td>
+				                
+				                 <td  width="44%"  bgcolor="#5F9EA0">ATD(R)</td>
+				               
+				              </tr>
+				                <tr  height="40"   bordercolor="#8FBC8F"  align="center" >
+				                 <td  width="12%"   bgcolor="#5F9EA0">角度</td>
+				                 <td  width="44%" >&nbsp;</td>
+				                
+				                 <td  width="44%"  >&nbsp;</td>
+				               
+				              </tr>
+				               <tr  height="25"   bordercolor="#8FBC8F"  align="center"  >
+				                 <td  width="12%"   colspan="5">&nbsp;</td>
+				                
+				              </tr>
+				     </table>
+				   
+				   
+				   </td>
+				
 				</tr> 
+				 
+				<tr height="105"  align="center"  bordercolor="#8FBC8F">
+				   <td  width="100%">
+				        <table    width="100%"  border="1" cellpadding="4" cellspacing="2"  bordercolor="#8FBC8F" >
+				              <tr  height="40"   bordercolor="#8FBC8F"  align="center"  bgcolor="#5F9EA0">
+				                 <td  width="12%">思想倾向</td>
+				                 <td  width="44%" ><font  size="4">左&nbsp;&nbsp;脑</font></td>
+				                 
+				                 <td  width="44%" ><font  size="4">右&nbsp;&nbsp;脑</font></td>
+				               
+				              </tr>
+				                <tr  height="40"   bordercolor="#8FBC8F"  align="center"  >
+				                 <td  width="12%"  bgcolor="#5F9EA0">百分比</td>
+				                 <td  width="44%" >&nbsp;</td>
+				                 
+				                 <td  width="44%" >&nbsp;</td>
+				               
+				              </tr>
+				               <tr  height="25"   bordercolor="#8FBC8F"  align="center"  >
+				                 <td  width="12%"   colspan="3">&nbsp;</td>
+				                
+				              </tr>
+				     </table>
+				   </td>
+				
+				</tr> 
+				
+				
 				<tr height="105"  align="center"  bordercolor="#8FBC8F">
 				   <td  width="100%">
 				        <table    width="100%"  border="1" cellpadding="2" cellspacing="0"  bordercolor="#8FBC8F" >
 				              <tr  height="40"   bordercolor="#8FBC8F"  align="center"  bgcolor="#5F9EA0">
-				                 <td  width="12%">思想倾向</td>
+				                 <td  width="12%">细化</td>
 				                 <td  width="18%">对人</td>
 				                 <td  width="18%">对事</td>
 				                 <td  width="18%">对肢体</td>
 				                 <td  width="18%">对声音</td>
 				                 <td  width="17%">对视像</td>
 				              </tr>
+				              
+				               
 				               <tr  height="40"   bordercolor="#8FBC8F"  align="center" >
 				                 <td  width="12%"    bgcolor="#5F9EA0">理性/感性</td>
 				                  <td  width="18%"><%=FinData.reason1%>/<%=FinData.Sensibility1%></td>
@@ -293,7 +361,7 @@ function on_load(){
 				              </tr>
 				               <tr  height="40"   bordercolor="#8FBC8F"  align="center">
 				                 <td  width="12%" bgcolor="#5F9EA0" >百分比</td>
-				                 <td  width="29%"><%=FinData.Visual%></td>
+				               <td  width="29%"><%=FinData.Visual%></td>
 				                 <td  width="29%"><%=FinData.AuditorySense%></td>
 				                 <td  width="30%"><%=FinData.Somatosensory%></td>
 				                 
@@ -308,23 +376,23 @@ function on_load(){
 				 
 				</td>
 				</tr> 
+				
+				
 				<tr height="105"  align="center"  bordercolor="#8FBC8F">
 				   <td  width="100%">
 				      <table    width="100%"  border="1" cellpadding="2" cellspacing="0"  bordercolor="#8FBC8F" >
 				              <tr  height="40"   bordercolor="#8FBC8F"  align="center" >
-				                 <td  width="12%"   bgcolor="#5F9EA0">行为动机</td>
-				                 <td  width="22%"  bgcolor="#5F9EA0">动机</td>
-				                 <td  width="22%">&nbsp;</td>
-				                 <td  width="22%"  bgcolor="#5F9EA0">构思</td>
-				                 <td  width="22%"  >&nbsp;</td>
-				              
+				                 <td  width="12%"   bgcolor="#5F9EA0">学习动机</td>
+				                 <td  width="44%"  bgcolor="#5F9EA0">动机</td>
+				                
+				                 <td  width="44%"  bgcolor="#5F9EA0">构思</td>
+				               
 				              </tr>
-				               <tr  height="40"   bordercolor="#8FBC8F"  align="center" >
-				                 <td  width="12%"    bgcolor="#5F9EA0">ATD(L/R)</td>
-				                  <td  width="22%"><%=FinData.motivation%></td>
-				                 <td  width="22%">0</td>
-				                 <td  width="22%"><%=FinData.Idea%>AFRC</td>
-				                 <td  width="22%" >&nbsp;</td>
+				                <tr  height="40"   bordercolor="#8FBC8F"  align="center" >
+				                 <td  width="12%"   bgcolor="#5F9EA0">百分比</td>
+				                 <td  width="44%" >&nbsp;</td>
+				                
+				                 <td  width="44%"  >&nbsp;</td>
 				               
 				              </tr>
 				               <tr  height="25"   bordercolor="#8FBC8F"  align="center"  >
@@ -352,18 +420,7 @@ function on_load(){
 				                 <td  width="11%">肢体运动</td> 
 				                 <td  width="11%">自然观察</td> 
 				              </tr>
-				             <tr  height="40"   bordercolor="#8FBC8F"  align="center">
-				                 <td  width="12%"  bgcolor="#5F9EA0">数值</td>
-				                 <td  width="11%">&nbsp;</td>
-				                 <td  width="11%">&nbsp;</td>
-				                 <td  width="11%">&nbsp;</td> 
-				                 <td  width="11%">&nbsp;</td>
-				                 <td  width="11%">&nbsp;</td>
-				           
-				                 <td  width="11%">&nbsp;</td>
-				                 <td  width="11%">&nbsp;</td> 
-				                 <td  width="11%">&nbsp;</td> 
-				              </tr>
+				            
 				        <tr  height="40"   bordercolor="#8FBC8F"  align="center">
 				                 <td  width="12%"  bgcolor="#5F9EA0">排序</td>
 				                  <td  width="11%">&nbsp;</td>
@@ -396,21 +453,7 @@ function on_load(){
         <tr>
           <td height="6"><img src="../images/spacer.gif" width="1" height="1" /></td>
         </tr>
-        <tr>
-          <td height="33"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="right-font08">
-              <tr>
-                <td width="50%">共 <span class="right-text09">5</span> 页 | 第 <span class="right-text09">1</span> 页</td>
-                <td width="49%" align="right">[<a href="#" class="right-font08">首页</a> | <a href="#" class="right-font08">上一页</a> | <a href="#" class="right-font08">下一页</a> | <a href="#" class="right-font08">末页</a>] 转至：</td>
-                <td width="1%"><table width="20" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                      <td width="1%"><input name="textfield3" type="text" class="right-textfield03" size="1" /></td>
-                      <td width="87%"><input name="Submit23222" type="submit" class="right-button06" value=" " />
-                      </td>
-                    </tr>
-                </table></td>
-              </tr>
-          </table></td>
-        </tr>
+       
       </table>
   
 </form>

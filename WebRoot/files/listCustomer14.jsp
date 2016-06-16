@@ -1,4 +1,11 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@page  import="java.util.List" %>
+<%@page  import="cn.fingerdata.bean.Customer" %>
+<%
+List<Customer> customers=(List<Customer>)request.getAttribute("customers"); 
+   
+ %>
+
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -7,7 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-     
+     <base href="<%=basePath%>">
     <title>My JSP 'listCustomer.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
@@ -80,9 +87,15 @@ function unselectAll(){
 }
 
 function link(){
-    document.getElementById("fom").action="addCustomer.jsp";
+    document.getElementById("fom").action="files/addCustomer.jsp";
    document.getElementById("fom").submit();
 }
+
+function  showData(id){
+     location.href="/TempData/DataCusServlet?type=Data&id="+id;
+}
+
+
 
 </SCRIPT>
 
@@ -104,10 +117,10 @@ function link(){
 				    <option>姓名</option>
 				    <option>年龄</option>
 			      </select>&nbsp;
-			   <input name="textfield" type="text" size="35" readonly="readonly"/>	
-			   <input name="Submit" type="button" class="right-button02" value="查 询" /></td>
-			   <td width="679" align="left"><a href="#" onclick="sousuo()">
-			     <input name="Submit" type="button" class="right-button07" value="高级搜索" />&nbsp;&nbsp;&nbsp;&nbsp;
+			   <input name="textfield" type="text" size="35" />	
+			   <input name="Submit" type="submit" class="right-button02" value="查 询" /></td>
+			   <td width="679" align="left">
+			     &nbsp;
 
 			   </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>	
 		    </tr>
@@ -129,206 +142,59 @@ function link(){
 	              </td>
           </tr>
               <tr>
-                <td height="40" class="font42"><table width="100%" border="0" cellpadding="4" cellspacing="1" bgcolor="#464646" class="newfont03">
+                <td height="40" class="font42"><table width="100%" border="1"    bordercolor="#8FBC8F"cellpadding="4" cellspacing="1"  class="newfont03">
 
 					                  <tr>
-                    <td height="30" colspan="15" align="center" bgcolor="#EEEEEE"class="tablestyle_title"> <center>客&nbsp;户&nbsp;记&nbsp;录&nbsp;列&nbsp;表</center></td>
+                    <td height="30" colspan="15" align="center" bgcolor="#5F9EA0"  bordercolor="#8FBC8F"  class="tablestyle_title"> <center>客&nbsp;户&nbsp;记&nbsp;录&nbsp;列&nbsp;表</center></td>
                     </tr>
-                  <tr>
-				    <td width="6%" align="center" bgcolor="#EEEEEE">选择</td>
-				    <td width="6%" align="center" bgcolor="#EEEEEE">序号</td>
-					 <td width="9%" height="20" align="center" bgcolor="#EEEEEE">唯一编号</td>
-                    <td width="9%" align="center" bgcolor="#EEEEEE">真实姓名</td>
+                <tr   bgcolor="#5F9EA0"   bordercolor="#8FBC8F">
+				    <td width="6%" align="center" >选择</td>
+				  
+					 <td width="9%" height="20" align="center" >唯一编号</td>
+                    <td width="9%" align="center" >真实姓名</td>
                   
-					<td width="9%" align="center" bgcolor="#EEEEEE">版本</td>
+					<td width="6%" align="center" >版本</td>
 					
-					<td width="4%" align="center" bgcolor="#EEEEEE">性别</td>
-					<td width="4%" align="center" bgcolor="#EEEEEE">年龄</td>
-					<td width="11%" align="center" bgcolor="#EEEEEE">出生年月</td>
-					<td width="10%" align="center" bgcolor="#EEEEEE">采样师编号</td>
-					<td width="11%" align="center" bgcolor="#EEEEEE">采集日期</td>
-                    <td width="19%" align="center" bgcolor="#EEEEEE">操作</td>
+					<td width="4%" align="center" >性别</td>
+					<td width="4%" align="center" >年龄</td>
+					<td width="11%" align="center" >出生年月</td>
+					<td width="10%" align="center" >采样师编号</td>
+					 <td width="9%" align="center" >采集师</td>
+					<td width="11%" align="center" >采集日期</td>
+                    <td width="19%" align="center" >操作</td>
                   </tr>
-                  <tr>
+                  
+                  
+                  
+                  <%for(Customer  customer:customers) {%>
+                  
+                  
+                  <tr   bordercolor="#8FBC8F">
 				    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
-				    <td width="6%" align="center" bgcolor="#EEEEEE">1</td>
-					<td height="20" bgcolor="#FFFFFF"   align="center"><a href="listyuangongmingxi.html">1235</a></td>
-                    <td bgcolor="#FFFFFF"   align="center"><a href="listyuangongmingxi.html">张三</a></td>
+				   
+					<td height="20" bgcolor="#FFFFFF"   align="center"><%=customer.getUserid()%></td>
+                    <td bgcolor="#FFFFFF"   align="center"><%=customer.getName()%></a></td>
                   
-                    <td bgcolor="#FFFFFF"    align="center">实习</td>
+                    <td bgcolor="#FFFFFF"    align="center"><%=customer.getVersion() %></td>
                     
-					<td height="20" bgcolor="#FFFFFF"   align="center">男</td>
-					<td height="20" bgcolor="#FFFFFF"    align="center">22</td>
-					<td height="20" bgcolor="#FFFFFF"   align="center">1985-04-06</td>
-					<td height="20" bgcolor="#FFFFFF"   align="center">123456789</td>
-					<td height="20" bgcolor="#FFFFFF"   align="center">2016-05-01</td>
-                    <td bgcolor="#FFFFFF"   align="center"><a href="FinData.jsp">分&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;析</a></td>
-                  </tr>
-                  <tr>
-				   	<td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
-				   	 <td width="6%" align="center" bgcolor="#EEEEEE">2</td>   
-					<td height="20" bgcolor="#FFFFFF"    align="center">1235</td>
-                    <td bgcolor="#FFFFFF"    align="center"><a href="listyuangongmingxi.html">张三</a></td>
-                   
-                    <td bgcolor="#FFFFFF"    align="center" >实习</td>
-                   
-					<td height="20" bgcolor="#FFFFFF"     align="center">男</td>
-					<td height="20" bgcolor="#FFFFFF"    align="center">22</td>
-					<td height="20" bgcolor="#FFFFFF"     align="center">1985-04-06</td>
-					<td height="20" bgcolor="#FFFFFF"     align="center">123456789</td>
-					<td height="20" bgcolor="#FFFFFF"     align="center">2016-05-01</td>
-                     <td bgcolor="#FFFFFF"    align="center"><a href="FinData.jsp">分&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;析</a></td>
-                  </tr>
-                  <tr>
-				    	    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
-				     <td width="6%" align="center" bgcolor="#EEEEEE">3</td>
-					<td height="20" bgcolor="#FFFFFF"    align="center">1235</td>
-                    <td bgcolor="#FFFFFF"    align="center"><a href="listyuangongmingxi.html">张三</a></td>
-                   
-                    <td bgcolor="#FFFFFF"    align="center">成人</td>
+					<td height="20" bgcolor="#FFFFFF"   align="center"><%=customer.getGender()%></td>
+					<td height="20" bgcolor="#FFFFFF"    align="center"><%=customer.getAge() %></td>
+					<td height="20" bgcolor="#FFFFFF"   align="center"><%=customer.getBirthday() %></td>
+					<td height="20" bgcolor="#FFFFFF"   align="center"><%=customer.getCollId() %></td>
+					<td height="20" bgcolor="#FFFFFF"   align="center"><%=customer.getCollName() %></td>
+					<td height="20" bgcolor="#FFFFFF"   align="center"><%=customer.getColldate() %></td>
+                    <td  bgcolor="#FFFFFF"   align="center">
+                         <input  type="button"   value="数据分析"  onclick="showData(<%=customer.getId()%>)" /> &nbsp;&nbsp;&nbsp;&nbsp;
+                         
+                        </td>
                     
-					<td height="20" bgcolor="#FFFFFF"    align="center">男</td>
-					<td height="20" bgcolor="#FFFFFF"    align="center">22</td>
-					<td height="20" bgcolor="#FFFFFF"    align="center">1985-04-06</td>
-					<td height="20" bgcolor="#FFFFFF"    align="center">123456789</td>
-					<td height="20" bgcolor="#FFFFFF"     align="center">2016-05-01</td>
-                     <td bgcolor="#FFFFFF"     align="center"><a href="FinData.jsp">分&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;析</a></td>
-                  </tr>
-                  <tr>
-				      <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>	  
-					<td width="6%" align="center" bgcolor="#EEEEEE">4</td>
-					<td height="20" bgcolor="#FFFFFF"    align="center">1235</td>
-                    <td bgcolor="#FFFFFF"    align="center"><a href="listyuangongmingxi.html">张三</a></td>
-                   
-                    <td bgcolor="#FFFFFF"     align="center">儿童</td>
-                    
-					<td height="20" bgcolor="#FFFFFF"   align="center">男</td>
-					<td height="20" bgcolor="#FFFFFF"    align="center">22</td>
-					<td height="20" bgcolor="#FFFFFF"     align="center">1985-04-06</td>
-					<td height="20" bgcolor="#FFFFFF"    align="center">123456789</td>
-					<td height="20" bgcolor="#FFFFFF"     align="center">2016-05-01</td>
-                     <td bgcolor="#FFFFFF"    align="center"><a href="FinData.jsp">分&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;析</a></td>
-                  </tr>
-                  <tr>
-				    	    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
-				    <td width="6%" align="center" bgcolor="#EEEEEE">5</td>	    
-					<td height="20" bgcolor="#FFFFFF"   align="center"  >1235</td>
-                    <td bgcolor="#FFFFFF"    align="center"><a href="listyuangongmingxi.html">张三</a></td>
-         
-                    <td bgcolor="#FFFFFF"     align="center">成人</td>
-                
-					<td height="20" bgcolor="#FFFFFF"    align="center">男</td>
-					<td height="20" bgcolor="#FFFFFF"    align="center">22</td>
-					<td height="20" bgcolor="#FFFFFF"    align="center">1985-04-06</td>
-					<td height="20" bgcolor="#FFFFFF"    align="center">123456789</td>
-					<td height="20" bgcolor="#FFFFFF"    align="center">2016-05-01</td>
-                     <td bgcolor="#FFFFFF"    align="center"><a href="FinData.jsp">分&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;析</a></td>
-                  </tr>
-                  <tr>
-				    	    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
-					<td width="6%" align="center" bgcolor="#EEEEEE">6</td>
-					<td height="20" bgcolor="#FFFFFF"   align="center">1235</td>
-                    <td bgcolor="#FFFFFF"    align="center"><a href="listyuangongmingxi.html">张三</a></td>
                  
-                    <td bgcolor="#FFFFFF"    align="center">儿童</td>
-                   
-					<td height="20" bgcolor="#FFFFFF"    align="center">男</td>
-					<td height="20" bgcolor="#FFFFFF"    align="center">22</td>
-					<td height="20" bgcolor="#FFFFFF"    align="center">1985-04-06</td>
-					<td height="20" bgcolor="#FFFFFF"    align="center">123456789</td>
-                    <td height="20" bgcolor="#FFFFFF"     align="center">2016-05-01</td>
-                     <td bgcolor="#FFFFFF"     align="center"><a href="FinData.jsp">分&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;析</a></td>
                   </tr>
-                  <tr>
-				    	    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
-					<td width="6%" align="center" bgcolor="#EEEEEE">7</td>
-					<td height="20" bgcolor="#FFFFFF"    align="center">1235</td>
-                    <td bgcolor="#FFFFFF"     align="center"><a href="listyuangongmingxi.html">张三</a></td>
-                   
-                    <td bgcolor="#FFFFFF"    align="center">成人</td>
-                  
-					<td height="20" bgcolor="#FFFFFF"    align="center">男</td>
-					<td height="20" bgcolor="#FFFFFF"     align="center">22</td>
-					<td height="20" bgcolor="#FFFFFF"     align="center">1985-04-06</td>
-					<td height="20" bgcolor="#FFFFFF"      align="center">123456789</td>
-					<td height="20" bgcolor="#FFFFFF"       align="center">2016-05-01</td>
-                     <td bgcolor="#FFFFFF"         align="center"><a href="FinData.jsp">分&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;析</a></td>
-                  </tr>
-                  <tr>
-				   	    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
-					<td width="6%" align="center" bgcolor="#EEEEEE">8</td>
-					<td height="20" bgcolor="#FFFFFF"    align="center">1235</td>
-                    <td bgcolor="#FFFFFF"     align="center"><a href="listyuangongmingxi.html">张三</a></td>
-                  
-                    <td bgcolor="#FFFFFF"   align="center" >成人</td>
-                  
-					<td height="20" bgcolor="#FFFFFF"    align="center">男</td>
-					<td height="20" bgcolor="#FFFFFF"    align="center" >22</td>
-					<td height="20" bgcolor="#FFFFFF"      align="center">1985-04-06</td>
-					<td height="20" bgcolor="#FFFFFF"     align="center" >123456789</td>
-					<td height="20" bgcolor="#FFFFFF"      align="center">2016-05-01</td>
-                    <td bgcolor="#FFFFFF"    align="center" ><a href="FinData.jsp">分&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;析</a></td>
-                  </tr>
-                  <tr>
-				   	    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
-					<td width="6%" align="center" bgcolor="#EEEEEE">9</td>
-					<td height="20" bgcolor="#FFFFFF"   align="center">1235</td>
-                    <td bgcolor="#FFFFFF"     align="center"><a href="listyuangongmingxi.html">张三</a></td>
-                  
-                    <td bgcolor="#FFFFFF"    align="center">儿童</td>
+             
+                 <%} %> 
                  
-					<td height="20" bgcolor="#FFFFFF"   align="center" >男</td>
-					<td height="20" bgcolor="#FFFFFF"    align="center">22</td>
-					<td height="20" bgcolor="#FFFFFF"    align="center">1985-04-06</td>
-					<td height="20" bgcolor="#FFFFFF"   align="center" >123456789</td>
-					<td height="20" bgcolor="#FFFFFF"    align="center">2016-05-01</td>
-                    <td bgcolor="#FFFFFF"    align="center"><a href="FinData.jsp">分&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;析</a></td>
-                  </tr>
-                   <tr>
-				   	    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
-					<td width="6%" align="center" bgcolor="#EEEEEE">10</td>
-					<td height="20" bgcolor="#FFFFFF"    align="center">1235</td>
-                    <td bgcolor="#FFFFFF"   align="center"  ><a href="listyuangongmingxi.html">张三</a></td>
                   
-                    <td bgcolor="#FFFFFF"   align="center">儿童</td>
                  
-					<td height="20" bgcolor="#FFFFFF"    align="center">男</td>
-					<td height="20" bgcolor="#FFFFFF"     align="center">22</td>
-					<td height="20" bgcolor="#FFFFFF"       align="center">1985-04-06</td>
-					<td height="20" bgcolor="#FFFFFF"       align="center">123456789</td>
-					<td height="20" bgcolor="#FFFFFF"       align="center">2016-05-01</td>
-                   <td bgcolor="#FFFFFF"   align="center" ><a href="FinData.jsp">分&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;析</a></td>
-                  </tr>
-                   <tr>
-				   	    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
-					<td width="6%" align="center" bgcolor="#EEEEEE">11</td>
-					<td height="20" bgcolor="#FFFFFF"   align="center">1235</td>
-                    <td bgcolor="#FFFFFF"    align="center"><a href="listyuangongmingxi.html">张三</a></td>
-                  
-                    <td bgcolor="#FFFFFF"     align="center">儿童</td>
-                 
-					<td height="20" bgcolor="#FFFFFF"   align="center">男</td>
-					<td height="20" bgcolor="#FFFFFF"   align="center">22</td>
-					<td height="20" bgcolor="#FFFFFF"    align="center">1985-04-06</td>
-					<td height="20" bgcolor="#FFFFFF"     align="center">123456789</td>
-					<td height="20" bgcolor="#FFFFFF"     align="center">2016-05-01</td>
-                    <td bgcolor="#FFFFFF"     align="center"><a href="FinData.jsp">分&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;析</a></td>
-                  </tr>
-                   <tr>
-				   	    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
-					<td width="6%" align="center" bgcolor="#EEEEEE">12</td>
-					<td height="20" bgcolor="#FFFFFF"   align="center" >1235</td>
-                    <td bgcolor="#FFFFFF"    align="center"><a href="listyuangongmingxi.html">张三</a></td>
-                  
-                    <td bgcolor="#FFFFFF"    align="center">儿童</td>
-                 
-					<td height="20" bgcolor="#FFFFFF"   align="center" >男</td>
-					<td height="20" bgcolor="#FFFFFF"    align="center">22</td>
-					<td height="20" bgcolor="#FFFFFF"     align="center">1985-04-06</td>
-					<td height="20" bgcolor="#FFFFFF"      align="center">123456789</td>
-					<td height="20" bgcolor="#FFFFFF"     align="center">2016-05-01</td>
-                    <td bgcolor="#FFFFFF"     align="center"><a href="FinData.jsp">分&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;析</a></td>
-                  </tr>
                  
                 </table></td>
               </tr>

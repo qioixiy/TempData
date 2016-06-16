@@ -9,7 +9,7 @@ public class BaseDataBaseDao {
 	private static String driver = "com.mysql.jdbc.Driver";// 数据库驱动字符串
 	private static String url = "jdbc:mysql://localhost:3306/tempdata?useUnicode=true&characterEncoding=UTF-8";// 连接URL
 	private static String user = "root"; // 数据库用户名
-	private static String password = ""; // 用户密码
+	private static String password = "123"; // 用户密码
 
 	/**
 	 * 获取数据库连接对象。

@@ -2,15 +2,20 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-
-Map<String, String> urls = (Map<String, String>)request.getAttribute("urls");
 %>
+
+
+<%
+  Map<String, String> urls = (Map<String, String>)request.getAttribute("urls");
+%>
+
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-  
+    <base href="<%=basePath%>">
     
     <title>My JSP 'listFintype.jsp' starting page</title>
     
@@ -90,7 +95,7 @@ function link(){
 }
 
 function link1(){
-    document.getElementById("fom").action="listCustomer12.jsp";
+    document.getElementById("fom").action="/TempData/CollectS ";
    document.getElementById("fom").submit();
 }
 
@@ -140,7 +145,7 @@ function link1(){
                             <td colspan="3"  >左&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;手</td>
                          </tr>
                          <tr  width="100%" height="70"  bgcolor="#FFFFFF"  bordercolor="#8FBC8F"  align="center"> 
-                            <td  width="15%"><img id="L1L" width="70" height="70" src="<%=urls.get("L1L")%>"/></td>
+                             <td  width="15%"><img id="L1L" width="70" height="70" src="<%=urls.get("L1L")%>"/></td>
                             <td  width="15%"><img id="L1C" width="70" height="70" src="<%=urls.get("L1C")%>"/></td>
                             <td  width="15%"><img id="L1R" width="70" height="70" src="<%=urls.get("L1R")%>"/></td>
                          </tr>
@@ -150,7 +155,7 @@ function link1(){
                              <td   width="15%">L1右面 </td>
                          </tr> 
                           <tr  width="100%" height="70"  bgcolor="#FFFFFF"  bordercolor="#8FBC8F"  align="center"> 
-                            <td  width="15%"><img id="L2L" width="70" height="70" src="<%=urls.get("L2L")%>"/></td>
+                              <td  width="15%"><img id="L2L" width="70" height="70" src="<%=urls.get("L2L")%>"/></td>
                             <td  width="15%"><img id="L2C" width="70" height="70" src="<%=urls.get("L2C")%>"/></td>
                             <td  width="15%"><img id="L2R" width="70" height="70" src="<%=urls.get("L2R")%>"/></td>
                          </tr>
@@ -159,7 +164,7 @@ function link1(){
                              <td   width="15%">L2正面</td>
                              <td   width="15%">L2右面 </td>
                          </tr> 
-                          <tr  width="100%" height="70"  bgcolor="#FFFFFF"  bordercolor="#8FBC8F"  align="center">
+                          <tr  width="100%" height="70"  bgcolor="#FFFFFF"  bordercolor="#8FBC8F"  align="center"> 
                             <td  width="15%"><img id="L3L" width="70" height="70" src="<%=urls.get("L3L")%>"/></td>
                             <td  width="15%"><img id="L3C" width="70" height="70" src="<%=urls.get("L3C")%>"/></td>
                             <td  width="15%"><img id="L3R" width="70" height="70" src="<%=urls.get("L3R")%>"/></td>
@@ -169,8 +174,8 @@ function link1(){
                              <td   width="15%">L3正面</td>
                              <td   width="15%">L3右面 </td>
                          </tr> 
-                          <tr  width="100%" height="70"  bgcolor="#FFFFFF"  bordercolor="#8FBC8F" align="center">
-                            <td  width="15%"><img id="L4L" width="70" height="70" src="<%=urls.get("L4L")%>"/></td>
+                          <tr  width="100%" height="70"  bgcolor="#FFFFFF"  bordercolor="#8FBC8F" align="center"> 
+                           <td  width="15%"><img id="L4L" width="70" height="70" src="<%=urls.get("L4L")%>"/></td>
                             <td  width="15%"><img id="L4C" width="70" height="70" src="<%=urls.get("L4C")%>"/></td>
                             <td  width="15%"><img id="L4R" width="70" height="70" src="<%=urls.get("L4R")%>"/></td>
                          </tr>
@@ -179,8 +184,8 @@ function link1(){
                              <td   width="15%">L4正面</td>
                              <td   width="15%">L4右面 </td>
                          </tr> 
-                          <tr  width="100%" height="70"  bgcolor="#FFFFFF"  bordercolor="#8FBC8F" align="center">
-                            <td  width="15%"><img id="L5L" width="70" height="70" src="<%=urls.get("L5L")%>"/></td>
+                          <tr  width="100%" height="70"  bgcolor="#FFFFFF"  bordercolor="#8FBC8F" align="center"> 
+                          <td  width="15%"><img id="L5L" width="70" height="70" src="<%=urls.get("L5L")%>"/></td>
                             <td  width="15%"><img id="L5C" width="70" height="70" src="<%=urls.get("L5C")%>"/></td>
                             <td  width="15%"><img id="L5R" width="70" height="70" src="<%=urls.get("L5R")%>"/></td>
                          </tr>
@@ -203,8 +208,8 @@ function link1(){
                          <tr  width="100%" height="8"  bgcolor="#5F9EA0"  bordercolor="#8FBC8F"  align="center"> 
                             <td colspan="3"  >右&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;手</td>
                          </tr>
-                         <tr  width="100%" height="70"  bgcolor="#FFFFFF"  bordercolor="#8FBC8F"  align="center">
-                            <td  width="15%"><img id="R1L" width="70" height="70" src="<%=urls.get("R1L")%>"/></td>
+                         <tr  width="100%" height="70"  bgcolor="#FFFFFF"  bordercolor="#8FBC8F"  align="center"> 
+                           <td  width="15%"><img id="R1L" width="70" height="70" src="<%=urls.get("R1L")%>"/></td>
                             <td  width="15%"><img id="R1C" width="70" height="70" src="<%=urls.get("R1C")%>"/></td>
                             <td  width="15%"><img id="R1R" width="70" height="70" src="<%=urls.get("R1R")%>"/></td>
                          </tr>
@@ -213,7 +218,7 @@ function link1(){
                              <td   width="15%">R1正面</td>
                              <td   width="15%">R1右面 </td>
                          </tr> 
-                          <tr  width="100%" height="70"  bgcolor="#FFFFFF"  bordercolor="#8FBC8F"  align="center">
+                          <tr  width="100%" height="70"  bgcolor="#FFFFFF"  bordercolor="#8FBC8F"  align="center"> 
                             <td  width="15%"><img id="R2L" width="70" height="70" src="<%=urls.get("R2L")%>"/></td>
                             <td  width="15%"><img id="R2C" width="70" height="70" src="<%=urls.get("R2C")%>"/></td>
                             <td  width="15%"><img id="R2R" width="70" height="70" src="<%=urls.get("R2R")%>"/></td>
@@ -223,7 +228,7 @@ function link1(){
                              <td   width="15%">R2正面</td>
                              <td   width="15%">R2右面 </td>
                          </tr> 
-                          <tr  width="100%" height="70"  bgcolor="#FFFFFF"  bordercolor="#8FBC8F"  align="center">
+                          <tr  width="100%" height="70"  bgcolor="#FFFFFF"  bordercolor="#8FBC8F"  align="center"> 
                             <td  width="15%"><img id="R3L" width="70" height="70" src="<%=urls.get("R3L")%>"/></td>
                             <td  width="15%"><img id="R3C" width="70" height="70" src="<%=urls.get("R3C")%>"/></td>
                             <td  width="15%"><img id="R3R" width="70" height="70" src="<%=urls.get("R3R")%>"/></td>
@@ -233,7 +238,7 @@ function link1(){
                              <td   width="15%">R3正面</td>
                              <td   width="15%">R3右面 </td>
                          </tr> 
-                          <tr  width="100%" height="70"  bgcolor="#FFFFFF"  bordercolor="#8FBC8F" align="center">
+                          <tr  width="100%" height="70"  bgcolor="#FFFFFF"  bordercolor="#8FBC8F" align="center"> 
                             <td  width="15%"><img id="R4L" width="70" height="70" src="<%=urls.get("R4L")%>"/></td>
                             <td  width="15%"><img id="R4C" width="70" height="70" src="<%=urls.get("R4C")%>"/></td>
                             <td  width="15%"><img id="R4R" width="70" height="70" src="<%=urls.get("R4R")%>"/></td>
@@ -243,8 +248,8 @@ function link1(){
                              <td   width="15%">R4正面</td>
                              <td   width="15%">R4右面 </td>
                          </tr> 
-                          <tr  width="100%" height="70"  bgcolor="#FFFFFF"  bordercolor="#8FBC8F" align="center">
-                            <td  width="15%"><img id="R5L" width="70" height="70" src="<%=urls.get("R5L")%>"/></td>
+                          <tr  width="100%" height="70"  bgcolor="#FFFFFF"  bordercolor="#8FBC8F" align="center"> 
+                           <td  width="15%"><img id="R5L" width="70" height="70" src="<%=urls.get("R5L")%>"/></td>
                             <td  width="15%"><img id="R5C" width="70" height="70" src="<%=urls.get("R5C")%>"/></td>
                             <td  width="15%"><img id="R5R" width="70" height="70" src="<%=urls.get("R5R")%>"/></td>
                          </tr>

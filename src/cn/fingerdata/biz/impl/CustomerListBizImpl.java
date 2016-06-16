@@ -10,15 +10,13 @@ import cn.fingerdata.dao1.CustomerListDao;
 
 public class CustomerListBizImpl   implements    CustomerListBiz   {
 	
-	   CustomerListDao  customerListDao=null;//构造函数，实例化它
-	   public  CustomerListBizImpl(){
-		   this.customerListDao=new  CustomerListDaoImpl();
-	   }
+	   CustomerListDao  customerListDao = new  CustomerListDaoImpl();//构造函数，实例化它
+	 
 	   
 
 		@Override
 		public Customer getCustomer(int id) {
-			
+			System.out.println("enter "+id);
 			return   customerListDao.getById(id);
 		}
 
@@ -26,7 +24,8 @@ public class CustomerListBizImpl   implements    CustomerListBiz   {
 	   
 	   @Override
 		public List<Customer> getAllCustomers() {
-		   List<Customer>  customers=customerListDao.getAll();
+		   List<Customer> customers= customerListDao.getAll();
+		   System.out.println(customers.get(0).getId() + "------------------");
 		   return customers;
 		}
    

@@ -129,7 +129,7 @@ function   showAnalysis(id){
         </tr>
     </table></td></tr>
   <tr>
-    <td><table id="subtree1" style="DISPLAY: " width="100%" border="0" cellspacing="0" cellpadding="0">
+    <td><table  width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
           <td><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
           	 <tr>
@@ -142,27 +142,27 @@ function   showAnalysis(id){
 		           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 	              </td>
           </tr>
-              <tr>
-                <td height="40" class="font42"><table width="100%" border="0" cellpadding="4" cellspacing="1" bgcolor="#464646" class="newfont03">
+              <tr   bordercolor="#8FBC8F">
+                <td height="40" class="font42"><table width="100%" border="1"    bordercolor="#8FBC8F" cellpadding="4" cellspacing="1" bgcolor="#5F9EA0"   class="newfont03">
 
 					                  <tr>
-                    <td height="30" colspan="15" align="center" bgcolor="#EEEEEE"class="tablestyle_title"> <center>客&nbsp;户&nbsp;记&nbsp;录&nbsp;列&nbsp;表</center></td>
+                    <td height="30" colspan="15" align="center" bgcolor="#5F9EA0"  bordercolor="#8FBC8F" class="tablestyle_title"> <center>客&nbsp;户&nbsp;记&nbsp;录&nbsp;列&nbsp;表</center></td>
                     </tr>
-                  <tr>
-				    <td width="6%" align="center" bgcolor="#EEEEEE">选择</td>
+                  <tr  bgcolor="#5F9EA0" bordercolor="#8FBC8F"   >
+				    <td width="6%" align="center" bordercolor="#FEEEEE" >选择</td>
 				  
-					 <td width="9%" height="20" align="center" bgcolor="#EEEEEE">唯一编号</td>
-                    <td width="9%" align="center" bgcolor="#EEEEEE">真实姓名</td>
+					 <td width="9%" height="20" align="center"  bordercolor="#FEEEEE">唯一编号</td>
+                    <td width="9%" align="center"  bordercolor="#FEEEEE">真实姓名</td>
                   
-					<td width="6%" align="center" bgcolor="#EEEEEE">版本</td>
+					<td width="6%" align="center"  bordercolor="#FEEEEE">版本</td>
 					
-					<td width="4%" align="center" bgcolor="#EEEEEE">性别</td>
-					<td width="4%" align="center" bgcolor="#EEEEEE">年龄</td>
-					<td width="11%" align="center" bgcolor="#EEEEEE">出生年月</td>
-					<td width="10%" align="center" bgcolor="#EEEEEE">采样师编号</td>
-					 <td width="9%" align="center" bgcolor="#EEEEEE">采集师</td>
-					<td width="11%" align="center" bgcolor="#EEEEEE">采集日期</td>
-                    <td width="19%" align="center" bgcolor="#EEEEEE">操作</td>
+					<td width="4%" align="center"   bordercolor="#FEEEEE">性别</td>
+					<td width="4%" align="center"   bordercolor="#FEEEEE">年龄</td>
+					<td width="11%" align="center"   bordercolor="#FEEEEE" >出生年月</td>
+					<td width="10%" align="center"   bordercolor="#FEEEEE">采样师编号</td>
+					 <td width="9%" align="center"   bordercolor="#FEEEEE" >采集师</td>
+					<td width="11%" align="center"   bordercolor="#FEEEEE" >采集日期</td>
+                    <td width="19%" align="center"   bordercolor="#FEEEEE">操作</td>
                   </tr>
                   
                   
@@ -170,20 +170,20 @@ function   showAnalysis(id){
                   <%for(Customer  customer:customers) {%>
                   
                   
-                  <tr>
-				    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
+                  <tr   bordercolor="#8FBC8F"  >
+				    <td bgcolor="#FFFFFF"   bordercolor="#FEEEEE"><input type="checkbox" name="delid"/></td>
 				   
-					<td height="20" bgcolor="#FFFFFF"   align="center"><%=customer.getUserid()%></td>
-                    <td bgcolor="#FFFFFF"   align="center"><%=customer.getName()%></a></td>
+					<td height="20" bgcolor="#FFFFFF"    bordercolor="#FEEEEE" align="center"><%=customer.getUserid()%></td>
+                    <td bgcolor="#FFFFFF"    bordercolor="#FEEEEE" align="center"><%=customer.getName()%></a></td>
                   
-                    <td bgcolor="#FFFFFF"    align="center"><%=customer.getVersion() %></td>
+                    <td bgcolor="#FFFFFF"     bordercolor="#FEEEEE" align="center"><%=customer.getVersion() %></td>
                     
-					<td height="20" bgcolor="#FFFFFF"   align="center"><%=customer.getGender()%></td>
-					<td height="20" bgcolor="#FFFFFF"    align="center"><%=customer.getAge() %></td>
-					<td height="20" bgcolor="#FFFFFF"   align="center"><%=customer.getBirthday() %></td>
-					<td height="20" bgcolor="#FFFFFF"   align="center"><%=customer.getCollId() %></td>
-					<td height="20" bgcolor="#FFFFFF"   align="center"><%=customer.getCollName() %></td>
-					<td height="20" bgcolor="#FFFFFF"   align="center"><%=customer.getColldate() %></td>
+					<td height="20" bgcolor="#FFFFFF"     bordercolor="#FEEEEE" align="center"><%=customer.getGender()%></td>
+					<td height="20" bgcolor="#FFFFFF"    bordercolor="#FEEEEE"   align="center"><%=customer.getAge() %></td>
+					<td height="20" bgcolor="#FFFFFF"     bordercolor="#FEEEEE" align="center"><%=customer.getBirthday() %></td>
+					<td height="20" bgcolor="#FFFFFF"     bordercolor="#FEEEEE" align="center"><%=customer.getCollId() %></td>
+					<td height="20" bgcolor="#FFFFFF"      bordercolor="#FEEEEE"  align="center"><%=customer.getCollName() %></td>
+					<td height="20" bgcolor="#FFFFFF"     bordercolor="#FEEEEE" align="center"><%=customer.getColldate() %></td>
                     <td  bgcolor="#FFFFFF"   align="center">
                         <input  type="button"   value="判读指纹"  onclick="showInter(<%=customer.getId()%>)" /> &nbsp;&nbsp;&nbsp;&nbsp;
                          <input  type="button"   value="判读分析"  onclick="showAnalysis(<%=customer.getId()%>)" />

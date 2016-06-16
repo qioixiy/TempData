@@ -14,12 +14,12 @@ import cn.fingerdata.bean.Customer;
 import cn.fingerdata.biz.impl.CustomerBizImpl;
 import cn.fingerdata.bizz.CustomerBiz;
 
-public class ListServlet extends HttpServlet {
+public class DataCusS extends HttpServlet {
 
 	/**
 	 * Constructor of the object.
 	 */
-	public ListServlet() {
+	public DataCusS() {
 		super();
 	}
 
@@ -34,14 +34,13 @@ public class ListServlet extends HttpServlet {
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("进入ListServlet");
+		System.out.println("进入DataCusS");
 		CustomerBiz  customerBiz= new  CustomerBizImpl();
 		List<Customer> customers=customerBiz.getAllCustomers();
-		System.out.println(customers.get(0).getId()+"------------------");
 		System.out.println(customers.size());
 		request.setAttribute("customers", customers);
 		
-		RequestDispatcher  drDispatcher=request.getRequestDispatcher("files/CustomerView.jsp");
+		RequestDispatcher  drDispatcher=request.getRequestDispatcher("files/listCustomer14.jsp");
 		drDispatcher.forward(request, response);
 	}
 	

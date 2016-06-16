@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/cn/fingerdata/action/CollectS.java=UTF-8
+encoding//src/cn/fingerdata/action/CusViewServlet.java=UTF-8
 encoding//src/cn/fingerdata/action/CustomerServlet.java=UTF-8
 encoding//src/cn/fingerdata/action/InterServlet.java=UTF-8
 encoding//src/cn/fingerdata/action/ListCusServlet.java=UTF-8

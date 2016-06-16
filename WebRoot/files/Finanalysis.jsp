@@ -1,11 +1,18 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@page  import="cn.fingerdata.bean.Customer" %>
+<%@page  import="cn.fingerdata.bean.TempInter" %>
+
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <%
    Customer  customer=(Customer)request.getAttribute("customer");
+ %>
+ 
+ <%
+   TempInter   tempInter=(TempInter)request.getAttribute("tempInter"); 
+   
  %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -85,7 +92,7 @@ function unselectAll(){
 }
 
 function link1(){
-    document.getElementById("fom").action="listCustomer141.jsp";
+    document.getElementById("fom").action="/TempData/ListCusServlet";
    document.getElementById("fom").submit();
 }
 function link2(){
@@ -128,33 +135,33 @@ function on_load(){
 			<TD width="100%" >
 				<fieldset >
 				<legend>基本信息</legend>
-				 <table    width="100%"  border="1" cellpadding="2" cellspacing="0"   bordercolor="#5F9EA0"  ">
+				 <table    width="100%"  border="1" cellpadding="2" cellspacing="2"   bordercolor="#5F9EA0"  ">
 					 
 			      <tr  bordercolor="#5F9EA0">
-					    <td nowrap align="right" width="5%">编&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:</td>
-					    <td  align="left"   width="10%"><%=customer.getName()%> </td>
-				    	 <td align="right" width="5%">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:</td>
-					    <td width="10%"><%=customer.getName()%></td>
-					    <td nowrap align="right" width="5%">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别:</td>
-					    <td nowrap align="left" width="10%"><%=customer.getGender()%>
+					    <td nowrap align="right" width="5%"    >编&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:</td>
+					    <td  align="center"   width="10%"><%=customer.getUserid()%> </td>
+				    	 <td align="right" width="5%"   >姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:</td>
+					    <td width="10%"   align="center"><%=customer.getName()%></td>
+					    <td  align="right" width="5%" >性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别:</td>
+					    <td  align="center" width="10%"><%=customer.getGender()%>
 					       
 					    </td>
-					    <td nowrap align="right" width="6%">出生日期:</td>
-					    <td nowrap align="left" width="10%">
+					    <td nowrap align="right" width="6%"   >出生日期:</td>
+					    <td nowrap align="center" width="10%">
 					     <%=customer.getBirthday() %>   
 					    </td> 
 					 </tr>
 					 
 					 <tr  bordercolor="#5F9EA0">
-					  <td nowrap align="right" width="5%">判读师编号:</td>
-					    <td  align="left"   width="10%"><%=customer.getDisId() %>
+					  <td nowrap align="right" width="5%"  >判读师编号:</td>
+					    <td align="center"  width="10%"><%=customer.getDisId() %>
 				              <span class="red"> *</span></td>
-					    <td align="right" width="5%">判读师姓名:</td>
-					    <td width="10%"><%=customer.getDisName() %></td>
+					    <td align="right" width="5%"  >判读师:</td>
+					    <td width="10%"   align="center"><%=customer.getDisName() %></td>
 					    <td nowrap align="right" width="5%"  colspan="2">&nbsp;</td>
 					    
-					    <td nowrap align="right" width="6%">判读日期:</td>
-					    <td nowrap align="left" width="10%">
+					    <td  align="right" width="6%"    >判读日期:</td>
+					    <td   align="center"width="10%">
 					     <%=customer.getDisdate() %>   
 					    </td> 
 					 </tr>
@@ -170,7 +177,7 @@ function on_load(){
 				 <tr>
 				    <td  width="2%">&nbsp;</td>
 				    <td  width="45%">
-				       <table    width="100%"  border="1" cellpadding="2" cellspacing="0"   bordercolor="#8FBC8F">
+				       <table    width="100%"  border="1" cellpadding="2" cellspacing="1"   bordercolor="#8FBC8F">
 				         <tr  bordercolor="#8FBC8F"  height="35"  bgcolor="#AFEEEE">
 				            <td  align="center"  width="23%"  >左手</td>
 				            <td  align="center"  width="26%">纹型</td>
@@ -178,41 +185,41 @@ function on_load(){
 				            <td  align="center"  withd="26%">RC/R</td>
 				          </tr>
 				          <tr  bordercolor="#8FBC8F"   height="55">
-				            <td  align="center"  width="23%"  >拇指(L1)</td>
-				            <td  align="center"  width="26%">&nbsp;</td>
-				            <td  align="center"  width="27%">&nbsp;</td>
-				            <td  align="center"  withd="26%">&nbsp;</td>
+				            <td  align="center"  width="23%"     bgcolor="#AFEEEE">拇指(L1)</td>
+				            <td  align="center"  width="26%"><%=tempInter.getL1temp()%></td>
+				            <td  align="center"  width="27%"><%=tempInter.getL1RCL()%></td>
+				            <td  align="center"  withd="26%"><%=tempInter.getL1RCR()%></td>
 				          </tr>
 				           <tr  bordercolor="#8FBC8F"  height="55" >
-				            <td  align="center"  width="23%"  >食指(L2)</td>
-				            <td  align="center"  width="26%">&nbsp;</td>
-				            <td  align="center"  width="27%">&nbsp;</td>
-				            <td  align="center"  withd="26%">&nbsp;</td>
+				            <td  align="center"  width="23%"    bgcolor="#AFEEEE" >食指(L2)</td>
+				            <td  align="center"  width="26%"><%=tempInter.getL2temp()%></td>
+				            <td  align="center"  width="27%"><%=tempInter.getL2RCL()%></td>
+				            <td  align="center"  withd="26%"><%=tempInter.getL2RCR()%></td>
 				          </tr>
 				           <tr  bordercolor="#8FBC8F"   height="55">
-				            <td  align="center"  width="23%"  >中指(L3)</td>
-				            <td  align="center"  width="26%">&nbsp;</td>
-				            <td  align="center"  width="27%">&nbsp;</td>
-				            <td  align="center"  withd="26%">&nbsp;</td>
+				            <td  align="center"  width="23%"    bgcolor="#AFEEEE" >中指(L3)</td>
+				            <td  align="center"  width="26%"><%=tempInter.getL3temp()%></td>
+				            <td  align="center"  width="27%"><%=tempInter.getL3RCL()%></td>
+				            <td  align="center"  withd="26%"><%=tempInter.getL3RCR()%></td>
 				          </tr>
 				           <tr  bordercolor="#8FBC8F"  height="55">
-				            <td  align="center"  width="23%"  >环指(L4)</td>
-				            <td  align="center"  width="26%">&nbsp;</td>
-				            <td  align="center"  width="27%">&nbsp;</td>
-				            <td  align="center"  withd="26%">&nbsp;</td>
+				            <td  align="center"  width="23%"    bgcolor="#AFEEEE">环指(L4)</td>
+				            <td  align="center"  width="26%"><%=tempInter.getL4temp()%></td>
+				            <td  align="center"  width="27%"><%=tempInter.getL4RCL()%></td>
+				            <td  align="center"  withd="26%"><%=tempInter.getL4RCR()%></td>
 				          </tr>
 				           <tr  bordercolor="#8FBC8F"  height="55">
-				            <td  align="center"  width="23%"  >环指(L4)</td>
-				            <td  align="center"  width="26%">&nbsp;</td>
-				            <td  align="center"  width="27%">&nbsp;</td>
-				            <td  align="center"  withd="26%">&nbsp;</td>
+				            <td  align="center"  width="23%"    bgcolor="#AFEEEE" >尾指(L5)</td>
+				            <td  align="center"  width="26%"><%=tempInter.getL5temp()%></td>
+				            <td  align="center"  width="27%"><%=tempInter.getL5RCL()%></td>
+				            <td  align="center"  withd="26%"><%=tempInter.getL5RCR()%></td>
 				          </tr>
 				       
 				       </table>
 				    </td>
 				    <td  width="6%">&nbsp;</td>
 				    <td  width="45%">
-				       <table    width="100%"  border="1" cellpadding="2" cellspacing="0"   bordercolor="#8FBC8F">
+				       <table    width="100%"  border="1" cellpadding="2" cellspacing="1"   bordercolor="#8FBC8F">
 				         <tr  bordercolor="#8FBC8F"  height="35"  bgcolor="#AFEEEE">
 				            <td  align="center"  width="23%"  >右手</td>
 				            <td  align="center"  width="26%">纹型</td>
@@ -220,34 +227,34 @@ function on_load(){
 				            <td  align="center"  withd="26%">RC/R</td>
 				          </tr>
 				          <tr  bordercolor="#8FBC8F"   height="55">
-				            <td  align="center"  width="23%"  >拇指(L1)</td>
-				            <td  align="center"  width="26%">&nbsp;</td>
-				            <td  align="center"  width="27%">&nbsp;</td>
-				            <td  align="center"  withd="26%">&nbsp;</td>
+				            <td  align="center"  width="23%"    bgcolor="#AFEEEE" >拇指(R1)</td>
+				            <td  align="center"  width="26%"><%=tempInter.getR1temp()%></td>
+				            <td  align="center"  width="27%"><%=tempInter.getR1RCL()%></td>
+				            <td  align="center"  withd="26%"><%=tempInter.getR1RCR()%></td>
 				          </tr>
 				           <tr  bordercolor="#8FBC8F"  height="55" >
-				            <td  align="center"  width="23%"  >食指(L2)</td>
-				            <td  align="center"  width="26%">&nbsp;</td>
-				            <td  align="center"  width="27%">&nbsp;</td>
-				            <td  align="center"  withd="26%">&nbsp;</td>
+				            <td  align="center"  width="23%"    bgcolor="#AFEEEE" >食指(R2)</td>
+				            <td  align="center"  width="26%"><%=tempInter.getR2temp()%></td>
+				            <td  align="center"  width="27%"><%=tempInter.getR2RCL()%></td>
+				            <td  align="center"  withd="26%"><%=tempInter.getR2RCR()%></td>
 				          </tr>
 				           <tr  bordercolor="#8FBC8F"   height="55">
-				            <td  align="center"  width="23%"  >中指(L3)</td>
-				            <td  align="center"  width="26%">&nbsp;</td>
-				            <td  align="center"  width="27%">&nbsp;</td>
-				            <td  align="center"  withd="26%">&nbsp;</td>
+				            <td  align="center"  width="23%"   bgcolor="#AFEEEE" >中指(R3)</td>
+				            <td  align="center"  width="26%"><%=tempInter.getR3temp()%></td>
+				            <td  align="center"  width="27%"><%=tempInter.getR3RCL()%></td>
+				            <td  align="center"  withd="26%"><%=tempInter.getR3RCR()%></td>
 				          </tr>
 				           <tr  bordercolor="#8FBC8F"  height="55">
-				            <td  align="center"  width="23%"  >环指(L4)</td>
-				            <td  align="center"  width="26%">&nbsp;</td>
-				            <td  align="center"  width="27%">&nbsp;</td>
-				            <td  align="center"  withd="26%">&nbsp;</td>
+				            <td  align="center"  width="23%"    bgcolor="#AFEEEE">环指(R4)</td>
+				            <td  align="center"  width="26%"><%=tempInter.getR4temp()%></td>
+				            <td  align="center"  width="27%"><%=tempInter.getR4RCL()%></td>
+				            <td  align="center"  withd="26%"><%=tempInter.getR4RCR()%></td>
 				          </tr>
 				           <tr  bordercolor="#8FBC8F"  height="55">
-				            <td  align="center"  width="23%"  >环指(L4)</td>
-				            <td  align="center"  width="26%">&nbsp;</td>
-				            <td  align="center"  width="27%">&nbsp;</td>
-				            <td  align="center"  withd="26%">&nbsp;</td>
+				            <td  align="center"  width="23%"   bgcolor="#AFEEEE" >尾指(R5)</td>
+				            <td  align="center"  width="26%"><%=tempInter.getR5temp()%></td>
+				            <td  align="center"  width="27%"><%=tempInter.getR5RCL()%></td>
+				            <td  align="center"  withd="26%"><%=tempInter.getR5RCR()%></td>
 				          </tr>
 				       
 				       </table>
@@ -264,9 +271,10 @@ function on_load(){
 		 </br>
 			 </table>
 		 <table  width="100%"  height="100%"  border="0" cellpadding="0" cellspacing="0" >
-		         <tr  align="center"><td align="center">
-		              <input type="button" name="Submit" value="保存" class="button" onclick="alert('保存成功！');"/>　
-			
+		         <tr  align="center"><td align="center">&nbsp;
+			         </td>
+			       </tr>
+			        <tr  align="center"><td align="center">
 			        <input type="button" name="Submit2" value="返回" class="button" onclick="window.history.go(-1);"/> </td>
 			       </tr>
           </table>

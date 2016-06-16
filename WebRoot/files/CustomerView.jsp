@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
        
-    
+     <base href="<%=basePath%>">
     <title>D&B数据采集系统 by www.mycodes.net</title>
     
 	<meta http-equiv="pragma" content="no-cache">
@@ -64,6 +64,12 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 
 </script>
 <style type="text/css">
+.cusTop{
+	width:100%;
+	height:100px;
+	border:1px solid red;
+	background-image: url("/images/nav04.gif");
+}
 <!--
 .STYLE1 {color: #FF0000}
 -->
@@ -71,9 +77,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <SCRIPT language=JavaScript>
-function sousuo(){
-	window.open("gaojisousuo.htm","","depended=0,alwaysRaised=1,width=800,height=510,location=0,menubar=0,resizable=0,scrollbars=0,status=0,toolbar=0");
-}
+
 function selectAll(){
 	var obj = document.fom.elements;
 	for (var i=0;i<obj.length;i++){
@@ -94,9 +98,22 @@ function unselectAll(){
 }
 
 function link(){
-    document.getElementById("fom").action="addCustomer.jsp";
+    document.getElementById("fom").action="files/addCustomer.jsp";
    document.getElementById("fom").submit();
 }
+
+function showCusInfo(id){
+     location.href="http://localhost:8080/TempData/CusViewServlet?type=CusInfo&id="+id;
+}
+
+function showCollect(id){
+     location.href="/TempData/CusViewServlet?type=Collect&id="+id;
+}
+
+function showInter(id){
+     location.href="/TempData/CusViewServlet?type=Inter&id="+id;
+}
+
 
 </SCRIPT>
 
@@ -107,8 +124,8 @@ function link(){
   <tr>
     <td height="30">      <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
-          <td height="62" background="../images/nav04.gif">
-            
+          <td class="cusTop" height="62">
+           
 		   <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
 		    <tr>
 			  <td width="24"><img src="../images/ico07.gif" width="20" height="18" /></td>
@@ -122,22 +139,20 @@ function link(){
 				    <option>生日</option>
 				    <option>年龄</option>
 			      </select>&nbsp;
-			   <input name="textfield" type="text" size="35" readonly="readonly"/>	
+			   <input name="textfield" type="text" size="35" >	
 			   <input name="Submit" type="button" class="right-button02" value="查 询" /></td>
-			   <td width="679" align="left"><a href="#" onclick="sousuo()">
-			    
-			   </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>	
+			   <td width="679" align="left">&nbsp; </td>	
 		    </tr>
           </table></td>
         </tr>
     </table></td></tr>
     
     <tr>
-    <td><table id="subtree1" style="DISPLAY: " width="100%" border="0" cellspacing="0" cellpadding="0">
+    <td><table  width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
-          <td><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+          <td><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
           	 <tr>
-               <td height="35"><span class="newfont07">选择：<a href="#" class="right-font08" onclick="selectAll();">全选</a>-<a href="#" class="right-font08" onclick="unselectAll();">反选</a></span>
+               <td height="35"><span class="newfont07">选择：<a href="#" class="right-font08" onclick="selectAll();">全选</a><a href="#" class="right-font08" onclick="unselectAll();">反选</a></span>
 		           <input name="Submit" type="button" class="right-button08" value="删除所选人员" style="height: 21px; width: 100px"/> &nbsp;&nbsp;&nbsp; <a href="addCustomer.jsp" target="mainFrame" class="left-font03" onClick="tupian('21');"><input name="Submit" type="button" class="right-button08" value="添加人员信息"   style="height: 21px; width: 100px"onclick="link();  " />
 		           &nbsp;&nbsp;&nbsp;&nbsp; 
 		           <input type="button" name="Submit2" value="返回" class="right-button02" onclick="window.history.go(-1);"/>
@@ -146,42 +161,40 @@ function link(){
 	              </td>
           </tr>
   <tr>
-    <td><table id="subtree1" style="DISPLAY: " width="100%" border="0" cellspacing="0" cellpadding="0">
+    <td><table  width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
-          <td><table width="95%" border="1" align="center" cellpadding="0" cellspacing="0">
+          <td><table width="98%" border="1"    bordercolor="#8FBC8F" align="center" cellpadding="0" cellspacing="0">
 	
 					                  <tr>
-                    <td height="30" colspan="9" align="center" bgcolor="#EEEEEE"class="tablestyle_title"><center>客户记录列表</center></td>
+                    <td height="30" colspan="9" align="center"  bgcolor="#5F9EA0"   bordercolor="#8FBC8F" class="tablestyle_title"><center>客户记录列表</center></td>
                     </tr>
-              <tr>
-                <td height="40" class="font42"><table width="100%" border="1"    bordercolor="#8FBC8F"  cellpadding="4" cellspacing="0"  >
-                  <tr  bgcolor="#AFEEEE">
-                     <td width="5%" align="center"   bgcolor="#AFEEEE">选择</td>
-				    <td width="4%" align="center"  bgcolor="#AFEEEE">序号</td>
-                    <td width="6%" height="20" align="center"  bgcolor="#AFEEEE">编号</td>
-                    <td width="6%" align="center"  bgcolor="#AFEEEE">姓名</td>
-                    <td width="4%" align="center" bgcolor="#AEEEEE">性别</td>
-                    <td width="5%" align="center" bgcolor="#AEEEEE">版本</td>
-                    <td width="8%" align="center" bgcolor="#AEEEEE">出生日期</td>
-                    <td width="6%" align="center" bgcolor="#AEEEEE">年龄</td>
-                    <td width="8%" align="center" bgcolor="#AEEEEE">联系电话</td>
-                    <td width="8%" align="center" bgcolor="#AEEEEE">采集师编号</td>
-                    <td width="8%" align="center" bgcolor="#AEEEEE">采集师</td>
+              <tr   bordercolor="#8FBC8F"   bordercolor="#8FBC8F"   >
+                <td height="40" class="font42"><table width="100%" border="1"    bordercolor="#8FBC8F"  cellpadding="4" cellspacing="1"  >
+                  <tr    bgcolor="#5F9EA0"   bordercolor="#8FBC8F">
+                     <td width="5%" align="center"  >选择</td>
+                    <td width="6%" height="20" align="center"  >编号</td>
+                    <td width="6%" align="center" >姓名</td>
+                    <td width="6%" align="center" >性别</td>
+                    <td width="5%" align="center" >版本</td>
+                    <td width="10%" align="center" >出生日期</td>
+                    <td width="6%" align="center" >年龄</td>
+                    <td width="8%" align="center" >联系电话</td>
+                    <td width="8%" align="center" >采集师编号</td>
+                    <td width="8%" align="center" >采集师</td>
                   
-                    <td width="8%" align="center" bgcolor="#AEEEEE">采集日期</td>
-                    <td width="8%" align="center" bgcolor="#AEEEEE">判别师</td>
-                    <td width="20%" align="center" bgcolor="#AEEEEE">操作</td>
+                    <td width="10%" align="center" >采集日期</td>
+
+                    <td width="30%" align="center" >操作</td>
                   </tr>
                   <% for(Customer customer:customers){  %> 
                    
                   
                   
                  
-                  <tr>
-				    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
-				    <td bgcolor="#EEEEEE"><div align="center">1</div></td>
-                    <td height="20" bgcolor="#FFFFFF"><div align="center"><%=customer.getUserid()%></div> </td>
-                    <td bgcolor="#FFFFFF"><div align="center"><%=customer.getName()%></div></td>
+                  <tr   bordercolor="#8FBC8F">
+				    <td ><input type="checkbox" name="delid"/></td>
+                    <td height="20" ><div align="center"><%=customer.getUserid()%></div> </td>
+                    <td ><div align="center"><%=customer.getName()%></div></td>
                     <td bgcolor="#FFFFFF"><div align="center"><%=customer.getGender()%></div></td>
                     <td bgcolor="#FFFFFF"><div align="center"><%=customer.getVersion() %></div></td>
                     <td bgcolor="#FFFFFF"><div align="center"><%=customer.getBirthday() %></div></td>
@@ -191,196 +204,12 @@ function link(){
                      <td bgcolor="#FFFFFF"><div align="center"><%=customer.getCollName() %></div></td>
                      
                      <td bgcolor="#FFFFFF"><div align="center"><%=customer.getColldate() %></div></td>
-                     <td bgcolor="#FFFFFF"><div align="center"><%=customer.getDisName() %></div></td>
-                    <td bgcolor="#FFFFFF"><div align="center"><a href="CustomerInfo.jsp">查看</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;<a href="Fincollect.jsp">采集</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="FinInter.jsp">判读</a></div></td>
+                     
+                    <td bgcolor="#FFFFFF"><div align="center"><input  type="button"   value="查看"   onclick="showCusInfo(<%=customer.getId()%>)" />&nbsp;&nbsp;
+                                                              <input  type="button"   value="采集"   onclick="showCollect(<%=customer.getId()%>)" />&nbsp;&nbsp;
+                                                              <input  type="button"   value="判读"   onclick="showInter(<%=customer.getId()%>)"  /></div></td>
                   </tr>
-				 <tr>
-				    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
-				    <td bgcolor="#EEEEEE"><div align="center">2</div></td>
-                    <td height="20" bgcolor="#FFFFFF"><div align="center">001</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">张三</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">男</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">成人</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">1990-01-11</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">18301756442</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center" class="top-font01">已采集</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">admin</div></td>
-                     <td bgcolor="#FFFFFF"><div align="center">2016-04-30</div></td>
-                  
-                     <td bgcolor="#FFFFFF"><div align="center">adk</div></td>
-                     <td bgcolor="#FFFFFF"><div align="center">2016-04-30</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center"><a href="listYuanGongGongZi.htm">查看</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">采集</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="listxianagmuxinxin.htm">判别</a></div></td>
-                  </tr>
-				  <tr>
-				    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
-				    <td bgcolor="#EEEEEE"><div align="center">3</div></td>
-                    <td height="20" bgcolor="#FFFFFF"><div align="center">001</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">张三</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">男</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">成人</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">1990-01-11</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">18301756442</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center" class="STYLE1">已采集</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">admin</div></td>
-                     <td bgcolor="#FFFFFF"><div align="center">2016-04-30</div></td>
-                    
-                     <td bgcolor="#FFFFFF"><div align="center">adk</div></td>
-                     <td bgcolor="#FFFFFF"><div align="center">2016-04-30</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center"><a href="listYuanGongGongZi.htm">查看</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">采集</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">判别</a></div></td>
-                  </tr>
-				 <tr>
-				    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
-				    <td bgcolor="#EEEEEE"><div align="center">4</div></td>
-                    <td height="20" bgcolor="#FFFFFF"><div align="center">001</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">张三</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">男</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">成人</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">1990-01-11</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">18301756442</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center"  class="top-font01">已采集</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">admin</div></td>
-                     <td bgcolor="#FFFFFF"><div align="center">2016-04-30</div></td>
-                    
-                     <td bgcolor="#FFFFFF"><div align="center">adk</div></td>
-                     <td bgcolor="#FFFFFF"><div align="center">2016-04-30</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center"><a href="listYuanGongGongZi.htm">查看</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">采集</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">判别</a></div></td>
-                  </tr>
-				 <tr>
-				    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
-				    <td bgcolor="#EEEEEE"><div align="center">5</div></td>
-                    <td height="20" bgcolor="#FFFFFF"><div align="center">001</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">张三</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">男</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">成人</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">1990-01-11</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">18301756442</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center" class="STYLE1">已采集</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">admin</div></td>
-                     <td bgcolor="#FFFFFF"><div align="center">2016-04-30</div></td>
-                    
-                     <td bgcolor="#FFFFFF"><div align="center">adk</div></td>
-                     <td bgcolor="#FFFFFF"><div align="center">2016-04-30</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center"><a href="listYuanGongGongZi.htm">查看</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">采集</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">判别</a></div></td>
-                  </tr>
-				 <tr>
-				    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
-				    <td bgcolor="#EEEEEE"><div align="center">6</div></td>
-                    <td height="20" bgcolor="#FFFFFF"><div align="center">001</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">张三</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">男</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">成人</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">1990-01-11</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">18301756442</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center" class="STYLE1">已采集</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">admin</div></td>
-                     <td bgcolor="#FFFFFF"><div align="center">2016-04-30</div></td>
-                    
-                     <td bgcolor="#FFFFFF"><div align="center">adk</div></td>
-                     <td bgcolor="#FFFFFF"><div align="center">2016-04-30</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center"><a href="listYuanGongGongZi.htm">查看</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">采集</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">判别</a></div></td>
-                  </tr>
-                   <tr>
-				    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
-				    <td bgcolor="#EEEEEE"><div align="center">7</div></td>
-                    <td height="20" bgcolor="#FFFFFF"><div align="center">001</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">张三</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">男</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">成人</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">1990-01-11</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">18301756442</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center" class="top-font01">已采集</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">admin</div></td>
-                     <td bgcolor="#FFFFFF"><div align="center">2016-04-30</div></td>
-                   
-                     <td bgcolor="#FFFFFF"><div align="center">adk</div></td>
-                     <td bgcolor="#FFFFFF"><div align="center">2016-04-30</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center"><a href="listYuanGongGongZi.htm">查看</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">采集</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">判别</a></div></td>
-                  </tr>
-                   <tr>
-				    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
-				    <td bgcolor="#EEEEEE"><div align="center">8</div></td>
-                    <td height="20" bgcolor="#FFFFFF"><div align="center">001</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">张三</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">男</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">成人</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">1990-01-11</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">18301756442</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center" class="STYLE1">已采集</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">admin</div></td>
-                     <td bgcolor="#FFFFFF"><div align="center">2016-04-30</div></td>
-                  
-                     <td bgcolor="#FFFFFF"><div align="center">adk</div></td>
-                     <td bgcolor="#FFFFFF"><div align="center">2016-04-30</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center"><a href="listYuanGongGongZi.htm">查看</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">采集</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">判别</a></div></td>
-                  </tr>
-                   <tr>
-                   <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
-				    <td bgcolor="#EEEEEE"><div align="center">9</div></td>
-                    <td height="20" bgcolor="#FFFFFF"><div align="center">001</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">张三</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">男</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">成人</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">1990-01-11</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">18301756442</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center" class="STYLE1">已采集</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">admin</div></td>
-                     <td bgcolor="#FFFFFF"><div align="center">2016-04-30</div></td>
-                   
-                     <td bgcolor="#FFFFFF"><div align="center">adk</div></td>
-                     <td bgcolor="#FFFFFF"><div align="center">2016-04-30</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center"><a href="listYuanGongGongZi.htm">查看</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">采集</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">判别</a></div></td>
-                  </tr>
-                   <tr>
-                   <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
-				    <td bgcolor="#EEEEEE"><div align="center">10</div></td>
-                    <td height="20" bgcolor="#FFFFFF"><div align="center">001</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">张三</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">男</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">成人</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">1990-01-11</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">18301756442</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center" class="top-font01">已采集</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">admin</div></td>
-                     <td bgcolor="#FFFFFF"><div align="center">2016-04-30</div></td>
-                   
-                     <td bgcolor="#FFFFFF"><div align="center">adk</div></td>
-                     <td bgcolor="#FFFFFF"><div align="center">2016-04-30</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center"><a href="listYuanGongGongZi.htm">查看</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">采集</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">判别</a></div></td>
-                  </tr>
-                   <tr>
-                   <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
-				    <td bgcolor="#EEEEEE"><div align="center">11</div></td>
-                    <td height="20" bgcolor="#FFFFFF"><div align="center">001</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">张三</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">男</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">成人</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">1990-01-11</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">18301756442</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center" class="STYLE1">已采集</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">admin</div></td>
-                     <td bgcolor="#FFFFFF"><div align="center">2016-04-30</div></td>
-                    
-                     <td bgcolor="#FFFFFF"><div align="center">adk</div></td>
-                     <td bgcolor="#FFFFFF"><div align="center">2016-04-30</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center"><a href="listYuanGongGongZi.htm">查看</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">采集</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">判别</a></div></td>
-                  </tr>
-                   <tr>
-                   <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
-				    <td bgcolor="#EEEEEE"><div align="center">12</div></td>
-                    <td height="20" bgcolor="#FFFFFF"><div align="center">001</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">张三</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">男</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">成人</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">1990-01-11</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">18301756442</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center" class="STYLE1">已采集</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center">admin</div></td>
-                     <td bgcolor="#FFFFFF"><div align="center">2016-04-30</div></td>
-                   
-                     <td bgcolor="#FFFFFF"><div align="center">adk</div></td>
-                     <td bgcolor="#FFFFFF"><div align="center">2016-04-30</div></td>
-                    <td bgcolor="#FFFFFF"><div align="center"><a href="listYuanGongGongZi.htm">查看</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">采集</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">判别</a></div></td>
-                  </tr>
+				
                    
                   <%} %>
                 </table></td>
