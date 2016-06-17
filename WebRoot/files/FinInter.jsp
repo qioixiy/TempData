@@ -55,32 +55,86 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 <link href="../css/css.css" rel="stylesheet" type="text/css" />
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../js/xiangmu.js"></script>
+<script type="text/javascript" src="<%=basePath%>/js/ajax.js"></script>
 </head>
 <SCRIPT language=JavaScript>
 
-
-
-
-
-function link1(){
-    document.getElementById("fom").action="/TempData/ListCusServlet";
-   document.getElementById("fom").submit();
-}
-
-function link2(){
-    document.getElementById("fom").action="files/Finanalysis.jsp";
-   document.getElementById("fom").submit();
-}
-
-function on_load(){
-	var loadingmsg=document.getElementById("loadingmsg");
-	var mainpage=document.getElementById("mainpage");
-	loadingmsg.style.display="";
-	mainpage.style.display="none";
+function save_data()
+{
+	var select_zhiwei = document.getElementById("select_zhiwei").selectedIndex;
+	var select_wenxing = document.getElementById("select_wenxing").selectedIndex;
+	if (select_zhiwei == 0) {
+		alert("请选择指位");
+		return;
+	}
+	if (select_wenxing == 0) {
+		alert("请选择纹形");
+		return;
+	}
 	
-	loadingmsg.style.display="none";
-	mainpage.style.display="";
+	var index = 1;
+	var zhiwei = new Array();
+	zhiwei[index++] = "L1";
+	zhiwei[index++] = "L2";
+	zhiwei[index++] = "L3";
+	zhiwei[index++] = "L4";
+	zhiwei[index++] = "L5";
+	zhiwei[index++] = "R1";
+	zhiwei[index++] = "R2";
+	zhiwei[index++] = "R3";
+	zhiwei[index++] = "R4";
+	zhiwei[index++] = "R5";
+	index = 1;
+	var wenxing = new Array();
+	wenxing[index++] = "Ws";
+	wenxing[index++] = "Wt";
+	wenxing[index++] = "We";
+	wenxing[index++] = "Wc";
+	wenxing[index++] = "Wd";
+	wenxing[index++] = "Wi";
+	wenxing[index++] = "Wu";
+	wenxing[index++] = "UC";
+	wenxing[index++] = "Wr";
+	wenxing[index++] = "Rc";
+	wenxing[index++] = "Lu";
+	wenxing[index++] = "Lr";
+	wenxing[index++] = "Rf";
+	wenxing[index++] = "Lf";
+	wenxing[index++] = "As";
+	wenxing[index++] = "Ae";
+	wenxing[index++] = "At";
+	wenxing[index++] = "AU";
+	wenxing[index++] = "Ar";
+	wenxing[index++] = "Xw";
+	wenxing[index++] = "Xu";
+	wenxing[index++] = "Xa";
+	wenxing[index++] = "Mf";
+	wenxing[index++] = "Ma";
+	
+	//alert(zhiwei[select_zhiwei] + wenxing[select_wenxing]);
+
+	var RCL = document.getElementById("input_RCL").value;
+	var RCR = document.getElementById("input_RCR").value;
+	
+	var param = "&zhiwei="+zhiwei[select_zhiwei] + "&wenxing=" + wenxing[select_wenxing];
+	param = param + "&RCL=" + RCL + "&RCR=" + RCR;
+	ajax_request("<%=basePath%>", "saveRcData", param);
 }
+
+	function link2() {
+		document.getElementById("fom").action = "files/Finanalysis.jsp";
+		document.getElementById("fom").submit();
+	}
+
+	function on_load() {
+		var loadingmsg = document.getElementById("loadingmsg");
+		var mainpage = document.getElementById("mainpage");
+		loadingmsg.style.display = "";
+		mainpage.style.display = "none";
+
+		loadingmsg.style.display = "none";
+		mainpage.style.display = "";
+	}
 </SCRIPT>
 
 <body onload="on_load()">
@@ -139,67 +193,63 @@ function on_load(){
                   </tr>
                   <tr>
                     <td  colspan="3" >
-                       <table    width="95%" border="0" align="center" cellpadding="0" cellspacing="0" style="height: 162px;">
+                       <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0" style="height: 162px;">
                            <tr>
-                              <td width="8%" height="60%" align="center" bgcolor="#FFFFFF"   rowspan="2"><font  size="5">指位</font></td>
-                              <td width="8%" height="60%" align="center" bgcolor="#FFFFFF"><label><input  name="L1"   type="radio"   value="L1"/>L1</label></td>
-                              <td width="8%" height="60%" align="center" bgcolor="#FFFFFF"><label><input  name="L2"   type="radio"   value="L2"/>L2</label></td>
-                              <td width="8%" height="60%" align="center" bgcolor="#FFFFFF"><label><input  name="L3"   type="radio"   value="L3"/>L3</label></td>
-                              <td width="8%" height="60%" align="center" bgcolor="#FFFFFF"><label><input  name="L4"   type="radio"   value="L4"/>L4</label></td>
-                              <td width="8%" height="60%" align="center" bgcolor="#FFFFFF"><label><input  name="L5"   type="radio"   value="L5"/>L5</label></td>
-                              <td width="10%" height="60%" align="center" bgcolor="#FFFFFF" >&nbsp;</td>
-                              <td width="6%" height="60%" align="right" bgcolor="#FFFFFF"><font  size="4">纹型：</font></td>
-                              <td width="15%" height="60%" align="left" bgcolor="#FFFFFF" colspan="4">
-                                  <select   id="temp" name="temp" style="width: 225px; height: 29px">
-                            <option selected="selected">--------选择--------</option>
-                            <option>螺旋斗(Ws)</option>
-                            <option>靶心斗(Wt)</option>
-                             <option>伸长斗(We)</option>
-                            <option>双斗(Wc)</option>
-                             <option>双箕(Wd)</option>
-                            <option>内破斗(Wi)</option>
-                             <option>尺偏斗(Wu)</option>
-                            <option>闭口尺箕(UC)</option>
-                            <option>桡偏斗(Wr)</option>
-                            <option>闭口桡箕（Rc）</option>
-                             <option>正箕（Lu）</option>
-                            <option>反箕(Lr)</option>
-                             <option>桡下降箕（Rf）</option>
-                            <option>尺下降箕（Lf）</option>
-                             <option>简单孤(As)</option>
-                            <option>围住孤(Ae)</option>
-                            <option>帐弧(At) </option>
-                            <option>孤带正箕(AU) </option>
-                             <option>孤带反箕(Ar) </option>
-                            <option>斗变形(Xw )</option>
-                             <option>箕变形 (Xu)</option>
-                            <option>孤变形(Xa ) </option>
-                             <option>无形纹(Mf)</option>
-                            <option>断指纹(Ma)</option>
-                           
-                        </select>
-                              </td>
-                              
-                              
+                              <select id="select_zhiwei" name="temp" style="width: 225px; height: 29px">
+                           	 	<option selected="selected">请选择指位</option>
+                            	<option>L1</option>
+                            	<option>L2</option>
+                            	<option>L3</option>
+                            	<option>L4</option>
+                            	<option>L4</option>
+                            	<option>R1</option>
+                            	<option>R2</option>
+                            	<option>R3</option>
+                            	<option>R4</option>
+                            	<option>R5</option>
+                            </select>
+                             <select id="select_wenxing" name="temp" style="width: 225px; height: 29px">
+                            	<option selected="selected" >请选择纹型</option>
+                            	<option>螺旋斗(Ws)</option>
+                            	<option>靶心斗(Wt)</option>
+                             	<option>伸长斗(We)</option>
+                            	<option>双斗(Wc)</option>
+                             	<option>双箕(Wd)</option>
+                            	<option>内破斗(Wi)</option>
+                             	<option>尺偏斗(Wu)</option>
+                            	<option>闭口尺箕(UC)</option>
+                            	<option>桡偏斗(Wr)</option>
+                            	<option>闭口桡箕（Rc）</option>
+                             	<option>正箕（Lu）</option>
+                            	<option>反箕(Lr)</option>
+                             	<option>桡下降箕（Rf）</option>
+                            	<option>尺下降箕（Lf）</option>
+                             	<option>简单孤(As)</option>
+                            	<option>围住孤(Ae)</option>
+                            	<option>帐弧(At) </option>
+                            	<option>孤带正箕(AU) </option>
+                             	<option>孤带反箕(Ar) </option>
+                            	<option>斗变形(Xw )</option>
+                             	<option>箕变形 (Xu)</option>
+                            	<option>孤变形(Xa ) </option>
+                             	<option>无形纹(Mf)</option>
+                            	<option>断指纹(Ma)</option>
+                           	</select>
+						</td>
+                               
                           </tr>
                              <tr>
-                             
-                              <td width="8%" height="0%" align="center" bgcolor="#FFFFFF"><label><input  name="R1"   type="radio"   value="R1"/>R1</label></td>
-                              <td width="8%" height="40%" align="center" bgcolor="#FFFFFF"><label><input  name="R2"   type="radio"   value="R2"/>R2</label></td>
-                              <td width="8%" height="40%" align="center" bgcolor="#FFFFFF"><label><input  name="R3"   type="radio"   value="R3"/>R3</label></td>
-                              <td width="8%" height="40%" align="center" bgcolor="#FFFFFF"><label><input  name="R4"   type="radio"   value="R4"/>R4</label></td>
-                              <td width="8%" height="40%" align="center" bgcolor="#FFFFFF"><label><input  name="R5"   type="radio"   value="R5"/>R5</label></td>
                               <td width="10%" height="40%" align="center" bgcolor="#FFFFFF">&nbsp;</td>
                               <td width="6%" height="40%" align="right" bgcolor="#FFFFFF"><font  size="4">左RC:</font></td>
                               <td width="10%" height="40%" align="left" bgcolor="#FFFFFF">
-                                <input    type="text" class="text" name="L1RCL" style="width: 74px" value=""/>
+                                <input id="input_RCL" type="text" class="text" name="RCL" style="width: 74px" value=""/>
                                  </td>
                               <td width="6%" height="40%" align="right" bgcolor="#FFFFFF"><font  size="4">右RC:</font></td>
                               <td width="10%" height="40%" align="left" bgcolor="#FFFFFF">
-                                  <input  type="text"  class="text" name="L1RCR" style="width: 61px" value=""/>
+                                  <input id="input_RCR" type="text"  class="text" name="RCR" style="width: 61px" value=""/>
                                 </td>
                               <td width="15%" height="40%" align="center" bgcolor="#FFFFFF">
-                                   <input type="submit" name="submit" value="保存" class="right-button08" />　
+                                   <input type="button" name="submit" value="保存" class="right-button08" onclick="save_data()"/>
                               </td>
                               
                           </tr>
@@ -208,12 +258,6 @@ function on_load(){
                     </td>
                   </tr>
                   
-				  
-				
-				 
-				
-				  
-				
                 </table></td>
               </tr>
             </table></td>

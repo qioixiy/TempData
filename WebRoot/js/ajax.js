@@ -68,9 +68,20 @@ function callBack_ImportPackage() {
 	}
 }
 
+function callBack_saveRcData() {
+	if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
+		var result = xmlHttpRequest.responseText;
+		if (result != "") {
+			;
+		} else {
+			alert("保存失败");
+		}
+	}
+}
+
 //提交ajax请求
 function ajax_request(server, param1, param2) {
-	//alert("param1:" + param1 + ",param2:" + param2);
+	alert("param1:" + param1 + ",param2:" + param2);
 	
 	createXMLHttpRequest();
 
@@ -95,6 +106,8 @@ function ajax_request(server, param1, param2) {
 		xmlHttpRequest.onreadystatechange = callBack_ExportPackage;
 	} else if (param1 == "importPackage") {
 		xmlHttpRequest.onreadystatechange = callBack_ImportPackage;
+	} else if (param1 == "saveRcData") {
+		xmlHttpRequest.onreadystatechange = callBack_saveRcData;
 	} else {
 		alert("不支持子功能");
 		return;
@@ -103,7 +116,7 @@ function ajax_request(server, param1, param2) {
 			"application/x-www-form-urlencoded");
 
 	xmlHttpRequest.send(paramer);// 发送请求;
-	//alert(url);
+	alert(url);
 }
 
 function test() {
