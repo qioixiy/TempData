@@ -58,9 +58,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 </style>
 
 <link href="../css/css.css" rel="stylesheet" type="text/css" />
-<script type="text/JavaScript">
-
-</script>
+<script type="text/JavaScript" src="<%=basePath %>/js/ajax.js" > </script>
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <SCRIPT language=JavaScript>

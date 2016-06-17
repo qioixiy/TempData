@@ -97,6 +97,90 @@
     <servlet-class>com.xxx.utils.ajax</servlet-class>
   </servlet>
 
+<!--servlet-mapping-->
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/login.action</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>addCusServlet</servlet-name>
+    <url-pattern>/addCusServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>CusViewServlet</servlet-name>
+    <url-pattern>/CusViewServlet</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet-mapping>
+    <servlet-name>ListServlet</servlet-name>
+    <url-pattern>/ListServlet</url-pattern>
+  </servlet-mapping> 
+  
+  <servlet-mapping>
+    <servlet-name>ListCusServlet</servlet-name>
+    <url-pattern>/ListCusServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CusListServlet</servlet-name>
+    <url-pattern>/CusListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InterServlet</servlet-name>
+    <url-pattern>/InterServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CustomerS</servlet-name>
+    <url-pattern>/CustomerS</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CustomerServlet</servlet-name>
+    <url-pattern>/CustomerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CollectS</servlet-name>
+    <url-pattern>/CollectS</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CollectServlet</servlet-name>
+    <url-pattern>/CollectServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>IntAnalyS</servlet-name>
+    <url-pattern>/IntAnalyS</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>IntAnalyServlet</servlet-name>
+    <url-pattern>/IntAnalyServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DataCusS</servlet-name>
+    <url-pattern>/DataCusS</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DataCusServlet</servlet-name>
+    <url-pattern>/DataCusServlet</url-pattern>
+  </servlet-mapping>
+  <!-- 
+  <servlet-mapping>
+    <servlet-name>FinData</servlet-name>
+    <url-pattern>/FinData</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FprCapMain</servlet-name>
+    <url-pattern>/FprCapMain</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ListFinType</servlet-name>
+    <url-pattern>/ListFinType</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ajax</servlet-name>
+    <url-pattern>/ajax</url-pattern>
+  </servlet-mapping>
+  -->
+  
  <welcome-file-list>
     <welcome-file>login.jsp</welcome-file>
  </welcome-file-list>
