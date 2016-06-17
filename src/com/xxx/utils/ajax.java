@@ -63,6 +63,22 @@ public class ajax extends HttpServlet {
 		}
 	}
 
+	private boolean saveRcData(HttpServletRequest request, HttpServletResponse response)
+	{
+		boolean ret = false;
+		
+		//http://localhost:8080/TempData//ajax?subFunc=saveRcData&zhiwei=L2&wenxing=As&RCL=1&RCR=2
+		String zhiwei = request.getParameter("zhiwei");
+		String wenxing = request.getParameter("wenxing");
+		String RCL = request.getParameter("RCL");
+		String RCR = request.getParameter("RCR");
+		
+		System.out.println("zhiwei:" + zhiwei + ",wenxing:" + wenxing + ",RCL:" + RCL + ",RCR:" + RCR);
+		
+		
+		
+		return ret;
+	}
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -127,6 +143,11 @@ public class ajax extends HttpServlet {
 				break;
 			case "importPackage":
 				break;
+			case "saveRcData":
+				saveRcData(request, response);
+				break;
+			default:
+				System.out.println("unkown command");
 			}
 		}
 		response.getWriter().append("");
