@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import cn.fingerdata.bean.Customer;
 import cn.fingerdata.biz.impl.CustomerListBizImpl;
@@ -47,19 +48,17 @@ public class CollectServlet extends HttpServlet {
 	    /*
 	     * 根据id类型不同进行跳转
 	     */
-	     if(type.equals("Collect")){
-				rd=request.getRequestDispatcher("files/Fincollect.jsp");
-			}else  if(type.equals("Listtype")){
-				rd=request.getRequestDispatcher("/ListFinType");
-				
-			}
-			
-			rd.forward(request, response);
-		
+	    if(type.equals("Collect")){
+			rd=request.getRequestDispatcher("files/Fincollect.jsp");
+		}else if(type.equals("Listtype")){
+			rd=request.getRequestDispatcher("/ListFinType");	
 		}
-
-	
-	
+	    
+	    HttpSession session = request.getSession(); 
+		session.setAttribute("CollectUserID", request.getParameter("id"));
+			
+		rd.forward(request, response);
+	}
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
