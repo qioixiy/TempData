@@ -354,27 +354,25 @@ function on_load(){
 				              </tr>
 				             <tr  height="40"   bordercolor="#8FBC8F"  align="center">
 				                 <td  width="12%"  bgcolor="#5F9EA0">数值</td>
-				                 <td  width="11%">&nbsp;</td>
-				                 <td  width="11%">&nbsp;</td>
-				                 <td  width="11%">&nbsp;</td> 
-				                 <td  width="11%">&nbsp;</td>
-				                 <td  width="11%">&nbsp;</td>
-				           
-				                 <td  width="11%">&nbsp;</td>
-				                 <td  width="11%">&nbsp;</td> 
-				                 <td  width="11%">&nbsp;</td> 
+				                 <td  width="11%"><%=FinData.N1%></td>
+				                 <td  width="11%"><%=FinData.N2%></td>
+				                 <td  width="11%"><%=FinData.N3%></td> 
+				                 <td  width="11%"><%=FinData.N4%></td>
+				                 <td  width="11%"><%=FinData.N5%></td> 
+				                 <td  width="11%"><%=FinData.N6%></td>
+				                 <td  width="11%"><%=FinData.N7%></td> 
+				                 <td  width="11%"><%=FinData.N8%></td> 
 				              </tr>
 				        <tr  height="40"   bordercolor="#8FBC8F"  align="center">
 				                 <td  width="12%"  bgcolor="#5F9EA0">排序</td>
-				                  <td  width="11%">&nbsp;</td>
-				                 <td  width="11%">&nbsp;</td>
-				                 <td  width="11%">&nbsp;</td>
-				                 <td  width="11%">&nbsp;</td> 
-				                 <td  width="11%">&nbsp;</td>
-				                 <td  width="11%">&nbsp;</td>
-				           
-				                 <td  width="11%">&nbsp;</td>
-				                 <td  width="11%">&nbsp;</td> 
+				                  <td  width="11%"><%=FinData.I1%></td>
+				                 <td  width="11%"><%=FinData.I2%></td>
+				                 <td  width="11%"><%=FinData.I3%></td>
+				                 <td  width="11%"><%=FinData.I4%></td> 
+				                 <td  width="11%"><%=FinData.I5%></td>
+				                 <td  width="11%"><%=FinData.I6%></td>
+				                 <td  width="11%"><%=FinData.I7%></td>
+				                 <td  width="11%"><%=FinData.I8%></td> 
 				                
 				              </tr>
 				             
