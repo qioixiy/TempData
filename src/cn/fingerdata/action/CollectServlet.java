@@ -50,7 +50,7 @@ public class CollectServlet extends HttpServlet {
 	     if(type.equals("Collect")){
 				rd=request.getRequestDispatcher("files/Fincollect.jsp");
 			}else  if(type.equals("Listtype")){
-				rd=request.getRequestDispatcher("files/listFintype.jsp");
+				rd=request.getRequestDispatcher("/ListFinType");
 				
 			}
 			
