@@ -16,20 +16,6 @@ import cn.fingerdata.bizz.CustomerBiz;
 
 public class DataCusS extends HttpServlet {
 
-	/**
-	 * Constructor of the object.
-	 */
-	public DataCusS() {
-		super();
-	}
-
-	/**
-	 * Destruction of the servlet. <br>
-	 */
-	public void destroy() {
-		super.destroy(); // Just puts "destroy" string in log
-		// Put your code here
-	}
 
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -52,14 +38,6 @@ public class DataCusS extends HttpServlet {
 	}
 
 
-	
-	/**
-	 * Initialization of the servlet. <br>
-	 *
-	 * @throws ServletException if an error occurs
-	 */
-	public void init() throws ServletException {
-		// Put your code here
-	}
+
 
 }

@@ -16,17 +16,7 @@ import cn.fingerdata.bizz.CustomerBiz;
 
 public class CusViewServlet extends HttpServlet {
 
-	/**
-	 * Constructor of the object.
-	 */
-	public CusViewServlet() {
-		super();
-	}
 
-	public void destroy() {
-		super.destroy(); // Just puts "destroy" string in log
-		// Put your code here
-	}
 
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -39,13 +29,6 @@ public class CusViewServlet extends HttpServlet {
 		 RequestDispatcher  rd=null;
 		 String  type=request.getParameter("type");
 		 int   id=Integer.valueOf(request.getParameter("id"));
-		 System.out.println(type+"type");
-		 System.out.println(id+"++");
-         CustomerBiz cbz = new CustomerBizImpl();
-	     List<Customer> cs = cbz.getCustomer8Conditions("姓名", "小");
-	     
-	     System.out.println("通过条件获取的结果:" + cs.get(0).getName());
-	     System.out.println("通过条件获取的结果:" + cs.get(1).getName());
 		 
 	     CustomerBiz  customerBiz=new  CustomerBizImpl();
 	     Customer  customer=customerBiz.getCustomer(id);
@@ -75,13 +58,6 @@ public class CusViewServlet extends HttpServlet {
 		doGet(request,response);
 	}
 
-	/**
-	 * Initialization of the servlet. <br>
-	 *
-	 * @throws ServletException if an error occurs
-	 */
-	public void init() throws ServletException {
-		// Put your code here
-	}
+
 
 }

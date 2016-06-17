@@ -15,24 +15,10 @@ import cn.fingerdata.biz.impl.CustomerListBizImpl;
 import cn.fingerdata.bizz.CustomerListBiz;
 
 public class CollectS extends HttpServlet {
-
-	/**
-	 * Constructor of the object.
-	 */
-	public CollectS() {
-		super();
-	}
-
-	/**
-	 * Destruction of the servlet. <br>
-	 */
-	public void destroy() {
-		super.destroy(); // Just puts "destroy" string in log
-		// Put your code here
-	}
+	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("进入CollectS");
+		
 		CustomerListBiz  customerListBiz= new  CustomerListBizImpl();
 		List<Customer> customers=customerListBiz.getAllCustomers();
 		System.out.println(customers.size());

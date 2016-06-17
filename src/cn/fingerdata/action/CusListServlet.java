@@ -18,20 +18,6 @@ import cn.fingerdata.bizz.CustomerListBiz;
 
 public class CusListServlet extends HttpServlet {
 
-	/**
-	 * Constructor of the object.
-	 */
-	public CusListServlet() {
-		super();
-	}
-
-	/**
-	 * Destruction of the servlet. <br>
-	 */
-	public void destroy() {
-		super.destroy(); // Just puts "destroy" string in log
-		// Put your code here
-	}
 
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -48,7 +34,7 @@ public class CusListServlet extends HttpServlet {
 	     CustomerListBiz  customerListBiz=new  CustomerListBizImpl();
 	     Customer  customer=customerListBiz.getCustomer(id);
 	     request.setAttribute("customer",customer);
-	     System.out.println("娃哈" + customer);
+	 
  
 	    /*
 	     * 根据id类型不同进行跳转
@@ -57,7 +43,6 @@ public class CusListServlet extends HttpServlet {
 				rd=request.getRequestDispatcher("files/FinInter.jsp");
 			}else  if(type.equals("Analysis")){
 				rd=request.getRequestDispatcher("/IntAnalyServlet?Inter_id=" + customer.getId()+"&type="+"Analysis");
-				
 			}
 			
 			rd.forward(request, response);

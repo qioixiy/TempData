@@ -114,6 +114,20 @@ function showInter(id){
      location.href="/TempData/CusViewServlet?type=Inter&id="+id;
 }
 
+function searchConditions(){
+  //获取多选框中的内容
+  //获取主节点
+  var s4 = document.getElementById("select4");
+  var sValue = document.getElementById("textfield").value;
+  
+  for(var i = 0 ; i < s4.childNodes.length;i++){
+   if(s4.childNodes.item(i).selected){
+   alert(s4.childNodes.item(i).value+ " " +sValue);
+    location.href="http://localhost:8080/TempData/CustomerS?conditions="+s4.childNodes.item(i).value+"&param="+sValue;
+   }
+  }
+};
+
 
 </SCRIPT>
 
@@ -129,18 +143,19 @@ function showInter(id){
 		   <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
 		    <tr>
 			  <td width="24"><img src="../images/ico07.gif" width="20" height="18" /></td>
-			  <td width="600"><select name="select4">
-				    <option>编号</option>
-				    <option>性别</option>
-				    <option>姓名</option>
-				    <option>版本</option>
-				    <option>采集师</option>
-				    <option>判别师</option>
-				    <option>生日</option>
-				    <option>年龄</option>
+			  <td width="600"><select id="select4" name="select4">
+			        <option value="全部">全部</option>
+				    <option value="编号">编号</option>
+				    <option value="性别">性别</option>
+				    <option value="姓名">姓名</option>
+				    <option value="版本">版本</option>
+				    <option value="采集师">采集师</option>
+				    <option value="判别师">判别师</option>
+				    <option value="生日">生日</option>
+				    <option value="年龄">年龄</option>
 			      </select>&nbsp;
-			   <input name="textfield" type="text" size="35" >	
-			   <input name="Submit" type="button" class="right-button02" value="查 询" /></td>
+			   <input id="textfield" name="textfield" type="text" size="35" >	
+			   <input name="Submit" type="button" class="right-button02" onclick="searchConditions()" value="查 询" /></td>
 			   <td width="679" align="left">&nbsp; </td>	
 		    </tr>
           </table></td>

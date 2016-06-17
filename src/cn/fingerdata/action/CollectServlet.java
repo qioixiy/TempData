@@ -42,8 +42,7 @@ public class CollectServlet extends HttpServlet {
 		 String  type=request.getParameter("type");
 		 int   id=Integer.valueOf(request.getParameter("id"));
 	     CustomerListBiz  customerListBiz=new  CustomerListBizImpl();
-	     Customer  customer=customerListBiz.getCustomer(id);
-	    System.out.println(customer + "---===--"); 
+	     Customer  customer=customerListBiz.getCustomer(id); 
 	     request.setAttribute("customer",customer);
 	    /*
 	     * 根据id类型不同进行跳转

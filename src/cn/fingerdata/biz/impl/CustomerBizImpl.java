@@ -62,11 +62,34 @@ public class CustomerBizImpl implements CustomerBiz {
 	public List<Customer> getCustomer8Conditions(String conditions,Object obj) {
 		List<Customer> customers= new ArrayList<Customer>();
 		
+		if(conditions.equals("全部")){
+			return customers;
+		}
 		if(conditions.equals("姓名")){
-			System.out.println(conditions + "----------" + obj);
 			customers = customerDao.find8Object("name", obj);
 		}else if(conditions.equals("年龄")){
 			customers = customerDao.find8Object("age", obj);
+		}
+		else if(conditions.equals("编号")){
+			customers = customerDao.find8Object("userid", obj);
+		}
+		else if(conditions.equals("性别")){
+			customers = customerDao.find8Object("gender", obj);
+		}
+		else if(conditions.equals("版本")){
+			customers = customerDao.find8Object("version", obj);
+		}
+		else if(conditions.equals("采集师编号")){
+			customers = customerDao.find8Object("collId", obj);
+		}
+		else if(conditions.equals("采集师")){
+			customers = customerDao.find8Object("collName", obj);
+		}
+		else if(conditions.equals("采集日期")){
+			customers = customerDao.find8Object("colldate", obj);
+		}
+		else if(conditions.equals("生日")){
+			customers = customerDao.find8Object("birthday", obj);
 		}
 		return customers;
 	}

@@ -134,9 +134,14 @@ function import_package()
 				    <option>编号</option>
 				    <option>性别</option>
 				    <option>姓名</option>
+				    <option>版本</option>
 				    <option>年龄</option>
+				    <option>出生日期</option>
+				    <option>采集师编号</option>
+				    <option>采集师</option>
+				    <option>采集日期</option>
 			      </select>&nbsp;
-			   <input name="textfield" type="text" size="35" readonly="readonly"/>	
+			   <input name="textfield" type="text" size="35" />	
 			   <input name="Submit" type="button" class="right-button02" value="查 询" /></td>
 			   <td width="679" align="left">
 			     &nbsp;&nbsp;&nbsp;&nbsp;

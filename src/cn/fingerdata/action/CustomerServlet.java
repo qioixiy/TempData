@@ -19,21 +19,6 @@ import cn.fingerdata.bizz.CustomerListBiz;
 public class CustomerServlet extends HttpServlet {
 
 
-	/**
-	 * Constructor of the object.
-	 */
-	public CustomerServlet() {
-		super();
-	}
-
-	/**
-	 * Destruction of the servlet. <br>
-	 */
-	public void destroy() {
-		super.destroy(); // Just puts "destroy" string in log
-		// Put your code here
-	}
-
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

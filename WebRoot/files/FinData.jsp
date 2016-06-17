@@ -1,16 +1,16 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@page  import="cn.fingerdata.bean.Customer" %>
- <%@page import="com.xxx.utils.*" %>
-<%@page  import="com.xxx.servlet.FinData" %>
+ <%-- <%@page import="com.xxx.utils.*" %>
+<%@page  import="com.xxx.servlet.FinData" %> --%>
 <%
    Customer  customer=(Customer)request.getAttribute("customer");
  %>
  
  
- <%
+<%--  <%
  
     algorithm.algorithmOutput FinData = (algorithm.algorithmOutput)request.getAttribute("FinData");
-%>
+%> --%>
 
 
 <%
@@ -239,7 +239,7 @@ function on_load(){
 				                 <td  width="9%">R4</td>
 				                 <td  width="8%">R5</td>
 				              </tr>
-				             <tr  height="40"   bordercolor="#8FBC8F"  align="center">
+		<%-- 		             <tr  height="40"   bordercolor="#8FBC8F"  align="center">
 				                 <td  width="12%"   bgcolor="#5F9EA0">纹型代码</td>
 				                  <td  width="9%"><%=FinData.L1temp %></td>
 				                 <td  width="9%"><%=FinData.L2temp %></td>
@@ -252,7 +252,7 @@ function on_load(){
 				                 <td  width="9%"><%=FinData.R4temp %></td>
 				                 <td  width="8%"><%=FinData.R5temp %></td>
 				              </tr>
-				              
+				               --%>
 				           
 				             <tr  height="25"   bordercolor="#8FBC8F">
 				                 <td  width="9%"  colspan="11">&nbsp;</td>
@@ -333,14 +333,14 @@ function on_load(){
 				              </tr>
 				              
 				               
-				               <tr  height="40"   bordercolor="#8FBC8F"  align="center" >
+				             <%--   <tr  height="40"   bordercolor="#8FBC8F"  align="center" >
 				                 <td  width="12%"    bgcolor="#5F9EA0">理性/感性</td>
 				                  <td  width="18%"><%=FinData.reason1%>/<%=FinData.Sensibility1%></td>
 				                 <td  width="18%"><%=FinData.reason2%>/<%=FinData.Sensibility2%></td>
 				                 <td  width="18%"><%=FinData.reason3%>/<%=FinData.Sensibility3%></td>
 				                 <td  width="18%"><%=FinData.reason4%>/<%=FinData.Sensibility4%></td>
 				                 <td  width="18%"><%=FinData.reason5%>/<%=FinData.Sensibility5%></td>
-				              </tr>
+				              </tr> --%>
 				               <tr  height="25"   bordercolor="#8FBC8F"  align="center"  >
 				                 <td  width="12%"   colspan="6">&nbsp;</td>
 				                
@@ -359,13 +359,13 @@ function on_load(){
 				                 <td  width="30%">体觉</td>
 				                 
 				              </tr>
-				               <tr  height="40"   bordercolor="#8FBC8F"  align="center">
+				              <%--  <tr  height="40"   bordercolor="#8FBC8F"  align="center">
 				                 <td  width="12%" bgcolor="#5F9EA0" >百分比</td>
 				               <td  width="29%"><%=FinData.Visual%></td>
 				                 <td  width="29%"><%=FinData.AuditorySense%></td>
 				                 <td  width="30%"><%=FinData.Somatosensory%></td>
 				                 
-				              </tr>
+				              </tr> --%>
 				               <tr  height="25"   bordercolor="#8FBC8F"  align="center"  >
 				                 <td  width="12%"  colspan="4"></td>
 				               

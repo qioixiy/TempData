@@ -99,10 +99,15 @@ function link(){
 		    <tr>
 			  <td width="24"><img src="../images/ico07.gif" width="20" height="18" /></td>
 			  <td width="600"><select name="select4" style="width: 118px; height: 19px">
-				    <option>编号</option>
+				   <option>编号</option>
 				    <option>性别</option>
 				    <option>姓名</option>
+				    <option>版本</option>
 				    <option>年龄</option>
+				    <option>出生日期</option>
+				    <option>采集师编号</option>
+				    <option>采集师</option>
+				    <option>采集日期</option>
 			      </select>&nbsp;
 			   <input name="textfield" type="text" size="35" readonly="readonly"/>	
 			   <input name="Submit" type="button" class="right-button02" value="查 询" /></td>
