@@ -119,6 +119,44 @@ function ajax_request(server, param1, param2) {
 	//alert(url);
 }
 
+function callBack_FinInterSelectChange() {
+	if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
+		var result = xmlHttpRequest.responseText;
+		//alert(result);
+		var urls = result.split("|");
+		//alert(urls);
+		if (result != "") {
+			document.getElementById("FinBmpL").src = urls[0];
+			document.getElementById("FinBmpR").src = urls[1];
+			document.getElementById("FinBmpC").src = urls[2];
+		} else {
+			alert("失败");
+		}
+	}
+}
+
+function url_request(url) {
+//alert(url);
+	
+	createXMLHttpRequest();
+
+	var method = null;
+	var use_get = true;
+	if (use_get) {
+		paramer = null;
+		method = "GET";
+	} else {
+		method = "POST";
+	}
+	xmlHttpRequest.open(method, url, true);
+	xmlHttpRequest.onreadystatechange = callBack_FinInterSelectChange;
+	xmlHttpRequest.setRequestHeader("Content-type",
+			"application/x-www-form-urlencoded");
+
+	xmlHttpRequest.send(paramer);// 发送请求;
+	//alert(url);
+}
+
 function test() {
 	alert("test");
 }

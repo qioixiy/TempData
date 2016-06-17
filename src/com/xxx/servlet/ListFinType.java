@@ -50,6 +50,8 @@ public class ListFinType extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		String detail = request.getParameter("detail");
 
 		System.out.println("ListFinType enter");
 		
@@ -134,11 +136,20 @@ public class ListFinType extends HttpServlet {
 				urls.put("R5C", basePath + "images/FprCap/data/" + R5C);
 				
 				System.out.println(urls);
-
-				request.setAttribute("urls", urls);
 				
-				RequestDispatcher drDispatcher = request.getRequestDispatcher("files/listFintype.jsp");
-				drDispatcher.forward(request, response);
+				if (detail != null) {
+					response.getWriter().append(urls.get(detail + "L"));
+					response.getWriter().append("|");
+					response.getWriter().append(urls.get(detail + "R"));
+					response.getWriter().append("|");
+					response.getWriter().append(urls.get(detail + "C"));
+					System.out.println(detail + urls.get(detail));
+				} else {
+					request.setAttribute("urls", urls);
+				
+					RequestDispatcher drDispatcher = request.getRequestDispatcher("files/listFintype.jsp");
+					drDispatcher.forward(request, response);
+				}
 			}
 		}catch(Exception  e){
 			e.printStackTrace();

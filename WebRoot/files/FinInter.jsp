@@ -121,6 +121,14 @@ function save_data()
 	ajax_request("<%=basePath%>", "saveRcData", param);
 }
 
+function select_onchange(value)
+{
+	//http://localhost:8080/TempData/ListFinType?detail=L2
+	//alert(value);
+	var url = "<%=basePath%>/ListFinType?detail=" + value;
+	//alert(url);
+	url_request(url);
+}
 	function link2() {
 		document.getElementById("fom").action = "files/Finanalysis.jsp";
 		document.getElementById("fom").submit();
@@ -175,9 +183,15 @@ function save_data()
                     </tr>
                   <tr  bordercolor="#8FBC8F">
 				    
-                    <td width="25%" height="55%" align="center" bgcolor="#5F9EA0">&nbsp;</td>
-                    <td width="25%" height="55%  align="center"  bgcolor="#5F9EA0">&nbsp;</td>
-                    <td width="25%" height="55%   align="center" bgcolor="#5F9EA0">&nbsp;</td> 
+                    <td width="25%" height="55%" align="center" bgcolor="#5F9EA0">
+						<img id="FinBmpL" width="100%" height="100%"/>
+					</td>
+                    <td width="25%" height="55%  align="center"  bgcolor="#5F9EA0">
+						<img id="FinBmpC" width="100%" height="100%"/>
+					</td>
+                    <td width="25%" height="55%   align="center" bgcolor="#5F9EA0">
+						<img id="FinBmpR" width="100%" height="100%"/>
+					</td> 
                   </tr>
                   <tr  bordercolor="#8FBC8F">
                      <td width="25%" height="10%" align="center" bordercolor="#8FBC8F" >
@@ -195,7 +209,7 @@ function save_data()
                     <td  colspan="3" >
                        <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0" style="height: 162px;">
                            <tr>
-                              <select id="select_zhiwei" name="temp" style="width: 225px; height: 29px">
+                              <select id="select_zhiwei" name="temp" style="width: 225px; height: 29px"  onchange="select_onchange(this.value);">
                            	 	<option selected="selected">请选择指位</option>
                             	<option>L1</option>
                             	<option>L2</option>
