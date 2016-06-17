@@ -2,6 +2,10 @@ package com.xxx.utils;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -12,10 +16,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.FprCap.*;
 import com.FprCap.FprCap;
 import com.xxx.zip.Zip;
+
+import cn.fingerdata.dao1.BaseDataBaseDao;
 
 /**
  * Servlet implementation class ajax
@@ -68,14 +75,66 @@ public class ajax extends HttpServlet {
 		boolean ret = false;
 		
 		//http://localhost:8080/TempData//ajax?subFunc=saveRcData&zhiwei=L2&wenxing=As&RCL=1&RCR=2
+		String CollectUserID = "2";
 		String zhiwei = request.getParameter("zhiwei");
-		String wenxing = request.getParameter("wenxing");
+		String wenxing_code = request.getParameter("wenxing");
+		String wenxing[] = new String[30];
+		int index = 1;
+		wenxing[index++] = "Ws";
+		wenxing[index++] = "Wt";
+		wenxing[index++] = "We";
+		wenxing[index++] = "Wc";
+		wenxing[index++] = "Wd";
+		wenxing[index++] = "Wi";
+		wenxing[index++] = "Wu";
+		wenxing[index++] = "UC";
+		wenxing[index++] = "Wr";
+		wenxing[index++] = "Rc";
+		wenxing[index++] = "Lu";
+		wenxing[index++] = "Lr";
+		wenxing[index++] = "Rf";
+		wenxing[index++] = "Lf";
+		wenxing[index++] = "As";
+		wenxing[index++] = "Ae";
+		wenxing[index++] = "At";
+		wenxing[index++] = "AU";
+		wenxing[index++] = "Ar";
+		wenxing[index++] = "Xw";
+		wenxing[index++] = "Xu";
+		wenxing[index++] = "Xa";
+		wenxing[index++] = "Mf";
+		wenxing[index++] = "Ma";
+		int wenxingNum = 1;
+		for (int i = 1; i < wenxing.length; i++) {
+			if (wenxing[i] == wenxing_code) {
+				wenxingNum = i;
+			}
+		}
 		String RCL = request.getParameter("RCL");
 		String RCR = request.getParameter("RCR");
 		
-		System.out.println("zhiwei:" + zhiwei + ",wenxing:" + wenxing + ",RCL:" + RCL + ",RCR:" + RCR);
+		System.out.println("zhiwei:" + zhiwei + ",wenxing:" + wenxing_code + ",RCL:" + RCL + ",RCR:" + RCR);
 		
+		Connection conn = BaseDataBaseDao.getConnection();
+		String sql = String.format("SELECT * FROM `tempinter` WHERE userid = %s", CollectUserID);
+		sql = String.format("UPDATE `tempdata`.`tempinter` SET `%stemp` = '%d',`%sRCL` = '%s',`%sRCR` = '%s' WHERE `tempinter`.`userid` =%s;",
+				zhiwei, wenxingNum,
+				zhiwei, RCL,
+				zhiwei, RCR,
+				CollectUserID);
+		System.out.println(sql);
 		
+		Statement stmt;
+		try {
+			stmt = conn.createStatement();
+			int result = stmt.executeUpdate(sql);
+			if(result>0) {
+				System.out.println("executeQuery ok");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return ret;
 	}
@@ -85,6 +144,13 @@ public class ajax extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		HttpSession session = request.getSession(); 
+		String mCollectUserID = (String)session.getAttribute("CollectUserID");
+		if (mCollectUserID == null) {
+			//System.out.println("CollectUserID == null");
+			//return;
+		}
 
 		String path = request.getContextPath();
 		String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path
