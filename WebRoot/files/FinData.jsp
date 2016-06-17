@@ -1,9 +1,9 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@page  import="cn.fingerdata.bean.Customer" %>
- <%-- <%@page import="com.xxx.utils.*" %>
+<%@page import="com.xxx.utils.*" %>
 <%@page  import="com.xxx.servlet.FinData" %> --%>
 <%
-   Customer  customer=(Customer)request.getAttribute("customer");
+algorithm.algorithmOutput customer=(algorithm.algorithmOutput)request.getAttribute("FinData");
  %>
  
  
