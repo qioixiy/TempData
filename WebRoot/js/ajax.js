@@ -81,7 +81,7 @@ function callBack_saveRcData() {
 
 //提交ajax请求
 function ajax_request(server, param1, param2) {
-	alert("param1:" + param1 + ",param2:" + param2);
+	//alert("param1:" + param1 + ",param2:" + param2);
 	
 	createXMLHttpRequest();
 
@@ -116,7 +116,7 @@ function ajax_request(server, param1, param2) {
 			"application/x-www-form-urlencoded");
 
 	xmlHttpRequest.send(paramer);// 发送请求;
-	alert(url);
+	//alert(url);
 }
 
 function test() {
