@@ -7,6 +7,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <%
   Map<String, String> urls = (Map<String, String>)request.getAttribute("urls");
+	
+if (urls == null) {
+	urls = new HashMap<String, String>();
+	urls.put("L1L", basePath + "images/FprCap/data/");
+	urls.put("L1R", basePath + "images/FprCap/data/");
+	urls.put("L1C", basePath + "images/FprCap/data/");
+	urls.put("L2L", basePath + "images/FprCap/data/");
+	urls.put("L2R", basePath + "images/FprCap/data/");
+	urls.put("L2C", basePath + "images/FprCap/data/");
+	urls.put("L3L", basePath + "images/FprCap/data/");
+	urls.put("L3R", basePath + "images/FprCap/data/");
+	urls.put("L3C", basePath + "images/FprCap/data/");
+	urls.put("L4L", basePath + "images/FprCap/data/");
+	urls.put("L4R", basePath + "images/FprCap/data/");
+	urls.put("L4C", basePath + "images/FprCap/data/");
+	urls.put("L5L", basePath + "images/FprCap/data/");
+	urls.put("L5R", basePath + "images/FprCap/data/");
+	urls.put("L5C", basePath + "images/FprCap/data/");
+
+	urls.put("R1L", basePath + "images/FprCap/data/");
+	urls.put("R1R", basePath + "images/FprCap/data/");
+	urls.put("R1C", basePath + "images/FprCap/data/");
+	urls.put("R2L", basePath + "images/FprCap/data/");
+	urls.put("R2R", basePath + "images/FprCap/data/");
+	urls.put("R2C", basePath + "images/FprCap/data/");
+	urls.put("R3L", basePath + "images/FprCap/data/");
+	urls.put("R3R", basePath + "images/FprCap/data/");
+	urls.put("R3C", basePath + "images/FprCap/data/");
+	urls.put("R4L", basePath + "images/FprCap/data/");
+	urls.put("R4R", basePath + "images/FprCap/data/");
+	urls.put("R4C", basePath + "images/FprCap/data/");
+	urls.put("R5L", basePath + "images/FprCap/data/");
+	urls.put("R5R", basePath + "images/FprCap/data/");
+	urls.put("R5C", basePath + "images/FprCap/data/");
+}
 %>
 
 
