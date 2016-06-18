@@ -60,6 +60,7 @@ function callBack_ExportPackage() {
 function callBack_ImportPackage() {
 	if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
 		var result = xmlHttpRequest.responseText;
+		alert(ImportPackage);
 		if (result != "") {
 			window.open(result);
 		} else {
@@ -81,7 +82,7 @@ function callBack_saveRcData() {
 
 //提交ajax请求
 function ajax_request(server, param1, param2) {
-	//alert("param1:" + param1 + ",param2:" + param2);
+	alert("param1:" + param1 + ",param2:" + param2);
 	
 	createXMLHttpRequest();
 
@@ -92,7 +93,7 @@ function ajax_request(server, param1, param2) {
 	var method = null;
 	var use_get = true;
 	if (use_get) {
-		url = url + "?" + paramer;
+		url = url + "?" + paramer + "&now=" + new Date().getTime();
 		paramer = null;
 		method = "GET";
 	} else {
@@ -168,16 +169,17 @@ function UpladFile() {
 	form.append("file", fileObj); // 文件对象
 
 	// XMLHttpRequest 对象
-	var xhr = new XMLHttpRequest();
-	xhr.open("post", FileController, true);
+	createXMLHttpRequest();
+	xmlHttpRequest.open("post", FileController, true);
 
-	xhr.onload = function() {
-		alert("upload success");
+	xmlHttpRequest.onload = function() {
 		//alert(window.location);
-		ajax_request("http://localhost:8080/TempData/", "importPackage", "");
+		alert(xmlHttpRequest.responseText + ",upload success, need import");
+		var ret = xmlHttpRequest.responseText;
+		ajax_request("http://localhost:8080/TempData/", "importPackage", "&file_path=" + ret);
 	};
 
-	xhr.send(form);
+	xmlHttpRequest.send(form);
 	alert("upload start");
 }
 

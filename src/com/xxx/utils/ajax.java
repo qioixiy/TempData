@@ -138,6 +138,13 @@ public class ajax extends HttpServlet {
 		
 		return ret;
 	}
+	
+	int importPackage(HttpServletRequest request, HttpServletResponse response)
+	{
+		int ret = 0;
+		return ret;
+	}
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -208,6 +215,11 @@ public class ajax extends HttpServlet {
 				response.getWriter().append(url);
 				break;
 			case "importPackage":
+				String importPackageFilePath = request.getParameter("file_path");
+				System.out.println("importPackage start, importPackageFilePath=" + importPackageFilePath);
+				importPackage(request, response);
+				response.getWriter().append("importPackage");
+				System.out.println("importPackage end");
 				break;
 			case "saveRcData":
 				saveRcData(request, response);

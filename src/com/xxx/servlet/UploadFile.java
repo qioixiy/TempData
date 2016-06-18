@@ -46,6 +46,7 @@ public class UploadFile extends HttpServlet {
 		}
 		// 消息提示
 		String message = "";
+		String filename = "";
 		try {
 			// 使用Apache文件上传组件处理文件上传步骤：
 			// 1、创建一个DiskFileItemFactory工厂
@@ -72,7 +73,7 @@ public class UploadFile extends HttpServlet {
 					System.out.println(name + "=" + value);
 				} else {// 如果fileitem中封装的是上传文件
 						// 得到上传的文件名称，
-					String filename = item.getName();
+					filename = item.getName();
 					System.out.println(filename);
 					if (filename == null || filename.trim().equals("")) {
 						continue;
@@ -111,8 +112,10 @@ public class UploadFile extends HttpServlet {
 		}
 		System.out.println("message:" + message);
 		request.setAttribute("message", message);
-		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	
+		String filePath = savePath + "\\" + filename;
+		System.out.println("filePath=" + filePath);
+		response.getWriter().append(filePath);
 	}
 
 	/**
