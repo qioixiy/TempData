@@ -4,6 +4,17 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 Customer customer= (Customer)request.getAttribute("customer");
+
+if (customer == null) {
+	customer = new Customer();
+    customer.setUserid(0);
+	customer.setName("");
+	customer.setGender("");
+    customer.setBirthday("");
+    customer.setCollId(0);
+    customer.setCollName("");
+    customer.setColldate("");
+}
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
