@@ -48,7 +48,7 @@ public class CustomerServlet extends HttpServlet {
 				rd=request.getRequestDispatcher("files/Fincollect.jsp");
 				
 			}else  if(type.equals("Analysis")){
-				rd=request.getRequestDispatcher("files/Finanalysis.jsp");
+				rd=request.getRequestDispatcher("/IntAnalyS");
 			}
 			
 			rd.forward(request, response);
