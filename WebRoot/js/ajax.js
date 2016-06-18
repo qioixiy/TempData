@@ -157,6 +157,30 @@ function url_request(url) {
 	//alert(url);
 }
 
+function UpladFile() {
+
+	var fileObj = document.getElementById("file").files[0]; // 获取文件对象
+	var FileController = "http://localhost:8080/TempData/UploadFile"; // 接收上传文件的后台地址 
+
+	// FormData 对象
+	var form = new FormData();
+	form.append("author", "author"); // 可以增加表单数据
+	form.append("file", fileObj); // 文件对象
+
+	// XMLHttpRequest 对象
+	var xhr = new XMLHttpRequest();
+	xhr.open("post", FileController, true);
+
+	xhr.onload = function() {
+		alert("upload success");
+		//alert(window.location);
+		ajax_request("http://localhost:8080/TempData/", "importPackage", "");
+	};
+
+	xhr.send(form);
+	alert("upload start");
+}
+
 function test() {
 	alert("test");
 }
