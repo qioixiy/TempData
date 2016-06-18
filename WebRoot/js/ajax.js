@@ -49,6 +49,7 @@ function callBack_captureFrame() {
 function callBack_ExportPackage() {
 	if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
 		var result = xmlHttpRequest.responseText;
+		alert(result);
 		if (result != "") {
 			window.open(result);
 		} else {

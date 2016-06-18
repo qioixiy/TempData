@@ -20,10 +20,10 @@ public class Zip {
 	private static void compress(File file, ZipOutputStream out, String basedir) {
 		/* 判断是目录还是文件 */
 		if (file.isDirectory()) {
-			// System.out.println("压缩：" + basedir + file.getName());
+			System.out.println("压缩：" + basedir + file.getName());
 			compressDirectory(file, out, basedir);
 		} else {
-			// System.out.println("压缩：" + basedir + file.getName());
+			System.out.println("压缩：" + basedir + file.getName());
 			compressFile(file, out, basedir);
 		}
 	}

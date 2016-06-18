@@ -213,6 +213,52 @@ public class ajax extends HttpServlet {
 						file.delete();
 					}
 				}
+
+				String filePath = String.format("/%s/%s", _UserNumber, fileName);
+				System.out.println("filePath:" + filePath);
+				try {
+					int result = 0;
+					Connection conn = BaseDataBaseDao.getConnection();
+					Statement stmt;
+					stmt = conn.createStatement();
+
+					String sql = String.format("SELECT * FROM `tempimage` WHERE `userid` =%s", _UserNumber);
+					System.out.println(sql);
+					ResultSet ret = stmt.executeQuery(sql);
+					if(ret.next()) {
+						System.out.println("executeQuery ok," + sql);
+						System.out.println("find update");
+						// update
+						sql = String.format("UPDATE `tempimage` SET `L1post` = '%s' WHERE `userid` =%s;",
+								filePath, _UserNumber);
+						System.out.println(sql);
+						result = stmt.executeUpdate(sql);
+						if(result>0) {
+							System.out.println("executeUpdate ok");
+						} else {
+							System.out.println("executeUpdate fail");
+						}
+					} else {
+						Statement stmt_insert = conn.createStatement();
+						//not find need insert
+						System.out.println("not find need insert");
+						sql = String.format("INSERT INTO tempimage (userid, L1post) VALUES ('%s', '%s');",
+								_UserNumber, filePath);
+						System.out.println(sql);
+						if(result>0) {
+							stmt_insert.executeUpdate(sql);
+						} else {
+							System.out.println("executeUpdate fail");
+						}
+					}
+				
+					if(result>0) {
+						System.out.println("executeQuery ok");
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				break;
 			case "exportPackage":
 				int userid = 2;
