@@ -43,7 +43,7 @@ public class ListCusServlet extends HttpServlet {
 		System.out.println(customers.size());
 		request.setAttribute("customers", customers);
 		
-		RequestDispatcher  drDispatcher=request.getRequestDispatcher("files/listCustomer13.jsp");
+		RequestDispatcher  drDispatcher=request.getRequestDispatcher("files/listCustomer.jsp");
 		drDispatcher.forward(request, response);
 	}
 		

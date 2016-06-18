@@ -24,10 +24,13 @@ public class CustomerS extends HttpServlet {
 	
 		String conditions = request.getParameter("conditions");
 		String param = request.getParameter("param");
+		
+		conditions = "全部";
+		
 		CustomerListBiz  customerListBiz= new  CustomerListBizImpl();
 		CustomerBiz cbz = new CustomerBizImpl();
 		List<Customer> customers = null;
-		
+		System.out.println("conditions:" + conditions);
 		 if(conditions.equals("全部")){
 			 System.out.println("全部");
 			 System.out.println(conditions + "--" + param);
