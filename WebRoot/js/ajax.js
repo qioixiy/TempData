@@ -82,7 +82,7 @@ function callBack_saveRcData() {
 
 //提交ajax请求
 function ajax_request(server, param1, param2) {
-	alert("param1:" + param1 + ",param2:" + param2);
+	//alert("param1:" + param1 + ",param2:" + param2);
 	
 	createXMLHttpRequest();
 
@@ -137,7 +137,7 @@ function callBack_FinInterSelectChange() {
 }
 
 function url_request(url) {
-//alert(url);
+	alert(url);
 	
 	createXMLHttpRequest();
 
@@ -173,6 +173,7 @@ function UpladFile() {
 	xmlHttpRequest.open("post", FileController, true);
 
 	xmlHttpRequest.onload = function() {
+		alert("上传文件完成");
 		//alert(window.location);
 		alert(xmlHttpRequest.responseText + ",upload success, need import");
 		var ret = xmlHttpRequest.responseText;
@@ -180,7 +181,7 @@ function UpladFile() {
 	};
 
 	xmlHttpRequest.send(form);
-	alert("upload start");
+	alert("开始上传文件");
 }
 
 function test() {
