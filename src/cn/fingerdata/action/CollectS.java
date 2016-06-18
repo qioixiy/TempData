@@ -27,12 +27,7 @@ public class CollectS extends HttpServlet {
 		RequestDispatcher  drDispatcher=request.getRequestDispatcher("files/listCustomer11.jsp");
 		drDispatcher.forward(request, response);
 	}
-		
 
-	
-	
-
-	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 

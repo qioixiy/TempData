@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -215,6 +217,44 @@ public class ajax extends HttpServlet {
 					}
 				}
 
+				Map<String, String> map = new HashMap<String, String>();
+				map.put("L1R", "L1right");
+				map.put("L1L", "L1left");
+				map.put("L1C", "L1post");
+				map.put("L2R", "L2right");
+				map.put("L2L", "L2left");
+				map.put("L2C", "L2post");
+				map.put("L2R", "L2right");
+				map.put("L3L", "L3left");
+				map.put("L3C", "L3post");
+				map.put("L3R", "L3right");
+				map.put("L4L", "L4left");
+				map.put("L4C", "L4post");
+				map.put("L4R", "L4right");
+				map.put("L5L", "L5left");
+				map.put("L5C", "L5post");
+				map.put("L5R", "L5right");
+
+				map.put("R1R", "R1right");
+				map.put("R1L", "R1left");
+				map.put("R1C", "R1post");
+				map.put("R2R", "R2right");
+				map.put("R2L", "R2left");
+				map.put("R2C", "R2post");
+				map.put("R2R", "R2right");
+				map.put("R3L", "R3left");
+				map.put("R3C", "R3post");
+				map.put("R3R", "R3right");
+				map.put("R4L", "R4left");
+				map.put("R4C", "R4post");
+				map.put("R4R", "R4right");
+				map.put("R5L", "R5left");
+				map.put("R5C", "R5post");
+				map.put("R5R", "R5right");
+				
+				// L1post
+				String postion = FingerPostion;
+				postion = map.get(FingerPostion);
 				String filePath = String.format("/%s/%s", _UserNumber, fileName);
 				System.out.println("filePath:" + filePath);
 				try {
@@ -230,8 +270,8 @@ public class ajax extends HttpServlet {
 						System.out.println("executeQuery ok," + sql);
 						System.out.println("find update");
 						// update
-						sql = String.format("UPDATE `tempimage` SET `L1post` = '%s' WHERE `userid` =%s;",
-								filePath, _UserNumber);
+						sql = String.format("UPDATE `tempimage` SET `%s` = '%s' WHERE `userid` =%s;",
+								postion, filePath, _UserNumber);
 						System.out.println(sql);
 						result = stmt.executeUpdate(sql);
 						if(result>0) {
@@ -244,8 +284,8 @@ public class ajax extends HttpServlet {
 						Statement stmt_insert = conn_insert.createStatement();
 						//not find need insert
 						System.out.println("not find need insert");
-						sql = String.format("INSERT INTO tempimage (userid, L1post) VALUES ('%s', '%s')"
-								,_UserNumber, filePath);
+						sql = String.format("INSERT INTO tempimage (userid, %s) VALUES ('%s', '%s')"
+								, postion, _UserNumber, filePath);
 						System.out.println(sql);
 						java.sql.PreparedStatement pstmt = conn.prepareStatement(sql);
 						//pstmt.setString(1, _UserNumber);

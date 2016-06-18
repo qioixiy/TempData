@@ -52,12 +52,13 @@ public class ListFinType extends HttpServlet {
 			throws ServletException, IOException {
 		
 		String detail = request.getParameter("detail");
+		String id = request.getParameter("id");
 
-		System.out.println("ListFinType enter");
+		System.out.println("ListFinType enter, id:" + id);
 		
 		int userid = 2;
 		
-		String sql = String.format("SELECT * FROM `tempimage` WHERE userid = %d", userid);
+		String sql = String.format("SELECT * FROM `tempimage` WHERE userid = %s", id);
 		System.out.println(sql);
 		try{
 			Connection conn=(new jdbc()).GetConnection();

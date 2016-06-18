@@ -194,7 +194,7 @@ function   showListtype(id){
 					<td height="20" bgcolor="#FFFFFF"   align="center"><%=customer.getColldate() %></td>
                     <td  bgcolor="#FFFFFF"   align="center">
                         <input  type="button"   value="采集指纹"  onclick="showCollect(<%=customer.getId()%>)" /> &nbsp;&nbsp;&nbsp;&nbsp;
-                         <input  type="button"   value="查看纹型"  onclick="showListtype(<%=customer.getId()%>)" />
+                         <input  type="button"   value="查看纹型"  onclick="showListtype(<%=customer.getUserid()%>)" />
                         </td>
                     
                  
