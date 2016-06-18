@@ -20,6 +20,7 @@ import javax.servlet.http.HttpSession;
 
 import com.FprCap.*;
 import com.FprCap.FprCap;
+import com.xxx.zip.UnZip;
 import com.xxx.zip.Zip;
 
 import cn.fingerdata.dao1.BaseDataBaseDao;
@@ -139,9 +140,15 @@ public class ajax extends HttpServlet {
 		return ret;
 	}
 	
-	int importPackage(HttpServletRequest request, HttpServletResponse response)
+	int importPackage(HttpServletRequest request, HttpServletResponse response
+			,String filePath, String targetPath)
 	{
 		int ret = 0;
+		//unpackage
+		String zipFilePath = filePath;
+		String destDir = targetPath;
+		UnZip.unZip(zipFilePath, destDir);
+		
 		return ret;
 	}
 	
@@ -217,7 +224,7 @@ public class ajax extends HttpServlet {
 			case "importPackage":
 				String importPackageFilePath = request.getParameter("file_path");
 				System.out.println("importPackage start, importPackageFilePath=" + importPackageFilePath);
-				importPackage(request, response);
+				importPackage(request, response, importPackageFilePath, FprCap_data);
 				response.getWriter().append("importPackage");
 				System.out.println("importPackage end");
 				break;
