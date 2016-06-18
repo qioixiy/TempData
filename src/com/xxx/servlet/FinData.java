@@ -18,7 +18,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.FprCap.*;
 
 import cn.fingerdata.bean.Customer;
+import cn.fingerdata.biz.impl.CustomerBizImpl;
 import cn.fingerdata.biz.impl.CustomerListBizImpl;
+import cn.fingerdata.bizz.CustomerBiz;
 import cn.fingerdata.bizz.CustomerListBiz;
 import com.xxx.db.*;
 import com.xxx.utils.algorithm;
@@ -65,10 +67,17 @@ public class FinData extends HttpServlet {
 			throws ServletException, IOException {
 
 		System.out.println("FinData enter");
+		String sid = request.getParameter("id");
+		String sUserid = request.getParameter("Userid");
+		System.out.println("id:" + sid +",Userid:" + sUserid);
 		
-		int userid = 2;
+		String userid = sUserid;
 		
-		String sql = String.format("SELECT * FROM `tempinter` WHERE userid = %d", userid);
+		CustomerListBiz  customerListBiz=new  CustomerListBizImpl();
+	     Customer  customer= customerListBiz.getCustomer(Integer.valueOf(sid));
+	     request.setAttribute("customer",customer);
+		
+		String sql = String.format("SELECT * FROM `tempinter` WHERE userid = %s", userid);
 		System.out.println(sql);
 		try{
 			Connection conn=(new jdbc()).GetConnection();
@@ -104,7 +113,7 @@ public class FinData extends HttpServlet {
 				R3temp = rs.getString("R3temp");
 				R3RCL = rs.getString("R3RCL");
 				R3RCR = rs.getString("R3RCR");
-				R4temp = rs.getString("R4Ttemp");
+				R4temp = rs.getString("R4temp");
 				R4RCL = rs.getString("R4RCL");
 				R4RCR = rs.getString("R4RCR");
 				R5temp = rs.getString("R5temp");

@@ -91,8 +91,8 @@ function link(){
    document.getElementById("fom").submit();
 }
 
-function  showData(id){
-     location.href="/TempData/DataCusServlet?type=Data&id="+id;
+function  showData(id, Userid){
+     location.href="/TempData/DataCusServlet?type=Data&id="+id + "&Userid="+Userid;
 }
 
 
@@ -189,7 +189,7 @@ function  showData(id){
 					<td height="20" bgcolor="#FFFFFF"   align="center"><%=customer.getCollName() %></td>
 					<td height="20" bgcolor="#FFFFFF"   align="center"><%=customer.getColldate() %></td>
                     <td  bgcolor="#FFFFFF"   align="center">
-                         <input  type="button"   value="数据分析"  onclick="showData(<%=customer.getId()%>)" /> &nbsp;&nbsp;&nbsp;&nbsp;
+                         <input  type="button"   value="数据分析"  onclick="showData(<%=customer.getId() %>, <%=customer.getUserid() %>)" /> &nbsp;&nbsp;&nbsp;&nbsp;
                          
                         </td>
                     

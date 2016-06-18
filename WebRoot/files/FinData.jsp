@@ -1,9 +1,12 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" import="com.xxx.utils.*" %>
+<%@page  import="cn.fingerdata.bean.Customer" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 
 algorithm.algorithmOutput FinData = (algorithm.algorithmOutput)request.getAttribute("FinData");
+
+Customer customer = (Customer)request.getAttribute("customer");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -166,31 +169,33 @@ function on_load(){
 					 
 			      <tr  bordercolor="#5F9EA0">
 					    <td nowrap align="right" width="5%">编&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:</td>
-					    <td  align="left"   width="10%"><input name="text" class="text" style="width: 109px" type="text" size="40" />
+					    <td  align="left"   width="10%">
+					    <input name="text" class="text" style="width: 109px" type="text" size="40" value="<%=customer.getUserid()%>"/>
 				              <span class="red"> *</span></td>
 					    <td align="right" width="5%">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:</td>
-					    <td width="10%"><input name="Input22" id="Input22" class="text" style="width:115px" /></td>
+					    <td width="10%"><input name="Input22" id="Input22" class="text" style="width:115px" value="<%=customer.getName()%>"/></td>
 					    <td nowrap align="right" width="5%">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别:</td>
 					    <td nowrap align="left" width="10%">
-					       <input name="Input22" id="Input22" class="text" style="width:80px" />
+					       <input name="Input22" id="Input22" class="text" style="width:80px" value="<%=customer.getGender()%>"/>
 					    </td>
 					    <td nowrap align="right" width="6%">出生日期:</td>
 					    <td nowrap align="left" width="10%">
-					        <input name="Input22" id="Input22" class="text" style="width:115px" />
+					        <input name="Input22" id="Input22" class="text" style="width:115px"  value="<%=customer.getBirthday()%>"/>
 					    </td> 
 					 </tr>
 					 
 					 <tr  bordercolor="#5F9EA0">
 					  <td nowrap align="right" width="5%">判读师编号:</td>
-					    <td  align="left"   width="10%"><input name="text" class="text" style="width: 109px" type="text" size="40" />
+					    <td  align="left"   width="10%">
+					    <input name="text" class="text" style="width: 109px" type="text" size="40" value="<%=customer.getCollId()%>"/>
 				              <span class="red"> *</span></td>
 					    <td align="right" width="5%">判读师姓名:</td>
-					    <td width="10%"><input name="Input22" id="Input22" class="text" style="width:115px" /></td>
+					    <td width="10%"><input name="Input22" id="Input22" class="text" style="width:115px" value="<%=customer.getCollName()%>"/></td>
 					    <td nowrap align="right" width="5%"  colspan="2">&nbsp;</td>
 					    
 					    <td nowrap align="right" width="6%">判读日期:</td>
 					    <td nowrap align="left" width="10%">
-					        <input name="Input22" id="Input22" class="text" style="width:115px" />
+					        <input name="Input22" id="Input22" class="text" style="width:115px" value="<%=customer.getColldate()%>"/>
 					    </td> 
 					 </tr>
 					 </table>

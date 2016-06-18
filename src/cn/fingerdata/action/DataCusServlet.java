@@ -40,15 +40,21 @@ public class DataCusServlet extends HttpServlet {
 	     
 		 RequestDispatcher  rd=null;
 		 String  type=request.getParameter("type");
-		 int   id=Integer.valueOf(request.getParameter("id"));
+		 String sid = request.getParameter("id");
+		 String Userid = request.getParameter("Userid");
+		 int id=Integer.valueOf(sid);
 	     CustomerListBiz  customerListBiz=new  CustomerListBizImpl();
 	     Customer  customer=customerListBiz.getCustomer(id);
 	     request.setAttribute("customer",customer);
+	     request.setAttribute("id ",sid);
+	     request.setAttribute("Userid ",Userid);
+	     
 	    /*
 	     * 根据id类型不同进行跳转
 	     */
+	     System.out.println("forward to files/FinData.jsp");
 	     if(type.equals("Data")){
-				rd=request.getRequestDispatcher("files/FinData.jsp");
+				rd=request.getRequestDispatcher("/FinData");
 				
 	     }
 			
