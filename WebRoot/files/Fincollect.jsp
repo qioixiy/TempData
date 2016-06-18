@@ -7,14 +7,24 @@ Customer customer= (Customer)request.getAttribute("customer");
 
 if (customer == null) {
 	customer = new Customer();
-    customer.setUserid(0);
+    customer.setUserid(-1);
 	customer.setName("");
 	customer.setGender("");
     customer.setBirthday("");
-    customer.setCollId(0);
+    customer.setCollId(-1);
     customer.setCollName("");
     customer.setColldate("");
 }
+
+String sUserid = String.valueOf(customer.getUserid());
+String sCollId = String.valueOf(customer.getCollId());
+if (customer.getUserid() == -1){
+	sUserid = "";
+}
+if (customer.getCollId() == -1){
+	sCollId = "";
+}
+
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -148,7 +158,7 @@ function on_load(){
 					 
 			      <tr  bordercolor="#5F9EA0">
 					    <td nowrap align="right" width="5%">编&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:</td>
-					    <td  align="left"   width="10%"><input id="UserNumber" name="text" class="text" style="width:109px" type="text" size="40" value="<%=customer.getUserid()%>"/>
+					    <td  align="left"   width="10%"><input id="UserNumber" name="text" class="text" style="width:109px" type="text" size="40" value="<%=sUserid%>"/>
 				              <span class="red"> *</span></td>
 					    <td align="right" width="5%">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:</td>
 					    <td width="10%"><input name="Input22" id="Input22" class="text" style="width:115px" value="<%=customer.getName()%>"/></td>
@@ -160,7 +170,7 @@ function on_load(){
 					 
 					 <tr  bordercolor="#5F9EA0">
 					  <td nowrap align="right" width="5%">采集师编号:</td>
-					    <td  align="left"   width="10%"> <%=customer.getCollId()%> </td>
+					    <td  align="left"   width="10%"> <%=sCollId%> </td>
 					    <td align="right" width="5%">采集师姓名:</td>
 					    <td width="10%"><%=customer.getCollName()%></td>
 					    <td nowrap align="right" width="5%"  colspan="2">&nbsp;</td>
