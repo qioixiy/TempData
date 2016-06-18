@@ -21,7 +21,7 @@ public class IntAnalyDaoImpl extends BaseDataBaseDao implements IntAnalyDao {
 
 
 	/**
-	 * 根据主键Id查询
+	 * 鏍规嵁涓婚敭Id鏌ヨ
 	 */
 	public TempInter getById(int id) {
 		PreparedStatement pstmt = null;
@@ -37,8 +37,9 @@ public class IntAnalyDaoImpl extends BaseDataBaseDao implements IntAnalyDao {
 					
 					
 					TempInter   tempInter=new  TempInter();
-					 tempInter.setInter_id(rs.getInt("Inter_id"));
-					 tempInter.setUserid(rs.getInt("userid"));
+					  tempInter.setInter_id(rs.getInt("Inter_id"));
+					  tempInter.setUserid(rs.getInt("userid"));
+					  
 				      tempInter.setL1temp(rs.getString("L1temp"));
 				      tempInter.setL1RCL(rs.getInt("L1RCL"));
 				      tempInter.setL1RCR(rs.getInt("L1RCR"));
@@ -52,9 +53,10 @@ public class IntAnalyDaoImpl extends BaseDataBaseDao implements IntAnalyDao {
 				      tempInter.setL4RCL(rs.getInt("L4RCL"));
 				      tempInter.setL4RCR(rs.getInt("L4RCR"));
 				      tempInter.setL5temp(rs.getString("L5temp"));
-				      tempInter.setL3RCL(rs.getInt("L5RCL"));
-				      tempInter.setL3RCR(rs.getInt("L5RCR"));
-				      tempInter.setL5temp(rs.getString("R1temp"));
+				      tempInter.setL5RCL(rs.getInt("L5RCL"));
+				      tempInter.setL5RCR(rs.getInt("L5RCR"));
+
+				      tempInter.setR1temp(rs.getString("R1temp"));
 				      tempInter.setR1RCL(rs.getInt("R1RCL"));
 				      tempInter.setR1RCR(rs.getInt("R1RCR"));
 				      tempInter.setR2temp(rs.getString("R2temp"));
@@ -87,7 +89,7 @@ public class IntAnalyDaoImpl extends BaseDataBaseDao implements IntAnalyDao {
 	
 	
     /*
-     * 查询所有的数据
+     * 鏌ヨ鎵�湁鐨勬暟鎹�
      */
 	public List<TempInter> getAll() {
 		String sql="Select * from  tempinter";
@@ -97,8 +99,8 @@ public class IntAnalyDaoImpl extends BaseDataBaseDao implements IntAnalyDao {
 			conn=getConnection();
 			System.out.println(conn);
 			stmt=conn.prepareStatement(sql);
-			rs=stmt.executeQuery(sql);//执行此sql语句
-			while(rs.next()){//遍历数据，存入tempInterList1中
+			rs=stmt.executeQuery(sql);//鎵ц姝ql璇彞
+			while(rs.next()){//閬嶅巻鏁版嵁锛屽瓨鍏empInterList1涓�
 				
 		      TempInter   tempInter=new  TempInter();
 		      
@@ -143,7 +145,7 @@ public class IntAnalyDaoImpl extends BaseDataBaseDao implements IntAnalyDao {
 	   }catch(SQLException  e){
 		   e.printStackTrace();
 	   }finally{
-		   closeAll(conn,stmt,rs);//关闭连接
+		   closeAll(conn,stmt,rs);//鍏抽棴杩炴帴
 	   }
 		return  tempInterList1;
 	}
