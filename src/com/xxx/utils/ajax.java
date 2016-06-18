@@ -20,6 +20,7 @@ import javax.servlet.http.HttpSession;
 
 import com.FprCap.*;
 import com.FprCap.FprCap;
+import com.mysql.jdbc.PreparedStatement;
 import com.xxx.zip.UnZip;
 import com.xxx.zip.Zip;
 
@@ -225,7 +226,7 @@ public class ajax extends HttpServlet {
 					String sql = String.format("SELECT * FROM `tempimage` WHERE `userid` =%s", _UserNumber);
 					System.out.println(sql);
 					ResultSet ret = stmt.executeQuery(sql);
-					if(ret.next()) {
+					if(ret.next()) { // find
 						System.out.println("executeQuery ok," + sql);
 						System.out.println("find update");
 						// update
@@ -238,18 +239,24 @@ public class ajax extends HttpServlet {
 						} else {
 							System.out.println("executeUpdate fail");
 						}
-					} else {
-						Statement stmt_insert = conn.createStatement();
+					} else { // not find
+						Connection conn_insert = BaseDataBaseDao.getConnection();
+						Statement stmt_insert = conn_insert.createStatement();
 						//not find need insert
 						System.out.println("not find need insert");
-						sql = String.format("INSERT INTO tempimage (userid, L1post) VALUES ('%s', '%s');",
-								_UserNumber, filePath);
+						sql = String.format("INSERT INTO tempimage (userid, L1post) VALUES ('%s', '%s')"
+								,_UserNumber, filePath);
 						System.out.println(sql);
+						java.sql.PreparedStatement pstmt = conn.prepareStatement(sql);
+						//pstmt.setString(1, _UserNumber);
+						//pstmt.setString(2, filePath);
+						result = pstmt.executeUpdate();
 						if(result>0) {
-							stmt_insert.executeUpdate(sql);
+							System.out.println("executeUpdate ok");
 						} else {
 							System.out.println("executeUpdate fail");
 						}
+						//*/
 					}
 				
 					if(result>0) {
