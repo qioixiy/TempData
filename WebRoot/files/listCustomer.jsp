@@ -206,7 +206,7 @@ function import_package()
 					<td height="20" bgcolor="#FFFFFF"   bordercolor="#FEEEEE"  align="center"><%=customer.getCollName() %></td>
 					<td height="20" bgcolor="#FFFFFF"   bordercolor="#FEEEEE"  align="center"><%=customer.getColldate() %></td>
                     <td  bgcolor="#FFFFFF"   align="center">&nbsp;&nbsp;
-                        <input  type="button"   value="判读"   onclick="showInter(<%=customer.getId()%>)" /> &nbsp;
+                        <input  type="button"   value="判读"   onclick="showInter(<%=customer.getUserid()%>)" /> &nbsp;
                         <input  type="button"   value="采集"   onclick="showCollect(<%=customer.getId()%>)" />&nbsp;
                          <input  type="button"   value="分析"  onclick="showAnalysis(<%=customer.getId()%>)" />
                         

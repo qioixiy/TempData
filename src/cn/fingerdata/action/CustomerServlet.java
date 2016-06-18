@@ -32,11 +32,12 @@ public class CustomerServlet extends HttpServlet {
 		 String  type=request.getParameter("type");
 		 int  id=Integer.valueOf(request.getParameter("id"));
 		 
+		 System.out.println("type:" + type + ",id:" + id);
 		
 	     CustomerListBiz  customerListBiz=new  CustomerListBizImpl();
 	     Customer  customer= customerListBiz.getCustomer(id);
 	     request.setAttribute("customer",customer);
-	    
+	     request.setAttribute("id", id);
 	     
 	    /*
 	     * 根据id类型不同进行跳转
