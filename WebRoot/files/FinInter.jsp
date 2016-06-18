@@ -183,13 +183,13 @@ function select_onchange(value)
                     </tr>
                   <tr  bordercolor="#8FBC8F">
 				    
-                    <td width="25%" height="55%" align="center" bgcolor="#5F9EA0">
+                    <td width="260px" height="300px" align="center" bgcolor="#5F9EA0">
 						<img id="FinBmpL" width="100%" height="100%"/>
 					</td>
-                    <td width="25%" height="55%  align="center"  bgcolor="#5F9EA0">
+                    <td width="260px" height="300px"  align="center"  bgcolor="#5F9EA0">
 						<img id="FinBmpC" width="100%" height="100%"/>
 					</td>
-                    <td width="25%" height="55%   align="center" bgcolor="#5F9EA0">
+                    <td   width="260px" height="300px"  align="center" bgcolor="#5F9EA0">
 						<img id="FinBmpR" width="100%" height="100%"/>
 					</td> 
                   </tr>
