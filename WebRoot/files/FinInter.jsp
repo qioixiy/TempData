@@ -215,7 +215,7 @@ function select_onchange(value)
                             	<option>L2</option>
                             	<option>L3</option>
                             	<option>L4</option>
-                            	<option>L4</option>
+                            	<option>L5</option>
                             	<option>R1</option>
                             	<option>R2</option>
                             	<option>R3</option>

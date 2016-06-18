@@ -73,7 +73,7 @@ function callBack_saveRcData() {
 	if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
 		var result = xmlHttpRequest.responseText;
 		if (result != "") {
-			;
+			alert("保存成功");;
 		} else {
 			alert("保存失败");
 		}
@@ -137,7 +137,7 @@ function callBack_FinInterSelectChange() {
 }
 
 function url_request(url) {
-	alert(url);
+	//alert(url);
 	
 	createXMLHttpRequest();
 

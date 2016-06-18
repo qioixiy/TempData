@@ -131,6 +131,7 @@ public class ajax extends HttpServlet {
 			int result = stmt.executeUpdate(sql);
 			if(result>0) {
 				System.out.println("executeQuery ok");
+				ret = true;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -229,7 +230,12 @@ public class ajax extends HttpServlet {
 				System.out.println("importPackage end");
 				break;
 			case "saveRcData":
-				saveRcData(request, response);
+				if (saveRcData(request, response)) {
+					response.getWriter().append("success");
+					System.out.println("saveRcData ok");
+				} else{
+					System.out.println("saveRcData error");
+				}
 				break;
 			default:
 				System.out.println("unkown command");
