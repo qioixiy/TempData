@@ -3,6 +3,7 @@ package com.xxx.utils;
 public class algorithm {
 	public enum FINGER_TYPE {
 		Wt, Ws, We, Wc, Wd, Wi, Wp, Rp, Wl, Rl, U, R, Lf, Rf, As, Ae, At, Au, Ar, Wx, Ux, Ax,
+		//Ws, Wt, We, Wc, Wd, Wi, Wu, UC, Wr, Rc, Lu, Lr, Rf, Lf, As, Ae, At, AU, Ar, Xw, Xu, Xa, Mf, Ma
 	}
 
 	public class algorithmInput {
