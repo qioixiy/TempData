@@ -119,6 +119,10 @@ function ajax_request(server, param1, param2) {
 
 	xmlHttpRequest.send(paramer);// 发送请求;
 	//alert(url);
+	
+	if (param1 == "exportPackage") {
+		alert("开始导出数据");
+	}
 }
 
 function callBack_FinInterSelectChange() {
