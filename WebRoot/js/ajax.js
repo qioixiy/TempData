@@ -51,7 +51,11 @@ function callBack_ExportPackage() {
 		var result = xmlHttpRequest.responseText;
 		alert(result);
 		if (result != "") {
-			window.open(result);
+			if (result == "fail") {
+				alert("导出失败");
+			} else {
+				window.open(result);
+			}
 		} else {
 			alert("导出失败");
 		}

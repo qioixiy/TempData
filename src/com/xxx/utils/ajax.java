@@ -155,7 +155,33 @@ public class ajax extends HttpServlet {
 		
 		return ret;
 	}
-	
+
+	int exportPackage(HttpServletRequest request, HttpServletResponse response, String basePath)
+	{
+		String Userid = request.getParameter("Userid");
+		System.out.println(Userid);
+		String zipFile = FprCap_data + "/" + Userid + ".zip";
+		String zipDir = FprCap_data + "/" + Userid;
+		
+		System.out.println("zipFile:" + zipFile);
+		System.out.println("zipDir:" + zipDir);
+		
+		if (!(new File(zipDir)).isDirectory()) {
+			System.out.println(zipDir + " is not a dir");
+			return -1;
+		}
+		
+		Zip.zip(zipDir, zipFile);
+		String url = basePath + "images/FprCap/data/" + Userid + ".zip";
+		System.out.println("zip url " + url);
+		try {
+			response.getWriter().append(url);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
+	}
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -308,12 +334,9 @@ public class ajax extends HttpServlet {
 				}
 				break;
 			case "exportPackage":
-				int userid = 2;
-				String zipFile = FprCap_data + ".zip";
-				Zip.zip(FprCap_data, zipFile);
-				String url = basePath + "images/FprCap/data.zip";
-				System.out.println("zip url " + url);
-				response.getWriter().append(url);
+				if (0 != exportPackage(request, response, basePath)) {
+					response.getWriter().append("fail");
+				}
 				break;
 			case "importPackage":
 				String importPackageFilePath = request.getParameter("file_path");
