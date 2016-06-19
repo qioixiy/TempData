@@ -68,7 +68,7 @@ function callBack_ImportPackage() {
 		if (result == "success") {
 			alert("导入成功");
 		} else {
-			alert("导入失败");
+			alert("导入失败,err code " +result);
 		}
 	}
 }

@@ -244,6 +244,12 @@ public class ajax extends HttpServlet {
 					ret = 0;
 				} else {
 					System.out.println("插入失败");
+					try {
+						response.getWriter().append("插入数据失败，已经存在改信息？");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			} else {
 				// update ?
