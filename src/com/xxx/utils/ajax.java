@@ -675,6 +675,7 @@ public class ajax extends HttpServlet {
 				int ret = importPackage(request, response, importPackageFilePath, FprCap_data);
 				if (ret < 0) {
 					response.getWriter().append("importPackage fail");
+					System.out.println("importPackage fail");
 				} else {
 					response.getWriter().append("success");
 				}
