@@ -151,15 +151,108 @@ public class ajax extends HttpServlet {
 		return ret;
 	}
 	
+	@SuppressWarnings("static-access")
 	int importPackage(HttpServletRequest request, HttpServletResponse response
 			,String filePath, String targetPath)
 	{
-		int ret = 0;
+		int ret = -1;
 		//unpackage
 		String zipFilePath = filePath;
 		String destDir = targetPath;
 		UnZip.unZip(zipFilePath, destDir);
 		
+		//Userid
+		String DirName =  (new File(zipFilePath)).getName();
+		DirName = DirName.substring(0, DirName .lastIndexOf("."));
+		
+		// read json string
+		String jsonFile = destDir + "/" + DirName + "/export.json";
+		FileInputStream freader;  
+		String jsonString = null;
+        try {  
+            freader = new FileInputStream(jsonFile);  
+            @SuppressWarnings("resource")
+			ObjectInputStream objectInputStream = new ObjectInputStream(freader);
+            jsonString = (String)objectInputStream.readObject();
+             System.out.println("jsonString:" + jsonString);
+        } catch (FileNotFoundException e) {  
+            // TODO Auto-generated catch block  
+            e.printStackTrace();  
+        } catch (IOException e) {  
+            // TODO Auto-generated catch block  
+            e.printStackTrace();  
+        } catch (ClassNotFoundException e) {  
+            // TODO Auto-generated catch block  
+            e.printStackTrace();  
+        }
+
+        // import into database
+        Connection conn = BaseDataBaseDao.getConnection();
+        Statement stmt;
+		try {
+			boolean customer_find = false;
+			boolean tempinter_find = false;
+			stmt = conn.createStatement();
+			String sql = String.format("SELECT * FROM `customer` WHERE userid = %s", DirName);
+			System.out.println(sql);
+			ResultSet result = stmt.executeQuery(sql);
+			if (result.next()) {
+				customer_find = true;
+			}
+			sql = String.format("SELECT * FROM `tempinter` WHERE userid = %s", DirName);
+			System.out.println(sql);
+			result = stmt.executeQuery(sql);
+			if (result.next()) {
+				tempinter_find = true;
+			}
+			// insert
+			if (!customer_find) {
+				System.out.println("customer not find");
+				System.out.println("jsonString:" + jsonString);
+				JSONObject josnObject = JSONObject.fromObject(jsonString);
+				JSONObject obj = josnObject.getJSONObject("tempimage");
+				System.out.println("josnObject:" + josnObject);
+				System.out.println(obj);
+				
+				String insert_sql = String.format("INSERT INTO tempimage (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) VALUES (%d, %d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+						"Image_id", "userid", 
+						"L1post", "L1left", "L1right",
+						"L2post", "L2left", "L2right",
+						"L3post", "L3left", "L3right",
+						"L4post", "L4left", "L4right",
+						"L5post", "L5left", "L5right",
+						"R1post", "R1left", "R1right",
+						"R2post", "R2left", "R2right",
+						"R3post", "R3left", "R3right",
+						"R4post", "R4left", "R4right",
+						"R5post", "R5left", "R5right",
+						
+						obj.getInt("Image_id"), obj.getInt("userid"), 
+						obj.getString("L1post"), obj.getString("L1left"), obj.getString("L1right"),
+						obj.getString("L2post"), obj.getString("L2left"), obj.getString("L2right"),
+						obj.getString("L3post"), obj.getString("L3left"), obj.getString("L3right"),
+						obj.getString("L4post"), obj.getString("L4left"), obj.getString("L4right"),
+						obj.getString("L5post"), obj.getString("L5left"), obj.getString("L5right"),
+						obj.getString("R1post"), obj.getString("R1left"), obj.getString("R1right"),
+						obj.getString("R2post"), obj.getString("R2left"), obj.getString("R2right"),
+						obj.getString("R3post"), obj.getString("R3left"), obj.getString("R3right"),
+						obj.getString("R4post"), obj.getString("R4left"), obj.getString("R4right"),
+						obj.getString("R5post"), obj.getString("R5left"), obj.getString("R5right"));
+				System.out.println(insert_sql);
+				if (stmt.executeUpdate(insert_sql) > 0) {
+					System.out.println("插入成功");
+					ret = 0;
+				} else {
+					System.out.println("插入失败");
+				}
+			} else {
+				// update ?
+				System.out.println("customer find");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return ret;
 	}
 
@@ -579,8 +672,12 @@ public class ajax extends HttpServlet {
 			case "importPackage":
 				String importPackageFilePath = request.getParameter("file_path");
 				System.out.println("importPackage start, importPackageFilePath=" + importPackageFilePath);
-				importPackage(request, response, importPackageFilePath, FprCap_data);
-				response.getWriter().append("importPackage");
+				int ret = importPackage(request, response, importPackageFilePath, FprCap_data);
+				if (ret < 0) {
+					response.getWriter().append("importPackage fail");
+				} else {
+					response.getWriter().append("success");
+				}
 				System.out.println("importPackage end");
 				break;
 			case "saveRcData":

@@ -66,7 +66,7 @@ function callBack_ImportPackage() {
 	if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
 		var result = xmlHttpRequest.responseText;
 		alert(ImportPackage);
-		if (result != "") {
+		if (result == "success") {
 			window.open(result);
 		} else {
 			alert("导入失败");
