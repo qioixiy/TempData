@@ -191,14 +191,25 @@ public class ajax extends HttpServlet {
         Statement stmt;
 		try {
 			boolean customer_find = false;
+			boolean tempimage_find = false;
 			boolean tempinter_find = false;
+			
 			stmt = conn.createStatement();
+			// customer_find
 			String sql = String.format("SELECT * FROM `customer` WHERE userid = %s", DirName);
 			System.out.println(sql);
 			ResultSet result = stmt.executeQuery(sql);
 			if (result.next()) {
 				customer_find = true;
 			}
+			// tempimage_find
+			sql = String.format("SELECT * FROM `tempimage` WHERE userid = %s", DirName);
+			System.out.println(sql);
+			result = stmt.executeQuery(sql);
+			if (result.next()) {
+				tempimage_find = true;
+			}
+			// tempinter_find
 			sql = String.format("SELECT * FROM `tempinter` WHERE userid = %s", DirName);
 			System.out.println(sql);
 			result = stmt.executeQuery(sql);
@@ -206,15 +217,97 @@ public class ajax extends HttpServlet {
 				tempinter_find = true;
 			}
 			// insert
-			if (!customer_find) {
-				System.out.println("customer not find");
+			if (!customer_find && !tempimage_find && !tempinter_find) {
+				System.out.println("insert start");
 				System.out.println("jsonString:" + jsonString);
 				JSONObject josnObject = JSONObject.fromObject(jsonString);
-				JSONObject obj = josnObject.getJSONObject("tempimage");
+				JSONObject obj = josnObject.getJSONObject("customer");
+				JSONObject obj2 = josnObject.getJSONObject("tempimage");
+				JSONObject obj3 = josnObject.getJSONObject("tempinter");
 				System.out.println("josnObject:" + josnObject);
 				System.out.println(obj);
+				System.out.println(obj2);
+				System.out.println(obj3);
 				
-				String insert_sql = String.format("INSERT INTO tempimage (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) VALUES (%d, %d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+				// customer
+				String insert_sql = String.format("INSERT INTO customer (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) VALUES (%d, %d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, '%s', '%s', %d, '%s', '%s')",
+						"id",
+						"userid",
+						"name",
+						"gender",
+						"birthday",
+						"age",
+						"version",
+						"collectDate",
+						"constellation",
+						"bloodtype",
+						"fatherName",
+						"farBirthday",
+						"fphone",
+						"matherName",
+						"marBirthday",
+						"mphone",
+						"career",
+						"address",
+						"phone",
+						"QQ",
+						"MSN",
+						"leftATD",
+						"rightATD",
+						"note",
+						"collId",
+						"collName",
+						"colldate",
+						"disId",
+						"disName",
+						"disdate",
+						
+						obj.getInt("id"),
+						obj.getInt("userid"),
+						obj.getString("name"),
+						obj.getString("gender"),
+						obj.getString("birthday"),
+						obj.getString("age"),
+						obj.getString("version"),
+						obj.getString("collectDate"),
+						obj.getString("constellation"),
+						obj.getString("bloodtype"),
+						obj.getString("fatherName"),
+						obj.getString("farBirthday"),
+						obj.getString("fphone"),
+						obj.getString("matherName"),
+						obj.getString("marBirthday"),
+						obj.getString("mphone"),
+						obj.getString("career"),
+						obj.getString("address"),
+						obj.getString("phone"),
+						obj.getString("QQ"),
+						obj.getString("MSN"),
+						obj.getString("leftATD"),
+						obj.getString("rightATD"),
+						obj.getString("note"),
+						obj.getInt("collId"),
+						obj.getString("collName"),
+						obj.getString("colldate"),
+						obj.getInt("disId"),
+						obj.getString("disName"),
+						obj.getString("disdate"));
+				System.out.println(insert_sql);
+				if (stmt.executeUpdate(insert_sql) > 0) {
+					System.out.println("customer 插入成功");
+					ret = 0;
+				} else {
+					System.out.println("customer 插入失败");
+					try {
+						response.getWriter().append("插入数据失败，已经存在该信息？");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				
+				// tempimage
+				insert_sql = String.format("INSERT INTO tempimage (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) VALUES (%d, %d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
 						"Image_id", "userid", 
 						"L1post", "L1left", "L1right",
 						"L2post", "L2left", "L2right",
@@ -226,26 +319,108 @@ public class ajax extends HttpServlet {
 						"R3post", "R3left", "R3right",
 						"R4post", "R4left", "R4right",
 						"R5post", "R5left", "R5right",
-						
-						obj.getInt("Image_id"), obj.getInt("userid"), 
-						obj.getString("L1post"), obj.getString("L1left"), obj.getString("L1right"),
-						obj.getString("L2post"), obj.getString("L2left"), obj.getString("L2right"),
-						obj.getString("L3post"), obj.getString("L3left"), obj.getString("L3right"),
-						obj.getString("L4post"), obj.getString("L4left"), obj.getString("L4right"),
-						obj.getString("L5post"), obj.getString("L5left"), obj.getString("L5right"),
-						obj.getString("R1post"), obj.getString("R1left"), obj.getString("R1right"),
-						obj.getString("R2post"), obj.getString("R2left"), obj.getString("R2right"),
-						obj.getString("R3post"), obj.getString("R3left"), obj.getString("R3right"),
-						obj.getString("R4post"), obj.getString("R4left"), obj.getString("R4right"),
-						obj.getString("R5post"), obj.getString("R5left"), obj.getString("R5right"));
+						obj2.getInt("Image_id"), obj2.getInt("userid"), 
+						obj2.getString("L1post"), obj2.getString("L1left"), obj2.getString("L1right"),
+						obj2.getString("L2post"), obj2.getString("L2left"), obj2.getString("L2right"),
+						obj2.getString("L3post"), obj2.getString("L3left"), obj2.getString("L3right"),
+						obj2.getString("L4post"), obj2.getString("L4left"), obj2.getString("L4right"),
+						obj2.getString("L5post"), obj2.getString("L5left"), obj2.getString("L5right"),
+						obj2.getString("R1post"), obj2.getString("R1left"), obj2.getString("R1right"),
+						obj2.getString("R2post"), obj2.getString("R2left"), obj2.getString("R2right"),
+						obj2.getString("R3post"), obj2.getString("R3left"), obj2.getString("R3right"),
+						obj2.getString("R4post"), obj2.getString("R4left"), obj2.getString("R4right"),
+						obj2.getString("R5post"), obj2.getString("R5left"), obj2.getString("R5right"));
 				System.out.println(insert_sql);
 				if (stmt.executeUpdate(insert_sql) > 0) {
-					System.out.println("插入成功");
+					System.out.println("tempimage 插入成功");
 					ret = 0;
 				} else {
-					System.out.println("插入失败");
+					System.out.println("tempimage 插入失败");
 					try {
-						response.getWriter().append("插入数据失败，已经存在改信息？");
+						response.getWriter().append("插入数据失败，已经存在该信息？");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				
+				// tempinter
+				insert_sql = String.format("INSERT INTO tempinter (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) VALUES (%d, %d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+						"Inter_id",
+						"userid",
+						"name",
+						"L1temp",
+						"L1RCL",
+						"L1RCR",
+						"L2temp",
+						"L2RCL",
+						"L2RCR",
+						"L3temp",
+						"L3RCL",
+						"L3RCR",
+						"L4temp",
+						"L4RCL",
+						"L4RCR",
+						"L5temp",
+						"L5RCL",
+						"L5RCR",
+						"R1temp",
+						"R1RCL",
+						"R1RCR",
+						"R2temp",
+						"R2RCL",
+						"R2RCR",
+						"R3temp",
+						"R3RCL",
+						"R3RCR",
+						"R4temp",
+						"R4RCL",
+						"R4RCR",
+						"R5temp",
+						"R5RCL",
+						"R5RCR",
+						
+				obj3.get("Inter_id"),
+				obj3.get("userid"),
+				obj3.get("name"),
+				obj3.get("L1temp"),
+				obj3.get("L1RCL"),
+				obj3.get("L1RCR"),
+				obj3.get("L2temp"),
+				obj3.get("L2RCL"),
+				obj3.get("L2RCR"),
+				obj3.get("L3temp"),
+				obj3.get("L3RCL"),
+				obj3.get("L3RCR"),
+				obj3.get("L4temp"),
+				obj3.get("L4RCL"),
+				obj3.get("L4RCR"),
+				obj3.get("L5temp"),
+				obj3.get("L5RCL"),
+				obj3.get("L5RCR"),
+				obj3.get("R1temp"),
+				obj3.get("R1RCL"),
+				obj3.get("R1RCR"),
+				obj3.get("R2temp"),
+				obj3.get("R2RCL"),
+				obj3.get("R2RCR"),
+				obj3.get("R3temp"),
+				obj3.get("R3RCL"),
+				obj3.get("R3RCR"),
+				obj3.get("R4temp"),
+				obj3.get("R4RCL"),
+				obj3.get("R4RCR"),
+				obj3.get("R5temp"),
+				obj3.get("R5RCL"),
+				obj3.get("R5RCR"));
+				System.out.println(insert_sql);
+				if (stmt.executeUpdate(insert_sql) > 0) {
+					System.out.println("tempinter 插入成功");
+					ret = 0;
+				} else {
+					System.out.println("tempinter 插入失败");
+					try {
+						response.getWriter().append("插入数据失败，已经存在该信息？");
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -254,6 +429,12 @@ public class ajax extends HttpServlet {
 			} else {
 				// update ?
 				System.out.println("customer find");
+				try {
+					response.getWriter().append("插入数据失败，已经存在该信息");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -271,9 +452,11 @@ public class ajax extends HttpServlet {
 		JSONObject jsonObjectRoot = new JSONObject();
 		JSONObject jsonObject = new JSONObject();
 		JSONObject jsonObject1 = new JSONObject();
+		JSONObject jsonObject2 = new JSONObject();
 		Statement stmt;
 		ResultSet result = null;
-		try {
+		try { 
+			// customer
 			stmt = conn.createStatement();
 			String sql = String.format("SELECT * FROM `customer` WHERE userid = %s", Userid);
 			System.out.println(sql);
@@ -289,7 +472,7 @@ public class ajax extends HttpServlet {
 				String name = result.getString("name");
 				String gender = result.getString("gender");
 				String birthday = result.getString("birthday");
-				String age = result.getString("birthday");
+				String age = result.getString("age");
 				String version = result.getString("version");
 				String collectDate = result.getString("collectDate");;
 				String constellation = result.getString("constellation");
@@ -320,7 +503,7 @@ public class ajax extends HttpServlet {
 				jsonObject.put("name", name);
 				jsonObject.put("gender", gender);
 				jsonObject.put("birthday", birthday);
-				jsonObject.put("birthday", birthday);
+				jsonObject.put("age", age);
 				jsonObject.put("version", version);
 				jsonObject.put("collectDate", collectDate);
 				jsonObject.put("constellation", constellation);
@@ -346,14 +529,15 @@ public class ajax extends HttpServlet {
 				jsonObject.put("disName", disName);
 				jsonObject.put("disdate", disdate);
 			} else {
-				System.out.println("can't find");
+				System.out.println("can't find customer");
 				ret = -1;
 			}
+			
+			// tempimage
 			sql = String.format("SELECT * FROM `tempimage` WHERE userid = %s", Userid);
 			System.out.println(sql);
 			if (result != null) result.close();
 			stmt.close();
-			
 			stmt = conn.createStatement();
 			result = stmt.executeQuery(sql);
 			if(result.next()) {
@@ -427,6 +611,91 @@ public class ajax extends HttpServlet {
 				System.out.println("executeQuery tempimage fail ");
 				return -2;
 			}
+			
+			// tempinter
+			sql = String.format("SELECT * FROM `tempinter` WHERE userid = %s", Userid);
+			System.out.println(sql);
+			if (result != null)
+				result.close();
+			stmt.close();
+			stmt = conn.createStatement();
+			result = stmt.executeQuery(sql);
+			if (result.next()) {
+				// Inter_id 	userid 	name 	L1temp 	L1RCL 	L1RCR 	L2temp 	L2RCL 	L2RCR 	L3temp 	L3RCL 	L3RCR 	L4temp 	L4RCL 	L4RCR 	L5temp 	L5RCL 	L5RCR
+				// R1temp 	R1RCL 	R1RCR 	R2temp 	R2RCL 	R2RCR 	R3temp 	R3RCL 	R3RCR 	R4temp 	R4RCL 	R4RCR 	R5temp 	R5RCL 	R5RCR
+				System.out.println("executeQuery tempinter ok ");
+				
+				int Inter_id = result.getInt("Inter_id");
+				int userid = result.getInt("userid");
+				String name = result.getString("name");
+				String L1temp = result.getString("L1temp");
+				String L1RCL = result.getString("L1RCL");
+				String L1RCR = result.getString("L1RCR");
+				String L2temp = result.getString("L2temp");
+				String L2RCL = result.getString("L2RCL");
+				String L2RCR = result.getString("L2RCR");
+				String L3temp = result.getString("L3temp");
+				String L3RCL = result.getString("L3RCL");
+				String L3RCR = result.getString("L3RCR");
+				String L4temp = result.getString("L4temp");
+				String L4RCL = result.getString("L4RCL");
+				String L4RCR = result.getString("L4RCR");
+				String L5temp = result.getString("L5temp");
+				String L5RCL = result.getString("L5RCL");
+				String L5RCR = result.getString("L5RCR");
+				String R1temp = result.getString("R1temp");
+				String R1RCL = result.getString("R1RCL");
+				String R1RCR = result.getString("R1RCR");
+				String R2temp = result.getString("R2temp");
+				String R2RCL = result.getString("R2RCL");
+				String R2RCR = result.getString("R2RCR");
+				String R3temp = result.getString("R3temp");
+				String R3RCL = result.getString("R3RCL");
+				String R3RCR = result.getString("R3RCR");
+				String R4temp = result.getString("R4temp");
+				String R4RCL = result.getString("R4RCL");
+				String R4RCR = result.getString("R4RCR");
+				String R5temp = result.getString("R5temp");
+				String R5RCL = result.getString("R5RCL");
+				String R5RCR = result.getString("R5RCR");
+
+				jsonObject2.put("Inter_id", Inter_id);
+				jsonObject2.put("userid", userid);
+				jsonObject2.put("name", name);
+				jsonObject2.put("L1temp", L1temp);
+				jsonObject2.put("L1RCL", L1RCL);
+				jsonObject2.put("L1RCR", L1RCR);
+				jsonObject2.put("L2temp", L2temp);
+				jsonObject2.put("L2RCL", L2RCL);
+				jsonObject2.put("L2RCR", L2RCR);
+				jsonObject2.put("L3temp", L3temp);
+				jsonObject2.put("L3RCL", L3RCL);
+				jsonObject2.put("L3RCR", L3RCR);
+				jsonObject2.put("L4temp", L4temp);
+				jsonObject2.put("L4RCL", L4RCL);
+				jsonObject2.put("L4RCR", L4RCR);
+				jsonObject2.put("L5temp", L5temp);
+				jsonObject2.put("L5RCL", L5RCL);
+				jsonObject2.put("L5RCR", L5RCR);
+				jsonObject2.put("R1temp", R1temp);
+				jsonObject2.put("R1RCL", R1RCL);
+				jsonObject2.put("R1RCR", R1RCR);
+				jsonObject2.put("R2temp", R2temp);
+				jsonObject2.put("R2RCL", R2RCL);
+				jsonObject2.put("R2RCR", R2RCR);
+				jsonObject2.put("R3temp", R3temp);
+				jsonObject2.put("R3RCL", R3RCL);
+				jsonObject2.put("R3RCR", R3RCR);
+				jsonObject2.put("R4temp", R4temp);
+				jsonObject2.put("R4RCL", R4RCL);
+				jsonObject2.put("R4RCR", R4RCR);
+				jsonObject2.put("R5temp", R5temp);
+				jsonObject2.put("R5RCL", R5RCL);
+				jsonObject2.put("R5RCR", R5RCR);
+			} else {
+				System.out.println("executeQuery tempinter fail ");
+				return -2;
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -443,6 +712,7 @@ public class ajax extends HttpServlet {
 		
 		jsonObjectRoot.put("customer", jsonObject);
 		jsonObjectRoot.put("tempimage", jsonObject1);
+		jsonObjectRoot.put("tempinter", jsonObject2);
 		
 		String jsonFile = Dir + "/export.json";
 		String jsonString = jsonObjectRoot.toString();
