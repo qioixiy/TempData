@@ -55,9 +55,7 @@ public class ListFinType extends HttpServlet {
 		String id = request.getParameter("id");
 
 		System.out.println("ListFinType enter, id:" + id);
-		
-		int userid = 2;
-		
+				
 		String sql = String.format("SELECT * FROM `tempimage` WHERE userid = %s", id);
 		System.out.println(sql);
 		try{
@@ -66,7 +64,7 @@ public class ListFinType extends HttpServlet {
 			ResultSet rs = stmt.executeQuery(sql);
 			String L1L, L1R, L1C, L2L, L2R, L2C, L3L, L3R, L3C, L4L, L4R, L4C, L5L, L5R, L5C;
 			String R1L, R1R, R1C, R2L, R2R, R2C, R3L, R3R, R3C, R4L, R4R, R4C, R5L, R5R, R5C;
-			while (rs.next()) {
+			if (rs.next()) {
 				L1L = rs.getString("L1left");
 				L1R = rs.getString("L1right");
 				L1C = rs.getString("L1post");
@@ -139,12 +137,9 @@ public class ListFinType extends HttpServlet {
 				System.out.println(urls);
 				
 				if (detail != null) {
-					response.getWriter().append(urls.get(detail + "L"));
-					response.getWriter().append("|");
-					response.getWriter().append(urls.get(detail + "R"));
-					response.getWriter().append("|");
-					response.getWriter().append(urls.get(detail + "C"));
-					System.out.println(detail + urls.get(detail));
+					String ret = urls.get(detail + "L") + "|" + urls.get(detail + "R") + "|" + urls.get(detail + "C");
+					response.getWriter().append(ret);
+					System.out.println("detail:" + detail + ":" + ret);
 				} else {
 					request.setAttribute("urls", urls);
 				
