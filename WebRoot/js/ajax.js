@@ -162,6 +162,12 @@ function url_request(url) {
 function UpladFile() {
 
 	var fileObj = document.getElementById("file").files[0]; // 获取文件对象
+	
+	if (fileObj == undefined){
+		alert("请选择上传的文件");
+		return;
+	}
+	
 	var FileController = "http://localhost:8080/TempData/UploadFile"; // 接收上传文件的后台地址 
 
 	// FormData 对象
