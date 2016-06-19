@@ -230,8 +230,8 @@ public class ajax extends HttpServlet {
 				System.out.println(obj3);
 				
 				// customer
-				String insert_sql = String.format("INSERT INTO customer (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) VALUES (%d, %d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, '%s', '%s', %d, '%s', '%s')",
-						"id",
+				String insert_sql = String.format("INSERT INTO customer (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) VALUES (%d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, '%s', '%s', %d, '%s', '%s')",
+						//"id",
 						"userid",
 						"name",
 						"gender",
@@ -262,7 +262,7 @@ public class ajax extends HttpServlet {
 						"disName",
 						"disdate",
 						
-						obj.getInt("id"),
+						//obj.getInt("id"),
 						obj.getInt("userid"),
 						obj.getString("name"),
 						obj.getString("gender"),
@@ -307,8 +307,8 @@ public class ajax extends HttpServlet {
 				}
 				
 				// tempimage
-				insert_sql = String.format("INSERT INTO tempimage (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) VALUES (%d, %d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
-						"Image_id", "userid", 
+				insert_sql = String.format("INSERT INTO tempimage (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) VALUES (%d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+						"userid", 
 						"L1post", "L1left", "L1right",
 						"L2post", "L2left", "L2right",
 						"L3post", "L3left", "L3right",
@@ -319,7 +319,7 @@ public class ajax extends HttpServlet {
 						"R3post", "R3left", "R3right",
 						"R4post", "R4left", "R4right",
 						"R5post", "R5left", "R5right",
-						obj2.getInt("Image_id"), obj2.getInt("userid"), 
+						obj2.getInt("userid"), 
 						obj2.getString("L1post"), obj2.getString("L1left"), obj2.getString("L1right"),
 						obj2.getString("L2post"), obj2.getString("L2left"), obj2.getString("L2right"),
 						obj2.getString("L3post"), obj2.getString("L3left"), obj2.getString("L3right"),
@@ -345,8 +345,8 @@ public class ajax extends HttpServlet {
 				}
 				
 				// tempinter
-				insert_sql = String.format("INSERT INTO tempinter (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) VALUES (%d, %d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
-						"Inter_id",
+				insert_sql = String.format("INSERT INTO tempinter (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) VALUES (%d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+						
 						"userid",
 						"name",
 						"L1temp",
@@ -380,7 +380,7 @@ public class ajax extends HttpServlet {
 						"R5RCL",
 						"R5RCR",
 						
-				obj3.get("Inter_id"),
+				//obj3.get("Inter_id"),
 				obj3.get("userid"),
 				obj3.get("name"),
 				obj3.get("L1temp"),
