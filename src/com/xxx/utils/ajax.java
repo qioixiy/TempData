@@ -1,12 +1,18 @@
 package com.xxx.utils;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -27,6 +33,7 @@ import com.xxx.zip.UnZip;
 import com.xxx.zip.Zip;
 
 import cn.fingerdata.dao1.BaseDataBaseDao;
+import net.sf.json.JSONObject;
 
 /**
  * Servlet implementation class ajax
@@ -156,6 +163,235 @@ public class ajax extends HttpServlet {
 		return ret;
 	}
 
+	@SuppressWarnings("unchecked")
+	int exportCustomerInfo(String Userid, String Dir)
+	{
+		int ret = 0;
+		Connection conn = BaseDataBaseDao.getConnection();
+
+		JSONObject jsonObjectRoot = new JSONObject();
+		JSONObject jsonObject = new JSONObject();
+		JSONObject jsonObject1 = new JSONObject();
+		Statement stmt;
+		ResultSet result = null;
+		try {
+			stmt = conn.createStatement();
+			String sql = String.format("SELECT * FROM `customer` WHERE userid = %s", Userid);
+			System.out.println(sql);
+			result = stmt.executeQuery(sql);
+			if(result.next()) {
+				System.out.println("executeQuery ok");
+				//id 	userid 	name 	gender 	birthday 	age 	version 	collectDate
+				// constellation 	bloodtype 	fatherName 	farBirthday 	fphone 	matherName 	
+				// marBirthday 	mphone 	career 	address 	phone 	QQ 	MSN 	leftATD 	rightATD 	
+				// note 	collId 	collName 	colldate 	disId 	disName 	disdate
+				int id = result.getInt("id");
+				int userid = result.getInt("userid");
+				String name = result.getString("name");
+				String gender = result.getString("gender");
+				String birthday = result.getString("birthday");
+				String age = result.getString("birthday");
+				String version = result.getString("version");
+				String collectDate = result.getString("collectDate");;
+				String constellation = result.getString("constellation");
+				String bloodtype = result.getString("bloodtype");
+				String fatherName = result.getString("fatherName");
+				String farBirthday = result.getString("farBirthday");
+				String fphone = result.getString("fphone");
+				String matherName = result.getString("matherName");
+				String marBirthday = result.getString("marBirthday");
+				String mphone = result.getString("mphone");
+				String career = result.getString("career");
+				String address = result.getString("address");
+				String phone = result.getString("phone");
+				String QQ = result.getString("QQ");
+				String MSN = result.getString("MSN");
+				String leftATD = result.getString("leftATD");
+				String rightATD = result.getString("rightATD");
+				String note = result.getString("note");
+				int collId = result.getInt("collId");
+				String collName = result.getString("collName");
+				String colldate = result.getString("colldate");
+				int disId = result.getInt("disId");
+				String disName = result.getString("disName");
+				String disdate = result.getString("disdate");
+				
+				jsonObject.put("id", id);
+				jsonObject.put("userid", userid);
+				jsonObject.put("name", name);
+				jsonObject.put("gender", gender);
+				jsonObject.put("birthday", birthday);
+				jsonObject.put("birthday", birthday);
+				jsonObject.put("version", version);
+				jsonObject.put("collectDate", collectDate);
+				jsonObject.put("constellation", constellation);
+				jsonObject.put("bloodtype", bloodtype);
+				jsonObject.put("fatherName", fatherName);
+				jsonObject.put("farBirthday", farBirthday);
+				jsonObject.put("fphone", fphone);
+				jsonObject.put("matherName", matherName);
+				jsonObject.put("marBirthday", marBirthday);
+				jsonObject.put("mphone", mphone);
+				jsonObject.put("career", career);
+				jsonObject.put("address", address);
+				jsonObject.put("phone", phone);
+				jsonObject.put("QQ", QQ);
+				jsonObject.put("MSN", MSN);
+				jsonObject.put("leftATD", leftATD);
+				jsonObject.put("rightATD", rightATD);
+				jsonObject.put("note", note);
+				jsonObject.put("collId", collId);
+				jsonObject.put("collName", collName);
+				jsonObject.put("colldate", colldate);
+				jsonObject.put("disId", disId);
+				jsonObject.put("disName", disName);
+				jsonObject.put("disdate", disdate);
+			} else {
+				System.out.println("can't find");
+				ret = -1;
+			}
+			sql = String.format("SELECT * FROM `tempimage` WHERE userid = %s", Userid);
+			System.out.println(sql);
+			if (result != null) result.close();
+			stmt.close();
+			
+			stmt = conn.createStatement();
+			result = stmt.executeQuery(sql);
+			if(result.next()) {
+				System.out.println("executeQuery tempimage ok ");
+				int Image_id = result.getInt("Image_id");
+				int userid = result.getInt("userid");
+				String L1post = result.getString("L1post");
+				String L1left = result.getString("L1left");
+				String L1right = result.getString("L1right");
+				String L2post = result.getString("L2post");
+				String L2left = result.getString("L2left");
+				String L2right = result.getString("L2right");
+				String L3post = result.getString("L3post");
+				String L3left = result.getString("L3left");
+				String L3right = result.getString("L3right");
+				String L4post = result.getString("L4post");
+				String L4left = result.getString("L4left");
+				String L4right = result.getString("L4right");
+				String L5post = result.getString("L5post");
+				String L5left = result.getString("L5left");
+				String L5right = result.getString("L5right");
+				String R1post = result.getString("R1post");
+				String R1left = result.getString("R1left");
+				String R1right = result.getString("R1right");
+				String R2post = result.getString("R2post");
+				String R2left = result.getString("R2left");
+				String R2right = result.getString("R2right");
+				String R3post = result.getString("R3post");
+				String R3left = result.getString("R3left");
+				String R3right = result.getString("R3right");
+				String R4post = result.getString("R4post");
+				String R4left = result.getString("R4left");
+				String R4right = result.getString("R4right");
+				String R5post = result.getString("R5post");
+				String R5left = result.getString("R5left");
+				String R5right = result.getString("R5right");
+				
+				jsonObject1.put("Image_id", Image_id);
+				jsonObject1.put("userid", userid);
+				jsonObject1.put("L1post", L1post);
+				jsonObject1.put("L1left", L1left);
+				jsonObject1.put("L1right", L1right);
+				jsonObject1.put("L2post", L2post);
+				jsonObject1.put("L2left", L2left);
+				jsonObject1.put("L2right", L2right);
+				jsonObject1.put("L3post", L3post);
+				jsonObject1.put("L3left", L3left);
+				jsonObject1.put("L3right", L3right);
+				jsonObject1.put("L4post", L4post);
+				jsonObject1.put("L4left", L4left);
+				jsonObject1.put("L4right", L4right);
+				jsonObject1.put("L5post", L5post);
+				jsonObject1.put("L5left", L5left);
+				jsonObject1.put("L5right", L5right);
+				jsonObject1.put("R1post", R1post);
+				jsonObject1.put("R1left", R1left);
+				jsonObject1.put("R1right", R1right);
+				jsonObject1.put("R2post", R2post);
+				jsonObject1.put("R2left", R2left);
+				jsonObject1.put("R2right", R2right);
+				jsonObject1.put("R3post", R3post);
+				jsonObject1.put("R3left", R3left);
+				jsonObject1.put("R3right", R3right);
+				jsonObject1.put("R4post", R4post);
+				jsonObject1.put("R4left", R4left);
+				jsonObject1.put("R4right", R4right);
+				jsonObject1.put("R5post", R5post);
+				jsonObject1.put("R5left", R5left);
+				jsonObject1.put("R5right", R5right);
+			} else {
+				System.out.println("executeQuery tempimage fail ");
+				return -2;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if (result != null) result.close();
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
+		jsonObjectRoot.put("customer", jsonObject);
+		jsonObjectRoot.put("tempimage", jsonObject1);
+		
+		String jsonFile = Dir + "/export.json";
+		String jsonString = jsonObjectRoot.toString();
+		System.out.println(jsonString);
+		FileOutputStream outStream = null;
+		try {
+			outStream = new FileOutputStream(jsonFile);
+			try {
+				@SuppressWarnings("resource")
+				ObjectOutputStream objectOutputStream = new ObjectOutputStream(outStream);
+				objectOutputStream.writeObject(jsonString);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				outStream.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		FileInputStream freader;  
+        try {  
+            freader = new FileInputStream(jsonFile);  
+            @SuppressWarnings("resource")
+			ObjectInputStream objectInputStream = new ObjectInputStream(freader);
+            String jsonString1 = (String)objectInputStream.readObject();
+             System.out.println("jsonString1:" + jsonString1);
+             
+        } catch (FileNotFoundException e) {  
+            // TODO Auto-generated catch block  
+            e.printStackTrace();  
+        } catch (IOException e) {  
+            // TODO Auto-generated catch block  
+            e.printStackTrace();  
+        } catch (ClassNotFoundException e) {  
+            // TODO Auto-generated catch block  
+            e.printStackTrace();  
+        }  
+		return ret;
+	}
+	
 	int exportPackage(HttpServletRequest request, HttpServletResponse response, String basePath)
 	{
 		String Userid = request.getParameter("Userid");
@@ -170,6 +406,8 @@ public class ajax extends HttpServlet {
 			System.out.println(zipDir + " is not a dir");
 			return -1;
 		}
+		
+		exportCustomerInfo(Userid, zipDir);
 		
 		Zip.zip(zipDir, zipFile);
 		String url = basePath + "images/FprCap/data/" + Userid + ".zip";
