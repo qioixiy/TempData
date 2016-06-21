@@ -37,7 +37,6 @@ public class ListServlet extends HttpServlet {
 		System.out.println("进入ListServlet");
 		CustomerBiz  customerBiz= new  CustomerBizImpl();
 		List<Customer> customers=customerBiz.getAllCustomers();
-		System.out.println(customers.get(0).getId()+"------------------");
 		System.out.println(customers.size());
 		request.setAttribute("customers", customers);
 		

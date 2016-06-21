@@ -74,7 +74,10 @@ public class FinData extends HttpServlet {
 		String userid = sUserid;
 		
 		CustomerListBiz  customerListBiz=new  CustomerListBizImpl();
-	     Customer  customer= customerListBiz.getCustomer(Integer.valueOf(sid));
+		Customer  customer= null;
+		if (sid != null) {
+	      customer= customerListBiz.getCustomer(Integer.valueOf(sid));
+		}
 	     request.setAttribute("customer",customer);
 		
 		String sql = String.format("SELECT * FROM `tempinter` WHERE userid = %s", userid);

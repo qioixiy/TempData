@@ -1,14 +1,11 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@page  import="java.util.List" %>
 <%@page  import="cn.fingerdata.bean.Customer" %>
-<%
-List<Customer> customers=(List<Customer>)request.getAttribute("customers"); 
-   
- %>
 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+List<Customer> customers=(List<Customer>)request.getAttribute("customers"); 
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
