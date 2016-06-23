@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
    <base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>指纹采集分析系统 by www.mycodes.net</title>
+<title>D&B数据采集系统</title>
 <style type="text/css">
 <!--
 body {
@@ -54,14 +54,6 @@ body {
       <tr>
         <td height="35" class="login-text02">密　码：<br /></td>
         <td><input name="textfield2" type="password" size="33" /></td>
-      </tr>
-      <tr>
-        <td height="35" class="login-text02">验证图片：<br /></td>
-        <td><img src="images/pic05.gif" width="109" height="40" /> <a href="#" class="login-text03">看不清楚，换张图片</a></td>
-      </tr>
-      <tr>
-        <td height="35" class="login-text02">请输入验证码：</td>
-        <td><input name="textfield3" type="text" size="30" /></td>
       </tr>
       <tr>
         <td height="35">&nbsp;</td>
