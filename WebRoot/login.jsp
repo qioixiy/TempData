@@ -10,20 +10,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 <title>D&B数据采集系统</title>
 <style type="text/css">
-<!--
+
 body {
 	margin-left: 0px;
 	margin-top: 0px;
 	margin-right: 0px;
 	margin-bottom: 0px;
 }
--->
+
+input {
+	margin: 10px;
+}
+
 </style>
 <link href="css/css.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-<form  action="login.action"   method="post">
+<form  action=""   method="post">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td height="147" background="images/top02.gif"><img src="images/top03.gif" width="776" height="147" /></td>
@@ -48,17 +52,18 @@ body {
     </table></td>
     <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td width="31%" height="35" class="login-text02">用户名称：<br /></td>
+        <td width="31%" height="35" class="login-text02">用户名<br /></td>
         <td width="69%"><input name="textfield" type="text" size="30" /></td>
       </tr>
       <tr>
-        <td height="35" class="login-text02">密　码：<br /></td>
-        <td><input name="textfield2" type="password" size="33" /></td>
+        <td height="35" class="login-text02">密　码<br /></td>
+        <td><input name="password" type="password" size="33" /></td>
       </tr>
       <tr>
         <td height="35">&nbsp;</td>
-        <td><input name="Submit2" type="submit" class="right-button01" value="确认登陆" onClick="window.location='index.html'" />
-          <input name="Submit232" type="submit" class="right-button02" value="重 置" /></td>
+        <td>
+        	<input name="Submit" type="submit" class="right-button01" value="登陆" onClick="alert('..')" />
+          	<input name="clear" type="button" class="right-button02" value="重 置" /></td>
       </tr>
     </table></td>
   </tr>
