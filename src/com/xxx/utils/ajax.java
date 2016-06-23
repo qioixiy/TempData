@@ -789,6 +789,37 @@ public class ajax extends HttpServlet {
 		}
 		return 0;
 	}
+	
+	int login(HttpServletRequest request, HttpServletResponse response) {
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		
+		System.out.println("username:" + username + ",password:" + password);
+		
+		Connection conn = BaseDataBaseDao.getConnection();
+		Statement stmt;
+		try {
+			stmt = conn.createStatement();
+
+			String sql = String.format("SELECT * FROM `account` WHERE `username` = '%s' and `password` = '%s'",
+					username, password);
+			System.out.println(sql);
+			ResultSet ret = stmt.executeQuery(sql);
+			if(ret.next()) { // find
+				System.out.println("executeQuery ok," + sql);
+				System.out.println("find user");
+				response.getWriter().append("success");
+				HttpSession session = request.getSession(); 
+				session.setAttribute("username", username);
+			}
+		} catch (SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -964,6 +995,9 @@ public class ajax extends HttpServlet {
 				} else{
 					System.out.println("saveRcData error");
 				}
+				break;
+			case "login":
+				login(request, response);
 				break;
 			default:
 				System.out.println("unkown command");

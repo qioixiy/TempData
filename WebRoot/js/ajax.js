@@ -84,6 +84,21 @@ function callBack_saveRcData() {
 	}
 }
 
+function callBack_login() {
+	if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
+		var result = xmlHttpRequest.responseText;
+		if (result == "success") {
+			window.location = "http://localhost:8080/TempData/index.jsp";
+		} else if (result == "fail_username") {
+			alert("没有用户名");
+		} else if (result == "fail_password") {
+			alert("密码不对");
+		} else {
+			alert("登陆失败");
+		}
+	}
+}
+
 //提交ajax请求
 function ajax_request(server, param1, param2) {
 	//alert("param1:" + param1 + ",param2:" + param2);
@@ -113,6 +128,8 @@ function ajax_request(server, param1, param2) {
 		xmlHttpRequest.onreadystatechange = callBack_ImportPackage;
 	} else if (param1 == "saveRcData") {
 		xmlHttpRequest.onreadystatechange = callBack_saveRcData;
+	} else if (param1 == "login") {
+		xmlHttpRequest.onreadystatechange = callBack_login;
 	} else {
 		alert("不支持子功能");
 		return;

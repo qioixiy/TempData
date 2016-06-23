@@ -20,10 +20,29 @@ body {
 
 input {
 	margin: 10px;
+	width: 150px;
 }
 
 </style>
 <link href="css/css.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<%=basePath%>/js/ajax.js"></script>
+<script>
+function login()
+{
+	var username = document.getElementById("username");
+	if (username.value == "") {
+		alert("用户名不能为空");
+		return;
+	}
+	var password = document.getElementById("password");
+	if (password.value == "") {
+		alert("密码不能为空");
+		return;
+	}
+
+	ajax_request("<%=basePath%>", "login", "&username=" + username.value + "&password=" + password.value);
+}
+</script>
 </head>
 
 <body>
@@ -53,16 +72,16 @@ input {
     <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
         <td width="31%" height="35" class="login-text02">用户名<br /></td>
-        <td width="69%"><input name="textfield" type="text" size="30" /></td>
+        <td width="69%"><input id="username" name="textfield" type="text" size="30" /></td>
       </tr>
       <tr>
         <td height="35" class="login-text02">密　码<br /></td>
-        <td><input name="password" type="password" size="33" /></td>
+        <td><input id="password" name="password" type="password" size="33" /></td>
       </tr>
       <tr>
         <td height="35">&nbsp;</td>
         <td>
-        	<input name="Submit" type="submit" class="right-button01" value="登陆" onClick="alert('..')" />
+        	<input name="Submit" type="button" class="right-button01" value="登陆" onclick="login()" />
           	<input name="clear" type="button" class="right-button02" value="重 置" /></td>
       </tr>
     </table></td>
