@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 
     
-    <title>My JSP 'listaccount.jsp.jsp' starting page</title>
+    <title></title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -151,102 +151,7 @@ function link(){
                        <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
 					<td bgcolor="#FFFFFF"   align="center"><a href="updateaccount.jsp">修&nbsp;&nbsp;&nbsp;改</a></td>
                   </tr>
-                <tr>
-				    <td bgcolor="#FFFFFF"  align="center" ><input type="checkbox" name="delid"/></td>
-					<td height="18" bgcolor="#EEEEEE"  align="center">1</td>
-                    <td bgcolor="#FFFFFF"  align="center"><a href="listyuangongmingxi.html">001</a></td>
-                    <td height="20" bgcolor="#FFFFFF"  align="center">admin</td>
-                    <td bgcolor="#FFFFFF"   align="center">Miss李</td>
-                    <td bgcolor="#FFFFFF"  align="center" ><input type="checkbox" name="rest"/></td>
-                     <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
-                      <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
-                       <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
-					<td bgcolor="#FFFFFF"   align="center"><a href="updateaccount.jsp">修&nbsp;&nbsp;&nbsp;改</a></td>
-                  </tr>
-                 <tr>
-				    <td bgcolor="#FFFFFF"  align="center" ><input type="checkbox" name="delid"/></td>
-					<td height="18" bgcolor="#EEEEEE"  align="center">1</td>
-                    <td bgcolor="#FFFFFF"  align="center"><a href="listyuangongmingxi.html">001</a></td>
-                    <td height="20" bgcolor="#FFFFFF"  align="center">admin</td>
-                    <td bgcolor="#FFFFFF"   align="center">Miss李</td>
-                    <td bgcolor="#FFFFFF"  align="center" ><input type="checkbox" name="rest"/></td>
-                     <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
-                      <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
-                       <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
-					<td bgcolor="#FFFFFF"   align="center"><a href="updateaccount.jsp">修&nbsp;&nbsp;&nbsp;改</a></td>
-                  </tr>
-                 <tr>
-				    <td bgcolor="#FFFFFF"  align="center" ><input type="checkbox" name="delid"/></td>
-					<td height="18" bgcolor="#EEEEEE"  align="center">1</td>
-                    <td bgcolor="#FFFFFF"  align="center"><a href="listyuangongmingxi.html">001</a></td>
-                    <td height="20" bgcolor="#FFFFFF"  align="center">admin</td>
-                    <td bgcolor="#FFFFFF"   align="center">Miss李</td>
-                    <td bgcolor="#FFFFFF"  align="center" ><input type="checkbox" name="rest"/></td>
-                     <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
-                      <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
-                       <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
-					<td bgcolor="#FFFFFF"   align="center"><a href="updateaccount.jsp">修&nbsp;&nbsp;&nbsp;改</a></td>
-                  </tr>
-                 <tr>
-				    <td bgcolor="#FFFFFF"  align="center" ><input type="checkbox" name="delid"/></td>
-					<td height="18" bgcolor="#EEEEEE"  align="center">1</td>
-                    <td bgcolor="#FFFFFF"  align="center"><a href="listyuangongmingxi.html">001</a></td>
-                    <td height="20" bgcolor="#FFFFFF"  align="center">admin</td>
-                    <td bgcolor="#FFFFFF"   align="center">Miss李</td>
-                    <td bgcolor="#FFFFFF"  align="center" ><input type="checkbox" name="rest"/></td>
-                     <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
-                      <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
-                       <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
-					<td bgcolor="#FFFFFF"   align="center"><a href="updateaccount.jsp">修&nbsp;&nbsp;&nbsp;改</a></td>
-                  </tr>
-                <tr>
-				    <td bgcolor="#FFFFFF"  align="center" ><input type="checkbox" name="delid"/></td>
-					<td height="18" bgcolor="#EEEEEE"  align="center">1</td>
-                    <td bgcolor="#FFFFFF"  align="center"><a href="listyuangongmingxi.html">001</a></td>
-                    <td height="20" bgcolor="#FFFFFF"  align="center">admin</td>
-                    <td bgcolor="#FFFFFF"   align="center">Miss李</td>
-                    <td bgcolor="#FFFFFF"  align="center" ><input type="checkbox" name="rest"/></td>
-                     <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
-                      <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
-                       <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
-					<td bgcolor="#FFFFFF"   align="center"><a href="updateaccount.jsp">修&nbsp;&nbsp;&nbsp;改</a></td>
-                  </tr>
-                <tr>
-				    <td bgcolor="#FFFFFF"  align="center" ><input type="checkbox" name="delid"/></td>
-					<td height="18" bgcolor="#EEEEEE"  align="center">1</td>
-                    <td bgcolor="#FFFFFF"  align="center"><a href="listyuangongmingxi.html">001</a></td>
-                    <td height="20" bgcolor="#FFFFFF"  align="center">admin</td>
-                    <td bgcolor="#FFFFFF"   align="center">Miss李</td>
-                    <td bgcolor="#FFFFFF"  align="center" ><input type="checkbox" name="rest"/></td>
-                     <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
-                      <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
-                       <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
-					<td bgcolor="#FFFFFF"   align="center"><a href="updateaccount.jsp">修&nbsp;&nbsp;&nbsp;改</a></td>
-                  </tr>
-              <tr>
-				    <td bgcolor="#FFFFFF"  align="center" ><input type="checkbox" name="delid"/></td>
-					<td height="18" bgcolor="#EEEEEE"  align="center">1</td>
-                    <td bgcolor="#FFFFFF"  align="center"><a href="listyuangongmingxi.html">001</a></td>
-                    <td height="20" bgcolor="#FFFFFF"  align="center">admin</td>
-                    <td bgcolor="#FFFFFF"   align="center">Miss李</td>
-                    <td bgcolor="#FFFFFF"  align="center" ><input type="checkbox" name="rest"/></td>
-                     <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
-                      <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
-                       <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
-					<td bgcolor="#FFFFFF"   align="center"><a href="updateaccount.jsp">修&nbsp;&nbsp;&nbsp;改</a></td>
-                  </tr>
-                 <tr>
-				    <td bgcolor="#FFFFFF"  align="center" ><input type="checkbox" name="delid"/></td>
-					<td height="18" bgcolor="#EEEEEE"  align="center">1</td>
-                    <td bgcolor="#FFFFFF"  align="center"><a href="listyuangongmingxi.html">001</a></td>
-                    <td height="20" bgcolor="#FFFFFF"  align="center">admin</td>
-                    <td bgcolor="#FFFFFF"   align="center">Miss李</td>
-                    <td bgcolor="#FFFFFF"  align="center" ><input type="checkbox" name="rest"/></td>
-                     <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
-                      <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
-                       <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
-					<td bgcolor="#FFFFFF"   align="center"><a href="updateaccount.jsp">修&nbsp;&nbsp;&nbsp;改</a></td>
-                  </tr>
+                
                 </table></td>
               </tr>
             </table></td>

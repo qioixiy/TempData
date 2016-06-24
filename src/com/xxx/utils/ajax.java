@@ -827,34 +827,50 @@ public class ajax extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password1");
 		String password2 = request.getParameter("password2");
-		String privilege_1 = request.getParameter("privilege_1");
-		String privilege_2 = request.getParameter("privilege_2");
-		String privilege_3 = request.getParameter("privilege_3");
-		String privilege_4 = request.getParameter("privilege_4");
+		String privilege = request.getParameter("privilege");
 
 		System.out.println("uid:" + uid + ",username:" + username
 				+ ",password=" + password
 				+ ",password2=" + password2
-				+ ",privilege_1=" + privilege_1
-				+ ",privilege_2=" + privilege_2
-				+ ",privilege_3=" + privilege_3
-				+ ",privilege_4=" + privilege_4);
+				+ ",privilege=" + privilege);
 		
 		Connection conn = BaseDataBaseDao.getConnection();
 		Statement stmt;
 		try {
 			stmt = conn.createStatement();
 
-			String sql = String.format("SELECT * FROM `account` WHERE `username` = '%s' and `password` = '%s'",
-					username, password);
+			String sql = String.format("SELECT * FROM `account` WHERE `accountId` = '%s'",
+					uid);
 			System.out.println(sql);
 			ResultSet ret = stmt.executeQuery(sql);
 			if(ret.next()) { // find
 				System.out.println("executeQuery ok," + sql);
-				System.out.println("find user");
+				System.out.println("find user, but !!");
+				response.getWriter().append("fail_uid");
+				return -1;
+			}
+			
+			sql = String.format("SELECT * FROM `account` WHERE `username` = '%s'",
+					username);
+			System.out.println(sql);
+			ret = stmt.executeQuery(sql);
+			if(ret.next()) { // find
+				System.out.println("executeQuery ok," + sql);
+				System.out.println("find user, but !!");
+				response.getWriter().append("fail_username");
+				return -2;
+			}
+			// insert
+			 	 	 	
+			sql = String.format("INSERT INTO account (%s, %s, %s, %s) VALUES ('%s', '%s', '%s', '%s')"
+					,"accountId", "username", "password", "privilege"
+					,uid , username, password, privilege);
+			System.out.println(sql);
+			if (stmt.executeUpdate(sql) > 0) {
+				System.out.println("insert account success");
 				response.getWriter().append("success");
-				HttpSession session = request.getSession(); 
-				session.setAttribute("username", username);
+			} else {
+				System.out.println("insert account fail");
 			}
 		} catch (SQLException | IOException e) {
 			// TODO Auto-generated catch block

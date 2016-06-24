@@ -102,7 +102,7 @@ function callBack_add_user() {
 	if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
 		var result = xmlHttpRequest.responseText;
 		if (result == "success") {
-			window.location = "http://localhost:8080/TempData/index.jsp";
+			window.location = "http://localhost:8080/TempData/files/listaccount.jsp";
 		} else if (result == "fail_username") {
 			alert("用户名已经存在");
 		} else if (result == "fail_uid") {

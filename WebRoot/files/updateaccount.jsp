@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
   
     
-    <title>My JSP 'updateaccount.jsp' starting page</title>
+    <title></title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -18,7 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="description" content="This is my page">
 
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>项目管理系统 by www.mycodes.net</title>
+<title></title>
 <link rel="stylesheet" rev="stylesheet" href="../css/style.css" type="text/css" media="all" />
 <style type="text/css">
 <!--
@@ -38,11 +38,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <td class="CPanel">
 		
 		<table border="0" cellpadding="0" cellspacing="0" style="width:100%">
-		<tr><td align="left">
-		<input type="button" name="Submit" value="保存" class="button" onclick="alert('保存成功！');"/>　
-			
-			<input type="button" name="Submit2" value="返回" class="button" onclick="window.history.go(-1);"/>
-		</td></tr>
 		<tr align="center">
           <td class="TablePanel">&nbsp;</td>
 		  </tr>
@@ -82,33 +77,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<td width="35%"><input name='txt3' type="text" class="text" style="width:154px" value="" />	<span class="red">*</span></td>						</td>
 							<td width="35%">&nbsp;</td>             
 						</tr>
-						
-						
-						
 					  <tr>
-					    <td  width="35%" nowrap align="right"><h3>权&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;限:</h3></td>
-					    <td width="35%">
-					          <table  width="100%"   height="140" border="0">
-					               <tr  >
-					                 <td   width="25%"  align="center" >
-					                     <label><input  name="1"  type="checkbox"  value=""/><font  size="5">采样</font></label>
-					                  </td>
-					                  <td   width="25%"  align="center" >
-					                     <label><input  name="1"  type="checkbox"  value=""/><font  size="5">判读</font></label>
-					                  </td>
-					                  <td   width="25%"  align="center" >
-					                     <label><input  name="1"  type="checkbox"  value=""/><font  size="5">所有人</font></label>
-					                  </td>
-					                  <td   width="25%"  align="center" >
-					                     <label><input  name="1"  type="checkbox"  value=""/><font  size="5">系统</font></label>
-					                  </td>
-					               </tr>
-					               
-					                
-					          
+					    <td nowrap align="right" width="30%"><h3>权&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;限:</h3></td>
+						<td width="35%">
+								<select id="select_privilege" name="temp" style="width: 154px;">
+		                           	 	<option selected="selected">请选择用户权限</option>
+		                            	<option>采样</option>
+		                            	<option>判读</option>
+		                            	<option>所有人</option>
+		                            	<option>系统</option>
+		                            </select>
+									<span class="red">*</span>
+							</td>
+					        </tr>
 					          </table>
-					   
-					    
 					   </td>
 					    <td width="35%">&nbsp;</td>
 					    </tr>
@@ -121,10 +103,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	 </td>
   </tr>
-  
- 
-	
-		
 		<TR  bgcolor="#5F9EA0">
 			<TD colspan="2" align="center" height="50px">
 			<input type="button" name="Submit" value="修改" class="button" onclick="alert('修改成功！');"/>　
