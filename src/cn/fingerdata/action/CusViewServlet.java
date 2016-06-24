@@ -28,10 +28,20 @@ public class CusViewServlet extends HttpServlet {
 	     
 		 RequestDispatcher  rd=null;
 		 String  type=request.getParameter("type");
-		 int   id=Integer.valueOf(request.getParameter("id"));
+
+		 int id=Integer.valueOf(request.getParameter("id"));
 		 
 	     CustomerBiz  customerBiz=new  CustomerBizImpl();
-	     Customer  customer=customerBiz.getCustomer(id);
+	     List<Customer> customers = customerBiz.getAllCustomers();
+	     Customer  customer = null;
+	     //Customer  customer=customerBiz.getCustomer(id);
+	     
+	     for (int i = 0; i < customers.size(); i++) {
+	    	 if (id == customers.get(i).getUserid()) {
+	    		 customer = customers.get(i);
+	    	 }
+	     }
+	     
 	     request.setAttribute("customer",customer);
 	    /*
 	     * 根据id类型不同进行跳转

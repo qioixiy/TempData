@@ -3,6 +3,7 @@
 
 <%
 Customer   customer = (Customer)request.getAttribute("customer");
+System.out.println(customer);
 
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
