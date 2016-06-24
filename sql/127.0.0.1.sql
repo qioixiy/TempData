@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2016 at 02:20 PM
+-- Generation Time: Jun 24, 2016 at 02:30 PM
 -- Server version: 5.1.56
 -- PHP Version: 5.2.17
 
@@ -18,6 +18,8 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 -- Database: `tempdata`
 --
+CREATE DATABASE `tempdata` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `tempdata`;
 
 -- --------------------------------------------------------
 
