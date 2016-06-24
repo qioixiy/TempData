@@ -1,7 +1,31 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"
+	import="cn.fingerdata.dao1.BaseDataBaseDao"
+	import="java.sql.*"
+%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+	String page_index = request.getParameter("page");
+	if (page_index == null) page_index = "1";
+	int page_skip = Integer.valueOf(page_index) - 1;
+
+	Connection conn = BaseDataBaseDao.getConnection();
+	Statement stmt;
+	stmt = conn.createStatement();
+	
+	int page_size = 5;
+	int from = page_skip * page_size;
+
+	String sql = String.format("SELECT * FROM `account` WHERE 1 LIMIT %d , %d",
+			from, page_size);
+	System.out.println(sql);
+	ResultSet ret = stmt.executeQuery(sql);
+	//if (ret.next()) { // find
+	//	System.out.println("executeQuery ok," + sql);
+	//	System.out.println("find account");
+	//	response.getWriter().append("success");
+	//}
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -139,19 +163,44 @@ function link(){
 					<td width="9%" align="center" bgcolor="#EEEEEE">系统</td>
                     <td width="11%" align="center" bgcolor="#EEEEEE">操作</td>
                   </tr>
+                  <%
+                  while(ret.next()) {
+                	  String id = ret.getString("id");
+                	  String accountId = ret.getString("accountId");
+                	  String username = ret.getString("username");
+                	  String fullname = ret.getString("fullname");
+                	  String privilege = ret.getString("privilege");
+                	  System.out.println("id:" + id
+                			  + ",accountId:" + accountId
+                			  + ",username:" + username
+                			  + ",fullname:" + fullname
+                			  + ",privilege:" + privilege);
+                
+                	  String c1 = "";
+                	  String c2 = "";
+                	  String c3 = "";
+                	  String c4 = "";//checked="checked"
+                	  
+                	switch(Integer.valueOf(privilege)) {
+                	case 1: c1 = "checked=\"checked\""; break;
+                	case 2: c2 = "checked=\"checked\""; break;
+                	case 3: c3 = "checked=\"checked\""; break;
+                	case 4: c4 = "checked=\"checked\""; break;
+                	}
+                	  %>
                   <tr>
 				    <td bgcolor="#FFFFFF"  align="center" ><input type="checkbox" name="delid"/></td>
-					<td height="18" bgcolor="#EEEEEE"  align="center">1</td>
-                    <td bgcolor="#FFFFFF"  align="center"><a href="listyuangongmingxi.html">001</a></td>
-                    <td height="20" bgcolor="#FFFFFF"  align="center">admin</td>
-                    <td bgcolor="#FFFFFF"   align="center">Miss李</td>
-                    <td bgcolor="#FFFFFF"  align="center" ><input type="checkbox" name="rest"/></td>
-                     <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
-                      <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
-                       <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest"/></td>
+					<td height="18" bgcolor="#EEEEEE"  align="center"><%=id %></td>
+                    <td bgcolor="#FFFFFF"  align="center"><a href=""><%=accountId %></a></td>
+                    <td height="20" bgcolor="#FFFFFF"  align="center"><%=username %></td>
+                    <td bgcolor="#FFFFFF"   align="center"><%=fullname %></td>
+                    <td bgcolor="#FFFFFF"  align="center" ><input type="checkbox" name="rest" <%=c1 %>/></td>
+                     <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest" <%=c2 %>/></td>
+                      <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest" <%=c3 %>/></td>
+                       <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest" <%=c4 %>/></td>
 					<td bgcolor="#FFFFFF"   align="center"><a href="updateaccount.jsp">修&nbsp;&nbsp;&nbsp;改</a></td>
                   </tr>
-                
+                <% }%>
                 </table></td>
               </tr>
             </table></td>

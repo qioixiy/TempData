@@ -29,6 +29,7 @@ function input_submit()
 {
 	var uid = document.getElementById("input_uid").value;
 	var username = document.getElementById("input_username").value;
+	var fullname = document.getElementById("input_fullname").value;
 	var password1 = document.getElementById("input_password1").value;
 	var password2 = document.getElementById("input_password2").value;
 	
@@ -36,6 +37,7 @@ function input_submit()
 	
 	var param = "&uid=" + uid
 			+ "&username=" + username 
+			+ "&fullname=" + fullname 
 			+ "&password1=" + password1
 			+ "&password2=" + password2 
 			+ "&privilege=" + privilege;
@@ -85,6 +87,12 @@ function input_submit()
 						<tr>
 					    <td nowrap align="right" width="35%"><h3>用&nbsp;&nbsp;户&nbsp;&nbsp;名:</h3></td>
 					    <td width="35%"><input id="input_username" name='txt3' type="text" class="text" style="width:154px" value="" /><span class="red">*</span>				        </td>
+				        			      
+				        <td width="35%">&nbsp;</td>	
+						</tr>
+						<tr>
+					    <td nowrap align="right" width="35%"><h3>姓&nbsp;&nbsp;&nbsp;&nbsp;名:</h3></td>
+					    <td width="35%"><input id="input_fullname" name='txt3' type="text" class="text" style="width:154px" value="" /><span class="red">*</span>				        </td>
 				        			      
 				        <td width="35%">&nbsp;</td>	
 						</tr>

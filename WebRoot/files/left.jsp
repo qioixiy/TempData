@@ -4,6 +4,9 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 
 String username = (String)session.getAttribute("username");
+if (username == null) {
+	username = "请登录";
+}
 %>
 
 <html>

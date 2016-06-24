@@ -825,11 +825,14 @@ public class ajax extends HttpServlet {
 		
 		String uid = request.getParameter("uid");
 		String username = request.getParameter("username");
+		String fullname = request.getParameter("fullname");
 		String password = request.getParameter("password1");
 		String password2 = request.getParameter("password2");
 		String privilege = request.getParameter("privilege");
 
-		System.out.println("uid:" + uid + ",username:" + username
+		System.out.println("uid:" + uid
+				+ ",username:" + username
+				+ ",fullname:" + fullname
 				+ ",password=" + password
 				+ ",password2=" + password2
 				+ ",privilege=" + privilege);
@@ -862,9 +865,9 @@ public class ajax extends HttpServlet {
 			}
 			// insert
 			 	 	 	
-			sql = String.format("INSERT INTO account (%s, %s, %s, %s) VALUES ('%s', '%s', '%s', '%s')"
-					,"accountId", "username", "password", "privilege"
-					,uid , username, password, privilege);
+			sql = String.format("INSERT INTO account (%s, , %s, %s, %s, %s) VALUES ('%s', '%s', '%s', '%s', '%s')"
+					,"accountId", "username", "fullname", "password", "privilege"
+					,uid , username, fullname, password, privilege);
 			System.out.println(sql);
 			if (stmt.executeUpdate(sql) > 0) {
 				System.out.println("insert account success");

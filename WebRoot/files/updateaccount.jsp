@@ -1,7 +1,30 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"
+	import="cn.fingerdata.dao1.BaseDataBaseDao"
+	import="java.sql.*"
+%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+
+	String username = request.getParameter("username");
+	String password = request.getParameter("password");
+
+	System.out.println("username:" + username + ",password:" + password);
+
+	Connection conn = BaseDataBaseDao.getConnection();
+	Statement stmt;
+	stmt = conn.createStatement();
+
+	String sql = String.format("SELECT * FROM `account` WHERE `username` = '%s' and `password` = '%s'",
+			username, password);
+	System.out.println(sql);
+	ResultSet ret = stmt.executeQuery(sql);
+	if (ret.next()) { // find
+		System.out.println("executeQuery ok," + sql);
+		System.out.println("find user");
+		response.getWriter().append("success");
+	}
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
