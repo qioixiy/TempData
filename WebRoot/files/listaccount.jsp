@@ -3,9 +3,14 @@
 	import="java.sql.*"
 %>
 <%
+
+	String url = request.getScheme()+"://"+ request.getServerName()+ ":" + request.getServerPort()+request.getRequestURI();
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 	+ path + "/";
+	
+	String search = request.getParameter("search");
+	System.out.println("search:" + search);
 	
 	String page_s = request.getParameter("page");
 	if (page_s == null) page_s = "1";
@@ -23,6 +28,9 @@
 	stmt = conn.createStatement();
 	
 	String sql = String.format("SELECT count( * ) as rowCount FROM account");
+	if (search != null && search != "") {
+		sql = String.format("SELECT count( * ) as rowCount FROM account where accountId = '%s'", search);
+	}
 	System.out.println(sql);
 	ResultSet ret = stmt.executeQuery(sql);
 	int count = 0;
@@ -40,6 +48,9 @@
 
 	int from = page_skip * page_size;
 	sql = String.format("SELECT * FROM `account` WHERE 1 LIMIT %d , %d", from, page_size);
+	if (search != null && search != "") {
+		sql = String.format("SELECT * FROM `account` WHERE accountId = '%s' LIMIT %d , %d", search, from, page_size);
+	}
 	System.out.println(sql);
 	ret = stmt.executeQuery(sql);
 %>
@@ -122,8 +133,17 @@ function unselectAll(){
 }
 
 function link(){
-    document.getElementById("fom").action="register.html";
-   document.getElementById("fom").submit();
+	var url = "<%=basePath %>/files/addaccount.jsp";
+	//alert(url)
+	window.location=url;
+}
+
+function search_id()
+{
+	var str = document.getElementById("input_search").value;
+	var url = "<%=url%>" + "?search=" + str;
+	//alert(url);
+	window.location=url;
 }
 
 </SCRIPT>
@@ -141,10 +161,10 @@ function link(){
 		    <tr>
 			  <td width="24"><img src="../images/ico07.gif" width="20" height="18" /></td>
 			  <td width="519"><label>编号:
-			      <input name="text" type="text" nam="gongs" />
+			      <input id="input_search" name="text" type="text" />
 			  </label>
 			    </input>
-			    <input name="Submit" type="button" class="right-button02" value="查 询" /></td>
+			    <input name="submit" type="button" class="right-button02" value="查 询" onclick="search_id();"/></td>
 			   <td width="679" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>	
 		    </tr>
           </table></td>
@@ -156,7 +176,8 @@ function link(){
           <td><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
           	 <tr>
                <td height="35"><span class="newfont07">选择：<a href="#" class="right-font08" onclick="selectAll();">全选</a>-<a href="#" class="right-font08" onclick="unselectAll();">反选</a></span>
-		           <input name="Submit" type="button" class="right-button08" value="删除所选人员" style="height: 21px; width: 100px"/> &nbsp;&nbsp;&nbsp;<input name="Submit" type="button" class="right-button08" value="添加账户信息"   style="height: 21px; width: 100px"onclick="link();  " />
+		           <input name="Submit" type="button" class="right-button08" value="删除所选人员" style="height: 21px; width: 100px"/> &nbsp;&nbsp;&nbsp;
+		           <input name="Submit" type="button" class="right-button08" value="添加账户信息"   style="height: 21px; width: 100px"onclick="link();  " />
 		           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 	              </td>
           </tr>
@@ -230,7 +251,6 @@ function link(){
           <td height="33"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="right-font08">
               <tr>
               <%
-              	String url = request.getScheme()+"://"+ request.getServerName()+ ":" + request.getServerPort()+request.getRequestURI();
               	System.out.println("url:" + url);
               	String url_front = url + "?page=" + page_front;
               	String url_back = url + "?page=" + page_back;

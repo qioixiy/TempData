@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -826,6 +827,13 @@ public class ajax extends HttpServlet {
 		String uid = request.getParameter("uid");
 		String username = request.getParameter("username");
 		String fullname = request.getParameter("fullname");
+		try {
+			fullname = new String(fullname.getBytes("ISO-8859-1"), "UTF-8");
+		} catch (UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			return -1;
+		}
 		String password = request.getParameter("password1");
 		String password2 = request.getParameter("password2");
 		String privilege = request.getParameter("privilege");
@@ -865,7 +873,7 @@ public class ajax extends HttpServlet {
 			}
 			// insert
 			 	 	 	
-			sql = String.format("INSERT INTO account (%s, , %s, %s, %s, %s) VALUES ('%s', '%s', '%s', '%s', '%s')"
+			sql = String.format("INSERT INTO account (%s, %s, %s, %s, %s) VALUES ('%s', '%s', '%s', '%s', '%s')"
 					,"accountId", "username", "fullname", "password", "privilege"
 					,uid , username, fullname, password, privilege);
 			System.out.println(sql);
