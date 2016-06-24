@@ -42,6 +42,12 @@ function login()
 
 	ajax_request("<%=basePath%>", "login", "&username=" + username.value + "&password=" + password.value);
 }
+
+function clear_input()
+{
+	document.getElementById("username").value = "";
+	document.getElementById("password").value = "";
+}
 </script>
 </head>
 
@@ -82,7 +88,7 @@ function login()
         <td height="35">&nbsp;</td>
         <td>
         	<input name="Submit" type="button" class="right-button01" value="登陆" onclick="login()" />
-          	<input name="clear" type="button" class="right-button02" value="重 置" /></td>
+          	<input name="clear" type="button" class="right-button02" value="重 置" onclick="clear_input()" /></td>
       </tr>
     </table></td>
   </tr>

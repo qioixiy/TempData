@@ -2,12 +2,14 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+
+String username = (String)session.getAttribute("username");
 %>
 
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>项目管理系统 by www.mycodes.net</title>
+<title>D&B数据采集系统</title>
 <style type="text/css">
 <!--
 body {
@@ -82,11 +84,11 @@ function list(idstr){
 				<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
 				  <tr>
 					<td width="25%" rowspan="2"><img src="../images/ico02.gif" width="35" height="35" /></td>
-					<td width="75%" height="22" class="left-font01">您好，<span class="left-font02">king</span></td>
+					<td width="75%" height="22" class="left-font01">您好，<span class="left-font02"><%=username%></span></td>
 				  </tr>
 				  <tr>
 					<td height="22" class="left-font01">
-						[&nbsp;<a href="../login.html" target="_top" class="left-font01">退出</a>&nbsp;]</td>
+						[&nbsp;<a href="../login.jsp" target="_top" class="left-font01">退出</a>&nbsp;]</td>
 				  </tr>
 				</table>
 			</td>
