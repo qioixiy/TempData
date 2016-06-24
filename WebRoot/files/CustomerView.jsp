@@ -167,9 +167,10 @@ function searchConditions(){
                      
                      <td bgcolor="#FFFFFF"><div align="center"><%=customer.getColldate() %></div></td>
                      
-                    <td bgcolor="#FFFFFF"><div align="center"><input  type="button"   value="查看"   onclick="showCusInfo(<%=customer.getId()%>)" />&nbsp;&nbsp;
-                                                              <input  type="button"   value="采集"   onclick="showCollect(<%=customer.getId()%>)" />&nbsp;&nbsp;
-                                                              <input  type="button"   value="判读"   onclick="showInter(<%=customer.getId()%>)"  /></div></td>
+                    <td bgcolor="#FFFFFF"><div align="center">
+                    <input  type="button"   value="查看"   onclick="showCusInfo(<%=customer.getUserid()%>)" />&nbsp;&nbsp;
+                    <input  type="button"   value="采集"   onclick="showCollect(<%=customer.getUserid()%>)" />&nbsp;&nbsp;
+                    <input  type="button"   value="判读"   onclick="showInter(<%=customer.getUserid()%>)"  /></div></td>
                   </tr>
 				
                    

@@ -56,11 +56,8 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 -->
 </style>
 
-<link href="../css/css.css" rel="stylesheet" type="text/css" />
-<script type="text/JavaScript">
-
-</script>
-<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<link href="<%=basePath %>/css/css.css" rel="stylesheet" type="text/css" />
+<link href="<%=basePath %>/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <SCRIPT language=JavaScript>
 function sousuo(){
@@ -109,11 +106,11 @@ function   showListtype(id){
   <tr>
     <td height="30">      <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
-          <td height="62" background="../images/nav04.gif">
+          <td height="62" background="<%=basePath %>/images/nav04.gif">
             
 		   <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
 		    <tr>
-			  <td width="24"><img src="../images/ico07.gif" width="20" height="18" /></td>
+			  <td width="24"><img src="<%=basePath %>/images/ico07.gif" width="20" height="18" /></td>
 			  <td width="600"><select name="select4" style="width: 118px; height: 19px">
 				   <option>编号</option>
 				    <option>性别</option>
@@ -209,7 +206,7 @@ function   showListtype(id){
       </table>
       <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
-          <td height="6"><img src="../images/spacer.gif" width="1" height="1" /></td>
+          <td height="6"><img src="<%=basePath %>/images/spacer.gif" width="1" height="1" /></td>
         </tr>
         <tr>
           <td height="33"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="right-font08">

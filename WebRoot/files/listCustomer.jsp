@@ -54,9 +54,9 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 -->
 </style>
 
-<link href="../css/css.css" rel="stylesheet" type="text/css" />
+<link href="<%=basePath %>/css/css.css" rel="stylesheet" type="text/css" />
 <script type="text/JavaScript" src="<%=basePath %>/js/ajax.js" > </script>
-<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<link href="<%=basePath %>/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <SCRIPT language=JavaScript>
 
@@ -117,11 +117,11 @@ function import_package()
   <tr>
     <td height="30">      <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
-          <td height="62" background="TempData/WebRoot/images/nav04.gif">cc
+          <td height="62" background="TempData/WebRoot/images/nav04.gif">
             
 		   <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0"   >
 		    <tr>
-			  <td width="24"><img src="../images/ico07.gif" width="20" height="18" /></td>
+			  <td width="24"><img src="<%=basePath %>/images/ico07.gif" width="20" height="18" /></td>
 			  <td width="600"><select name="select4" style="width: 118px; height: 19px">
 				    <option>编号</option>
 				    <option>性别</option>
@@ -146,12 +146,12 @@ function import_package()
   <tr>
     <td><table id="subtree1" style="DISPLAY: " width="100%" border="0" cellspacing="0" cellpadding="0"   >
         <tr>
-          <td><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0"  background="../images/nav04.gif">
+          <td><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0"  background="<%=basePath %>/images/nav04.gif">
           	 <tr>
                <td height="35"><span class="newfont07">选择：<a href="#" class="right-font08" onclick="selectAll();">全选</a>-<a href="#" class="right-font08" onclick="unselectAll();">反选</a></span>
 		           <input name="Submit" type="button" class="right-button08" value="删除所选人员" style="height: 21px; width: 100px"/> &nbsp;&nbsp;&nbsp;<input name="Submit" type="button" class="right-button08" value="添加人员信息"   style="height: 21px; width: 100px"onclick="link1();  " />
 		          <input type="file" id="file" name="myfile" />
-		          <input name="Submit" type="submit" class="right-button08" value="导入数据" style="height:21px; width:100px" onclick="import_package();" />
+		          <input name="Submit" type="button" class="right-button08" value="导入数据" style="height:21px; width:100px" onclick="import_package();" />
 	              </td>
           </tr>
               <tr>
@@ -197,10 +197,10 @@ function import_package()
 					<td height="20" bgcolor="#FFFFFF"   bordercolor="#FEEEEE"  align="center"><%=customer.getCollName() %></td>
 					<td height="20" bgcolor="#FFFFFF"   bordercolor="#FEEEEE"  align="center"><%=customer.getColldate() %></td>
                     <td  bgcolor="#FFFFFF"   align="center">&nbsp;&nbsp;
-                        <input  type="button"   value="判读"   onclick="showInter(<%=customer.getUserid()%>)" /> &nbsp;
-                        <input  type="button"   value="采集"   onclick="showCollect(<%=customer.getId()%>)" />&nbsp;
-                        <input  type="button"   value="分析"  onclick="showAnalysis(<%=customer.getId()%>)" />
-                        <input  type="button" value="导出数据" onclick="export_package(<%=customer.getUserid()%>);" />
+                        <input type="button"   value="判读"   onclick="showInter(<%=customer.getUserid()%>)" />
+                        <input type="button"   value="采集"   onclick="showCollect(<%=customer.getId()%>)" />
+                        <input type="button"   value="分析"  onclick="showAnalysis(<%=customer.getId()%>)" />
+                        <input type="button" value="导出数据" onclick="export_package(<%=customer.getUserid()%>);" />
                         </td>
                     
                  
@@ -216,7 +216,7 @@ function import_package()
       </table>
       <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
-          <td height="6"><img src="../images/spacer.gif" width="1" height="1" /></td>
+          <td height="6"><img src="<%=basePath %>/images/spacer.gif" width="1" height="1" /></td>
         </tr>
         <tr>
           <td height="33"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="right-font08">

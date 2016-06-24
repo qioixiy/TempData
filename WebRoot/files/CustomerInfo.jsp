@@ -2,10 +2,8 @@
 <%@page  import="cn.fingerdata.bean.Customer"%>
 
 <%
-  Customer   customer = (Customer)request.getAttribute("customer");
-%>
+Customer   customer = (Customer)request.getAttribute("customer");
 
-<%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
