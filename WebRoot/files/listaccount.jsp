@@ -5,27 +5,43 @@
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
-	String page_index = request.getParameter("page");
-	if (page_index == null) page_index = "1";
-	int page_skip = Integer.valueOf(page_index) - 1;
+	+ path + "/";
+	
+	String page_s = request.getParameter("page");
+	if (page_s == null) page_s = "1";
+	System.out.println("page_s:" + page_s);
+
+	int page_index = Integer.valueOf(page_s);
+	if (page_index < 1) page_index = 1;
+
+	int page_size = 10;
+	
+	int page_skip = page_index - 1;
 
 	Connection conn = BaseDataBaseDao.getConnection();
 	Statement stmt;
 	stmt = conn.createStatement();
 	
-	int page_size = 5;
-	int from = page_skip * page_size;
-
-	String sql = String.format("SELECT * FROM `account` WHERE 1 LIMIT %d , %d",
-			from, page_size);
+	String sql = String.format("SELECT count( * ) as rowCount FROM account");
 	System.out.println(sql);
 	ResultSet ret = stmt.executeQuery(sql);
-	//if (ret.next()) { // find
-	//	System.out.println("executeQuery ok," + sql);
-	//	System.out.println("find account");
-	//	response.getWriter().append("success");
-	//}
+	int count = 0;
+	if (ret.next()) {
+		count = ret.getInt("rowCount");
+	}
+	System.out.println("count:" + count);
+
+	int page_start = 1;
+	int page_end = (count + page_size - 1)/page_size;
+	int page_back = page_index - 1;
+	if (page_back < page_start) page_back = page_start;
+	int page_front = page_index + 1;
+	if (page_front > page_end) page_front = page_end;
+
+	int from = page_skip * page_size;
+	sql = String.format("SELECT * FROM `account` WHERE 1 LIMIT %d , %d", from, page_size);
+	System.out.println(sql);
+	ret = stmt.executeQuery(sql);
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -213,8 +229,16 @@ function link(){
         <tr>
           <td height="33"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="right-font08">
               <tr>
-                <td width="50%">共 <span class="right-text09">5</span> 页 | 第 <span class="right-text09">1</span> 页</td>
-                <td width="49%" align="right">[<a href="#" class="right-font08">首页</a> | <a href="#" class="right-font08">上一页</a> | <a href="#" class="right-font08">下一页</a> | <a href="#" class="right-font08">末页</a>] 转至：</td>
+              <%
+              	String url = request.getScheme()+"://"+ request.getServerName()+ ":" + request.getServerPort()+request.getRequestURI();
+              	System.out.println("url:" + url);
+              	String url_front = url + "?page=" + page_front;
+              	String url_back = url + "?page=" + page_back;
+              	String url_start = url + "?page=" + page_start;
+              	String url_end = url + "?page=" + page_end;
+              %>
+                <td width="50%">共 <span class="right-text09"><%=page_end %></span> 页 | 第 <span class="right-text09"><%=page_index %></span> 页</td>
+                <td width="49%" align="right">[<a href="<%=url_start %>" class="right-font08">首页</a> | <a href="<%=url_back %>" class="right-font08">上一页</a> | <a href="<%=url_front %>" class="right-font08">下一页</a> | <a href="<%=url_end %>" class="right-font08">末页</a>] 转至：</td>
                 <td width="1%"><table width="20" border="0" cellspacing="0" cellpadding="0">
                     <tr>
                       <td width="1%"><input name="textfield3" type="text" class="right-textfield03" size="1" /></td>
