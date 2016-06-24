@@ -128,6 +128,18 @@ function callBack_update_userinfo() {
 	}
 }
 
+function callBack_del_user() {
+	if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
+		var result = xmlHttpRequest.responseText;
+		if (result == "success") {
+			alert("删除成功");
+			window.location = "http://localhost:8080/TempData/files/listaccount.jsp";
+		} else {
+			alert("删除失败");
+		}
+	}
+}
+
 //提交ajax请求
 function ajax_request(server, param1, param2) {
 	//alert("param1:" + param1 + ",param2:" + param2);
@@ -163,6 +175,8 @@ function ajax_request(server, param1, param2) {
 		xmlHttpRequest.onreadystatechange = callBack_add_user;
 	} else if (param1 == "update_userinfo"){
 		xmlHttpRequest.onreadystatechange = callBack_update_userinfo;
+	} else if (param1 == "del_user"){
+		xmlHttpRequest.onreadystatechange = callBack_del_user;
 	} else {
 		alert("不支持子功能");
 		return;

@@ -891,6 +891,45 @@ public class ajax extends HttpServlet {
 		return 0;
 	}
 	
+int delete_user(HttpServletRequest request, HttpServletResponse response) {
+		
+		String ids = request.getParameter("ids");
+
+		System.out.println("ids:" + ids);
+		
+		String id_arr[] = ids.split(",");
+		System.out.println("id_arr:" + id_arr.length);
+		System.out.println("id_arr:" + id_arr[id_arr.length-1]);
+		
+		Connection conn = BaseDataBaseDao.getConnection();
+		Statement stmt;
+		try {
+			stmt = conn.createStatement();
+			
+			int flag = 1;
+			for (int i = 0;  i < id_arr.length; i++) {
+				String id = id_arr[i];
+				String sql = String.format("DELETE FROM `tempdata`.`account` WHERE `account`.`id` = %s",
+						id);
+				System.out.println(sql);
+				if (stmt.executeUpdate(sql) > 0) {
+					System.out.println("del account success");
+				} else {
+					flag = 0;
+					System.out.println("del account fail");
+				}
+				if (flag == 1) {
+					response.getWriter().append("success");
+				}
+			}
+		} catch (SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+	
 	int update_userinfo(HttpServletRequest request, HttpServletResponse response) {
 		
 		String uid = request.getParameter("uid");
@@ -1123,6 +1162,9 @@ public class ajax extends HttpServlet {
 				break;
 			case "add_user":
 				add_user(request, response);
+				break;
+			case "del_user":
+				delete_user(request, response);
 				break;
 			case "update_userinfo":
 				update_userinfo(request, response);

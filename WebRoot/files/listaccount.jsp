@@ -109,6 +109,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 </script>
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
 </head>
+<script type="text/javascript" src="<%=basePath%>/js/ajax.js"></script>
 <SCRIPT language=JavaScript>
 function sousuo(){
 	window.open("gaojisousuo.htm","","depended=0,alwaysRaised=1,width=800,height=510,location=0,menubar=0,resizable=0,scrollbars=0,status=0,toolbar=0");
@@ -148,15 +149,24 @@ function search_id()
 
 function del_user()
 {
-	alert("del");
-	
+	var ids = "";
 	var obj = document.fom.elements;
 	for (var i=0;i<obj.length;i++){
 		if (obj[i].name == "delid"){
-			obj[i].checked = true;
+			if (obj[i].checked == true) {
+				var id = obj[i].id;
+				ids += document.getElementById(id + "div").innerText + ",";
+			}
 		}
 	}
-	alert(inner);
+
+	if(ids == "") {
+		alert("请选中至少一个");
+		return;
+	}
+	
+	var param = "&ids=" + ids;
+	ajax_request("<%=basePath%>", "del_user", param);
 }
 
 </SCRIPT>
@@ -239,8 +249,8 @@ function del_user()
                 	}
                 	  %>
                   <tr>
-				    <td bgcolor="#FFFFFF"  align="center" ><input type="checkbox" name="delid"/></td>
-					<td height="18" bgcolor="#EEEEEE"  align="center"><%=id %></td>
+				    <td bgcolor="#FFFFFF"  align="center" ><input id="index_id<%=id %>" type="checkbox" name="delid"/></td>
+					<td height="18" bgcolor="#EEEEEE"  align="center"><div id="index_id<%=id %>div" > <%=id %> </div></td>
                     <td bgcolor="#FFFFFF"  align="center"><a href=""><%=accountId %></a></td>
                     <td height="20" bgcolor="#FFFFFF"  align="center"><%=username %></td>
                     <td bgcolor="#FFFFFF"   align="center"><%=fullname %></td>
