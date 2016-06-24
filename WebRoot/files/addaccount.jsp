@@ -27,28 +27,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script>
 function input_submit()
 {
-	alert("aa");
 	var uid = document.getElementById("input_uid").value;
 	var username = document.getElementById("input_username").value;
 	var password1 = document.getElementById("input_password1").value;
 	var password2 = document.getElementById("input_password2").value;
-	var privilege_1 = document.getElementById("input_privilege_1").value;
-	var privilege_2 = document.getElementById("input_privilege_2").value;
-	var privilege_3 = document.getElementById("input_privilege_3").value;
-	var privilege_4 = document.getElementById("input_privilege_4").value;
 	
-	alert(uid + username + password1 + password2 + privilege_1 + privilege_2 + privilege_3 + privilege_4);
-	if (username.value == "") {
-		alert("用户名不能为空");
+	var privilege = document.getElementById("select_privilege").selectedIndex;
+	
+	var param = "&uid=" + uid
+			+ "&username=" + username 
+			+ "&password1=" + password1
+			+ "&password2=" + password2 
+			+ "&privilege=" + privilege;
+	//alert(param);
+	if (privilege == 0) {
+		alert("请选择正确的权限");
 		return;
 	}
-	var password = document.getElementById("password");
-	if (password.value == "") {
-		alert("密码不能为空");
+	if (password1 != "" && (password1 != password2)) {
+		alert("密码不正确");
+		document.getElementById("input_password2").value = "";
 		return;
 	}
-
-	//ajax_request("<%=basePath%>", "login", "&username=" + username.value + "&password=" + password.value);
+	ajax_request("<%=basePath%>", "add_user", param);
 }
 
 </script>
@@ -81,9 +82,6 @@ function input_submit()
 				        <span class="red">*</span></td>
 				         <td width="35%">&nbsp;</td>
 					    </tr>
-					    
-					   
-						
 						<tr>
 					    <td nowrap align="right" width="35%"><h3>用&nbsp;&nbsp;户&nbsp;&nbsp;名:</h3></td>
 					    <td width="35%"><input id="input_username" name='txt3' type="text" class="text" style="width:154px" value="" /><span class="red">*</span>				        </td>
@@ -93,44 +91,30 @@ function input_submit()
 										        
 						<tr>	
 							<td nowrap align="right" width="30%"><h3>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:</h3></td>
-							<td width="35%"><input id="input_password" name='txt3' type="text" class="text" style="width:154px" value="" />	<span class="red">*</span></td>						</td>
+							<td width="35%"><input id="input_password1" name='txt3' type="password" class="text" style="width:154px" value="" />	<span class="red">*</span></td>						</td>
 							<td width="35%">&nbsp;</td>             
 						</tr>
 						
 						<tr>	
 							<td nowrap align="right" width="30%"><h3>确&nbsp;认密码:</h3></td>
-							<td width="35%"><input id="input_password2" name='txt3' type="text" class="text" style="width:154px" value="" /><span class="red">*</span>	</td>						</td>
+							<td width="35%"><input id="input_password2" name='txt3' type="password" class="text" style="width:154px" value="" /><span class="red">*</span>	</td>						</td>
 							<td width="35%">&nbsp;</td>             
 						</tr>
-						 
+						<tr>	
+							<td nowrap align="right" width="30%"><h3>权&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;限:</h3></td>
+							<td width="35%">
+								<select id="select_privilege" name="temp" style="width: 154px;">
+		                           	 	<option selected="selected">请选择用户权限</option>
+		                            	<option>采样</option>
+		                            	<option>判读</option>
+		                            	<option>所有人</option>
+		                            	<option>系统</option>
+		                            </select>
+									<span class="red">*</span>
+							</td>						</td>
+							<td width="35%">&nbsp;</td>             
+						</tr> 
 						
-					  <tr>
-					    <td  width="35%" nowrap align="right"><h3>权&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;限:</h3></td>
-					    <td width="35%">
-					          <table  width="100%"   height="140" border="0">
-					               <tr  >
-					                 <td   width="25%"  align="center" >
-					                     <label><input id="input_privilege_1" name="1"  type="checkbox"  value=""/><font  size="4">采样</font></label>
-					                  </td>
-					                  <td   width="25%"  align="center" >
-					                     <label><input  id="input_privilege_2" name="1"  type="checkbox"  value=""/><font  size="4">判读</font></label>
-					                  </td>
-					                  <td   width="25%"  align="center" >
-					                     <label><input id="input_privilege_3" name="1"  type="checkbox"  value=""/><font  size="4">所有人</font></label>
-					                  </td>
-					                  <td   width="25%"  align="center" >
-					                     <label><input id="input_privilege_4" name="1"  type="checkbox"  value=""/><font  size="4">系统</font></label>
-					                  </td>
-					               </tr>
-					               
-					                
-					          
-					          </table>
-					   
-					    
-					   </td>
-					    <td width="35%">&nbsp;</td>
-					    </tr>
 					  </table>
 			  <br />
 				</fieldset>			</TD>
@@ -140,19 +124,13 @@ function input_submit()
 	
 	 </td>
   </tr>
-  
- 
-	
-		
-		<TR  bgcolor="#5F9EA0">
+  		<TR  bgcolor="#5F9EA0">
 			<TD colspan="2" align="center" height="50px">
 			<input type="button" name="Submit" value="确定" class="button" onclick="input_submit();"/>　
 			
 			<input type="button" name="Submit2" value="返回" class="button" onclick="window.history.go(-1);"/></TD>
 		</TR>
 		</TABLE>
-	
-	
 	 </td>
   </tr>
   

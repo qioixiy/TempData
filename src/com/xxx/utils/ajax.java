@@ -819,6 +819,50 @@ public class ajax extends HttpServlet {
 		
 		return 0;
 	}
+
+
+	int add_user(HttpServletRequest request, HttpServletResponse response) {
+		
+		String uid = request.getParameter("uid");
+		String username = request.getParameter("username");
+		String password = request.getParameter("password1");
+		String password2 = request.getParameter("password2");
+		String privilege_1 = request.getParameter("privilege_1");
+		String privilege_2 = request.getParameter("privilege_2");
+		String privilege_3 = request.getParameter("privilege_3");
+		String privilege_4 = request.getParameter("privilege_4");
+
+		System.out.println("uid:" + uid + ",username:" + username
+				+ ",password=" + password
+				+ ",password2=" + password2
+				+ ",privilege_1=" + privilege_1
+				+ ",privilege_2=" + privilege_2
+				+ ",privilege_3=" + privilege_3
+				+ ",privilege_4=" + privilege_4);
+		
+		Connection conn = BaseDataBaseDao.getConnection();
+		Statement stmt;
+		try {
+			stmt = conn.createStatement();
+
+			String sql = String.format("SELECT * FROM `account` WHERE `username` = '%s' and `password` = '%s'",
+					username, password);
+			System.out.println(sql);
+			ResultSet ret = stmt.executeQuery(sql);
+			if(ret.next()) { // find
+				System.out.println("executeQuery ok," + sql);
+				System.out.println("find user");
+				response.getWriter().append("success");
+				HttpSession session = request.getSession(); 
+				session.setAttribute("username", username);
+			}
+		} catch (SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
 	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
@@ -998,6 +1042,9 @@ public class ajax extends HttpServlet {
 				break;
 			case "login":
 				login(request, response);
+				break;
+			case "add_user":
+				add_user(request, response);
 				break;
 			default:
 				System.out.println("unkown command");

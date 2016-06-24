@@ -98,6 +98,20 @@ function callBack_login() {
 		}
 	}
 }
+function callBack_add_user() {
+	if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
+		var result = xmlHttpRequest.responseText;
+		if (result == "success") {
+			window.location = "http://localhost:8080/TempData/index.jsp";
+		} else if (result == "fail_username") {
+			alert("用户名已经存在");
+		} else if (result == "fail_uid") {
+			alert("用户Id已经存在");
+		} else {
+			alert("失败");
+		}
+	}
+}
 
 //提交ajax请求
 function ajax_request(server, param1, param2) {
@@ -130,6 +144,8 @@ function ajax_request(server, param1, param2) {
 		xmlHttpRequest.onreadystatechange = callBack_saveRcData;
 	} else if (param1 == "login") {
 		xmlHttpRequest.onreadystatechange = callBack_login;
+	} else if (param1 == "add_user"){
+		xmlHttpRequest.onreadystatechange = callBack_add_user;
 	} else {
 		alert("不支持子功能");
 		return;
