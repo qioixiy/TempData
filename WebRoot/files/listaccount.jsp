@@ -146,6 +146,19 @@ function search_id()
 	window.location=url;
 }
 
+function del_user()
+{
+	alert("del");
+	
+	var obj = document.fom.elements;
+	for (var i=0;i<obj.length;i++){
+		if (obj[i].name == "delid"){
+			obj[i].checked = true;
+		}
+	}
+	alert(inner);
+}
+
 </SCRIPT>
 
 <body>
@@ -176,8 +189,8 @@ function search_id()
           <td><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
           	 <tr>
                <td height="35"><span class="newfont07">选择：<a href="#" class="right-font08" onclick="selectAll();">全选</a>-<a href="#" class="right-font08" onclick="unselectAll();">反选</a></span>
-		           <input name="Submit" type="button" class="right-button08" value="删除所选人员" style="height: 21px; width: 100px"/> &nbsp;&nbsp;&nbsp;
-		           <input name="Submit" type="button" class="right-button08" value="添加账户信息"   style="height: 21px; width: 100px"onclick="link();  " />
+		           <input name="Submit" type="button" class="right-button08" value="删除所选人员" style="height: 21px; width: 100px" onclick="del_user()"/> &nbsp;&nbsp;&nbsp;
+		           <input name="Submit" type="button" class="right-button08" value="添加账户信息"   style="height: 21px; width: 100px" onclick="link();  " />
 		           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 	              </td>
           </tr>
