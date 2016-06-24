@@ -891,6 +891,57 @@ public class ajax extends HttpServlet {
 		return 0;
 	}
 	
+	int update_userinfo(HttpServletRequest request, HttpServletResponse response) {
+		
+		String uid = request.getParameter("uid");
+		String accountId = request.getParameter("accountId");
+		String username = request.getParameter("username");
+		String fullname = request.getParameter("fullname");
+		String password = request.getParameter("password");
+		String privilege = request.getParameter("privilege");
+		try {
+			fullname = new String(fullname.getBytes("ISO-8859-1"), "UTF-8");
+		} catch (UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			return -1;
+		}
+
+		System.out.println("uid:" + uid
+				+ ",accountId:" +accountId
+				+ ",username:" + username
+				+ ",fullname:" + fullname
+				+ ",password=" + password
+				+ ",privilege=" + privilege);
+		
+		Connection conn = BaseDataBaseDao.getConnection();
+		Statement stmt;
+		try {
+			stmt = conn.createStatement();
+			String sql = String.format("UPDATE `account` SET `%s` = '%s', %s='%s', %s='%s', %s='%s', %s='%s' WHERE `id` ='%s'",
+					"accountId", accountId,
+					"username", username,
+					"fullname",  fullname,
+					"password", password, 
+					"privilege", privilege,
+					uid);
+			System.out.println(sql);
+			int ret = stmt.executeUpdate(sql);
+			if(ret > 0) { // find
+				System.out.println("executeQuery ok," + sql);
+				System.out.println("update ok");
+				response.getWriter().append("success");
+				return 0;
+			}
+			
+		} catch (SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -1072,6 +1123,9 @@ public class ajax extends HttpServlet {
 				break;
 			case "add_user":
 				add_user(request, response);
+				break;
+			case "update_userinfo":
+				update_userinfo(request, response);
 				break;
 			default:
 				System.out.println("unkown command");

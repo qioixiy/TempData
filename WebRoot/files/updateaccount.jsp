@@ -7,20 +7,31 @@
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 
-	String username = request.getParameter("username");
-	String password = request.getParameter("password");
+	String uid = request.getParameter("uid");
 
-	System.out.println("username:" + username + ",password:" + password);
 
 	Connection conn = BaseDataBaseDao.getConnection();
 	Statement stmt;
 	stmt = conn.createStatement();
 
-	String sql = String.format("SELECT * FROM `account` WHERE `username` = '%s' and `password` = '%s'",
-			username, password);
+	String sql = String.format("SELECT * FROM `account` WHERE `id` = '%s'",
+			uid);
 	System.out.println(sql);
 	ResultSet ret = stmt.executeQuery(sql);
+	String id = null;
+	String accountId = null;
+	String fullname = null;
+	String username = null;
+	String password = null;
+	String privilege = null;
 	if (ret.next()) { // find
+
+		accountId = ret.getString("accountId");
+		fullname = ret.getString("fullname");
+		username = ret.getString("username");
+		password = ret.getString("password");
+		privilege = ret.getString("privilege");
+		
 		System.out.println("executeQuery ok," + sql);
 		System.out.println("find user");
 		response.getWriter().append("success");
@@ -48,6 +59,38 @@
 .atten {font-size:12px;font-weight:normal;color:#F00;}
 -->
 </style>
+
+<script type="text/javascript" src="<%=basePath%>/js/ajax.js"></script>
+<script>
+function update_info(uid)
+{
+	var accountId = document.getElementById("input_accountId").value;
+	var username = document.getElementById("input_username").value;
+	var fullname = document.getElementById("input_fullname").value;
+	var password = document.getElementById("input_password").value;
+	var privilege = document.getElementById("select_privilege").selectedIndex;
+
+	var param = "&uid=" + uid
+			+ "&accountId=" + accountId
+			+ "&username=" + username 
+			+ "&fullname=" + fullname 
+			+ "&password=" + password 
+			+ "&privilege=" + privilege;
+	//alert(param);
+	if (privilege == 0) {
+		alert("请选择正确的权限");
+		return;
+	}
+	if ((password == "")) {
+		alert("密码不能为空");
+		document.getElementById("input_password").value = "";
+		return;
+	}
+	ajax_request("<%=basePath%>", "update_userinfo", param);
+}
+
+</script>
+
 </head>
 
 <body class="ContentBody">
@@ -72,7 +115,7 @@
 					  <table border="0" cellpadding="2" cellspacing="1" style="width:100%">
 					  <tr >
 					    <td nowrap align="right" width="35%"><h3>编&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:</h4></td>
-					    <td width="35%"><input name='txt3' type="text" class="text" style="width:154px" value="" />
+					    <td width="35%"><input id="input_accountId" name='txt3' type="text" class="text" style="width:154px" value="<%=accountId %>" />
 				        <span class="red">*</span></td>
 				         <td width="35%">&nbsp;</td>
 					    </tr>
@@ -81,7 +124,7 @@
 						
 						<tr>
 					    <td nowrap align="right" width="35%"><h3>用&nbsp;&nbsp;户&nbsp;&nbsp;名:</h3></td>
-					    <td width="35%"><input name='txt3' type="text" class="text" style="width:154px" value="" /><span class="red">*</span>				        </td>
+					    <td width="35%"><input id="input_username" name='txt3' type="text" class="text" style="width:154px" value="<%=username %>" /><span class="red">*</span>				        </td>
 				        			      
 				        <td width="35%">&nbsp;</td>	
 						</tr>
@@ -90,25 +133,44 @@
 						<tr>	
 							<td nowrap align="right" width="35%"><h3>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:</h3></td>
 							<td width="35%">
-								<input name='txt3' type="text" class="text" style="width:154px" value="" />	<span class="red">*</span></td>						
+								<input id="input_fullname" name='txt3' type="text" class="text" style="width:154px" value="<%=fullname %>" />	<span class="red">*</span></td>						
 							
 							 <td width="35%">&nbsp;</td>
 				        </tr>
 				        
 						<tr>	
 							<td nowrap align="right" width="30%"><h3>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:</h3></td>
-							<td width="35%"><input name='txt3' type="text" class="text" style="width:154px" value="" />	<span class="red">*</span></td>						</td>
+							<td width="35%"><input id="input_password" name='txt3' type="text" class="text" style="width:154px" value="<%=password %>" />	<span class="red">*</span></td>						</td>
 							<td width="35%">&nbsp;</td>             
 						</tr>
 					  <tr>
 					    <td nowrap align="right" width="30%"><h3>权&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;限:</h3></td>
 						<td width="35%">
+						<%
+
+						String s0 = "";
+						String s1 = "";
+						String s2 = "";
+						String s3 = "";
+						String s4 = "";
+						if (privilege != null) {
+							int index = Integer.parseInt(privilege);
+	
+							switch(index) {
+							case 1: s1="selected=\"selected\""; break;
+							case 2: s2="selected=\"selected\""; break;
+							case 3: s3="selected=\"selected\""; break;
+							case 4: s4="selected=\"selected\""; break;
+							default: s0="selected=\"selected\""; break;
+							}
+						}
+						%>
 								<select id="select_privilege" name="temp" style="width: 154px;">
-		                           	 	<option selected="selected">请选择用户权限</option>
-		                            	<option>采样</option>
-		                            	<option>判读</option>
-		                            	<option>所有人</option>
-		                            	<option>系统</option>
+		                           	 	<option <%=s0 %>>请选择用户权限</option>
+		                            	<option <%=s1 %>>采样</option>
+		                            	<option <%=s2 %>>判读</option>
+		                            	<option <%=s3 %>>所有人</option>
+		                            	<option <%=s4 %>>系统</option>
 		                            </select>
 									<span class="red">*</span>
 							</td>
@@ -128,7 +190,7 @@
   </tr>
 		<TR  bgcolor="#5F9EA0">
 			<TD colspan="2" align="center" height="50px">
-			<input type="button" name="Submit" value="修改" class="button" onclick="alert('修改成功！');"/>　
+			<input type="button" name="Submit" value="修改" class="button" onclick="update_info(<%=uid%>);"/>　
 			
 			<input type="button" name="Submit2" value="取消" class="button" onclick="window.history.go(-1);"/></TD>
 		</TR>

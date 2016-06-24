@@ -248,7 +248,7 @@ function del_user()
                      <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest" <%=c2 %>/></td>
                       <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest" <%=c3 %>/></td>
                        <td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest" <%=c4 %>/></td>
-					<td bgcolor="#FFFFFF"   align="center"><a href="updateaccount.jsp">修&nbsp;&nbsp;&nbsp;改</a></td>
+					<td bgcolor="#FFFFFF"   align="center"><a href="updateaccount.jsp?uid=<%=id %>">修&nbsp;&nbsp;&nbsp;改</a></td>
                   </tr>
                 <% }%>
                 </table></td>
@@ -271,14 +271,8 @@ function del_user()
               	String url_end = url + "?page=" + page_end;
               %>
                 <td width="50%">共 <span class="right-text09"><%=page_end %></span> 页 | 第 <span class="right-text09"><%=page_index %></span> 页</td>
-                <td width="49%" align="right">[<a href="<%=url_start %>" class="right-font08">首页</a> | <a href="<%=url_back %>" class="right-font08">上一页</a> | <a href="<%=url_front %>" class="right-font08">下一页</a> | <a href="<%=url_end %>" class="right-font08">末页</a>] 转至：</td>
-                <td width="1%"><table width="20" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                      <td width="1%"><input name="textfield3" type="text" class="right-textfield03" size="1" /></td>
-                      <td width="87%"><input name="Submit23222" type="submit" class="right-button06" value=" " />
-                      </td>
-                    </tr>
-                </table></td>
+                <td width="49%" align="right">[<a href="<%=url_start %>" class="right-font08">首页</a> | <a href="<%=url_back %>" class="right-font08">上一页</a> | <a href="<%=url_front %>" class="right-font08">下一页</a> | <a href="<%=url_end %>" class="right-font08">末页</a>]</td>
+                
               </tr>
           </table></td>
         </tr>
