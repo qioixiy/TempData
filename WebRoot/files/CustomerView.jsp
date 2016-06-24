@@ -3,10 +3,8 @@
 <%@page  import="cn.fingerdata.bean.Customer"%>
 <%
 List<Customer> customers = (List<Customer>)request.getAttribute("customers"); 
- System.out.println(customers + " this is a");
- %>
+ System.out.println(customers);
 
-<%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
@@ -16,7 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
        
      <base href="<%=basePath%>">
-    <title>D&B数据采集系统 by www.mycodes.net</title>
+    <title>D&B数据采集系统 </title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -24,56 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	
- <style type="text/css">
-<!--
-body {
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-}
-.tabfont01 {	
-	font-family: "宋体";
-	font-size: 9px;
-	color: #555555;
-	text-decoration: none;
-	text-align: center;
-}
-.font051 {font-family: "宋体";
-	font-size: 12px;
-	color: #333333;
-	text-decoration: none;
-	line-height: 20px;
-}
-.font201 {font-family: "宋体";
-	font-size: 12px;
-	color: #FF0000;
-	text-decoration: none;
-}
-.button {
-	font-family: "宋体";
-	font-size: 14px;
-	height: 37px;
-}
-html { overflow-x: auto; overflow-y: auto; border:0;} 
--->
-</style>
-
 <link href="../css/css.css" rel="stylesheet" type="text/css" />
-<script type="text/JavaScript">
-
-</script>
-<style type="text/css">
-.cusTop{
-	width:100%;
-	height:100px;
-	border:1px solid red;
-	background-image: url("/images/nav04.gif");
-}
-<!--
-.STYLE1 {color: #FF0000}
--->
-</style>
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <SCRIPT language=JavaScript>
@@ -142,7 +91,7 @@ function searchConditions(){
            
 		   <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
 		    <tr>
-			  <td width="24"><img src="../images/ico07.gif" width="20" height="18" /></td>
+			  <td width="24"><img src="<%=basePath %>/images/ico07.gif" width="20" height="18" /></td>
 			  <td width="600"><select id="select4" name="select4">
 			        <option value="全部">全部</option>
 				    <option value="编号">编号</option>
@@ -167,11 +116,9 @@ function searchConditions(){
         <tr>
           <td><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
           	 <tr>
-               <td height="35"><span class="newfont07">选择：<a href="#" class="right-font08" onclick="selectAll();">全选</a><a href="#" class="right-font08" onclick="unselectAll();">反选</a></span>
-		           <input name="Submit" type="button" class="right-button08" value="删除所选人员" style="height: 21px; width: 100px"/> &nbsp;&nbsp;&nbsp; <a href="addCustomer.jsp" target="mainFrame" class="left-font03" onClick="tupian('21');"><input name="Submit" type="button" class="right-button08" value="添加人员信息"   style="height: 21px; width: 100px"onclick="link();  " />
-		           &nbsp;&nbsp;&nbsp;&nbsp; 
-		           <input type="button" name="Submit2" value="返回" class="right-button02" onclick="window.history.go(-1);"/>
-		          
+               <td height="35"><span class="newfont07">选择：<a href="#" class="right-font08" onclick="selectAll();">全选</a>-<a href="#" class="right-font08" onclick="unselectAll();">反选</a></span>
+		           <input name="Submit" type="button" class="right-button08" value="删除所选人员" style="height: 21px; width: 100px" onclick="del_user()"/> &nbsp;&nbsp;&nbsp;
+		           <input name="Submit" type="button" class="right-button08" value="添加账户信息"   style="height: 21px; width: 100px" onclick="link();  " />
 		           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 	              </td>
           </tr>
