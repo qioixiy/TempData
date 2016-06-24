@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
  
     
-    <title>My JSP 'addaccount.jsp' starting page</title>
+    <title>D&B数据采集系统</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -22,6 +22,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 .atten {font-size:12px;font-weight:normal;color:#F00;}
 -->
 </style>
+
+<script type="text/javascript" src="<%=basePath%>/js/ajax.js"></script>
+<script>
+function input_submit()
+{
+	alert("aa");
+	var uid = document.getElementById("input_uid").value;
+	var username = document.getElementById("input_username").value;
+	var password1 = document.getElementById("input_password1").value;
+	var password2 = document.getElementById("input_password2").value;
+	var privilege_1 = document.getElementById("input_privilege_1").value;
+	var privilege_2 = document.getElementById("input_privilege_2").value;
+	var privilege_3 = document.getElementById("input_privilege_3").value;
+	var privilege_4 = document.getElementById("input_privilege_4").value;
+	
+	alert(uid + username + password1 + password2 + privilege_1 + privilege_2 + privilege_3 + privilege_4);
+	if (username.value == "") {
+		alert("用户名不能为空");
+		return;
+	}
+	var password = document.getElementById("password");
+	if (password.value == "") {
+		alert("密码不能为空");
+		return;
+	}
+
+	//ajax_request("<%=basePath%>", "login", "&username=" + username.value + "&password=" + password.value);
+}
+
+</script>
+
 </head>
 
 <body class="ContentBody">
@@ -35,11 +66,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <td class="CPanel">
 		
 		<table border="0" cellpadding="0" cellspacing="0" style="width:100%">
-		<tr><td align="left">
-		<input type="button" name="Submit" value="保存" class="button" onclick="alert('保存成功！');"/>　
-			
-			<input type="button" name="Submit2" value="返回" class="button" onclick="window.history.go(-1);"/>
-		</td></tr>
 		<tr align="center">
           <td class="TablePanel">&nbsp;</td>
 		  </tr>
@@ -51,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					  <table border="0" cellpadding="2" cellspacing="1" style="width:100%">
 					  <tr >
 					    <td nowrap align="right" width="35%"><h3>编&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:</h4></td>
-					    <td width="35%"><input name='txt3' type="text" class="text" style="width:154px" value="" />
+					    <td width="35%"><input id="input_uid" name='txt3' type="text" class="text" style="width:154px" value="" />
 				        <span class="red">*</span></td>
 				         <td width="35%">&nbsp;</td>
 					    </tr>
@@ -60,29 +86,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						
 						<tr>
 					    <td nowrap align="right" width="35%"><h3>用&nbsp;&nbsp;户&nbsp;&nbsp;名:</h3></td>
-					    <td width="35%"><input name='txt3' type="text" class="text" style="width:154px" value="" /><span class="red">*</span>				        </td>
+					    <td width="35%"><input id="input_username" name='txt3' type="text" class="text" style="width:154px" value="" /><span class="red">*</span>				        </td>
 				        			      
 				        <td width="35%">&nbsp;</td>	
 						</tr>
-						
-						
-						<tr>	
-							<td nowrap align="right" width="35%"><h3>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:</h3></td>
-							<td width="35%">
-								<input name='txt3' type="text" class="text" style="width:154px" value="" />	<span class="red">*</span></td>						
-							
-							 <td width="35%">&nbsp;</td>
-				        </tr>
-				        
+										        
 						<tr>	
 							<td nowrap align="right" width="30%"><h3>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:</h3></td>
-							<td width="35%"><input name='txt3' type="text" class="text" style="width:154px" value="" />	<span class="red">*</span></td>						</td>
+							<td width="35%"><input id="input_password" name='txt3' type="text" class="text" style="width:154px" value="" />	<span class="red">*</span></td>						</td>
 							<td width="35%">&nbsp;</td>             
 						</tr>
 						
 						<tr>	
 							<td nowrap align="right" width="30%"><h3>确&nbsp;认密码:</h3></td>
-							<td width="35%"><input name='txt3' type="text" class="text" style="width:154px" value="" /><span class="red">*</span>	</td>						</td>
+							<td width="35%"><input id="input_password2" name='txt3' type="text" class="text" style="width:154px" value="" /><span class="red">*</span>	</td>						</td>
 							<td width="35%">&nbsp;</td>             
 						</tr>
 						 
@@ -93,16 +110,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					          <table  width="100%"   height="140" border="0">
 					               <tr  >
 					                 <td   width="25%"  align="center" >
-					                     <label><input  name="1"  type="checkbox"  value=""/><font  size="4">采样</font></label>
+					                     <label><input id="input_privilege_1" name="1"  type="checkbox"  value=""/><font  size="4">采样</font></label>
 					                  </td>
 					                  <td   width="25%"  align="center" >
-					                     <label><input  name="1"  type="checkbox"  value=""/><font  size="4">判读</font></label>
+					                     <label><input  id="input_privilege_2" name="1"  type="checkbox"  value=""/><font  size="4">判读</font></label>
 					                  </td>
 					                  <td   width="25%"  align="center" >
-					                     <label><input  name="1"  type="checkbox"  value=""/><font  size="4">所有人</font></label>
+					                     <label><input id="input_privilege_3" name="1"  type="checkbox"  value=""/><font  size="4">所有人</font></label>
 					                  </td>
 					                  <td   width="25%"  align="center" >
-					                     <label><input  name="1"  type="checkbox"  value=""/><font  size="4">系统</font></label>
+					                     <label><input id="input_privilege_4" name="1"  type="checkbox"  value=""/><font  size="4">系统</font></label>
 					                  </td>
 					               </tr>
 					               
@@ -129,7 +146,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<TR  bgcolor="#5F9EA0">
 			<TD colspan="2" align="center" height="50px">
-			<input type="button" name="Submit" value="确定" class="button" onclick="alert('保存成功！');"/>　
+			<input type="button" name="Submit" value="确定" class="button" onclick="input_submit();"/>　
 			
 			<input type="button" name="Submit2" value="返回" class="button" onclick="window.history.go(-1);"/></TD>
 		</TR>
