@@ -146,16 +146,14 @@ function link1(){
             
 		            <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
 		                  <tr>
-			                     <td width="5%">&nbsp;&nbsp;&nbsp;
-			                     <input name="Submit" type="button" class="right-button08" value="打&nbsp;开&nbsp;记&nbsp;录"   style="height: 21px; width: 100px"onclick="link1();  " />
+			                     <td width="5%">
+			                     <input name="Submit" type="button" class="right-button08" value="打开记录"   style="height: 21px; width: 100px"onclick="link1();  " />
 			                     </td >
-			                     <td  width="15%" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			                    <input name="Submit" type="button" class="right-button08" value="采&nbsp;集&nbsp;指&nbsp;纹"   style="height: 21px; width: 100px"onclick="link();  " />
-			                     &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-		           <input type="button" name="Submit2" value="返回" class="right-button02" onclick="window.history.go(-1);"/>
+			                     <td  width="15%" >
+			                    <input name="Submit" type="button" class="right-button08" value="采集指纹" style="height: 21px; width: 100px"onclick="link();  " />
+			                    <input type="button" name="Submit2" value="返回" class="right-button02" onclick="window.history.go(-1);"/>
 			                     </td>
-			                    
-			                      <td width="550"><center><h1>查&nbsp;看&nbsp;所&nbsp;有&nbsp;纹&nbsp;型</h1></center></td>
+			                      <td width="550"><center><h1>查看所有纹型</h1></center></td>
 			                     <td width="120" align="center"> </td>
 			    	
 		                 </tr>
