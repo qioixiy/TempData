@@ -891,7 +891,7 @@ public class ajax extends HttpServlet {
 		return 0;
 	}
 	
-int delete_user(HttpServletRequest request, HttpServletResponse response) {
+	int delete_user(HttpServletRequest request, HttpServletResponse response) {
 		
 		String ids = request.getParameter("ids");
 
@@ -1162,6 +1162,48 @@ int delete_user(HttpServletRequest request, HttpServletResponse response) {
 		}
 		return 0;
 	}
+	
+	
+int del_customer(HttpServletRequest request, HttpServletResponse response) {
+		
+		String ids = request.getParameter("ids");
+
+		System.out.println("ids:" + ids);
+		
+		String id_arr[] = ids.split(",");
+		System.out.println("id_arr:" + id_arr.length);
+		System.out.println("id_arr:" + id_arr[id_arr.length-1]);
+		
+		Connection conn = BaseDataBaseDao.getConnection();
+		Statement stmt;
+		try {
+			stmt = conn.createStatement();
+			
+			int flag = 1;
+			for (int i = 0;  i < id_arr.length; i++) {
+				String id = id_arr[i];
+				String sql = String.format("DELETE FROM `tempdata`.`customer` WHERE `userid` = %s",
+						id);
+				System.out.println(sql);
+				if (stmt.executeUpdate(sql) > 0) {
+					System.out.println("del customer success");
+				} else {
+					flag = 0;
+					System.out.println("del customer fail");
+				}
+				if (flag == 1) {
+					response.getWriter().append("success");
+				}
+			}
+		} catch (SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+	
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -1352,6 +1394,9 @@ int delete_user(HttpServletRequest request, HttpServletResponse response) {
 				break;
 			case "add_customer":
 				add_customer(request, response);
+				break;
+			case "del_customer":
+				del_customer(request, response);
 				break;
 			default:
 				System.out.println("unkown command");
