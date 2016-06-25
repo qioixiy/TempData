@@ -168,16 +168,16 @@ function import_package()
     	</tr>
   		<tr>
     		<td>
-		    	<tr>
-		        	<td height="25"><span class="newfont07">
-		            	<input type="file" id="file" name="myfile" />
-				    	<input name="Submit" type="button" class="right-button08" value="导入数据" style="height:21px; width:100px" onclick="import_package();" />
-			      	</td>
-		       	</tr>
     			<table id="subtree1" style="DISPLAY: " width="100%" border="0" cellspacing="0" cellpadding="0">
         		<tr>
           			<td>
           				<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+				    	<tr>
+				        	<td height="25"><span class="newfont07">
+				            	<input type="file" id="file" name="myfile" />
+						    	<input name="Submit" type="button" class="right-button08" value="导入数据" style="height:21px; width:100px" onclick="import_package();" />
+					      	</td>
+				       	</tr>
               			<tr>
                 			<td height="40" class="font42"><table width="100%" border="0" cellpadding="4" cellspacing="1" bgcolor="#464646" class="newfont03">
 								<tr>
