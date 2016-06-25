@@ -984,7 +984,12 @@ int delete_user(HttpServletRequest request, HttpServletResponse response) {
 	int add_customer(HttpServletRequest request, HttpServletResponse response) {
 		
 		try {
-			String bianhao = new String(request.getParameter("bianhao").getBytes("ISO-8859-1"), "UTF-8");
+			String bianhao_s = (new String(request.getParameter("bianhao").getBytes("ISO-8859-1"), "UTF-8")).trim();
+			System.out.println("bianhao_s:" + bianhao_s);
+			if (bianhao_s ==null || bianhao_s == "") {
+				return -3;
+			}
+			int bianhao = Integer.parseInt(bianhao_s);
 			String xingming = new String(request.getParameter("xingming").getBytes("ISO-8859-1"), "UTF-8");
 			String xingbie = new String(request.getParameter("xingbie").getBytes("ISO-8859-1"), "UTF-8");
 			String chushenriqi = new String(request.getParameter("chushenriqi").getBytes("ISO-8859-1"), "UTF-8");
@@ -1009,13 +1014,13 @@ int delete_user(HttpServletRequest request, HttpServletResponse response) {
 			String zuoatd = new String(request.getParameter("zuoatd").getBytes("ISO-8859-1"), "UTF-8");
 			String youatd = new String(request.getParameter("youatd").getBytes("ISO-8859-1"), "UTF-8");
 			String beizhu = new String(request.getParameter("beizhu").getBytes("ISO-8859-1"), "UTF-8");
-			String caijishibianhao = new String(request.getParameter("caijishibianhao").getBytes("ISO-8859-1"),
-					"UTF-8");
+			int caijishibianhao = Integer.parseInt(new String(request.getParameter("caijishibianhao").getBytes("ISO-8859-1"),
+					"UTF-8"));
 			String caijishixingming = new String(request.getParameter("caijishixingming").getBytes("ISO-8859-1"),
 					"UTF-8");
 			String caiyangriqi = new String(request.getParameter("caiyangriqi").getBytes("ISO-8859-1"), "UTF-8");
-			String pandushibianhao = new String(request.getParameter("pandushibianhao").getBytes("ISO-8859-1"),
-					"UTF-8");
+			int pandushibianhao = Integer.parseInt(new String(request.getParameter("pandushibianhao").getBytes("ISO-8859-1"),
+					"UTF-8"));
 			String pandushixingming = new String(request.getParameter("pandushixingming").getBytes("ISO-8859-1"),
 					"UTF-8");
 			String panduriqi = new String(request.getParameter("panduriqi").getBytes("ISO-8859-1"), "UTF-8");
@@ -1050,6 +1055,107 @@ int delete_user(HttpServletRequest request, HttpServletResponse response) {
 			System.out.println("pandushixingming:" + pandushixingming);
 			System.out.println("panduriqi:" + panduriqi);
 
+			Connection conn = BaseDataBaseDao.getConnection();
+			Statement stmt;
+			try {
+				stmt = conn.createStatement();
+				String sql = String.format("SELECT * FROM `customer` WHERE `userid` = '%s'",
+						bianhao);
+				System.out.println(sql);
+				ResultSet ret = stmt.executeQuery(sql);
+				if(ret.next()) { // find
+					System.out.println("executeQuery ok," + sql);
+					System.out.println("find user, but !!");
+					response.getWriter().append("fail_uid");
+					return -1;
+				}
+				
+				/* userid 	name 	gender 	birthday 	age 	version 	collectDate 	constellation 	bloodtype
+				fatherName 	farBirthday 	fphone 	matherName 	marBirthday 	mphone 	career 	address 	phone
+				QQ 	MSN 	leftATD 	rightATD 	note 	collId 	collName 	colldate 	disId 	disName 	disdate
+				//*/
+				// insert
+				sql = String.format("INSERT INTO customer (%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s) VALUES (%d, '%s', '%s', '%s', '%s','%s', '%s', '%s', '%s', '%s','%s', '%s', '%s', '%s', '%s','%s', '%s', '%s', '%s', '%s','%s', '%s', '%s', %d, '%s','%s', %d, '%s', '%s')",
+						"userid",
+						"name",
+						"gender",
+						"birthday",
+						"age",
+						"version",
+						"collectDate",
+						"constellation",
+						"bloodtype",
+						"fatherName",
+						"farBirthday",
+						"fphone",
+						"matherName",
+						"marBirthday",
+						"mphone",
+						"career",
+						"address",
+						"phone",
+						"QQ",
+						"MSN",
+						"leftATD",
+						"rightATD",
+						"note",
+						"collId",
+						"collName",
+						"colldate",
+						"disId",
+						"disName",
+						"disdate",
+						
+						bianhao,
+				xingming,
+				xingbie,
+				chushenriqi,
+				nianling,
+				banben,
+				caijiriqi,
+				xingzuo,
+				xuexing,
+				fuqinxingming,
+				fuqinchushenriqi,
+				fuqinshouji,
+				muqinxingming,
+				muqinchushenriqi,
+				muqinshouji,
+				zhiye,
+				jiatingzhuzhi,
+				dianhua,
+				qq,
+				msn,
+				zuoatd,
+				youatd,
+				beizhu,
+				caijishibianhao,
+				caijishixingming,
+				caiyangriqi,
+				pandushibianhao,
+				pandushixingming,
+				panduriqi);
+				
+				System.out.println(sql);
+				
+				if (stmt.executeUpdate(sql) > 0) {
+					System.out.println("插入成功");
+
+					response.getWriter().append("success");
+				} else {
+					System.out.println("插入失败");
+					try {
+						response.getWriter().append("插入数据失败，已经存在该信息？");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			} catch (SQLException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

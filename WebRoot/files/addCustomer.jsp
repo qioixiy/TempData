@@ -54,6 +54,16 @@ function on_load(){
 	mainpage.style.display="";
 }
 
+function check_unnull(obj)
+{
+	if( obj && typeof object==='string' && object != "") {
+		return true;
+	} else {
+		alert("数据不完整");
+		return false;
+	}
+}
+
 function add_customer()
 {
 	var bianhao = document.getElementById("bianhao").value;
@@ -153,7 +163,7 @@ function add_customer()
 		+ "&pandushibianhao=" +pandushibianhao
 		+ "&pandushixingming=" +pandushixingming
 		+ "&panduriqi=" +panduriqi;
-	
+		
 	//alert(param);
 	ajax_request("<%=basePath%>", "add_customer", param);
 }
