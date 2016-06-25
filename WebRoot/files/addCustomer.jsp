@@ -58,14 +58,44 @@ function add_customer()
 {
 	var bianhao = document.getElementById("bianhao").value;
 	var xingming = document.getElementById("xingming").value;
-	var xingbie = document.getElementById("xingbie").selectedIndex;
+	var xingbie_i = document.getElementById("xingbie").selectedIndex;
+	var xingbie_t = new Array();
+	  xingbie_t[0] = "男";
+	  xingbie_t[1] = "女";
+	  var xingbie = xingbie_t[xingbie_i];
 
 	var chushenriqi = document.getElementById("chushenriqi").value;
 	var nianling = document.getElementById("nianling").value;
-	var banben =document.getElementById("banben").selectedIndex;
+	var banben_i =document.getElementById("banben").selectedIndex;
+	var banben_t = new Array();
+	  banben_t[0] = "成人";
+	  banben_t[1] = "儿童";
+	  var banben = banben_t[banben_i];
+	
 	var caijiriqi = document.getElementById("caijiriqi").value;
-	var xingzuo =document.getElementById("xingzuo").selectedIndex;
-	var xuexing =document.getElementById("xuexing").selectedIndex;
+	var xingzuo_i =document.getElementById("xingzuo").selectedIndex;
+	var xingzuo_t = new Array();
+	  xingzuo_t[0] = "摩羯座";
+	  xingzuo_t[1] = "水瓶座";
+	  xingzuo_t[2] = "双鱼座";
+	  xingzuo_t[3] = "白羊座";
+	  xingzuo_t[4] = "金牛座";
+	  xingzuo_t[5] = "双子座";
+	  xingzuo_t[6] = "巨蟹座";
+	  xingzuo_t[7] = "狮子座";
+	  xingzuo_t[8] = "处女座";
+	  xingzuo_t[9] = "天蝎座";
+	  xingzuo_t[10] = "射手座";
+	  xingzuo_t[11] = "天秤座";
+	  var xingzuo = xingzuo_t[xingzuo_i];
+	
+	var xuexing_i =document.getElementById("xuexing").selectedIndex;
+	 var xuexing_t = new Array();
+	  xuexing_t[0] = "A型";
+	  xuexing_t[1] = "B型";
+	  xuexing_t[2] = "AB型";
+	  xuexing_t[3] = "O型";
+	  var xuexing = xuexing_t[xuexing_i];
 
 	var fuqinxingming = document.getElementById("fuqinxingming").value;
 	var fuqinchushenriqi = document.getElementById("fuqinchushenriqi").value;
@@ -205,6 +235,7 @@ function add_customer()
                             <option  value="9">处女座</option>
                             <option  value="10">天蝎座</option>
                             <option   value="11">射手座</option>
+                            <option   value="12">天秤座</option>
                         </select></td>
 					    
 					    <td width="20%" style="width: 25px;"  align="right">血&nbsp;&nbsp;&nbsp;&nbsp;型:</td>
