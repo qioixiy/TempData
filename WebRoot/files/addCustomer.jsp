@@ -206,7 +206,6 @@ function add_customer()
 					    <td width="20%" style="width: 25px;"  align="right">性&nbsp;&nbsp;&nbsp;&nbsp;别:</td>
 					    <td  width="20%" style="width: 190px; ">
 					    <select id="xingbie"  name="gender" style="width: 102px; ">
-                            <option selected="selected">==请选择==</option>
                             <option  value="男">男</option>
                             <option  value="女">女</option>
                         </select></td>
@@ -233,7 +232,6 @@ function add_customer()
 					    <td  align="right"  style="width: 8px; ">星&nbsp;&nbsp;&nbsp;&nbsp;座：</td>
 					    <td width="10%"  nowrap="nowrap" style="width: 59px; ">
 					    <select id="xingzuo" name="constellation" style="width: 210px; ">
-                            <option selected="selected">==请选择==</option>
                             <option  value="1">摩羯座</option>
                             <option  value="2">水瓶座</option>
                             <option  value="3">双鱼座</option>
@@ -250,7 +248,6 @@ function add_customer()
 					    
 					    <td width="20%" style="width: 25px;"  align="right">血&nbsp;&nbsp;&nbsp;&nbsp;型:</td>
 					    <td  width="20%" style="width: 190px; "><select id="xuexing" name="bloodtype"  style="width: 111px; ">
-                            <option selected="selected">==请选择==</option>
                             <option>A型</option>
                             <option>B型</option>
                             <option>AB型</option>
