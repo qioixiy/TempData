@@ -3,7 +3,6 @@
 	import="java.sql.*"
 %>
 <%
-
 	String url = request.getScheme()+"://"+ request.getServerName()+ ":" + request.getServerPort()+request.getRequestURI();
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -58,8 +57,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
-    
     <title></title>
     
 	<meta http-equiv="pragma" content="no-cache">
@@ -67,50 +64,11 @@
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-
-<style type="text/css">
-<!--
-body {
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-}
-.tabfont01 {	
-	font-family: "宋体";
-	font-size: 9px;
-	color: #555555;
-	text-decoration: none;
-	text-align: center;
-}
-.font051 {font-family: "宋体";
-	font-size: 12px;
-	color: #333333;
-	text-decoration: none;
-	line-height: 20px;
-}
-.font201 {font-family: "宋体";
-	font-size: 12px;
-	color: #FF0000;
-	text-decoration: none;
-}
-.button {
-	font-family: "宋体";
-	font-size: 14px;
-	height: 37px;
-}
-html { overflow-x: auto; overflow-y: auto; border:0;} 
--->
-</style>
-
-<link href="../css/css.css" rel="stylesheet" type="text/css" />
-<script type="text/JavaScript">
-
-</script>
-<link href="../css/style.css" rel="stylesheet" type="text/css" />
+	<link href="<%=basePath %>/css/css.css" rel="stylesheet" type="text/css" />
+	<link href="<%=basePath %>/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <script type="text/javascript" src="<%=basePath%>/js/ajax.js"></script>
-<SCRIPT language=JavaScript>
+<script language=JavaScript>
 function sousuo(){
 	window.open("gaojisousuo.htm","","depended=0,alwaysRaised=1,width=800,height=510,location=0,menubar=0,resizable=0,scrollbars=0,status=0,toolbar=0");
 }
@@ -168,21 +126,19 @@ function del_user()
 	var param = "&ids=" + ids;
 	ajax_request("<%=basePath%>", "del_user", param);
 }
-
-</SCRIPT>
+</script>
 
 <body>
 <form name="fom" id="fom" method="post">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-
-  <tr>
+	<tr>
     <td height="30">      <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
-          <td height="62" background="../images/nav04.gif">
+          <td height="62" background="<%=basePath %>/images/nav04.gif">
             
 		   <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
 		    <tr>
-			  <td width="24"><img src="../images/ico07.gif" width="20" height="18" /></td>
+			  <td width="24"><img src="<%=basePath %>/images/ico07.gif" width="20" height="18" /></td>
 			  <td width="519"><label>编号:
 			      <input id="input_search" name="text" type="text" />
 			  </label>
@@ -201,10 +157,8 @@ function del_user()
                <td height="35"><span class="newfont07">选择：<a href="#" class="right-font08" onclick="selectAll();">全选</a>-<a href="#" class="right-font08" onclick="unselectAll();">反选</a></span>
 		           <input name="Submit" type="button" class="right-button08" value="删除所选人员" style="height: 21px; width: 100px" onclick="del_user()"/> &nbsp;&nbsp;&nbsp;
 		           <input name="Submit" type="button" class="right-button08" value="添加账户信息"   style="height: 21px; width: 100px" onclick="link();  " />
-		           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 	              </td>
           </tr>
-         
               <tr>
                 <td height="40" class="font42"><table width="100%" border="0" cellpadding="4" cellspacing="1" bgcolor="#464646" class="newfont03">
 
@@ -268,7 +222,7 @@ function del_user()
       </table>
       <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
-          <td height="6"><img src="../images/spacer.gif" width="1" height="1" /></td>
+          <td height="6"><img src="<%=basePath %>/images/spacer.gif" width="1" height="1" /></td>
         </tr>
         <tr>
           <td height="33"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="right-font08">
