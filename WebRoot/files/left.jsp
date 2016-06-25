@@ -208,7 +208,7 @@ function list(idstr){
         
 		<tr>
           <td width="9%" height="20" ><img id="xiaotu7" src="../images/ico06.gif" width="8" height="12" /></td>
-          <td width="91%"><a href="/TempData/ListCusServlet" target="mainFrame" class="left-font03" onClick="tupian('7');">打开客户记录</a></td>
+          <td width="91%"><a href="/TempData/files/MyCustomerFingerJudge.jsp" target="mainFrame" class="left-font03" onClick="tupian('7');">打开客户记录</a></td>
            
         </tr>
         
