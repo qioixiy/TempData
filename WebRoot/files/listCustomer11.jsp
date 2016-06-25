@@ -220,28 +220,38 @@ function   showListtype(id){
                     <td width="19%" align="center" >操作</td>
                   </tr>
                   
-                  
-                  
-                  <%for(Customer  customer:customers) {%>
-                  
+                  <% while(ret.next()) {
+                  	String Userid = ret.getString("userid");
+                  	String name = ret.getString("name");
+                  	String version = ret.getString("version");
+                  	String gender = ret.getString("gender");
+                  	String birthday = ret.getString("birthday");
+                  	String age = ret.getString("age");
+                  	String collId = ret.getString("collId");
+                  	String collName = ret.getString("collName");
+                  	String colldate = ret.getString("colldate");
+                  	String id = ret.getString("id");
+                  	String userid = ret.getString("userid");
+                	  
+                  %>
                   
                   <tr  bordercolor="#8FBC8F">
 				    <td bgcolor="#FFFFFF"><input type="checkbox" name="delid"/></td>
 				   
-					<td height="20" bgcolor="#FFFFFF"   align="center"><%=customer.getUserid()%></td>
-                    <td bgcolor="#FFFFFF"   align="center"><%=customer.getName()%></a></td>
+					<td height="20" bgcolor="#FFFFFF"   align="center"><%=Userid%></td>
+                    <td bgcolor="#FFFFFF"   align="center"><%=name%></a></td>
                   
-                    <td bgcolor="#FFFFFF"    align="center"><%=customer.getVersion() %></td>
+                    <td bgcolor="#FFFFFF"    align="center"><%=version %></td>
                     
-					<td height="20" bgcolor="#FFFFFF"   align="center"><%=customer.getGender()%></td>
-					<td height="20" bgcolor="#FFFFFF"    align="center"><%=customer.getAge() %></td>
-					<td height="20" bgcolor="#FFFFFF"   align="center"><%=customer.getBirthday() %></td>
-					<td height="20" bgcolor="#FFFFFF"   align="center"><%=customer.getCollId() %></td>
-					<td height="20" bgcolor="#FFFFFF"   align="center"><%=customer.getCollName() %></td>
-					<td height="20" bgcolor="#FFFFFF"   align="center"><%=customer.getColldate() %></td>
+					<td height="20" bgcolor="#FFFFFF"   align="center"><%=gender%></td>
+					<td height="20" bgcolor="#FFFFFF"    align="center"><%=age %></td>
+					<td height="20" bgcolor="#FFFFFF"   align="center"><%=birthday%></td>
+					<td height="20" bgcolor="#FFFFFF"   align="center"><%=collId%></td>
+					<td height="20" bgcolor="#FFFFFF"   align="center"><%=collName%></td>
+					<td height="20" bgcolor="#FFFFFF"   align="center"><%=colldate%></td>
                     <td  bgcolor="#FFFFFF"   align="center">
-                        <input  type="button"   value="采集指纹"  onclick="showCollect(<%=customer.getId()%>)" /> &nbsp;&nbsp;&nbsp;&nbsp;
-                         <input  type="button"   value="查看纹型"  onclick="showListtype(<%=customer.getUserid()%>)" />
+                        <input  type="button"   value="采集指纹"  onclick="showCollect(<%=id%>)" /> &nbsp;&nbsp;&nbsp;&nbsp;
+                         <input  type="button"   value="查看纹型"  onclick="showListtype(<%=userid%>)" />
                         </td>
                     
                  
