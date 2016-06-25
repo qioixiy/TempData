@@ -193,16 +193,9 @@ function   showListtype(id){
         <tr>
           <td><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
           	 <tr>
-               <td height="35"><span class="newfont07">选择：<a href="#" class="right-font08" onclick="selectAll();">全选</a>-<a href="#" class="right-font08" onclick="unselectAll();">反选</a></span>
-		           <input name="Submit" type="button" class="right-button08" value="删除所选人员" style="height: 21px; width: 100px"/> &nbsp;&nbsp;&nbsp;
-		           <input name="Submit" type="button" class="right-button08" value="添加人员信息" style="height: 21px; width: 100px"onclick="link();  " />&nbsp;&nbsp;&nbsp;
-		            &nbsp;&nbsp;&nbsp;&nbsp; 
+               <td height="35"><span class="newfont07">
 		           <input type="button" name="Submit2" value="返回" class="right-button02" onclick="window.history.go(-1);"/>
-		           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		          &nbsp;&nbsp;&nbsp;
-		          
-		           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-	              </td>
+		       </td>
           </tr>
               <tr>
                 <td height="40" class="font42"><table width="100%" border="1" cellpadding="4" cellspacing="1"  class="newfont03">
