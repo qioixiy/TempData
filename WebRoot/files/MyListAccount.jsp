@@ -9,7 +9,13 @@
 	+ path + "/";
 	
 	String search = request.getParameter("search");
-	System.out.println("search:" + search);
+	if (search != null) {
+		search = new String(search.getBytes("ISO-8859-1"), "UTF-8");
+	}
+	String search_type = request.getParameter("search_type");
+	if (search_type != null) {
+		search_type = new String(search_type.getBytes("ISO-8859-1"), "UTF-8");
+	}
 	
 	String page_s = request.getParameter("page");
 	if (page_s == null) page_s = "1";
@@ -102,6 +108,12 @@ function search_id()
 	var str = document.getElementById("input_search").value;
 	var url = "<%=url%>" + "?search=" + str;
 	//alert(url);
+	
+	if (str == "") {
+		alert("请输入关键字");
+		return false;
+	}
+	
 	window.location=url;
 }
 

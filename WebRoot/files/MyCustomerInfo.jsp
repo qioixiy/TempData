@@ -8,7 +8,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 String url = request.getScheme()+"://"+ request.getServerName()+ ":" + request.getServerPort()+request.getRequestURI();
 
 String search = request.getParameter("search");
+if (search != null) {
+	search = new String(search.getBytes("ISO-8859-1"), "UTF-8");
+}
 String search_type = request.getParameter("search_type");
+if (search_type != null) {
+	search_type = new String(search_type.getBytes("ISO-8859-1"), "UTF-8");
+}
 System.out.println("search:" + search + ",search_type:" + search_type);
 
 String page_s = request.getParameter("page");
