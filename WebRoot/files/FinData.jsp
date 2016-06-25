@@ -236,13 +236,9 @@ function on_load(){
 				              </tr>
 				             <tr  height="25"   bordercolor="#8FBC8F">
 				                 <td  width="9%"  colspan="11">&nbsp;</td>
-				                
 				              </tr>
-				        
-				        
 				         </table>
 				   </td>
-				
 				</tr> 
 				<tr height="105"  align="center"  bordercolor="#8FBC8F">
 				   <td  width="100%">
@@ -265,11 +261,9 @@ function on_load(){
 				              </tr>
 				               <tr  height="25"   bordercolor="#8FBC8F"  align="center"  >
 				                 <td  width="12%"   colspan="6">&nbsp;</td>
-				                
 				              </tr>
 				     </table>
 				   </td>
-				
 				</tr> 
 				<tr height="105"  align="center"  bordercolor="#8FBC8F">
 				   <td  width="100%">
@@ -279,23 +273,17 @@ function on_load(){
 				                 <td  width="29%">视觉</td>
 				                 <td  width="29%">听觉</td>
 				                 <td  width="30%">体觉</td>
-				                 
 				              </tr>
 				               <tr  height="40"   bordercolor="#8FBC8F"  align="center">
 				                 <td  width="12%" bgcolor="#5F9EA0" >百分比</td>
 				                 <td  width="29%"><%=FinData.Visual%></td>
 				                 <td  width="29%"><%=FinData.AuditorySense%></td>
 				                 <td  width="30%"><%=FinData.Somatosensory%></td>
-				                 
 				              </tr>
 				               <tr  height="25"   bordercolor="#8FBC8F"  align="center"  >
 				                 <td  width="12%"  colspan="4"></td>
-				               
 				              </tr>
-				      
-				      
 				      </table>
-				 
 				</td>
 				</tr> 
 				<tr height="105"  align="center"  bordercolor="#8FBC8F">
@@ -307,7 +295,6 @@ function on_load(){
 				                 <td  width="22%">&nbsp;</td>
 				                 <td  width="22%"  bgcolor="#5F9EA0">构思</td>
 				                 <td  width="22%"  >&nbsp;</td>
-				              
 				              </tr>
 				               <tr  height="40"   bordercolor="#8FBC8F"  align="center" >
 				                 <td  width="12%"    bgcolor="#5F9EA0">ATD(L/R)</td>
@@ -315,17 +302,12 @@ function on_load(){
 				                 <td  width="22%">0</td>
 				                 <td  width="22%"><%=FinData.Idea%>AFRC</td>
 				                 <td  width="22%" >&nbsp;</td>
-				               
 				              </tr>
 				               <tr  height="25"   bordercolor="#8FBC8F"  align="center"  >
 				                 <td  width="12%"   colspan="5">&nbsp;</td>
-				                
 				              </tr>
 				     </table>
-				   
-				   
 				   </td>
-				
 				</tr> 
 				<tr height="120"  align="center"  bordercolor="#8FBC8F">
 				   <td  width="100%"><br />
@@ -362,22 +344,13 @@ function on_load(){
 				                 <td  width="11%"><%=FinData.I5%></td>
 				                 <td  width="11%"><%=FinData.I6%></td>
 				                 <td  width="11%"><%=FinData.I7%></td>
-				                 <td  width="11%"><%=FinData.I8%></td> 
-				                
+				                 <td  width="11%"><%=FinData.I8%></td>
 				              </tr>
-				             
-				        
 				         </table>
-				   
-				   
 				   </td>
 				
-				</tr> 
-				
-  
-  
-  
-       </table>
+				</tr>
+			</table>
   <br/>    
   
 </form>
