@@ -71,33 +71,6 @@ ret = stmt.executeQuery(sql);
 </head>
 <script type="text/javascript" src="<%=basePath%>/js/ajax.js"></script>
 <script language=JavaScript>
-function sousuo(){
-	window.open("gaojisousuo.htm","","depended=0,alwaysRaised=1,width=800,height=510,location=0,menubar=0,resizable=0,scrollbars=0,status=0,toolbar=0");
-}
-function selectAll(){
-	var obj = document.fom.elements;
-	for (var i=0;i<obj.length;i++){
-		if (obj[i].name == "delid"){
-			obj[i].checked = true;
-		}
-	}
-}
-
-function unselectAll(){
-	var obj = document.fom.elements;
-	for (var i=0;i<obj.length;i++){
-		if (obj[i].name == "delid"){
-			if (obj[i].checked==true) obj[i].checked = false;
-			else obj[i].checked = true;
-		}
-	}
-}
-
-function link(){
-	var url = "<%=basePath %>/files/addaccount.jsp";
-	//alert(url)
-	window.location=url;
-}
 
 function search_id()
 {
@@ -107,27 +80,14 @@ function search_id()
 	window.location=url;
 }
 
-function del_user()
-{
-	var ids = "";
-	var obj = document.fom.elements;
-	for (var i=0;i<obj.length;i++){
-		if (obj[i].name == "delid"){
-			if (obj[i].checked == true) {
-				var id = obj[i].id;
-				ids += document.getElementById(id + "div").innerText + ",";
-			}
-		}
-	}
-
-	if(ids == "") {
-		alert("请选中至少一个");
-		return;
-	}
-	
-	var param = "&ids=" + ids;
-	ajax_request("<%=basePath%>", "del_user", param);
+function  showCollect(id){
+    location.href="/TempData/CollectServlet?type=Collect&id="+id;
 }
+
+function   showListtype(id){
+   location.href="/TempData/CollectServlet?type=Listtype&id="+id;
+}
+
 </script>
 
 <body>
