@@ -66,9 +66,9 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 -->
 </style>
 
-<link href="../css/css.css" rel="stylesheet" type="text/css" />
-<link href="../css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="../js/xiangmu.js"></script>
+<link href="<%=basePath %>/css/css.css" rel="stylesheet" type="text/css" />
+<link href="<%=basePath %>/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<%=basePath %>/js/xiangmu.js"></script>
 </head>
 <SCRIPT language=JavaScript>
 function sousuo(){
@@ -126,23 +126,19 @@ function on_load(){
      <td height="30">
           <table width="100%" border="0" cellspacing="0" cellpadding="0">
              <tr>
-                <td height="62" background="/TempData/images/nav04.gif">
+                <td height="62" background="<%=basePath %>/TempData/images/nav04.gif">
           
 		           <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
 		                 <tr>
-			                 <td width="21"><img src="../images/ico07.gif" width="20" height="18" /></td>
-			                  <td width="550">查看内容：按版本：
+			                  <td width="550">版本：
 			                       <select name="select2" style="width: 138px; height: 25px">
                                         <option>成人版</option>
                                         <option>儿童版</option>
                                         <option>成人版(无页眉)</option>
                                          <option>儿童版(无页眉)</option>
-                           
-                                   </select>&nbsp;&nbsp;&nbsp;	
+                                   </select>
 			                       <input name="Submit2" type="button" class="right-button08" value="生成报表" onclick="link();"/>
 			                </td>
-			                <td width="132" align="left"><a href="#" onclick="sousuo()">
-			                        <input name="Submit" type="button" class="right-button07" value="高级搜索" /></a></td>	
 		                    </tr>
                     </table>
                   </td>
@@ -150,27 +146,6 @@ function on_load(){
        </table>
       </td>
   </tr>
-  <tr>
-      <td><table id="subtree1" style="DISPLAY: " width="100%" border="0" cellspacing="0" cellpadding="0">
-
-        <tr>
-          <td><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
-
-          	 <tr>
-               <td height="15">
-	              <input name="Submit" type="button" class="right-button08" value="打开记录"   onclick="link1();"/>&nbsp;&nbsp;
-	              <input name="Submit2" type="button" class="right-button08" value="判读分析" onclick="link2();"/>&nbsp;&nbsp;
-	               <input name="Submit2" type="button" class="right-button08" value="指纹判读" onclick="link3();"/>
-	               &nbsp;&nbsp;&nbsp;&nbsp;
-	               <input type="button" name="Submit2" value="返回" class="right-button02" onclick="window.history.go(-1);" "/>
-	              </td>
-          	 </tr>
-              </td>
-              </tr>
-            </table></td>
-        </tr>
-      </table>
-    </tr>
  <tr>
 			<TD width="100%" >
 				<fieldset >
@@ -404,27 +379,6 @@ function on_load(){
   
        </table>
   <br/>    
-      
-      <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
-        <tr>
-          <td height="6"><img src="../images/spacer.gif" width="1" height="1" /></td>
-        </tr>
-        <tr>
-          <td height="33"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="right-font08">
-              <tr>
-                <td width="50%">共 <span class="right-text09">5</span> 页 | 第 <span class="right-text09">1</span> 页</td>
-                <td width="49%" align="right">[<a href="#" class="right-font08">首页</a> | <a href="#" class="right-font08">上一页</a> | <a href="#" class="right-font08">下一页</a> | <a href="#" class="right-font08">末页</a>] 转至：</td>
-                <td width="1%"><table width="20" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                      <td width="1%"><input name="textfield3" type="text" class="right-textfield03" size="1" /></td>
-                      <td width="87%"><input name="Submit23222" type="submit" class="right-button06" value=" " />
-                      </td>
-                    </tr>
-                </table></td>
-              </tr>
-          </table></td>
-        </tr>
-      </table>
   
 </form>
 
