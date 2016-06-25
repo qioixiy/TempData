@@ -9,6 +9,7 @@ public class MyDate {
 	    long times = date.getTime();//Ê±¼ä´Á
 	    SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd_HHmmss");
 	    String dateString = formatter.format(date);
+	    SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 	    return dateString;
 	  }
 }

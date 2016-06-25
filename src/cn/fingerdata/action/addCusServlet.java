@@ -31,7 +31,6 @@ public class addCusServlet extends HttpServlet  implements Action {
 	public  String   execute(HttpServletRequest  request,
 			HttpServletResponse  response)throws  ServletException,IOException{
 		
-		
 		Integer  userid=Integer.valueOf(request.getParameter("userid"));
 		String   name=request.getParameter("name");
 		String   gender=request.getParameter("gender");

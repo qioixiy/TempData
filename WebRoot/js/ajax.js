@@ -133,9 +133,21 @@ function callBack_del_user() {
 		var result = xmlHttpRequest.responseText;
 		if (result == "success") {
 			alert("删除成功");
-			window.location = "http://localhost:8080/TempData/files/listaccount.jsp";
+			window.location = "http://localhost:8080/TempData/CollectS";
 		} else {
 			alert("删除失败");
+		}
+	}
+}
+
+function callBack_add_customer() {
+	if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
+		var result = xmlHttpRequest.responseText;
+		if (result == "success") {
+			alert("添加成功");
+			window.location = "http://localhost:8080/TempData/files/listaccount.jsp";
+		} else {
+			alert("添加失败");
 		}
 	}
 }
@@ -177,6 +189,8 @@ function ajax_request(server, param1, param2) {
 		xmlHttpRequest.onreadystatechange = callBack_update_userinfo;
 	} else if (param1 == "del_user"){
 		xmlHttpRequest.onreadystatechange = callBack_del_user;
+	} else if (param1== "add_customer"){
+		xmlHttpRequest.onreadystatechange = callBack_add_customer;
 	} else {
 		alert("不支持子功能");
 		return;
