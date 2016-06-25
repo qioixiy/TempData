@@ -190,7 +190,74 @@ public class CustomerDaoImpl extends BaseDataBaseDao implements CustomerDao {
 		return customer;
 	}
 
-	
+	public Customer getByuserid(int id) {
+		
+		System.out.println(id+"====");
+		
+		//与数据库连接的会话
+		PreparedStatement pstmt = null;
+		
+		Customer  customer = null;
+
+		try {
+			//得到连接
+			conn = getConnection();
+			
+			String sql = "select * from customer where userid = ?";
+			
+			//添加相关SQL语句到会话 
+			pstmt = conn.prepareStatement(sql);
+			//相应的参数
+			pstmt.setInt(1, id);
+			//正式执行
+			rs = pstmt.executeQuery();
+			
+			if (rs != null) {
+				if (rs.next()) {
+					
+					   customer = new Customer();
+					 
+					 customer.setId(rs.getInt("id"));
+					 customer.setUserid(rs.getInt("userid"));
+					 customer.setName(rs.getString("name"));
+					 customer.setGender(rs.getString("gender"));
+					 customer.setBirthday(rs.getString("birthday"));
+					 customer.setAge(rs.getString("age"));
+					 customer.setVersion(rs.getString("version"));
+					 customer.setCollectDate(rs.getString("collectDate"));
+					 customer.setConstellation(rs.getString("constellation"));
+					 customer.setBloodtype(rs.getString("bloodtype"));
+					 customer.setFatherName(rs.getString("fatherName"));
+					 customer.setFarBirthday(rs.getString("farBirthday"));
+					 customer.setFphone(rs.getString("fphone"));
+					 customer.setMatherName(rs.getString("matherName"));
+					 customer.setMarBirthday(rs.getString("marBirthday"));
+					 customer.setMphone(rs.getString("mphone"));
+					 customer.setCareer(rs.getString("career"));
+					 customer.setAddress(rs.getString("address"));
+					 customer.setPhone(rs.getString("phone"));
+					 customer.setQQ(rs.getString("QQ"));
+					 customer.setMSN(rs.getString("MSN"));
+					 customer.setLeftATD(rs.getString("leftATD"));
+					 customer.setRightATD(rs.getString("rightATD"));
+					 customer.setNote(rs.getString("note"));
+					 customer.setCollId(rs.getInt("collId"));
+					 customer.setCollName(rs.getString("collName"));
+					 customer.setColldate(rs.getString("colldate"));
+					 customer.setDisId(rs.getInt("disId"));
+					 customer.setDisName(rs.getString("disName"));
+					 customer.setDisdate(rs.getString("disdate"));
+					 
+					//return customer;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeAll(conn, stmt, rs);
+		}
+		return customer;
+	}
 	
 	@Override
 	public void deletById(Serializable id) {
