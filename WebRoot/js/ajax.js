@@ -102,7 +102,7 @@ function callBack_add_user() {
 	if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
 		var result = xmlHttpRequest.responseText;
 		if (result == "success") {
-			window.location = "http://localhost:8080/TempData/files/listaccount.jsp";
+			window.location = "http://localhost:8080/TempData/files/MyListAccount.jsp";
 		} else if (result == "fail_username") {
 			alert("用户名已经存在");
 		} else if (result == "fail_uid") {
@@ -117,7 +117,7 @@ function callBack_update_userinfo() {
 		var result = xmlHttpRequest.responseText;
 		if (result == "success") {
 			alert("修改成功");
-			window.location = "http://localhost:8080/TempData/files/listaccount.jsp";
+			window.location = "http://localhost:8080/TempData/files/MyListAccount.jsp";
 		} else if (result == "fail_username") {
 			alert("用户名已经存在");
 		} else if (result == "fail_uid") {
@@ -133,7 +133,7 @@ function callBack_del_user() {
 		var result = xmlHttpRequest.responseText;
 		if (result == "success") {
 			alert("删除成功");
-			window.location = "http://localhost:8080/TempData/CollectS";
+			window.location = "http://localhost:8080/TempData/files/MyListAccount.jsp";
 		} else {
 			alert("删除失败");
 		}
