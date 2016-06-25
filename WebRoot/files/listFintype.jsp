@@ -150,7 +150,6 @@ function link1(){
 			                     <input name="Submit" type="button" class="right-button08" value="打开记录"   style="height: 21px; width: 100px"onclick="link1();  " />
 			                     </td >
 			                     <td  width="15%" >
-			                    <input name="Submit" type="button" class="right-button08" value="采集指纹" style="height: 21px; width: 100px"onclick="link();  " />
 			                    <input type="button" name="Submit2" value="返回" class="right-button02" onclick="window.history.go(-1);"/>
 			                     </td>
 			                      <td width="550"><center><h1>查看所有纹型</h1></center></td>
