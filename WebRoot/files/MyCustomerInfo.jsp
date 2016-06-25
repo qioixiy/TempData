@@ -115,6 +115,12 @@ function search_id()
 	var search_type = search_type_t[search_type_i];
 	
 	var str = document.getElementById("input_search").value;
+	
+	if (str == "") {
+		alert("请输入关键字");
+		return false;
+	}
+	
 	var url = "<%=url%>" + "?search_type=" + search_type + "&search=" + str;
 	//alert(url);
 	window.location=url;

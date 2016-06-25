@@ -8,7 +8,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 String url = request.getScheme()+"://"+ request.getServerName()+ ":" + request.getServerPort()+request.getRequestURI();
 
 String search = request.getParameter("search");
+if (search != null) {
+	search = new String(search.getBytes("ISO-8859-1"), "UTF-8");
+}
 String search_type = request.getParameter("search_type");
+if (search_type != null) {
+	search_type = new String(search_type.getBytes("ISO-8859-1"), "UTF-8");
+}
 System.out.println("search:" + search + ",search_type:" + search_type);
 
 String page_s = request.getParameter("page");
@@ -74,8 +80,27 @@ ret = stmt.executeQuery(sql);
 
 function search_id()
 {
+	var search_type_i = document.getElementById("select_search_type").selectedIndex;
+	var search_type_t = new Array()
+	search_type_t[0] = "userid";
+	search_type_t[1] = "gender";
+	search_type_t[2] = "name";
+	search_type_t[3] = "version";
+	search_type_t[4] = "age";
+	search_type_t[5] = "birthday";
+	search_type_t[6] = "collId";
+	search_type_t[7] = "collName";
+	search_type_t[8] = "colldate";
+	var search_type = search_type_t[search_type_i];
+	
 	var str = document.getElementById("input_search").value;
-	var url = "<%=url%>" + "?search=" + str;
+	
+	if (str == "") {
+		alert("请输入关键字");
+		return false;
+	}
+	
+	var url = "<%=url%>" + "?search_type=" + search_type + "&search=" + str;
 	//alert(url);
 	window.location=url;
 }
@@ -102,8 +127,16 @@ function   showListtype(id){
 				    	<tr>
 					  		<td width="24"><img src="<%=basePath %>/images/ico07.gif" width="20" height="18" /></td>
 					  		<td width="519">
-					  			<select name="select4" style="width: 118px; height: 19px">
+					  			<select id="select_search_type" name="select4" style="width: 118px; height: 19px">
 						   			<option>编号</option>
+								    <option>性别</option>
+								    <option>姓名</option>
+								    <option>版本</option>
+								    <option>年龄</option>
+								    <option>出生日期</option>
+								    <option>采集师编号</option>
+								    <option>采集师</option>
+								    <option>采集日期</option>
 			      				</select>
 					  			<input id="input_search" name="text" type="text" /></input>
 					    		<input name="submit" type="button" class="right-button02" value="查 询" onclick="search_id();"/>
