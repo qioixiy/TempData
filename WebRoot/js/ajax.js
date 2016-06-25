@@ -145,7 +145,7 @@ function callBack_add_customer() {
 		var result = xmlHttpRequest.responseText;
 		if (result == "success") {
 			alert("添加成功");
-			window.location = "http://localhost:8080/TempData/CollectS";
+			window.location = "http://localhost:8080/TempData/files/MyCustomerInfo.jsp";
 		} else {
 			alert("添加失败");
 		}
