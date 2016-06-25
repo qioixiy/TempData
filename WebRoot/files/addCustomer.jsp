@@ -17,7 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<link rel="stylesheet" rev="stylesheet" href="../css/style.css" type="text/css" media="all" />
+	<link rel="stylesheet" rev="stylesheet" href="<%=basePath %>/css/style.css" type="text/css" media="all" />
 
 
 <script language="JavaScript" type="text/javascript">
@@ -70,11 +70,6 @@ function on_load(){
     <td class="CPanel">
 		
 		<table border="0" cellpadding="0" cellspacing="0" style="width:100%">
-		<tr><td align="left">
-		<input type="button" name="Submit" value="保存" class="button" onclick="alert('保存成功！');"/>　
-			
-			<input type="button" name="Submit2" value="返回" class="button" onclick="window.history.go(-1);"/>
-		</td></tr>
 				<TR>
 			<TD width="100%"   border="10">
 				<fieldset style="height:100%;">

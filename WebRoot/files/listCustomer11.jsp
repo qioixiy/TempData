@@ -142,7 +142,7 @@ function unselectAll(){
 
 function link(){
     document.getElementById("fom").action="files/addCustomer.jsp";
-   document.getElementById("fom").submit();
+    document.getElementById("fom").submit();
 }
 
 function  showCollect(id){
@@ -194,7 +194,8 @@ function   showListtype(id){
           <td><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
           	 <tr>
                <td height="35"><span class="newfont07">选择：<a href="#" class="right-font08" onclick="selectAll();">全选</a>-<a href="#" class="right-font08" onclick="unselectAll();">反选</a></span>
-		           <input name="Submit" type="button" class="right-button08" value="删除所选人员" style="height: 21px; width: 100px"/> &nbsp;&nbsp;&nbsp;<input name="Submit" type="button" class="right-button08" value="添加人员信息"   style="height: 21px; width: 100px"onclick="link();  " />&nbsp;&nbsp;&nbsp;
+		           <input name="Submit" type="button" class="right-button08" value="删除所选人员" style="height: 21px; width: 100px"/> &nbsp;&nbsp;&nbsp;
+		           <input name="Submit" type="button" class="right-button08" value="添加人员信息" style="height: 21px; width: 100px"onclick="link();  " />&nbsp;&nbsp;&nbsp;
 		            &nbsp;&nbsp;&nbsp;&nbsp; 
 		           <input type="button" name="Submit2" value="返回" class="right-button02" onclick="window.history.go(-1);"/>
 		           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
