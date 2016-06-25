@@ -610,7 +610,7 @@ public class ajax extends HttpServlet {
 				jsonObject1.put("R5right", R5right);
 			} else {
 				System.out.println("executeQuery tempimage fail ");
-				return -2;
+				//return -2;
 			}
 			
 			// tempinter
@@ -695,7 +695,7 @@ public class ajax extends HttpServlet {
 				jsonObject2.put("R5RCR", R5RCR);
 			} else {
 				System.out.println("executeQuery tempinter fail ");
-				return -2;
+				//return -2;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
