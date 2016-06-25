@@ -126,7 +126,7 @@ function del_user()
 	}
 	
 	var param = "&ids=" + ids;
-	ajax_request("<%=basePath%>", "del_user", param);
+	ajax_request("<%=basePath%>", "del_customer", param);
 }
 </script>
 
