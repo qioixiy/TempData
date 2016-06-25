@@ -67,6 +67,7 @@ function selectAll(){
 			obj[i].checked = true;
 		}
 	}
+	return false;
 }
 
 function unselectAll(){
@@ -77,6 +78,7 @@ function unselectAll(){
 			else obj[i].checked = true;
 		}
 	}
+	return false;
 }
 
 function link1(){
@@ -196,11 +198,11 @@ function import_package()
 					<td height="20" bgcolor="#FFFFFF"   bordercolor="#FEEEEE" align="center"><%=customer.getCollId() %></td>
 					<td height="20" bgcolor="#FFFFFF"   bordercolor="#FEEEEE"  align="center"><%=customer.getCollName() %></td>
 					<td height="20" bgcolor="#FFFFFF"   bordercolor="#FEEEEE"  align="center"><%=customer.getColldate() %></td>
-                    <td  bgcolor="#FFFFFF"   align="center">&nbsp;&nbsp;
-                        <input type="button"   value="判读"   onclick="showInter(<%=customer.getUserid()%>)" />
-                        <input type="button"   value="采集"   onclick="showCollect(<%=customer.getId()%>)" />
-                        <input type="button"   value="分析"  onclick="showAnalysis(<%=customer.getId()%>)" />
-                        <input type="button" value="导出数据" onclick="export_package(<%=customer.getUserid()%>);" />
+                    <td  bgcolor="#FFFFFF"   align="left">
+                        <input type="button"  style="width:40px;height:25px;" value="判读"   onclick="showInter(<%=customer.getUserid()%>)" />
+                        <input type="button" style="width:40px;height:25px;"  value="采集"   onclick="showCollect(<%=customer.getId()%>)" />
+                        <input type="button" style="width:40px;height:25px;"  value="分析"  onclick="showAnalysis(<%=customer.getId()%>)" />
+                        <input type="button" style="width:65px;height:25px;" value="导出数据" onclick="export_package(<%=customer.getUserid()%>);" />
                         </td>
                     
                  

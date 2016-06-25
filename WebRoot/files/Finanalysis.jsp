@@ -66,11 +66,8 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 -->
 </style>
 
-<link href="../css/css.css" rel="stylesheet" type="text/css" />
-<script type="text/JavaScript">
-
-</script>
-<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<link href="<%=basePath%>/css/css.css" rel="stylesheet" type="text/css" />
+<link href="<%=basePath%>/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <SCRIPT language=JavaScript>
 function sousuo(){

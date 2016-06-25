@@ -38,7 +38,8 @@ if (customer.getCollId() == -1){
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<link rel="stylesheet" rev="stylesheet" href="../css/style.css" type="text/css" media="all" />
+<link href="<%=basePath%>/css/css.css" rel="stylesheet" type="text/css" />
+<link href="<%=basePath%>/css/style.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="<%=basePath%>/js/ajax.js"></script>
 
 <script language="JavaScript" type="text/javascript">

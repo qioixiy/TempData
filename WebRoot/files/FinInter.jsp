@@ -53,9 +53,9 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 -->
 </style>
 
-<link href="../css/css.css" rel="stylesheet" type="text/css" />
-<link href="../css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="../js/xiangmu.js"></script>
+<link href="<%=basePath%>/css/css.css" rel="stylesheet" type="text/css" />
+<link href="<%=basePath%>/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<%=basePath%>/js/xiangmu.js"></script>
 <script type="text/javascript" src="<%=basePath%>/js/ajax.js"></script>
 </head>
 <SCRIPT language=JavaScript>

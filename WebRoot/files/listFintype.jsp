@@ -94,11 +94,8 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 -->
 </style>
 
-<link href="../css/css.css" rel="stylesheet" type="text/css" />
-<script type="text/JavaScript">
-
-</script>
-<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<link href="<%=basePath%>/css/css.css" rel="stylesheet" type="text/css" />
+<link href="<%=basePath%>/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <SCRIPT language=JavaScript>
 function sousuo(){
@@ -145,7 +142,7 @@ function link1(){
       <td height="30">     
          <table width="100%" border="0" cellspacing="0" cellpadding="0">
             <tr>
-               <td height="62" background="../images/nav04.gif">
+               <td height="62" background="<%=basePath%>/images/nav04.gif">
             
 		            <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
 		                  <tr>
