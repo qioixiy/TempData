@@ -29,6 +29,7 @@ import javax.servlet.http.HttpSession;
 
 import com.FprCap.*;
 import com.FprCap.FprCap;
+import com.havenliu.document.GenTableAllData;
 import com.mysql.jdbc.PreparedStatement;
 import com.xxx.zip.UnZip;
 import com.xxx.zip.Zip;
@@ -1202,6 +1203,21 @@ int del_customer(HttpServletRequest request, HttpServletResponse response) {
 		
 		return 0;
 	}
+
+int export_doc(HttpServletRequest request, HttpServletResponse response) {
+	System.out.println("export_doc start");
+	GenTableAllData mGenTableAllData = new GenTableAllData();
+	try {
+		mGenTableAllData.run();
+	} catch (UnsupportedEncodingException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} finally {
+		System.out.println("export_doc end");
+	}
+	
+	return 0;
+}
 	
 	
 	/**
@@ -1397,6 +1413,9 @@ int del_customer(HttpServletRequest request, HttpServletResponse response) {
 				break;
 			case "del_customer":
 				del_customer(request, response);
+				break;
+			case "export_doc":
+				export_doc(request, response);
 				break;
 			default:
 				System.out.println("unkown command");
