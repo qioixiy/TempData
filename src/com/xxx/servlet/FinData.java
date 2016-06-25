@@ -75,12 +75,11 @@ public class FinData extends HttpServlet {
 	     ComputeResult mComputeResult = new ComputeResult();
 	     algorithm.algorithmOutput output = mComputeResult.UseAlgorithm(userid);
 		
-		System.out.println(output);
 
-				request.setAttribute("FinData", output);
+		request.setAttribute("FinData", output);
 				
-				RequestDispatcher drDispatcher = request.getRequestDispatcher("files/FinData.jsp");
-				drDispatcher.forward(request, response);
+		RequestDispatcher drDispatcher = request.getRequestDispatcher("files/FinData.jsp");
+		drDispatcher.forward(request, response);
 
 	}
 

@@ -1208,10 +1208,7 @@ int export_doc(HttpServletRequest request, HttpServletResponse response) {
 	System.out.println("export_doc start");
 	GenTableAllData mGenTableAllData = new GenTableAllData();
 	try {
-		mGenTableAllData.run();
-	} catch (UnsupportedEncodingException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+		mGenTableAllData.run("20160601");
 	} finally {
 		System.out.println("export_doc end");
 	}

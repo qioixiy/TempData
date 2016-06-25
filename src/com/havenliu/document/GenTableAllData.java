@@ -6,9 +6,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.xxx.utils.ComputeResult;
+import com.xxx.utils.algorithm;
+
 public class GenTableAllData {
 	
-	public void run() throws UnsupportedEncodingException  {
+	public void run(String userid) {
+		ComputeResult mComputeResult = new ComputeResult();
+		algorithm.algorithmOutput output = mComputeResult.UseAlgorithm(userid);
+
+		genShujuZongbiao(output);
+		ChengrenBaobiao(output);
+	}
+	
+	private void genShujuZongbiao(algorithm.algorithmOutput output)
+	{
+		System.out.println("genShujuZongbiao start");
 		
 		Map<String, Object> dataMap = new HashMap<String, Object>();
 		
@@ -48,6 +61,23 @@ public class GenTableAllData {
 		dataMap.put("xx34", "xx");
 
 		MDoc mdoc = new MDoc();
-		mdoc.createDoc(dataMap, "C:/Users/Mu/Desktop/shujuzongbiao.doc", "shujuzongbiao.xml");
+		try {
+			mdoc.createDoc(dataMap, "C:/Users/Mu/Desktop/shujuzongbiao.doc", "shujuzongbiao.xml");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("genShujuZongbiao end");
+	}
+	
+	private void ChengrenBaobiao(algorithm.algorithmOutput output)
+	{
+		;
+	}
+	
+	private void ErtongBaobiao(algorithm.algorithmOutput output)
+	{
+		;
 	}
 }
