@@ -980,68 +980,80 @@ int delete_user(HttpServletRequest request, HttpServletResponse response) {
 		
 		return 0;
 	}
-	
-	int add_customer(HttpServletRequest request, HttpServletResponse response) {
-		String bianhao = request.getParameter("bianhao");
-		String xingming = request.getParameter("xingming");
-		String xingbie = request.getParameter("xingbie");
-		String chushenriqi = request.getParameter("chushenriqi");
-		String nianling = request.getParameter("nianling");
-		String banben = request.getParameter("banben");
-		String caijiriqi = request.getParameter("caijiriqi");
-		String xingzuo = request.getParameter("xingzuo");
-		String xuexing = request.getParameter("xuexing");
-		String fuqinxingming = request.getParameter("fuqinxingming");
-		String fuqinchushenriqi = request.getParameter("fuqinchushenriqi");
-		String fuqinshouji = request.getParameter("fuqinshouji");
-		String muqinxingming = request.getParameter("muqinxingming");
-		String muqinchushenriqi = request.getParameter("muqinchushenriqi");
-		String muqinshouji = request.getParameter("muqinshouji");
-		String zhiye = request.getParameter("zhiye");
-		String jiatingzhuzhi = request.getParameter("jiatingzhuzhi");
-		String dianhua = request.getParameter("dianhua");
-		String qq = request.getParameter("qq");
-		String msn = request.getParameter("msn");
-		String zuoatd = request.getParameter("zuoatd");
-		String youatd = request.getParameter("youatd");
-		String beizhu = request.getParameter("beizhu");
-		String caijishibianhao = request.getParameter("caijishibianhao");
-		String caijishixingming = request.getParameter("caijishixingming");
-		String caiyangriqi = request.getParameter("caiyangriqi");
-		String pandushibianhao = request.getParameter("pandushibianhao");
-		String pandushixingming = request.getParameter("pandushixingming");
-		String panduriqi = request.getParameter("panduriqi");
 
-		System.out.println("bianhao:" + bianhao);
-		System.out.println("xingming:" + xingming);
-		System.out.println("xingbie:" + xingbie);
-		System.out.println("chushenriqi:" + chushenriqi);
-		System.out.println("nianling:" + nianling);
-		System.out.println("banben:" + banben);
-		System.out.println("caijiriqi:" + caijiriqi);
-		System.out.println("xingzuo:" + xingzuo);
-		System.out.println("xuexing:" + xuexing);
-		System.out.println("fuqinxingming:" + fuqinxingming);
-		System.out.println("fuqinchushenriqi:" + fuqinchushenriqi);
-		System.out.println("fuqinshouji:" + fuqinshouji);
-		System.out.println("muqinxingming:" + muqinxingming);
-		System.out.println("muqinchushenriqi:" + muqinchushenriqi);
-		System.out.println("muqinshouji:" + muqinshouji);
-		System.out.println("zhiye:" + zhiye);
-		System.out.println("jiatingzhuzhi:" + jiatingzhuzhi);
-		System.out.println("dianhua:" + dianhua);
-		System.out.println("qq:" + qq);
-		System.out.println("msn:" + msn);
-		System.out.println("zuoatd:" + zuoatd);
-		System.out.println("youatd:" + youatd);
-		System.out.println("beizhu:" + beizhu);
-		System.out.println("caijishibianhao:" + caijishibianhao);
-		System.out.println("caijishixingming:" + caijishixingming);
-		System.out.println("caiyangriqi:" + caiyangriqi);
-		System.out.println("pandushibianhao:" + pandushibianhao);
-		System.out.println("pandushixingming:" + pandushixingming);
-		System.out.println("panduriqi:" + panduriqi);
+	int add_customer(HttpServletRequest request, HttpServletResponse response) {
 		
+		try {
+			String bianhao = new String(request.getParameter("bianhao").getBytes("ISO-8859-1"), "UTF-8");
+			String xingming = new String(request.getParameter("xingming").getBytes("ISO-8859-1"), "UTF-8");
+			String xingbie = new String(request.getParameter("xingbie").getBytes("ISO-8859-1"), "UTF-8");
+			String chushenriqi = new String(request.getParameter("chushenriqi").getBytes("ISO-8859-1"), "UTF-8");
+			String nianling = new String(request.getParameter("nianling").getBytes("ISO-8859-1"), "UTF-8");
+			String banben = new String(request.getParameter("banben").getBytes("ISO-8859-1"), "UTF-8");
+			String caijiriqi = new String(request.getParameter("caijiriqi").getBytes("ISO-8859-1"), "UTF-8");
+			String xingzuo = new String(request.getParameter("xingzuo").getBytes("ISO-8859-1"), "UTF-8");
+			String xuexing = new String(request.getParameter("xuexing").getBytes("ISO-8859-1"), "UTF-8");
+			String fuqinxingming = new String(request.getParameter("fuqinxingming").getBytes("ISO-8859-1"), "UTF-8");
+			String fuqinchushenriqi = new String(request.getParameter("fuqinchushenriqi").getBytes("ISO-8859-1"),
+					"UTF-8");
+			String fuqinshouji = new String(request.getParameter("fuqinshouji").getBytes("ISO-8859-1"), "UTF-8");
+			String muqinxingming = new String(request.getParameter("muqinxingming").getBytes("ISO-8859-1"), "UTF-8");
+			String muqinchushenriqi = new String(request.getParameter("muqinchushenriqi").getBytes("ISO-8859-1"),
+					"UTF-8");
+			String muqinshouji = new String(request.getParameter("muqinshouji").getBytes("ISO-8859-1"), "UTF-8");
+			String zhiye = new String(request.getParameter("zhiye").getBytes("ISO-8859-1"), "UTF-8");
+			String jiatingzhuzhi = new String(request.getParameter("jiatingzhuzhi").getBytes("ISO-8859-1"), "UTF-8");
+			String dianhua = new String(request.getParameter("dianhua").getBytes("ISO-8859-1"), "UTF-8");
+			String qq = new String(request.getParameter("qq").getBytes("ISO-8859-1"), "UTF-8");
+			String msn = new String(request.getParameter("msn").getBytes("ISO-8859-1"), "UTF-8");
+			String zuoatd = new String(request.getParameter("zuoatd").getBytes("ISO-8859-1"), "UTF-8");
+			String youatd = new String(request.getParameter("youatd").getBytes("ISO-8859-1"), "UTF-8");
+			String beizhu = new String(request.getParameter("beizhu").getBytes("ISO-8859-1"), "UTF-8");
+			String caijishibianhao = new String(request.getParameter("caijishibianhao").getBytes("ISO-8859-1"),
+					"UTF-8");
+			String caijishixingming = new String(request.getParameter("caijishixingming").getBytes("ISO-8859-1"),
+					"UTF-8");
+			String caiyangriqi = new String(request.getParameter("caiyangriqi").getBytes("ISO-8859-1"), "UTF-8");
+			String pandushibianhao = new String(request.getParameter("pandushibianhao").getBytes("ISO-8859-1"),
+					"UTF-8");
+			String pandushixingming = new String(request.getParameter("pandushixingming").getBytes("ISO-8859-1"),
+					"UTF-8");
+			String panduriqi = new String(request.getParameter("panduriqi").getBytes("ISO-8859-1"), "UTF-8");
+
+			System.out.println("bianhao:" + bianhao);
+			System.out.println("xingming:" + xingming);
+			System.out.println("xingbie:" + xingbie);
+			System.out.println("chushenriqi:" + chushenriqi);
+			System.out.println("nianling:" + nianling);
+			System.out.println("banben:" + banben);
+			System.out.println("caijiriqi:" + caijiriqi);
+			System.out.println("xingzuo:" + xingzuo);
+			System.out.println("xuexing:" + xuexing);
+			System.out.println("fuqinxingming:" + fuqinxingming);
+			System.out.println("fuqinchushenriqi:" + fuqinchushenriqi);
+			System.out.println("fuqinshouji:" + fuqinshouji);
+			System.out.println("muqinxingming:" + muqinxingming);
+			System.out.println("muqinchushenriqi:" + muqinchushenriqi);
+			System.out.println("muqinshouji:" + muqinshouji);
+			System.out.println("zhiye:" + zhiye);
+			System.out.println("jiatingzhuzhi:" + jiatingzhuzhi);
+			System.out.println("dianhua:" + dianhua);
+			System.out.println("qq:" + qq);
+			System.out.println("msn:" + msn);
+			System.out.println("zuoatd:" + zuoatd);
+			System.out.println("youatd:" + youatd);
+			System.out.println("beizhu:" + beizhu);
+			System.out.println("caijishibianhao:" + caijishibianhao);
+			System.out.println("caijishixingming:" + caijishixingming);
+			System.out.println("caiyangriqi:" + caiyangriqi);
+			System.out.println("pandushibianhao:" + pandushibianhao);
+			System.out.println("pandushixingming:" + pandushixingming);
+			System.out.println("panduriqi:" + panduriqi);
+
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return 0;
 	}
 	/**
