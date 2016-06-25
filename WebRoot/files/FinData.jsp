@@ -153,7 +153,7 @@ function on_load(){
 				 <table    width="100%"  border="1" cellpadding="2" cellspacing="0"   bordercolor="#5F9EA0" ">
 					 
 			      <tr  bordercolor="#5F9EA0">
-					    <td nowrap align="right" width="5%">编&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:</td>
+					    <td nowrap align="right" width="5%">编号:</td>
 					    <td  align="left"   width="10%">
 					    <input name="text" class="text" style="width: 109px" type="text" size="40" value="<%=customer.getUserid()%>"/>
 				              <span class="red"> *</span></td>

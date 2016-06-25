@@ -59,11 +59,11 @@ public class GenTableAllData {
 		dataMap.put("xx14", output.R5temp);
 		dataMap.put("xx15", "xx");
 		dataMap.put("xx16", "xx");
-		dataMap.put("xx17", "xx");
-		dataMap.put("xx18", "xx");
-		dataMap.put("xx19", "xx");
-		dataMap.put("xx20", "xx");
-		dataMap.put("xx21", "xx");
+		dataMap.put("xx17", output.reason1 + "/" + output.Sensibility1);
+		dataMap.put("xx18", output.reason2 + "/" + output.Sensibility2);
+		dataMap.put("xx19", output.reason3 + "/" + output.Sensibility3);
+		dataMap.put("xx20", output.reason4 + "/" + output.Sensibility4);
+		dataMap.put("xx21", output.reason5 + "/" + output.Sensibility5);
 		dataMap.put("xx22", "xx");
 		dataMap.put("xx23", "xx");
 		dataMap.put("xx24", "xx");
