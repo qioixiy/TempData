@@ -3,55 +3,57 @@
 	import="java.sql.*"
 %>
 <%
-	String url = request.getScheme()+"://"+ request.getServerName()+ ":" + request.getServerPort()+request.getRequestURI();
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-	+ path + "/";
-	
-	String search = request.getParameter("search");
-	System.out.println("search:" + search);
-	
-	String page_s = request.getParameter("page");
-	if (page_s == null) page_s = "1";
-	System.out.println("page_s:" + page_s);
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+String url = request.getScheme()+"://"+ request.getServerName()+ ":" + request.getServerPort()+request.getRequestURI();
 
-	int page_index = Integer.valueOf(page_s);
-	if (page_index < 1) page_index = 1;
+String search = request.getParameter("search");
+String search_type = request.getParameter("search_type");
+System.out.println("search:" + search + ",search_type:" + search_type);
 
-	int page_size = 10;
-	
-	int page_skip = page_index - 1;
+String page_s = request.getParameter("page");
+if (page_s == null) page_s = "1";
+System.out.println("page_s:" + page_s);
 
-	Connection conn = BaseDataBaseDao.getConnection();
-	Statement stmt;
-	stmt = conn.createStatement();
-	
-	String sql = String.format("SELECT count( * ) as rowCount FROM account");
-	if (search != null && search != "") {
-		sql = String.format("SELECT count( * ) as rowCount FROM account where accountId = '%s'", search);
-	}
-	System.out.println(sql);
-	ResultSet ret = stmt.executeQuery(sql);
-	int count = 0;
-	if (ret.next()) {
-		count = ret.getInt("rowCount");
-	}
-	System.out.println("count:" + count);
+int page_index = Integer.valueOf(page_s);
+if (page_index < 1) page_index = 1;
 
-	int page_start = 1;
-	int page_end = (count + page_size - 1)/page_size;
-	int page_back = page_index - 1;
-	if (page_back < page_start) page_back = page_start;
-	int page_front = page_index + 1;
-	if (page_front > page_end) page_front = page_end;
+int page_size = 10;
 
-	int from = page_skip * page_size;
-	sql = String.format("SELECT * FROM `account` WHERE 1 LIMIT %d , %d", from, page_size);
-	if (search != null && search != "") {
-		sql = String.format("SELECT * FROM `account` WHERE accountId = '%s' LIMIT %d , %d", search, from, page_size);
-	}
-	System.out.println(sql);
-	ret = stmt.executeQuery(sql);
+int page_skip = page_index - 1;
+
+Connection conn = BaseDataBaseDao.getConnection();
+Statement stmt;
+stmt = conn.createStatement();
+
+String sql = String.format("SELECT count( * ) as rowCount FROM customer");
+if (search != null && search != "") {
+	sql = String.format("SELECT count( * ) as rowCount FROM customer where %s = '%s'",
+			search_type, search);
+}
+System.out.println(sql);
+ResultSet ret = stmt.executeQuery(sql);
+int count = 0;
+if (ret.next()) {
+	count = ret.getInt("rowCount");
+}
+System.out.println("count:" + count);
+
+int page_start = 1;
+int page_end = (count + page_size - 1)/page_size;
+int page_back = page_index - 1;
+if (page_back < page_start) page_back = page_start;
+int page_front = page_index + 1;
+if (page_front > page_end) page_front = page_end;
+
+int from = page_skip * page_size;
+sql = String.format("SELECT * FROM `customer` WHERE 1 LIMIT %d , %d", from, page_size);
+if (search != null && search != "") {
+	sql = String.format("SELECT * FROM `customer` WHERE %s = '%s' LIMIT %d , %d",
+			search_type, search, from, page_size);
+}
+System.out.println(sql);
+ret = stmt.executeQuery(sql);
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -160,70 +162,56 @@ function del_user()
         		<tr>
           			<td>
           				<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
-          	 			<tr>
-	               			<td height="35">
-	               				<span class="newfont07">选择：
-	               					<a href="#" class="right-font08" onclick="selectAll();">全选</a>-
-	               					<a href="#" class="right-font08" onclick="unselectAll();">反选</a>
-	               				</span>
-			           			<input name="Submit" type="button" class="right-button08" value="删除所选人员" style="height: 21px; width: 100px" onclick="del_user()"/>
-			           			&nbsp;&nbsp;&nbsp;
-			           			<input name="Submit" type="button" class="right-button08" value="添加账户信息" style="height: 21px; width: 100px" onclick="link();" />
-		              		</td>
-          				</tr>
               			<tr>
                 			<td height="40" class="font42"><table width="100%" border="0" cellpadding="4" cellspacing="1" bgcolor="#464646" class="newfont03">
 								<tr>
                     				<td height="20" colspan="14" align="center" bgcolor="#EEEEEE"class="tablestyle_title">账户信息列表</td>
                     			</tr>
                   				<tr>
-				    				<td width="8%" align="center" bgcolor="#EEEEEE">选择</td>
-					 				<td width="7%" height="20" align="center" bgcolor="#EEEEEE">序号</td>
-				                    <td width="11%" align="center" bgcolor="#EEEEEE">编号</td>
-				                    <td width="14%" align="center" bgcolor="#EEEEEE">用户名</td>
-				                    <td width="14%" align="center" bgcolor="#EEEEEE">姓名</td>
-								    <td width="9%" align="center" bgcolor="#EEEEEE">采样</td>
-									<td width="9%" align="center" bgcolor="#EEEEEE">判读</td>
-									<td width="9%" align="center" bgcolor="#EEEEEE">所有人</td>
-									<td width="9%" align="center" bgcolor="#EEEEEE">系统</td>
-				                    <td width="11%" align="center" bgcolor="#EEEEEE">操作</td>
+				    				<td width="2%" align="center" bgcolor="#EEEEEE">选择</td>
+					 				<td width="4%" height="20" align="center" bgcolor="#EEEEEE">编号</td>
+				                    <td width="8%" align="center" bgcolor="#EEEEEE">真实姓名</td>
+				                    <td width="4%" align="center" bgcolor="#EEEEEE">版本</td>
+				                    <td width="4%" align="center" bgcolor="#EEEEEE">性别</td>
+								    <td width="4%" align="center" bgcolor="#EEEEEE">年龄</td>
+									<td width="9%" align="center" bgcolor="#EEEEEE">出生年月</td>
+									<td width="10%" align="center" bgcolor="#EEEEEE">采样师编号</td>
+									<td width="5%" align="center" bgcolor="#EEEEEE">采集师</td>
+									<td width="6%" align="center" bgcolor="#EEEEEE">采集日期</td>
+				                    <td width="15%" align="center" bgcolor="#EEEEEE">操作</td>
                   				</tr>
 <%
-                  while(ret.next()) {
-                	  String id = ret.getString("id");
-                	  String accountId = ret.getString("accountId");
-                	  String username = ret.getString("username");
-                	  String fullname = ret.getString("fullname");
-                	  String privilege = ret.getString("privilege");
-                	  System.out.println("id:" + id
-                			  + ",accountId:" + accountId
-                			  + ",username:" + username
-                			  + ",fullname:" + fullname
-                			  + ",privilege:" + privilege);
-                
-                	  String c1 = "";
-                	  String c2 = "";
-                	  String c3 = "";
-                	  String c4 = "";//checked="checked"
-                	  
-                	switch(Integer.valueOf(privilege)) {
-                	case 1: c1 = "checked=\"checked\""; break;
-                	case 2: c2 = "checked=\"checked\""; break;
-                	case 3: c3 = "checked=\"checked\""; break;
-                	case 4: c4 = "checked=\"checked\""; break;
-                	}
+while(ret.next()) {
+  	String Userid = ret.getString("userid");
+  	String name = ret.getString("name");
+  	String version = ret.getString("version");
+  	String gender = ret.getString("gender");
+  	String birthday = ret.getString("birthday");
+  	String age = ret.getString("age");
+  	String fphone = ret.getString("fphone");
+  	String collId = ret.getString("collId");
+  	String collName = ret.getString("collName");
+  	String colldate = ret.getString("colldate");
+  	String id = ret.getString("id");
+  	String userid = ret.getString("userid");
 %>
                   			<tr>
-					    		<td bgcolor="#FFFFFF"  align="center" ><input id="index_id<%=id %>" type="checkbox" name="delid"/></td>
-								<td height="18" bgcolor="#EEEEEE"  align="center"><div id="index_id<%=id %>div" > <%=id %> </div></td>
-	                    		<td bgcolor="#FFFFFF"  align="center"><a href=""><%=accountId %></a></td>
-	                    		<td height="20" bgcolor="#FFFFFF"  align="center"><%=username %></td>
-	                    		<td bgcolor="#FFFFFF"   align="center"><%=fullname %></td>
-	                    		<td bgcolor="#FFFFFF"  align="center" ><input type="checkbox" name="rest" <%=c1 %>/></td>
-	                     		<td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest" <%=c2 %>/></td>
-	                      		<td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest" <%=c3 %>/></td>
-	                       		<td bgcolor="#FFFFFF"   align="center"><input type="checkbox" name="rest" <%=c4 %>/></td>
-								<td bgcolor="#FFFFFF"   align="center"><a href="updateaccount.jsp?uid=<%=id %>">修改</a></td>
+					    		<td bgcolor="#FFFFFF"  align="center" ><input id="index_id<%=userid %>" type="checkbox" name="delid"/></td>
+								<td height="18" bgcolor="#EEEEEE"  align="center"><div id="index_id<%=userid %>div" > <%=userid %> </div></td>
+	                    		<td bgcolor="#FFFFFF"  align="center"><a href=""><%=name %></a></td>
+	                    		<td height="20" bgcolor="#FFFFFF"  align="center"><%=version %></td>
+	                    		<td bgcolor="#FFFFFF"   align="center"><%=gender %></td>
+	                    		<td bgcolor="#FFFFFF"   align="center"><%=age %></td>
+	                    		<td bgcolor="#FFFFFF"   align="center"><%=birthday %></td>
+	                    		<td bgcolor="#FFFFFF"   align="center"><%=collId %></td>
+	                    		<td bgcolor="#FFFFFF"   align="center"><%=collName %></td>
+	                    		<td bgcolor="#FFFFFF"   align="center"><%=colldate %></td>
+								<td  bgcolor="#FFFFFF"   align="left">
+			                        <input type="button"  style="width:40px;height:25px;" value="判读"   onclick="showInter(<%=userid%>)" />
+			                        <input type="button" style="width:40px;height:25px;"  value="采集"   onclick="showCollect(<%=id%>)" />
+			                        <input type="button" style="width:40px;height:25px;"  value="分析"  onclick="showAnalysis(<%=id%>)" />
+			                        <input type="button" style="width:65px;height:25px;" value="导出数据" onclick="export_package(<%=id%>);" />
+			                    </td>
                   			</tr>
 <%}%>
                 	</table>

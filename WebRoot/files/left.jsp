@@ -148,7 +148,7 @@ function list(idstr){
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu17" src="../images/ico06.gif" width="8" height="12" /></td>
 				  <td width="91%">
-						<a href="/TempData/ListCusServlet" target="mainFrame" class="left-font03" onClick="tupian('17');">客户信息浏览</a></td>
+						<a href="/TempData/files/MyCustomerDataView.jsp" target="mainFrame" class="left-font03" onClick="tupian('17');">客户信息浏览</a></td>
 				</tr>
 				
       </table>
@@ -174,7 +174,7 @@ function list(idstr){
 				cellspacing="0" class="left-table02">
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu1" src="../images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="/TempData/CollectS" target="mainFrame" class="left-font03" onClick="tupian('1');">打开客户记录</a></td>
+				  <td width="91%"><a href="/TempData/files/MyCustomerCollect.jsp" target="mainFrame" class="left-font03" onClick="tupian('1');">打开客户记录</a></td>
 				</tr>
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu4" src="../images/ico06.gif" width="8" height="12" /></td>
