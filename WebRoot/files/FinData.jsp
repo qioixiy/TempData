@@ -5,8 +5,18 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 
 algorithm.algorithmOutput FinData = (algorithm.algorithmOutput)request.getAttribute("FinData");
-
 Customer customer = (Customer)request.getAttribute("customer");
+
+if (FinData == null) {
+	System.out.print("FinData == null");
+	return;
+}
+
+if (customer == null) {
+	System.out.print("customer == null");
+	return;
+}
+
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

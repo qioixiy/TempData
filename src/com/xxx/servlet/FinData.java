@@ -40,7 +40,7 @@ public class FinData extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		ServletContext servletCtx = config.getServletContext();
-		
+
 	}
 
 	/**
@@ -50,7 +50,7 @@ public class FinData extends HttpServlet {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -61,23 +61,22 @@ public class FinData extends HttpServlet {
 		System.out.println("FinData enter");
 		String sid = request.getParameter("id");
 		String sUserid = request.getParameter("Userid");
-		System.out.println("id:" + sid +",Userid:" + sUserid);
-		
+		System.out.println("id:" + sid + ",Userid:" + sUserid);
+
 		String userid = sUserid;
-		
-		CustomerListBiz  customerListBiz=new  CustomerListBizImpl();
-		Customer  customer= null;
+
+		CustomerListBiz customerListBiz = new CustomerListBizImpl();
+		Customer customer = null;
 		if (sid != null) {
-	      customer= customerListBiz.getCustomer(Integer.valueOf(sid));
+			customer = customerListBiz.getCustomer(Integer.valueOf(sid));
 		}
-	     request.setAttribute("customer",customer);
-		
-	     ComputeResult mComputeResult = new ComputeResult();
-	     algorithm.algorithmOutput output = mComputeResult.UseAlgorithm(userid);
-		
+		request.setAttribute("customer", customer);
+
+		ComputeResult mComputeResult = new ComputeResult();
+		algorithm.algorithmOutput output = mComputeResult.UseAlgorithm(userid);
 
 		request.setAttribute("FinData", output);
-				
+
 		RequestDispatcher drDispatcher = request.getRequestDispatcher("files/FinData.jsp");
 		drDispatcher.forward(request, response);
 

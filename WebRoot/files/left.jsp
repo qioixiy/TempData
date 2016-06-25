@@ -241,7 +241,7 @@ function list(idstr){
 	  <table id="subtree3" style="DISPLAY: none" width="80%" border="0" align="center" cellpadding="0" cellspacing="0" class="left-table02">
         <tr>
           <td width="9%" height="20" ><img id="xiaotu8" src="../images/ico06.gif" width="8" height="12" /></td>
-          <td width="91%"><a href="/TempData/DataCusS" target="mainFrame" class="left-font03" onClick="tupian('8');">打开客户记录</a></td>
+          <td width="91%"><a href="/TempData/files/MyCustomerDataAnalysis.jsp" target="mainFrame" class="left-font03" onClick="tupian('8');">打开客户记录</a></td>
         </tr>
 		
 		<tr>
@@ -251,33 +251,6 @@ function list(idstr){
         
       </table>
 	
-	  <!--  纹型判读分析结束    -->
-
-	   <!--  数据系统开始    -->
-	<!--    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
-          <tr>
-            <td height="29"><table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td width="8%" height="12"><img name="img4" id="img4" src="../images/ico04.gif" width="8" height="11" /></td>
-                  <td width="92%"><a href="javascript:" target="mainFrame" class="left-font03" onClick="list('4');" >数据系统</a></td>
-                </tr>
-            </table></td>
-          </tr>
-      </table>
-	  
-	  <table id="subtree4" style="DISPLAY: none" width="80%" border="0" align="center" cellpadding="0" cellspacing="0" class="left-table02">
-		<tr>
-          <td width="9%" height="20" ><img id="xiaotu11" src="../images/ico06.gif" width="8" height="12" /></td>
-          <td width="91%"><a href="Datatransfer.jsp" target="mainFrame" class="left-font03" onClick="tupian('11');">采集数据传输</a></td>
-        </tr>
-	  	<tr>
-          <td width="9%" height="20" ><img id="xiaotu12" src="../images/ico06.gif" width="8" height="12" /></td>
-          <td width="91%"><a href="Dataupload.jsp" target="mainFrame" class="left-font03" onClick="tupian('12');">采集数据上传</a></td>
-        </tr>
-      </table>
- -->
-      <!--  数据系统结束    -->
-
 	  <!-- 账户管理开始 -->
       <table width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
           <tr>
