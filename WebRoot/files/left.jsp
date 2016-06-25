@@ -118,7 +118,7 @@ function list(idstr){
 				cellspacing="0" class="left-table02">
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu20" src="../images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="/TempData/ListServlet" target="mainFrame" class="left-font03" onClick="tupian('20');">客户信息查看</a></td>
+				  <td width="91%"><a href="/TempData/page/MyCustomerInfo.jsp" target="mainFrame" class="left-font03" onClick="tupian('20');">客户信息查看</a></td>
 				</tr>
 				<tr>
 				  <td width="9%" height="21" ><img id="xiaotu21" src="../images/ico06.gif" width="8" height="12" /></td>
