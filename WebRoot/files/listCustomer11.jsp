@@ -1,13 +1,71 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@page  import="java.util.List" %>
-<%@page  import="cn.fingerdata.bean.Customer" %>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"
+	import="java.util.List"
+	import="cn.fingerdata.bean.Customer"
+	import="cn.fingerdata.dao1.BaseDataBaseDao"
+	import="java.sql.*"
+	import="cn.fingerdata.biz.impl.CustomerListBizImpl"
+	import="cn.fingerdata.bizz.*"
+%>
 <%
-List<Customer> customers=(List<Customer>)request.getAttribute("customers"); 
-   
- %>
-<%
+List<Customer> customers=(List<Customer>)request.getAttribute("customers");
+
+if (customers == null) {
+	CustomerListBiz  customerListBiz= new  CustomerListBizImpl();
+	customers=customerListBiz.getAllCustomers();
+	System.out.println(customers.size());
+}
+
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+String url = request.getScheme()+"://"+ request.getServerName()+ ":" + request.getServerPort()+request.getRequestURI();
+
+String search = request.getParameter("search");
+String search_type = request.getParameter("search_type");
+System.out.println("search:" + search + ",search_type:" + search_type);
+
+String page_s = request.getParameter("page");
+if (page_s == null) page_s = "1";
+System.out.println("page_s:" + page_s);
+
+int page_index = Integer.valueOf(page_s);
+if (page_index < 1) page_index = 1;
+
+int page_size = 10;
+
+int page_skip = page_index - 1;
+
+Connection conn = BaseDataBaseDao.getConnection();
+Statement stmt;
+stmt = conn.createStatement();
+
+String sql = String.format("SELECT count( * ) as rowCount FROM customer");
+if (search != null && search != "") {
+	sql = String.format("SELECT count( * ) as rowCount FROM customer where %s = '%s'",
+			search_type, search);
+}
+System.out.println(sql);
+ResultSet ret = stmt.executeQuery(sql);
+int count = 0;
+if (ret.next()) {
+	count = ret.getInt("rowCount");
+}
+System.out.println("count:" + count);
+
+int page_start = 1;
+int page_end = (count + page_size - 1)/page_size;
+int page_back = page_index - 1;
+if (page_back < page_start) page_back = page_start;
+int page_front = page_index + 1;
+if (page_front > page_end) page_front = page_end;
+
+int from = page_skip * page_size;
+sql = String.format("SELECT * FROM `customer` WHERE 1 LIMIT %d , %d", from, page_size);
+if (search != null && search != "") {
+	sql = String.format("SELECT * FROM `customer` WHERE %s = '%s' LIMIT %d , %d",
+			search_type, search, from, page_size);
+}
+System.out.println(sql);
+ret = stmt.executeQuery(sql);
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -61,7 +119,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 </head>
 <SCRIPT language=JavaScript>
 function sousuo(){
-	window.open("gaojisousuo.htm","","depended=0,alwaysRaised=1,width=800,height=510,location=0,menubar=0,resizable=0,scrollbars=0,status=0,toolbar=0");
+	
 }
 function selectAll(){
 	var obj = document.fom.elements;
@@ -125,9 +183,7 @@ function   showListtype(id){
 			   <input name="textfield" type="text" size="35" readonly="readonly"/>	
 			   <input name="Submit" type="button" class="right-button02" value="查 询" /></td>
 			   <td width="679" align="left">
-			     &nbsp;&nbsp;&nbsp;&nbsp;
-
-			   </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>	
+			   </td>	
 		    </tr>
           </table></td>
         </tr>
@@ -211,15 +267,16 @@ function   showListtype(id){
         <tr>
           <td height="33"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="right-font08">
               <tr>
-                <td width="50%">共 <span class="right-text09">15</span> 页 | 第 <span class="right-text09">1</span> 页</td>
-                <td width="49%" align="right">[<a href="#" class="right-font08">首页</a> | <a href="#" class="right-font08">上一页</a> | <a href="#" class="right-font08">下一页</a> | <a href="#" class="right-font08">末页</a>] 转至：</td>
-                <td width="1%"><table width="20" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                      <td width="1%"><input name="textfield3" type="text" class="right-textfield03" size="1" /></td>
-                      <td width="87%"><input name="Submit23222" type="submit" class="right-button06" value=" " />
-                      </td>
-                    </tr>
-                </table></td>
+              <%
+              	System.out.println("url:" + url);
+              	String url_front = url + "?page=" + page_front;
+              	String url_back = url + "?page=" + page_back;
+              	String url_start = url + "?page=" + page_start;
+              	String url_end = url + "?page=" + page_end;
+              %>
+                <td width="50%">共 <span class="right-text09"><%=page_end %></span> 页 | 第 <span class="right-text09"><%=page_index %></span> 页</td>
+                <td width="49%" align="right">[<a href="<%=url_start %>" class="right-font08">首页</a> | <a href="<%=url_back %>" class="right-font08">上一页</a> | <a href="<%=url_front %>" class="right-font08">下一页</a> | <a href="<%=url_end %>" class="right-font08">末页</a>]</td>
+                
               </tr>
           </table></td>
         </tr>
