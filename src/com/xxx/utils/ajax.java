@@ -981,6 +981,69 @@ int delete_user(HttpServletRequest request, HttpServletResponse response) {
 		return 0;
 	}
 	
+	int add_customer(HttpServletRequest request, HttpServletResponse response) {
+		String bianhao = request.getParameter("bianhao");
+		String xingming = request.getParameter("xingming");
+		String xingbie = request.getParameter("xingbie");
+		String chushenriqi = request.getParameter("chushenriqi");
+		String nianling = request.getParameter("nianling");
+		String banben = request.getParameter("banben");
+		String caijiriqi = request.getParameter("caijiriqi");
+		String xingzuo = request.getParameter("xingzuo");
+		String xuexing = request.getParameter("xuexing");
+		String fuqinxingming = request.getParameter("fuqinxingming");
+		String fuqinchushenriqi = request.getParameter("fuqinchushenriqi");
+		String fuqinshouji = request.getParameter("fuqinshouji");
+		String muqinxingming = request.getParameter("muqinxingming");
+		String muqinchushenriqi = request.getParameter("muqinchushenriqi");
+		String muqinshouji = request.getParameter("muqinshouji");
+		String zhiye = request.getParameter("zhiye");
+		String jiatingzhuzhi = request.getParameter("jiatingzhuzhi");
+		String dianhua = request.getParameter("dianhua");
+		String qq = request.getParameter("qq");
+		String msn = request.getParameter("msn");
+		String zuoatd = request.getParameter("zuoatd");
+		String youatd = request.getParameter("youatd");
+		String beizhu = request.getParameter("beizhu");
+		String caijishibianhao = request.getParameter("caijishibianhao");
+		String caijishixingming = request.getParameter("caijishixingming");
+		String caiyangriqi = request.getParameter("caiyangriqi");
+		String pandushibianhao = request.getParameter("pandushibianhao");
+		String pandushixingming = request.getParameter("pandushixingming");
+		String panduriqi = request.getParameter("panduriqi");
+
+		System.out.println("bianhao:" + bianhao);
+		System.out.println("xingming:" + xingming);
+		System.out.println("xingbie:" + xingbie);
+		System.out.println("chushenriqi:" + chushenriqi);
+		System.out.println("nianling:" + nianling);
+		System.out.println("banben:" + banben);
+		System.out.println("caijiriqi:" + caijiriqi);
+		System.out.println("xingzuo:" + xingzuo);
+		System.out.println("xuexing:" + xuexing);
+		System.out.println("fuqinxingming:" + fuqinxingming);
+		System.out.println("fuqinchushenriqi:" + fuqinchushenriqi);
+		System.out.println("fuqinshouji:" + fuqinshouji);
+		System.out.println("muqinxingming:" + muqinxingming);
+		System.out.println("muqinchushenriqi:" + muqinchushenriqi);
+		System.out.println("muqinshouji:" + muqinshouji);
+		System.out.println("zhiye:" + zhiye);
+		System.out.println("jiatingzhuzhi:" + jiatingzhuzhi);
+		System.out.println("dianhua:" + dianhua);
+		System.out.println("qq:" + qq);
+		System.out.println("msn:" + msn);
+		System.out.println("zuoatd:" + zuoatd);
+		System.out.println("youatd:" + youatd);
+		System.out.println("beizhu:" + beizhu);
+		System.out.println("caijishibianhao:" + caijishibianhao);
+		System.out.println("caijishixingming:" + caijishixingming);
+		System.out.println("caiyangriqi:" + caiyangriqi);
+		System.out.println("pandushibianhao:" + pandushibianhao);
+		System.out.println("pandushixingming:" + pandushixingming);
+		System.out.println("panduriqi:" + panduriqi);
+		
+		return 0;
+	}
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -1168,6 +1231,9 @@ int delete_user(HttpServletRequest request, HttpServletResponse response) {
 				break;
 			case "update_userinfo":
 				update_userinfo(request, response);
+				break;
+			case "add_customer":
+				add_customer(request, response);
 				break;
 			default:
 				System.out.println("unkown command");

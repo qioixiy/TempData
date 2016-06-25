@@ -88,7 +88,7 @@ function add_customer()
 
 	var caijishibianhao = document.getElementById("caijishibianhao").value;
 	var caijishixingming = document.getElementById("caijishixingming").value;
-	var caijiriqi = document.getElementById("caijiriqi").value;
+	var caiyangriqi = document.getElementById("caiyangriqi").value;
 
 	var pandushibianhao = document.getElementById("pandushibianhao").value;
 	var pandushixingming = document.getElementById("pandushixingming").value;
@@ -100,7 +100,7 @@ function add_customer()
 		+ "&chushenriqi=" +chushenriqi
 		+ "&nianling=" +nianling
 		+ "&banben=" +banben
-		+ "&caijiriqi =" +caijiriqi
+		+ "&caijiriqi=" +caijiriqi
 		+ "&xingzuo=" +xingzuo
 		+ "&xuexing=" +xuexing
 		+ "&fuqinxingming=" +fuqinxingming
@@ -119,7 +119,7 @@ function add_customer()
 		+ "&beizhu=" +beizhu
 		+ "&caijishibianhao=" +caijishibianhao
 		+ "&caijishixingming=" +caijishixingming
-		+ "&caijiriqi=" +caijiriqi
+		+ "&caiyangriqi=" +caiyangriqi
 		+ "&pandushibianhao=" +pandushibianhao
 		+ "&pandushixingming=" +pandushixingming
 		+ "&panduriqi=" +panduriqi;
@@ -295,7 +295,7 @@ function add_customer()
 					    	<input id="caijishixingming" type="text" class="text" name="collName" style="width:205px" value=""></td>
 					    <td width="20%" style="width: 45px;"  align="right">采样日期</td>
 					    <td  width="20%" style="width: 190px; ">
-					    	<input id="caijiriqi" type="text" class="text" name="colldate" style="width: 161px" value="<%=date%>"></td>
+					    	<input id="caiyangriqi" type="text" class="text" name="colldate" style="width: 161px" value="<%=date%>"></td>
 					  </tr>
 					   <tr  bordercolor="#8FBC8F">
 					    <td nowrap align="right" width="10%" style="height: 47px; ">判读师编号:</td>
