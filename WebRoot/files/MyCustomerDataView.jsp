@@ -105,16 +105,16 @@ function search_id()
 	window.location=url;
 }
 
-function  showInter(id){
-     location.href="/TempData/CustomerServlet?type=Inter&id="+id;
+function  showInter(userid){
+     location.href="/TempData/CustomerServlet?type=Inter&userid="+userid;
 }
 
-function   showCollect(id){
-    location.href="/TempData/CustomerServlet?type=Collect&id="+id;
+function   showCollect(userid){
+    location.href="/TempData/CustomerServlet?type=Collect&userid="+userid;
 }
 
-function   showAnalysis(id){
-    location.href="/TempData/CustomerServlet?type=Analysis&id="+id;
+function   showAnalysis(userid){
+    location.href="/TempData/CustomerServlet?type=Analysis&userid="+userid;
 }
 
 

@@ -1,9 +1,11 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@page  import="cn.fingerdata.bean.TempInter"%>
 <%
+String TAG = "FinInter.jsp:";
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 String userid = request.getParameter("userid");
+System.out.println(TAG + "userid:" + userid);
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -117,7 +119,7 @@ function save_data()
 	var RCL = document.getElementById("input_RCL").value;
 	var RCR = document.getElementById("input_RCR").value;
 	
-	var param = "&zhiwei="+zhiwei[select_zhiwei] + "&wenxing=" + wenxing[select_wenxing];
+	var param = "&userid=" + <%=userid%> + "&zhiwei="+zhiwei[select_zhiwei] + "&wenxing=" + wenxing[select_wenxing];
 	param = param + "&RCL=" + RCL + "&RCR=" + RCR;
 	ajax_request("<%=basePath%>", "saveRcData", param);
 }

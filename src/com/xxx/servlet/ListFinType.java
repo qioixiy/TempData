@@ -28,6 +28,7 @@ import java.sql.*;
  */
 @WebServlet("/ListFinType")
 public class ListFinType extends HttpServlet {
+	String TAG = "ListFinType";
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -52,11 +53,11 @@ public class ListFinType extends HttpServlet {
 			throws ServletException, IOException {
 		
 		String detail = request.getParameter("detail");
-		String id = request.getParameter("id");
+		String userid = request.getParameter("userid");
 
-		System.out.println("ListFinType enter, id:" + id);
+		System.out.println(TAG + " userid:" + userid + ",detail:" + detail);
 				
-		String sql = String.format("SELECT * FROM `tempimage` WHERE userid = %s", id);
+		String sql = String.format("SELECT * FROM `tempimage` WHERE userid = %s", userid);
 		System.out.println(sql);
 
 		String L1L = null, L1R = null, L1C = null, L2L = null, L2R = null, L2C = null, L3L = null, L3R = null, L3C = null, L4L = null, L4R = null, L4C = null, L5L = null, L5R = null, L5C = null;

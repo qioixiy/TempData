@@ -126,7 +126,7 @@ public class ajax extends HttpServlet {
 		String RCL = request.getParameter("RCL");
 		String RCR = request.getParameter("RCR");
 		
-		System.out.println("zhiwei:" + zhiwei + ",wenxing:" + wenxing_code + ",RCL:" + RCL + ",RCR:" + RCR);
+		System.out.println("userid:" + userid + ",zhiwei:" + zhiwei + ",wenxing:" + wenxing_code + ",RCL:" + RCL + ",RCR:" + RCR);
 		
 		Connection conn = BaseDataBaseDao.getConnection();
 		String sql = String.format("SELECT * FROM `tempinter` WHERE userid = %s", userid);
