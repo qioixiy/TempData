@@ -41,7 +41,7 @@ function callBack_captureFrame() {
 			img.style.visibility = 'visible';
 			img.src = src;
 		} else {
-			alert("指纹采集失败");
+			alert("指纹采集失败,请检查采集设备连接正确");
 			img.style.visibility = 'hidden';
 		}
 	}
