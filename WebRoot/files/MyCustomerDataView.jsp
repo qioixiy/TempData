@@ -181,7 +181,7 @@ function import_package()
               			<tr>
                 			<td height="40" class="font42"><table width="100%" border="0" cellpadding="4" cellspacing="1" bgcolor="#464646" class="newfont03">
 								<tr>
-                    				<td height="20" style="text-align:center;" colspan="14" align="center" bgcolor="#EEEEEE"class="tablestyle_title">客户记录列表</td>
+                    				<td height="20" colspan="14" align="center" bgcolor="#EEEEEE"class="tablestyle_title">客户记录列表</td>
                     			</tr>
                   				<tr>
 				    				<td width="4%" align="center" bgcolor="#EEEEEE">选择</td>
@@ -194,7 +194,7 @@ function import_package()
 									<td width="10%" align="center" bgcolor="#EEEEEE">采样师编号</td>
 									<td width="5%" align="center" bgcolor="#EEEEEE">采集师</td>
 									<td width="6%" align="center" bgcolor="#EEEEEE">采集日期</td>
-				                    <td width="10%" align="center" bgcolor="#EEEEEE">操作</td>
+				                    <td width="15%" align="center" bgcolor="#EEEEEE">操作</td>
                   				</tr>
 <%
 while(ret.next()) {
@@ -223,8 +223,10 @@ while(ret.next()) {
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=collName %></td>
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=colldate %></td>
 								<td  bgcolor="#FFFFFF"   align="left">
-			                        <input type="button" value="采集"   onclick="showCollect(<%=id%>)" />
-			                        <input type="button" value="导出数据" onclick="export_package(<%=userid%>);" />
+			                        <input type="button"  style="width:40px;height:25px;" value="判读"   onclick="showInter(<%=userid%>)" />
+			                        <input type="button" style="width:40px;height:25px;"  value="采集"   onclick="showCollect(<%=id%>)" />
+			                        <input type="button" style="width:40px;height:25px;"  value="分析"  onclick="showAnalysis(<%=id%>)" />
+			                        <input type="button" style="width:65px;height:25px;" value="导出数据" onclick="export_package(<%=userid%>);" />
 			                    </td>
                   			</tr>
 <%}%>
