@@ -233,7 +233,7 @@ while(ret.next()) {
   	String gender = ret.getString("gender");
   	String birthday = ret.getString("birthday");
   	String age = ret.getString("age");
-  	String fphone = ret.getString("fphone");
+  	String phone = ret.getString("phone");
   	String collId = ret.getString("collId");
   	String collName = ret.getString("collName");
   	String colldate = ret.getString("colldate");
@@ -248,7 +248,7 @@ while(ret.next()) {
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=version %></td>
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=birthday %></td>
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=age %></td>
-	                    		<td bgcolor="#FFFFFF"   align="center"><%=fphone %></td>
+	                    		<td bgcolor="#FFFFFF"   align="center"><%=phone %></td>
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=collId %></td>
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=collName %></td>
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=colldate %></td>
