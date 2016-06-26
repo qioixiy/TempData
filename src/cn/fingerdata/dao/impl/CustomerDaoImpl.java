@@ -349,6 +349,13 @@ public class CustomerDaoImpl extends BaseDataBaseDao implements CustomerDao {
 		return ls;
 	}
 
+
+	@Override
+	public Customer getByUserid(int userid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 
 	

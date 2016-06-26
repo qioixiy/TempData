@@ -35,7 +35,10 @@ public class CustomerServlet extends HttpServlet {
 		 System.out.println("type:" + type + ",userid:" + userid);
 		
 	     CustomerListBiz  customerListBiz=new  CustomerListBizImpl();
-	     Customer  customer= customerListBiz.getCustomer(userid);
+	     Customer  customer= customerListBiz.getByUserid(userid);
+	     
+	     System.out.println("customer:" + customer);
+	     
 	     request.setAttribute("customer",customer);
 	     request.setAttribute("userid", userid);
 	     

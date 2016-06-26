@@ -195,6 +195,15 @@ public class IntAnalyDaoImpl extends BaseDataBaseDao implements IntAnalyDao {
 		return null;
 	}
 
+
+
+
+	@Override
+	public TempInter getByUserid(int userid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 
 }

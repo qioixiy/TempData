@@ -13,6 +13,8 @@ public interface CustomerBiz {
 	
 	public Customer  CustomerById(Integer  id);
 	
+	public  Customer  getByUserid(int  userid);//根据id查询，传递id过来；
+	
 	public  boolean  updateCustomer(Customer  customer);//修改信息；
 	
 	public List<Customer> getCustomer8Conditions(String conditions,Object obj);

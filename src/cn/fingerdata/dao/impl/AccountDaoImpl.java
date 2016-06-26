@@ -121,4 +121,10 @@ public class AccountDaoImpl extends BaseDataBaseDao implements AccountDao {
 		return null;
 	}
 
+	@Override
+	public Account getByUserid(int userid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

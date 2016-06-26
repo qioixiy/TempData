@@ -94,4 +94,10 @@ public class CustomerBizImpl implements CustomerBiz {
 		return customers;
 	}
 
+	@Override
+	public Customer getByUserid(int userid) {
+		// TODO Auto-generated method stub
+		return customerDao.getByUserid(userid);
+	}
+
 }
