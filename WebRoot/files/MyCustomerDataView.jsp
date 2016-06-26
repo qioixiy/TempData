@@ -198,7 +198,8 @@ function import_package()
                   				</tr>
 <%
 while(ret.next()) {
-  	String Userid = ret.getString("userid");
+  	String id = ret.getString("id");
+  	String userid = ret.getString("userid");
   	String name = ret.getString("name");
   	String version = ret.getString("version");
   	String gender = ret.getString("gender");
@@ -208,8 +209,6 @@ while(ret.next()) {
   	String collId = ret.getString("collId");
   	String collName = ret.getString("collName");
   	String colldate = ret.getString("colldate");
-  	String id = ret.getString("id");
-  	String userid = ret.getString("userid");
 %>
                   			<tr>
 					    		<td bgcolor="#FFFFFF"  align="center" ><input id="index_id<%=userid %>" type="checkbox" name="delid"/></td>
@@ -223,9 +222,9 @@ while(ret.next()) {
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=collName %></td>
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=colldate %></td>
 								<td  bgcolor="#FFFFFF"   align="center">
-			                        <input type="button" value="判读"   onclick="showInter(<%=userid%>)" />
-			                        <input type="button" value="采集"   onclick="showCollect(<%=id%>)" />
-			                        <input type="button" value="分析"  onclick="showAnalysis(<%=id%>)" />
+			                        <input type="button" value="判读" onclick="showInter(<%=userid%>)" />
+			                        <input type="button" value="采集" onclick="showCollect(<%=userid%>)" />
+			                        <input type="button" value="分析" onclick="showAnalysis(<%=userid%>)" />
 			                        <input type="button" value="导出数据" onclick="export_package(<%=userid%>);" />
 			                    </td>
                   			</tr>
