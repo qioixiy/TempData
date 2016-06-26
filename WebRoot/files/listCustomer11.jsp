@@ -201,7 +201,7 @@ function   showListtype(id){
                 <td height="40" class="font42"><table width="100%" border="1" cellpadding="4" cellspacing="1"  class="newfont03">
 
 					                  <tr>
-                    <td height="30" colspan="15" align="center"  bgcolor="#5F9EA0"  bordercolor="#8FBC8F"  class="tablestyle_title"> <center>客&nbsp;户&nbsp;记&nbsp;录&nbsp;列&nbsp;表</center></td>
+                    <td height="30" colspan="15" align="center"  bgcolor="#5F9EA0"  bordercolor="#8FBC8F"> <center>客&nbsp;户&nbsp;记&nbsp;录&nbsp;列&nbsp;表</center></td>
                     </tr>
                    <tr  bgcolor="#5F9EA0"   bordercolor="#8FBC8F">
 				    <td width="6%" align="center" >选择</td>
