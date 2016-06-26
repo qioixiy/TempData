@@ -829,7 +829,8 @@ public class ajax extends HttpServlet {
 		String username = request.getParameter("username");
 		String fullname = request.getParameter("fullname");
 		try {
-			fullname = new String(fullname.getBytes("ISO-8859-1"), "UTF-8");
+			username = new String(username.getBytes("ISO-8859-1"), "GBK");
+			fullname = new String(fullname.getBytes("ISO-8859-1"), "GBK");
 		} catch (UnsupportedEncodingException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -940,7 +941,7 @@ public class ajax extends HttpServlet {
 		String password = request.getParameter("password");
 		String privilege = request.getParameter("privilege");
 		try {
-			fullname = new String(fullname.getBytes("ISO-8859-1"), "UTF-8");
+			fullname = new String(fullname.getBytes("ISO-8859-1"), "GBK");
 		} catch (UnsupportedEncodingException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -985,46 +986,48 @@ public class ajax extends HttpServlet {
 	int add_customer(HttpServletRequest request, HttpServletResponse response) {
 		
 		try {
-			String bianhao_s = (new String(request.getParameter("bianhao").getBytes("ISO-8859-1"), "UTF-8")).trim();
+			String bianhao_s = (new String(request.getParameter("bianhao").getBytes("ISO-8859-1"), "GBK")).trim();
 			System.out.println("bianhao_s:" + bianhao_s);
 			if (bianhao_s ==null || bianhao_s == "") {
 				return -3;
 			}
 			int bianhao = Integer.parseInt(bianhao_s);
-			String xingming = new String(request.getParameter("xingming").getBytes("ISO-8859-1"), "UTF-8");
-			String xingbie = new String(request.getParameter("xingbie").getBytes("ISO-8859-1"), "UTF-8");
-			String chushenriqi = new String(request.getParameter("chushenriqi").getBytes("ISO-8859-1"), "UTF-8");
-			String nianling = new String(request.getParameter("nianling").getBytes("ISO-8859-1"), "UTF-8");
-			String banben = new String(request.getParameter("banben").getBytes("ISO-8859-1"), "UTF-8");
-			String caijiriqi = new String(request.getParameter("caijiriqi").getBytes("ISO-8859-1"), "UTF-8");
-			String xingzuo = new String(request.getParameter("xingzuo").getBytes("ISO-8859-1"), "UTF-8");
-			String xuexing = new String(request.getParameter("xuexing").getBytes("ISO-8859-1"), "UTF-8");
-			String fuqinxingming = new String(request.getParameter("fuqinxingming").getBytes("ISO-8859-1"), "UTF-8");
+			String xingming = new String(request.getParameter("xingming").getBytes("ISO-8859-1"), "GBK");
+			String xingbie = new String(request.getParameter("xingbie").getBytes("ISO-8859-1"), "GBK");
+			String chushenriqi = new String(request.getParameter("chushenriqi").getBytes("ISO-8859-1"), "GBK");
+			String nianling = new String(request.getParameter("nianling").getBytes("ISO-8859-1"), "GBK");
+			String banben = new String(request.getParameter("banben").getBytes("ISO-8859-1"), "GBK");
+			String caijiriqi = new String(request.getParameter("caijiriqi").getBytes("ISO-8859-1"), "GBK");
+			String xingzuo = new String(request.getParameter("xingzuo").getBytes("ISO-8859-1"), "GBK");
+			String xuexing = new String(request.getParameter("xuexing").getBytes("ISO-8859-1"), "GBK");
+			String fuqinxingming = new String(request.getParameter("fuqinxingming").getBytes("ISO-8859-1"), "GBK");
 			String fuqinchushenriqi = new String(request.getParameter("fuqinchushenriqi").getBytes("ISO-8859-1"),
-					"UTF-8");
-			String fuqinshouji = new String(request.getParameter("fuqinshouji").getBytes("ISO-8859-1"), "UTF-8");
-			String muqinxingming = new String(request.getParameter("muqinxingming").getBytes("ISO-8859-1"), "UTF-8");
+					"GBK");
+			String fuqinshouji = new String(request.getParameter("fuqinshouji").getBytes("ISO-8859-1"), "GBK");
+			String muqinxingming = new String(request.getParameter("muqinxingming").getBytes("ISO-8859-1"), "GBK");
 			String muqinchushenriqi = new String(request.getParameter("muqinchushenriqi").getBytes("ISO-8859-1"),
-					"UTF-8");
-			String muqinshouji = new String(request.getParameter("muqinshouji").getBytes("ISO-8859-1"), "UTF-8");
-			String zhiye = new String(request.getParameter("zhiye").getBytes("ISO-8859-1"), "UTF-8");
-			String jiatingzhuzhi = new String(request.getParameter("jiatingzhuzhi").getBytes("ISO-8859-1"), "UTF-8");
-			String dianhua = new String(request.getParameter("dianhua").getBytes("ISO-8859-1"), "UTF-8");
-			String qq = new String(request.getParameter("qq").getBytes("ISO-8859-1"), "UTF-8");
-			String msn = new String(request.getParameter("msn").getBytes("ISO-8859-1"), "UTF-8");
-			String zuoatd = new String(request.getParameter("zuoatd").getBytes("ISO-8859-1"), "UTF-8");
-			String youatd = new String(request.getParameter("youatd").getBytes("ISO-8859-1"), "UTF-8");
-			String beizhu = new String(request.getParameter("beizhu").getBytes("ISO-8859-1"), "UTF-8");
-			int caijishibianhao = Integer.parseInt(new String(request.getParameter("caijishibianhao").getBytes("ISO-8859-1"),
-					"UTF-8"));
+					"GBK");
+			String muqinshouji = new String(request.getParameter("muqinshouji").getBytes("ISO-8859-1"), "GBK");
+			String zhiye = new String(request.getParameter("zhiye").getBytes("ISO-8859-1"), "GBK");
+			String jiatingzhuzhi = new String(request.getParameter("jiatingzhuzhi").getBytes("ISO-8859-1"), "GBK");
+			String dianhua = new String(request.getParameter("dianhua").getBytes("ISO-8859-1"), "GBK");
+			String qq = new String(request.getParameter("qq").getBytes("ISO-8859-1"), "GBK");
+			String msn = new String(request.getParameter("msn").getBytes("ISO-8859-1"), "GBK");
+			String zuoatd = new String(request.getParameter("zuoatd").getBytes("ISO-8859-1"), "GBK");
+			String youatd = new String(request.getParameter("youatd").getBytes("ISO-8859-1"), "GBK");
+			String beizhu = new String(request.getParameter("beizhu").getBytes("ISO-8859-1"), "GBK");
+			String caijishibianhao_s = new String(request.getParameter("caijishibianhao").getBytes("ISO-8859-1"),"GBK");
+			if (caijishibianhao_s == "") caijishibianhao_s = "1";
+			int caijishibianhao = Integer.parseInt(caijishibianhao_s);
 			String caijishixingming = new String(request.getParameter("caijishixingming").getBytes("ISO-8859-1"),
-					"UTF-8");
-			String caiyangriqi = new String(request.getParameter("caiyangriqi").getBytes("ISO-8859-1"), "UTF-8");
-			int pandushibianhao = Integer.parseInt(new String(request.getParameter("pandushibianhao").getBytes("ISO-8859-1"),
-					"UTF-8"));
+					"GBK");
+			String caiyangriqi = new String(request.getParameter("caiyangriqi").getBytes("ISO-8859-1"), "GBK");
+			String pandushibianhao_s = new String(request.getParameter("pandushibianhao").getBytes("ISO-8859-1"), "GBK");
+			if (pandushibianhao_s == "") pandushibianhao_s = "1";
+			int pandushibianhao = Integer.parseInt(pandushibianhao_s);
 			String pandushixingming = new String(request.getParameter("pandushixingming").getBytes("ISO-8859-1"),
-					"UTF-8");
-			String panduriqi = new String(request.getParameter("panduriqi").getBytes("ISO-8859-1"), "UTF-8");
+					"GBK");
+			String panduriqi = new String(request.getParameter("panduriqi").getBytes("ISO-8859-1"), "GBK");
 
 			System.out.println("bianhao:" + bianhao);
 			System.out.println("xingming:" + xingming);
@@ -1246,8 +1249,8 @@ int export_doc(HttpServletRequest request, HttpServletResponse response) {
 				String FingerPostion = request.getParameter("FingerPostion");
 				String _UserName = request.getParameter("UserName");
 				String _UserNumber = request.getParameter("UserNumber");
-				String UserName = new String(_UserName.getBytes("ISO-8859-1"), "UTF-8");
-				String UserNumber = new String(_UserNumber.getBytes("ISO-8859-1"), "UTF-8");
+				String UserName = new String(_UserName.getBytes("ISO-8859-1"), "GBK");
+				String UserNumber = new String(_UserNumber.getBytes("ISO-8859-1"), "GBK");
 				System.out.println(
 						"FingerPostion:" + FingerPostion + ",UserName:" + UserName + ",UserNumber:" + UserNumber);
 
@@ -1276,6 +1279,8 @@ int export_doc(HttpServletRequest request, HttpServletResponse response) {
 					if (file.isFile() && file.exists()) {
 						file.delete();
 					}
+
+					return;
 				}
 
 				Map<String, String> map = new HashMap<String, String>();

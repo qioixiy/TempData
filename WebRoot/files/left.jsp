@@ -191,66 +191,6 @@ function list(idstr){
       </table>
 		<!--  指纹采集结束    -->
 
-	  <!--  客户系统开始    -->
-	  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
-          <tr>
-            <td height="29"><table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td width="8%" height="12"><img name="img2" id="img2" src="../images/ico04.gif" width="8" height="11" /></td>
-                  <td width="92%"><a href="javascript:" target="mainFrame" class="left-font03" onClick="list('2');" >指纹判读</a></td>
-                </tr>
-            </table></td>
-          </tr>
-      </table>
-      
-	  <!--  指纹判读开始    -->
-	  <table id="subtree2" style="DISPLAY: none" width="80%" border="0" align="center" cellpadding="0" cellspacing="0" class="left-table02">
-        
-		<tr>
-          <td width="9%" height="20" ><img id="xiaotu7" src="../images/ico06.gif" width="8" height="12" /></td>
-          <td width="91%"><a href="/TempData/files/MyCustomerFingerJudge.jsp" target="mainFrame" class="left-font03" onClick="tupian('7');">打开客户记录</a></td>
-           
-        </tr>
-        
-        <tr>
-          <td width="9%" height="20" ><img id="xiaotu7" src="../images/ico06.gif" width="8" height="12" /></td>
-          <td width="91%"><a href="/TempData/files/FinInter.jsp" target="mainFrame" class="left-font03" onClick="tupian('7');">判读指纹</a></td>
-           
-        </tr>
-        
-        <tr>
-          <td width="9%" height="20" ><img id="xiaotu9" src="../images/ico06.gif" width="8" height="12" /></td>
-          <td width="91%"><a href="/TempData/files/Finanalysis.jsp" target="mainFrame" class="left-font03" onClick="tupian('9');">纹型判读分析</a></td>
-        </tr>
-      </table>
-
-	  <!--  指纹判读结束    -->
-
-	  <!--  纹型判读分析开始    -->
-	  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
-          <tr>
-            <td height="29"><table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td width="8%" height="12"><img name="img3" id="img3" src="../images/ico04.gif" width="8" height="11" /></td>
-                  <td width="92%"><a href="javascript:" target="mainFrame" class="left-font03" onClick="list('3');" >数据分析</a></td>
-                </tr>
-            </table></td>
-          </tr>
-      </table>
-	  
-	  <table id="subtree3" style="DISPLAY: none" width="80%" border="0" align="center" cellpadding="0" cellspacing="0" class="left-table02">
-        <tr>
-          <td width="9%" height="20" ><img id="xiaotu8" src="../images/ico06.gif" width="8" height="12" /></td>
-          <td width="91%"><a href="/TempData/files/MyCustomerDataAnalysis.jsp" target="mainFrame" class="left-font03" onClick="tupian('8');">打开客户记录</a></td>
-        </tr>
-		
-		<tr>
-          <td width="9%" height="20" ><img id="xiaotu10" src="../images/ico06.gif" width="8" height="12" /></td>
-          <td width="91%"><a href="/TempData/FinData" target="mainFrame" class="left-font03" onClick="tupian('10');">纹型数据分析</a></td>
-        </tr>
-        
-      </table>
-	
 	  <!-- 账户管理开始 -->
       <table width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
           <tr>

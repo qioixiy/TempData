@@ -94,9 +94,10 @@ function add_customer()
 	  xingzuo_t[6] = "巨蟹座";
 	  xingzuo_t[7] = "狮子座";
 	  xingzuo_t[8] = "处女座";
-	  xingzuo_t[9] = "天蝎座";
-	  xingzuo_t[10] = "射手座";
-	  xingzuo_t[11] = "天秤座";
+	  xingzuo_t[9] = "天秤座";
+	  xingzuo_t[10] = "天蝎座";
+	  xingzuo_t[11] = "射手座";
+	  
 	  var xingzuo = xingzuo_t[xingzuo_i];
 	
 	var xuexing_i =document.getElementById("xuexing").selectedIndex;
@@ -165,6 +166,20 @@ function add_customer()
 		+ "&panduriqi=" +panduriqi;
 		
 	//alert(param);
+	
+	if (bianhao == "") { alert("请输入编号"); return;}
+	if (xingming == "") { alert("请输入姓名"); return;}
+	if (xingbie == "") { alert("请输入姓别"); return;}
+	if (chushenriqi == "") { alert("请输入出生日期"); return;}
+	if (fuqinxingming == "") { alert("请输入父亲姓名"); return;}
+	if (fuqinchushenriqi == "") { alert("请输入父亲出生日期"); return;}
+	if (muqinxingming == "") { alert("请输入母亲姓名"); return;}
+	if (muqinchushenriqi == "") { alert("请输入母亲出生日期"); return;}
+	if (dianhua == "") { alert("请输入电话号码"); return;}
+	if (xingzuo == "") { alert("请输入星座"); return;}
+	if (caijishibianhao == "") { alert("请输入采集师编号"); return;}
+	if (pandushibianhao == "") { alert("请输入判读师编号"); return;}
+	
 	ajax_request("<%=basePath%>", "add_customer", param);
 }
 
@@ -232,18 +247,21 @@ function add_customer()
 					    <td  align="right"  style="width: 8px; ">星&nbsp;&nbsp;&nbsp;&nbsp;座：</td>
 					    <td width="10%"  nowrap="nowrap" style="width: 59px; ">
 					    <select id="xingzuo" name="constellation" style="width: 210px; ">
-                            <option  value="1">摩羯座</option>
-                            <option  value="2">水瓶座</option>
-                            <option  value="3">双鱼座</option>
-                            <option  value="4">白羊座</option>
-                            <option   value="5">金牛座</option>
-                            <option  value="6">双子座</option>
-                            <option  value="7">巨蟹座</option>
-                            <option  value="8">狮子座</option>
-                            <option  value="9">处女座</option>
-                            <option  value="10">天蝎座</option>
-                            <option   value="11">射手座</option>
-                            <option   value="12">天秤座</option>
+                            <option  value="1">摩羯座 12.22~1.20</option>
+                            <option  value="2">水瓶座 1.21~2.19</option>
+                            <option  value="3">双鱼座 2.20~3.20</option>
+                            <option  value="4">白羊座 3.21~4.20</option>
+                            <option  value="5">金牛座 4.21~5.21</option>
+                            <option  value="6">双子座 5.22~6.21</option>
+                            <option  value="7">巨蟹座  6.22~7.22</option>
+                            <option  value="8">狮子座 7.23~8.23</option>
+                            <option  value="9">处女座 8.24~9.23</option>
+                            <option  value="10">天秤座 9.24~10.23</option>
+                            <option  value="11">天蝎座 10.24~11.22</option>
+                            <option  value="12">射手座 11.23~12.21</option>
+<!-- 水瓶座 1.21~2.19 / 双鱼座 2.20~3.20 / 白羊座   / 金牛座 4.21~5.21 / 双子座 5.22~6.21 / 
+巨蟹座 6.22~7.22 / 狮子座 7.23~8.23 / 处女作 8.24~9.23 / 天秤座 9.24~10.23 / 天蝎座 10.24~11.22 / 
+射手座 11.23~12.21 / 摩羯座 12.22~1.20-->
                         </select></td>
 					    
 					    <td width="20%" style="width: 25px;"  align="right">血&nbsp;&nbsp;&nbsp;&nbsp;型:</td>
