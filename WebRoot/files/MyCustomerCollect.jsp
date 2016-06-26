@@ -161,7 +161,7 @@ function   showListtype(id){
                     				<td height="20" style="text-align:center;" colspan="14" align="center" bgcolor="#EEEEEE"class="tablestyle_title">客户记录列表</td>
                     			</tr>
                   				<tr>
-				    				<td width="2%" align="center" bgcolor="#EEEEEE">选择</td>
+				    				<td width="4%" align="center" bgcolor="#EEEEEE">选择</td>
 					 				<td width="4%" height="20" align="center" bgcolor="#EEEEEE">编号</td>
 				                    <td width="8%" align="center" bgcolor="#EEEEEE">真实姓名</td>
 				                    <td width="4%" align="center" bgcolor="#EEEEEE">版本</td>
