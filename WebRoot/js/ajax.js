@@ -67,6 +67,7 @@ function callBack_ImportPackage() {
 		var result = xmlHttpRequest.responseText;
 		if (result == "success") {
 			alert("导入成功");
+			window.location = "http://localhost:8080/FPC/files/MyCustomerDataView.jsp";
 		} else {
 			alert("导入失败,err code " +result);
 		}

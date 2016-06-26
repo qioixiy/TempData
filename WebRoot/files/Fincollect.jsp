@@ -99,8 +99,8 @@ function link2(){
    document.getElementById("fom").submit();
 }
 
-function ListAllFinData(id){
-    document.getElementById("fom").action="/FPC/CollectServlet?type=Listtype&id=" + id;
+function ListAllFinData(userid){
+    document.getElementById("fom").action="/FPC/CollectServlet?type=Listtype&userid=" + userid;
    document.getElementById("fom").submit();
 }
 

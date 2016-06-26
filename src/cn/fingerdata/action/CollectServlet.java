@@ -41,10 +41,13 @@ public class CollectServlet extends HttpServlet {
 	     
 		 RequestDispatcher  rd=null;
 		 String  type=request.getParameter("type");
-		 int   id=Integer.valueOf(request.getParameter("id"));
+		 int   userid=Integer.valueOf(request.getParameter("userid"));
 	     CustomerListBiz  customerListBiz=new  CustomerListBizImpl();
-	     Customer  customer=customerListBiz.getCustomer(id); 
+	     Customer  customer=customerListBiz.getByUserid(userid); 
 	     request.setAttribute("customer",customer);
+	     
+	     System.out.println("type:" + type + ",userid:" + userid + ",customer:" + customer);
+	     
 	    /*
 	     * 根据id类型不同进行跳转
 	     */
@@ -55,7 +58,7 @@ public class CollectServlet extends HttpServlet {
 		}
 	    
 	    HttpSession session = request.getSession(); 
-		session.setAttribute("CollectUserID", request.getParameter("id"));
+		session.setAttribute("CollectUserID", request.getParameter("userid"));
 			
 		rd.forward(request, response);
 	}
