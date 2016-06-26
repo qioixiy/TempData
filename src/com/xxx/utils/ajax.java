@@ -88,7 +88,7 @@ public class ajax extends HttpServlet {
 		boolean ret = false;
 		
 		//http://localhost:8080/TempData//ajax?subFunc=saveRcData&zhiwei=L2&wenxing=As&RCL=1&RCR=2
-		String CollectUserID = "2";
+		String userid = request.getParameter("userid");
 		String zhiwei = request.getParameter("zhiwei");
 		String wenxing_code = request.getParameter("wenxing");
 		String wenxing[] = new String[30];
@@ -129,12 +129,12 @@ public class ajax extends HttpServlet {
 		System.out.println("zhiwei:" + zhiwei + ",wenxing:" + wenxing_code + ",RCL:" + RCL + ",RCR:" + RCR);
 		
 		Connection conn = BaseDataBaseDao.getConnection();
-		String sql = String.format("SELECT * FROM `tempinter` WHERE userid = %s", CollectUserID);
+		String sql = String.format("SELECT * FROM `tempinter` WHERE userid = %s", userid);
 		sql = String.format("UPDATE `tempdata`.`tempinter` SET `%stemp` = '%d',`%sRCL` = '%s',`%sRCR` = '%s' WHERE `tempinter`.`userid` =%s;",
 				zhiwei, wenxingNum,
 				zhiwei, RCL,
 				zhiwei, RCR,
-				CollectUserID);
+				userid);
 		System.out.println(sql);
 		
 		Statement stmt;

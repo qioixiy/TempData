@@ -175,7 +175,7 @@ function import_package()
               			<tr>
                 			<td height="40" class="font42"><table width="100%" border="0" cellpadding="4" cellspacing="1" bgcolor="#464646" class="newfont03">
 								<tr>
-                    				<td height="20" colspan="14" align="center" bgcolor="#EEEEEE"class="tablestyle_title">客户记录列表</td>
+                    				<td height="20" colspan="14" style="text-align:center;" bgcolor="#EEEEEE" class="tablestyle_title">客户记录列表</td>
                     			</tr>
                   				<tr>
 				    				<td width="2%" align="center" bgcolor="#EEEEEE">选择</td>
@@ -216,7 +216,7 @@ while(ret.next()) {
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=collId %></td>
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=collName %></td>
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=colldate %></td>
-								<td bgcolor="#FFFFFF"   align="left">
+								<td bgcolor="#FFFFFF"   align="center">
 			                        <input type="button" value="判读" onclick="showInter(<%=userid%>)" />
 			                        <input type="button" value="分析"  onclick="showAnalysis(<%=id%>)" />
 			                    </td>
