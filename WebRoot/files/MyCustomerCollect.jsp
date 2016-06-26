@@ -105,12 +105,12 @@ function search_id()
 	window.location=url;
 }
 
-function  showCollect(id){
-    location.href="/FPC/CollectServlet?type=Collect&id="+id;
+function  showCollect(userid){
+    location.href="/FPC/CollectServlet?type=Collect&userid="+userid;
 }
 
-function   showListtype(id){
-   location.href="/FPC/CollectServlet?type=Listtype&id="+id;
+function   showListtype(userid){
+   location.href="/FPC/CollectServlet?type=Listtype&userid="+userid;
 }
 
 </script>
@@ -200,7 +200,7 @@ while(ret.next()) {
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=collName %></td>
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=colldate %></td>
 								<td bgcolor="#FFFFFF"   align="center">
-                        			<input type="button"   value="采集指纹"  onclick="showCollect(<%=id%>)" /> &nbsp;&nbsp;&nbsp;&nbsp;
+                        			<input type="button"   value="采集指纹"  onclick="showCollect(<%=userid%>)" /> &nbsp;&nbsp;&nbsp;&nbsp;
                          			<input type="button"   value="查看纹型"  onclick="showListtype(<%=userid%>)" />
                         			</td>
                   			</tr>
