@@ -191,10 +191,10 @@ function import_package()
 				                    <td width="4%" align="center" bgcolor="#EEEEEE">性别</td>
 								    <td width="4%" align="center" bgcolor="#EEEEEE">年龄</td>
 									<td width="9%" align="center" bgcolor="#EEEEEE">出生年月</td>
-									<td width="10%" align="center" bgcolor="#EEEEEE">采样师编号</td>
+									<td width="4%" align="center" bgcolor="#EEEEEE">采样师编号</td>
 									<td width="5%" align="center" bgcolor="#EEEEEE">采集师</td>
 									<td width="6%" align="center" bgcolor="#EEEEEE">采集日期</td>
-				                    <td width="15%" align="center" bgcolor="#EEEEEE">操作</td>
+				                    <td width="18%" align="center" bgcolor="#EEEEEE">操作</td>
                   				</tr>
 <%
 while(ret.next()) {
@@ -214,7 +214,7 @@ while(ret.next()) {
                   			<tr>
 					    		<td bgcolor="#FFFFFF"  align="center" ><input id="index_id<%=userid %>" type="checkbox" name="delid"/></td>
 								<td height="18" bgcolor="#EEEEEE"  align="center"><div id="index_id<%=userid %>div" > <%=userid %> </div></td>
-	                    		<td bgcolor="#FFFFFF"  align="center"><a href=""><%=name %></a></td>
+	                    		<td bgcolor="#FFFFFF"  align="center"><%=name %></td>
 	                    		<td height="20" bgcolor="#FFFFFF"  align="center"><%=version %></td>
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=gender %></td>
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=age %></td>
@@ -222,11 +222,11 @@ while(ret.next()) {
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=collId %></td>
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=collName %></td>
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=colldate %></td>
-								<td  bgcolor="#FFFFFF"   align="left">
-			                        <input type="button"  style="width:40px;height:25px;" value="判读"   onclick="showInter(<%=userid%>)" />
-			                        <input type="button" style="width:40px;height:25px;"  value="采集"   onclick="showCollect(<%=id%>)" />
-			                        <input type="button" style="width:40px;height:25px;"  value="分析"  onclick="showAnalysis(<%=id%>)" />
-			                        <input type="button" style="width:65px;height:25px;" value="导出数据" onclick="export_package(<%=userid%>);" />
+								<td  bgcolor="#FFFFFF"   align="center">
+			                        <input type="button" value="判读"   onclick="showInter(<%=userid%>)" />
+			                        <input type="button" value="采集"   onclick="showCollect(<%=id%>)" />
+			                        <input type="button" value="分析"  onclick="showAnalysis(<%=id%>)" />
+			                        <input type="button" value="导出数据" onclick="export_package(<%=userid%>);" />
 			                    </td>
                   			</tr>
 <%}%>
