@@ -216,11 +216,9 @@ while(ret.next()) {
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=collId %></td>
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=collName %></td>
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=colldate %></td>
-								<td  bgcolor="#FFFFFF"   align="left">
-			                        <input type="button"  style="width:40px;height:25px;" value="判读"   onclick="showInter(<%=userid%>)" />
-			                        <input type="button" style="width:40px;height:25px;"  value="采集"   onclick="showCollect(<%=id%>)" />
-			                        <input type="button" style="width:40px;height:25px;"  value="分析"  onclick="showAnalysis(<%=id%>)" />
-			                        <input type="button" style="width:65px;height:25px;" value="导出数据" onclick="export_package(<%=userid%>);" />
+								<td bgcolor="#FFFFFF"   align="left">
+			                        <input type="button" value="判读" onclick="showInter(<%=userid%>)" />
+			                        <input type="button" value="分析"  onclick="showAnalysis(<%=id%>)" />
 			                    </td>
                   			</tr>
 <%}%>

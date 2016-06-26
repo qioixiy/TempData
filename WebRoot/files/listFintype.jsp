@@ -147,10 +147,10 @@ function link1(){
 		            <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
 		                  <tr>
 			                     <td width="5%">
-			                     <input name="Submit" type="button" class="right-button08" value="打开记录"   style="height: 21px; width: 100px"onclick="link1();  " />
+			                     <input name="Submit" type="button" class="right-button08" value="打开记录" style="height: 21px; width: 100px"onclick="link1();" />
 			                     </td >
 			                     <td  width="15%" >
-			                    <input type="button" name="Submit2" value="返回" class="right-button02" onclick="window.history.go(-1);"/>
+			                    <input type="button" name="Submit2" value="返回" class="right-button02" style="margin:10px;" onclick="window.history.go(-1);"/>
 			                     </td>
 			                      <td width="550"><center><h1>查看所有纹型</h1></center></td>
 			                     <td width="120" align="center"> </td>

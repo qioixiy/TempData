@@ -99,7 +99,7 @@ function link2(){
    document.getElementById("fom").submit();
 }
 
-function link3(id){
+function ListAllFinData(id){
     document.getElementById("fom").action="/TempData/CollectServlet?type=Listtype&id=" + id;
    document.getElementById("fom").submit();
 }
@@ -140,8 +140,8 @@ function on_load(){
 		         <tr>
                     
                   <td height="15">&nbsp;&nbsp;&nbsp;&nbsp;
-	              <input  name="Submit" type="button" class="right-button08" value="打&nbsp;开&nbsp;记&nbsp;录"   onclick="link2();"/>&nbsp;&nbsp;&nbsp;&nbsp;
-	              <input  name="Submit" type="button" class="right-button08" value="查看所有纹型" onclick="link3(<%=sUserid%>);"/>&nbsp;&nbsp;
+	              <input  name="Submit" type="button" class="right-button08" value="打开记录" onclick="link2();"/>&nbsp;&nbsp;
+	              <input  name="Submit" type="button" class="right-button08" value="查看所有纹型" onclick="ListAllFinData(<%=sUserid%>);"/>&nbsp;&nbsp;
 	              
 		          <input type="button" name="Submit2" value="返回" class="right-button02" onclick="window.history.go(-1);"/>
 		        

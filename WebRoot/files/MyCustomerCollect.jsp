@@ -199,7 +199,7 @@ while(ret.next()) {
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=collId %></td>
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=collName %></td>
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=colldate %></td>
-								<td  bgcolor="#FFFFFF"   align="center">
+								<td bgcolor="#FFFFFF"   align="center">
                         			<input type="button"   value="采集指纹"  onclick="showCollect(<%=id%>)" /> &nbsp;&nbsp;&nbsp;&nbsp;
                          			<input type="button"   value="查看纹型"  onclick="showListtype(<%=userid%>)" />
                         			</td>
