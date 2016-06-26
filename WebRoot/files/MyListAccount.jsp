@@ -228,7 +228,7 @@ function del_user()
                   			<tr>
 					    		<td bgcolor="#FFFFFF"  align="center" ><input id="index_id<%=id %>" type="checkbox" name="delid"/></td>
 								<td height="18" bgcolor="#EEEEEE"  align="center"><div id="index_id<%=id %>div" > <%=id %> </div></td>
-	                    		<td bgcolor="#FFFFFF"  align="center"><a href=""><%=accountId %></a></td>
+	                    		<td bgcolor="#FFFFFF"  align="center"><%=accountId %></td>
 	                    		<td height="20" bgcolor="#FFFFFF"  align="center"><%=username %></td>
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=fullname %></td>
 	                    		<td bgcolor="#FFFFFF"  align="center" ><input type="checkbox" name="rest" <%=c1 %>/></td>

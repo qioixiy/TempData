@@ -199,7 +199,7 @@ while(ret.next()) {
                   			<tr>
 					    		<td bgcolor="#FFFFFF"  align="center" ><input id="index_id<%=userid %>" type="checkbox" name="delid"/></td>
 								<td height="18" bgcolor="#EEEEEE"  align="center"><div id="index_id<%=userid %>div" > <%=userid %> </div></td>
-	                    		<td bgcolor="#FFFFFF"  align="center"><a href=""><%=name %></a></td>
+	                    		<td bgcolor="#FFFFFF"  align="center"><%=name %></td>
 	                    		<td height="20" bgcolor="#FFFFFF"  align="center"><%=version %></td>
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=gender %></td>
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=age %></td>
