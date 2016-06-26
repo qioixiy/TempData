@@ -106,19 +106,19 @@ function search_id()
 }
 
 function  showInter(id){
-     location.href="/TempData/CustomerServlet?type=Inter&id="+id;
+     location.href="/FPC/CustomerServlet?type=Inter&id="+id;
 }
 
 function   showCollect(id){
-    location.href="/TempData/CustomerServlet?type=Collect&id="+id;
+    location.href="/FPC/CustomerServlet?type=Collect&id="+id;
 }
 
 function   showAnalysis(id){
-    location.href="/TempData/CustomerServlet?type=Analysis&id="+id;
+    location.href="/FPC/CustomerServlet?type=Analysis&id="+id;
 }
 
 function  showData(id, Userid){
-    location.href="/TempData/DataCusServlet?type=Data&id="+id + "&Userid="+Userid;
+    location.href="/FPC/DataCusServlet?type=Data&id="+id + "&Userid="+Userid;
 }
 
 </script>

@@ -93,7 +93,7 @@ function unselectAll(){
 }
 
 function link1(){
-    document.getElementById("fom").action="/TempData/ListCusServlet";
+    document.getElementById("fom").action="/FPC/ListCusServlet";
    document.getElementById("fom").submit();
 }
 function link2(){

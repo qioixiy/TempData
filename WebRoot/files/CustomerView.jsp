@@ -82,15 +82,15 @@ function link(){
 }
 
 function showCusInfo(id){
-     location.href="http://localhost:8080/TempData/CusViewServlet?type=CusInfo&id="+id;
+     location.href="http://localhost:8080/FPC/CusViewServlet?type=CusInfo&id="+id;
 }
 
 function showCollect(id){
-     location.href="/TempData/CusViewServlet?type=Collect&id="+id;
+     location.href="/FPC/CusViewServlet?type=Collect&id="+id;
 }
 
 function showInter(id){
-     location.href="/TempData/CusViewServlet?type=Inter&id="+id;
+     location.href="/FPC/CusViewServlet?type=Inter&id="+id;
 }
 
 function searchConditions(){
@@ -102,7 +102,7 @@ function searchConditions(){
   for(var i = 0 ; i < s4.childNodes.length;i++){
    if(s4.childNodes.item(i).selected){
    alert(s4.childNodes.item(i).value+ " " +sValue);
-    location.href="http://localhost:8080/TempData/CustomerS?conditions="+s4.childNodes.item(i).value+"&param="+sValue;
+    location.href="http://localhost:8080/FPC/CustomerS?conditions="+s4.childNodes.item(i).value+"&param="+sValue;
    }
   }
 };

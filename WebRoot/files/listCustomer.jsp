@@ -117,15 +117,15 @@ function link1(){
 }
 
 function  showInter(id){
-     location.href="/TempData/CustomerServlet?type=Inter&id="+id;
+     location.href="/FPC/CustomerServlet?type=Inter&id="+id;
 }
 
 function   showCollect(id){
-    location.href="/TempData/CustomerServlet?type=Collect&id="+id;
+    location.href="/FPC/CustomerServlet?type=Collect&id="+id;
 }
 
 function   showAnalysis(id){
-    location.href="/TempData/CustomerServlet?type=Analysis&id="+id;
+    location.href="/FPC/CustomerServlet?type=Analysis&id="+id;
 }
 
 
@@ -149,7 +149,7 @@ function import_package()
   <tr>
     <td height="30">      <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
-          <td height="62" background="TempData/WebRoot/images/nav04.gif">
+          <td height="62" background="FPC/WebRoot/images/nav04.gif">
             
 		   <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0"   >
 		    <tr>

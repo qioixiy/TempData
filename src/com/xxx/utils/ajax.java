@@ -87,7 +87,7 @@ public class ajax extends HttpServlet {
 	{
 		boolean ret = false;
 		
-		//http://localhost:8080/TempData//ajax?subFunc=saveRcData&zhiwei=L2&wenxing=As&RCL=1&RCR=2
+		//http://localhost:8080/FPC//ajax?subFunc=saveRcData&zhiwei=L2&wenxing=As&RCL=1&RCR=2
 		String userid = request.getParameter("userid");
 		String zhiwei = request.getParameter("zhiwei");
 		String wenxing_code = request.getParameter("wenxing");

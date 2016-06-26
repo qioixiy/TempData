@@ -89,11 +89,11 @@ function link(){
 }
 
 function  showInter(id){
-     location.href="/TempData/CusListServlet?type=Inter&id="+id;
+     location.href="/FPC/CusListServlet?type=Inter&id="+id;
 }
 
 function   showAnalysis(id){
-    location.href="/TempData/CusListServlet?type=Analysis&id="+id;
+    location.href="/FPC/CusListServlet?type=Analysis&id="+id;
 }
 
 

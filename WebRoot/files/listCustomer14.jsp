@@ -89,7 +89,7 @@ function link(){
 }
 
 function  showData(id, Userid){
-     location.href="/TempData/DataCusServlet?type=Data&id="+id + "&Userid="+Userid;
+     location.href="/FPC/DataCusServlet?type=Data&id="+id + "&Userid="+Userid;
 }
 
 

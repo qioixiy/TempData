@@ -118,7 +118,7 @@ function list(idstr){
 				cellspacing="0" class="left-table02">
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu20" src="../images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="/TempData/files/MyCustomerInfo.jsp" target="mainFrame" class="left-font03" onClick="tupian('20');">客户信息查看</a></td>
+				  <td width="91%"><a href="/FPC/files/MyCustomerInfo.jsp" target="mainFrame" class="left-font03" onClick="tupian('20');">客户信息查看</a></td>
 				</tr>
 				<tr>
 				  <td width="9%" height="21" ><img id="xiaotu21" src="../images/ico06.gif" width="8" height="12" /></td>
@@ -148,7 +148,7 @@ function list(idstr){
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu17" src="../images/ico06.gif" width="8" height="12" /></td>
 				  <td width="91%">
-						<a href="/TempData/files/MyCustomerDataView.jsp" target="mainFrame" class="left-font03" onClick="tupian('17');">客户信息浏览</a></td>
+						<a href="/FPC/files/MyCustomerDataView.jsp" target="mainFrame" class="left-font03" onClick="tupian('17');">客户信息浏览</a></td>
 				</tr>
 				
       </table>
@@ -174,11 +174,11 @@ function list(idstr){
 				cellspacing="0" class="left-table02">
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu1" src="../images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="/TempData/files/MyCustomerCollect.jsp" target="mainFrame" class="left-font03" onClick="tupian('1');">打开客户记录</a></td>
+				  <td width="91%"><a href="/FPC/files/MyCustomerCollect.jsp" target="mainFrame" class="left-font03" onClick="tupian('1');">打开客户记录</a></td>
 				</tr>
 				<tr>
 				  <td width="9%" height="20" ><img id="xiaotu4" src="../images/ico06.gif" width="8" height="12" /></td>
-				  <td width="91%"><a href="/TempData/files/Fincollect.jsp" target="mainFrame" class="left-font03" onClick="tupian('4');">采集指纹</a></td>
+				  <td width="91%"><a href="/FPC/files/Fincollect.jsp" target="mainFrame" class="left-font03" onClick="tupian('4');">采集指纹</a></td>
 				</tr>
 				
 				<tr>
@@ -208,19 +208,19 @@ function list(idstr){
         
 		<tr>
           <td width="9%" height="20" ><img id="xiaotu7" src="../images/ico06.gif" width="8" height="12" /></td>
-          <td width="91%"><a href="/TempData/files/MyCustomerFingerJudge.jsp" target="mainFrame" class="left-font03" onClick="tupian('7');">打开客户记录</a></td>
+          <td width="91%"><a href="/FPC/files/MyCustomerFingerJudge.jsp" target="mainFrame" class="left-font03" onClick="tupian('7');">打开客户记录</a></td>
            
         </tr>
         
         <tr>
           <td width="9%" height="20" ><img id="xiaotu7" src="../images/ico06.gif" width="8" height="12" /></td>
-          <td width="91%"><a href="/TempData/files/FinInter.jsp" target="mainFrame" class="left-font03" onClick="tupian('7');">判读指纹</a></td>
+          <td width="91%"><a href="/FPC/files/FinInter.jsp" target="mainFrame" class="left-font03" onClick="tupian('7');">判读指纹</a></td>
            
         </tr>
         
         <tr>
           <td width="9%" height="20" ><img id="xiaotu9" src="../images/ico06.gif" width="8" height="12" /></td>
-          <td width="91%"><a href="/TempData/files/Finanalysis.jsp" target="mainFrame" class="left-font03" onClick="tupian('9');">纹型判读分析</a></td>
+          <td width="91%"><a href="/FPC/files/Finanalysis.jsp" target="mainFrame" class="left-font03" onClick="tupian('9');">纹型判读分析</a></td>
         </tr>
       </table>
 
@@ -241,12 +241,12 @@ function list(idstr){
 	  <table id="subtree3" style="DISPLAY: none" width="80%" border="0" align="center" cellpadding="0" cellspacing="0" class="left-table02">
         <tr>
           <td width="9%" height="20" ><img id="xiaotu8" src="../images/ico06.gif" width="8" height="12" /></td>
-          <td width="91%"><a href="/TempData/files/MyCustomerDataAnalysis.jsp" target="mainFrame" class="left-font03" onClick="tupian('8');">打开客户记录</a></td>
+          <td width="91%"><a href="/FPC/files/MyCustomerDataAnalysis.jsp" target="mainFrame" class="left-font03" onClick="tupian('8');">打开客户记录</a></td>
         </tr>
 		
 		<tr>
           <td width="9%" height="20" ><img id="xiaotu10" src="../images/ico06.gif" width="8" height="12" /></td>
-          <td width="91%"><a href="/TempData/FinData" target="mainFrame" class="left-font03" onClick="tupian('10');">纹型数据分析</a></td>
+          <td width="91%"><a href="/FPC/FinData" target="mainFrame" class="left-font03" onClick="tupian('10');">纹型数据分析</a></td>
         </tr>
         
       </table>

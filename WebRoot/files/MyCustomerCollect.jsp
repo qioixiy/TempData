@@ -106,11 +106,11 @@ function search_id()
 }
 
 function  showCollect(id){
-    location.href="/TempData/CollectServlet?type=Collect&id="+id;
+    location.href="/FPC/CollectServlet?type=Collect&id="+id;
 }
 
 function   showListtype(id){
-   location.href="/TempData/CollectServlet?type=Listtype&id="+id;
+   location.href="/FPC/CollectServlet?type=Listtype&id="+id;
 }
 
 </script>

@@ -106,15 +106,15 @@ function search_id()
 }
 
 function  showInter(userid){
-     location.href="/TempData/CustomerServlet?type=Inter&userid="+userid;
+     location.href="/FPC/CustomerServlet?type=Inter&userid="+userid;
 }
 
 function   showCollect(userid){
-    location.href="/TempData/CustomerServlet?type=Collect&userid="+userid;
+    location.href="/FPC/CustomerServlet?type=Collect&userid="+userid;
 }
 
 function   showAnalysis(userid){
-    location.href="/TempData/CustomerServlet?type=Analysis&userid="+userid;
+    location.href="/FPC/CustomerServlet?type=Analysis&userid="+userid;
 }
 
 

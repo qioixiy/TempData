@@ -126,7 +126,7 @@ function save_data()
 
 function select_onchange(value)
 {
-	//http://localhost:8080/TempData/ListFinType?detail=L2
+	//http://localhost:8080/FPC/ListFinType?detail=L2
 	//alert(value);
 	var url = "<%=basePath%>/ListFinType?detail=" + value + "&userid=" + <%=userid%>;
 	//alert(url);

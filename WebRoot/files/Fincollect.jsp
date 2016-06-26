@@ -100,7 +100,7 @@ function link2(){
 }
 
 function ListAllFinData(id){
-    document.getElementById("fom").action="/TempData/CollectServlet?type=Listtype&id=" + id;
+    document.getElementById("fom").action="/FPC/CollectServlet?type=Listtype&id=" + id;
    document.getElementById("fom").submit();
 }
 

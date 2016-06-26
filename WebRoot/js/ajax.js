@@ -88,7 +88,7 @@ function callBack_login() {
 	if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
 		var result = xmlHttpRequest.responseText;
 		if (result == "success") {
-			window.location = "http://localhost:8080/TempData/index.jsp";
+			window.location = "http://localhost:8080/FPC/index.jsp";
 		} else if (result == "fail_username") {
 			alert("没有用户名");
 		} else if (result == "fail_password") {
@@ -102,7 +102,7 @@ function callBack_add_user() {
 	if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
 		var result = xmlHttpRequest.responseText;
 		if (result == "success") {
-			window.location = "http://localhost:8080/TempData/files/MyListAccount.jsp";
+			window.location = "http://localhost:8080/FPC/files/MyListAccount.jsp";
 		} else if (result == "fail_username") {
 			alert("用户名已经存在");
 		} else if (result == "fail_uid") {
@@ -117,7 +117,7 @@ function callBack_update_userinfo() {
 		var result = xmlHttpRequest.responseText;
 		if (result == "success") {
 			alert("修改成功");
-			window.location = "http://localhost:8080/TempData/files/MyListAccount.jsp";
+			window.location = "http://localhost:8080/FPC/files/MyListAccount.jsp";
 		} else if (result == "fail_username") {
 			alert("用户名已经存在");
 		} else if (result == "fail_uid") {
@@ -133,7 +133,7 @@ function callBack_del_user() {
 		var result = xmlHttpRequest.responseText;
 		if (result == "success") {
 			alert("删除成功");
-			window.location = "http://localhost:8080/TempData/files/MyListAccount.jsp";
+			window.location = "http://localhost:8080/FPC/files/MyListAccount.jsp";
 		} else {
 			alert("删除失败");
 		}
@@ -145,7 +145,7 @@ function callBack_add_customer() {
 		var result = xmlHttpRequest.responseText;
 		if (result == "success") {
 			alert("添加成功");
-			window.location = "http://localhost:8080/TempData/files/MyCustomerInfo.jsp";
+			window.location = "http://localhost:8080/FPC/files/MyCustomerInfo.jsp";
 		} else {
 			alert("添加失败");
 		}
@@ -156,7 +156,7 @@ function callBack_del_customer() {
 		var result = xmlHttpRequest.responseText;
 		if (result == "success") {
 			alert("删除成功");
-			window.location = "http://localhost:8080/TempData/files/MyCustomerInfo.jsp";
+			window.location = "http://localhost:8080/FPC/files/MyCustomerInfo.jsp";
 		} else {
 			alert("删除失败");
 		}
@@ -265,7 +265,7 @@ function UpladFile() {
 		return;
 	}
 	
-	var FileController = "http://localhost:8080/TempData/UploadFile"; // 接收上传文件的后台地址 
+	var FileController = "http://localhost:8080/FPC/UploadFile"; // 接收上传文件的后台地址 
 
 	// FormData 对象
 	var form = new FormData();
@@ -281,7 +281,7 @@ function UpladFile() {
 		//alert(window.location);
 		alert(xmlHttpRequest.responseText + ",upload success, need import");
 		var ret = xmlHttpRequest.responseText;
-		ajax_request("http://localhost:8080/TempData/", "importPackage", "&file_path=" + ret);
+		ajax_request("http://localhost:8080/FPC/", "importPackage", "&file_path=" + ret);
 	};
 
 	xmlHttpRequest.send(form);

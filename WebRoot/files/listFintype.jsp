@@ -123,7 +123,7 @@ function link(){
 }
 
 function link1(){
-    document.getElementById("fom").action="/TempData/CollectS ";
+    document.getElementById("fom").action="/FPC/CollectS ";
    document.getElementById("fom").submit();
 }
 
