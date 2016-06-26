@@ -105,8 +105,8 @@ function search_id()
 	window.location=url;
 }
 
-function  showInter(id){
-     location.href="/TempData/CustomerServlet?type=Inter&id="+id;
+function  showInter(userid){
+     location.href="/TempData/CustomerServlet?type=Inter&userid="+userid;
 }
 
 function   showCollect(id){

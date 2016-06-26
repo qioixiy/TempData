@@ -30,30 +30,30 @@ public class CustomerServlet extends HttpServlet {
 	     
 		 RequestDispatcher  rd=null;
 		 String  type=request.getParameter("type");
-		 int  id=Integer.valueOf(request.getParameter("id"));
+		 int userid = Integer.valueOf(request.getParameter("userid"));
 		 
-		 System.out.println("type:" + type + ",id:" + id);
+		 System.out.println("type:" + type + ",userid:" + userid);
 		
 	     CustomerListBiz  customerListBiz=new  CustomerListBizImpl();
-	     Customer  customer= customerListBiz.getCustomer(id);
+	     Customer  customer= customerListBiz.getCustomer(userid);
 	     request.setAttribute("customer",customer);
-	     request.setAttribute("id", id);
+	     request.setAttribute("userid", userid);
 	     
 	    /*
 	     * 根据id类型不同进行跳转
 	     */
-	     if(type.equals("Inter")){
-				rd=request.getRequestDispatcher("files/FinInter.jsp");
-			}else  if(type.equals("Collect")){
-				rd=request.getRequestDispatcher("files/Fincollect.jsp");
-				
-			}else  if(type.equals("Analysis")){
-				rd=request.getRequestDispatcher("/IntAnalyS");
-			}
-			
-			rd.forward(request, response);
-		
+		if (type.equals("Inter")) {
+			rd = request.getRequestDispatcher("files/FinInter.jsp");
+		} else if (type.equals("Collect")) {
+			rd = request.getRequestDispatcher("files/Fincollect.jsp");
+
+		} else if (type.equals("Analysis")) {
+			rd = request.getRequestDispatcher("/IntAnalyS");
 		}
+
+		rd.forward(request, response);
+
+	}
 
 	
 	

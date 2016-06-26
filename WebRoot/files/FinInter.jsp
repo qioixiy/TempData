@@ -3,7 +3,7 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-String id = request.getParameter("id");
+String userid = request.getParameter("userid");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -126,7 +126,7 @@ function select_onchange(value)
 {
 	//http://localhost:8080/TempData/ListFinType?detail=L2
 	//alert(value);
-	var url = "<%=basePath%>/ListFinType?detail=" + value + "&id=" + <%=id%>;
+	var url = "<%=basePath%>/ListFinType?detail=" + value + "&userid=" + <%=userid%>;
 	//alert(url);
 	url_request(url);
 }

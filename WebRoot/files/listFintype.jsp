@@ -2,11 +2,7 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
-
-
-<%
-  Map<String, String> urls = (Map<String, String>)request.getAttribute("urls");
+Map<String, String> urls = (Map<String, String>)request.getAttribute("urls");
 	
 if (urls == null) {
 	urls = new HashMap<String, String>();
