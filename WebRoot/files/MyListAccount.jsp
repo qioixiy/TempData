@@ -158,7 +158,7 @@ function del_user()
 					  			<input id="input_search" name="text" type="text" /></input>
 					    		<input name="submit" type="button" class="right-button02" value="查 询" onclick="search_id();"/>
 					    	</td>
-					   		<td width="679" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>	
+					   		<td width="679" align="left"></td>	
 				    	</tr>
 		          	</table>
 		          	</td>
@@ -186,7 +186,7 @@ function del_user()
               			<tr>
                 			<td height="40" class="font42"><table width="100%" border="0" cellpadding="4" cellspacing="1" bgcolor="#464646" class="newfont03">
 								<tr>
-                    				<td height="20" colspan="14" align="center" bgcolor="#EEEEEE"class="tablestyle_title">账户信息列表</td>
+                    				<td height="20" style="text-align:center;" colspan="14" align="center" bgcolor="#EEEEEE" class="tablestyle_title">账户信息列表</td>
                     			</tr>
                   				<tr>
 				    				<td width="8%" align="center" bgcolor="#EEEEEE">选择</td>

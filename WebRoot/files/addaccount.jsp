@@ -76,7 +76,6 @@ function input_submit()
 			<TD width="75%"   bgcolor="#5F9EA0">
 				<fieldset style="height:100%;">
 				<legend>新增账户信息</legend>
-				 <center><h1>新增账户信息</h1></center>
 					  <table border="0" cellpadding="2" cellspacing="1" style="width:100%">
 					  <tr >
 					    <td nowrap align="right" width="35%"><h3>编&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:</h4></td>
