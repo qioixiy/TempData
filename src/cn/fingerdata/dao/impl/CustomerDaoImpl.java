@@ -16,6 +16,8 @@ import cn.fingerdata.dao1.CustomerDao;
 
 
 public class CustomerDaoImpl extends BaseDataBaseDao implements CustomerDao {
+	String TAG = "CustomerDaoImpl";
+	
 	private  Connection  conn=null;
 	private  Statement  stmt=null;
 	private  ResultSet   rs=null;
@@ -192,7 +194,7 @@ public class CustomerDaoImpl extends BaseDataBaseDao implements CustomerDao {
 
 	public Customer getByuserid(int id) {
 		
-		System.out.println(id+"====");
+		System.out.println(TAG + " getByuserid:" + id);
 		
 		//与数据库连接的会话
 		PreparedStatement pstmt = null;

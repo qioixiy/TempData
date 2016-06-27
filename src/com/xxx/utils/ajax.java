@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -34,6 +35,8 @@ import com.mysql.jdbc.PreparedStatement;
 import com.xxx.zip.UnZip;
 import com.xxx.zip.Zip;
 
+import cn.fingerdata.bean.Customer;
+import cn.fingerdata.dao.impl.CustomerDaoImpl;
 import cn.fingerdata.dao1.BaseDataBaseDao;
 import net.sf.json.JSONObject;
 
@@ -767,7 +770,14 @@ public class ajax extends HttpServlet {
 	{
 		String Userid = request.getParameter("Userid");
 		System.out.println(Userid);
-		String zipFile = FprCap_data + "/" + Userid + ".zip";
+		
+		CustomerDaoImpl mCustomerDaoImpl = new CustomerDaoImpl();
+		Customer mCustomer = mCustomerDaoImpl.getByuserid(Integer.parseInt(Userid));
+		String UserName = mCustomer.getName();
+		System.out.println("Userid:" + Userid + ", UserName:" + UserName);
+
+		String fileName = UserName + "_" + Userid;
+		String zipFile = FprCap_data + "/" + fileName + ".zip";
 		String zipDir = FprCap_data + "/" + Userid;
 		
 		System.out.println("zipFile:" + zipFile);
@@ -781,10 +791,13 @@ public class ajax extends HttpServlet {
 		exportCustomerInfo(Userid, zipDir);
 		
 		Zip.zip(zipDir, zipFile);
-		String url = basePath + "images/FprCap/data/" + Userid + ".zip";
+		String url = basePath + "images/FprCap/data/" + fileName + ".zip";
 		System.out.println("zip url " + url);
 		try {
-			response.getWriter().append(url);
+			String url_utf8 = URLEncoder.encode(url.toString(),"UTF-8");
+			System.out.println("url_utf8:" + url_utf8);
+			
+			response.getWriter().append(url_utf8);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1226,6 +1239,8 @@ int export_doc(HttpServletRequest request, HttpServletResponse response) {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		request.setCharacterEncoding("UTF-8");
 		
 		HttpSession session = request.getSession(); 
 		String mCollectUserID = (String)session.getAttribute("CollectUserID");

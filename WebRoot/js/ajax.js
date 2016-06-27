@@ -50,11 +50,13 @@ function callBack_ExportPackage() {
 	if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
 		var result = xmlHttpRequest.responseText;
 		alert(result);
+		var str = decodeURIComponent(result);
+		alert(str);
 		if (result != "") {
 			if (result == "fail") {
 				alert("导出失败");
 			} else {
-				window.open(result);
+				window.open(encodeURIComponent(str));
 			}
 		} else {
 			alert("导出失败");
