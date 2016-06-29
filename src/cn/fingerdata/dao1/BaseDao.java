@@ -12,7 +12,7 @@ public interface BaseDao<T> {
 	 */
 	T    getById(int id);
 	
-	
+	T   getByUserid(int   userid);
 	
 	/**
 	 * 根据主键查找到一条数据

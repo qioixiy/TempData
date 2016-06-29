@@ -47,6 +47,15 @@ public class CustomerListBizImpl   implements    CustomerListBiz   {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+
+
+	@Override
+	public Customer getByUserid(int userid) {
+		// TODO Auto-generated method stub
+
+		return   customerListDao.getByUserid(userid);
+	}
   
 	
 }

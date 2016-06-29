@@ -100,4 +100,12 @@ public class TempInterDaoImpl extends BaseDataBaseDao implements TempInterDao {
 		return null;
 	}
 
+
+
+	@Override
+	public TempInter getByUserid(int userid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

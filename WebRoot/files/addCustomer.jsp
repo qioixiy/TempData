@@ -24,7 +24,8 @@ String date = sdf.format(dt);
 	<meta http-equiv="description" content="This is my page">
 	<link rel="stylesheet" rev="stylesheet" href="<%=basePath %>/css/style.css" type="text/css" media="all" />
 
-
+<link rel="stylesheet" href="<%=basePath %>/My97DatePicker/skin/WdatePicker.css" type="text/css"/>
+<script type="text/javascript" src="<%=basePath %>/My97DatePicker/WdatePicker.js"></script>
 <script type="text/javascript" src="<%=basePath%>/js/ajax.js"></script>
 <script language="JavaScript" type="text/javascript">
 function tishi()
@@ -228,7 +229,7 @@ function add_customer()
 					   <tr bordercolor="#8FBC8F">
 					    <td nowrap align="right" width="10%" style="height: 47px; ">出身日期:</td>
 					    <td style="width:180px; height: 22px">
-					    	<input id="chushenriqi" type="text" class="text" name="birthday" style="width: 205px" value=""/></td>
+					    	<input id="chushenriqi" type="text" name="birthday" style="width: 205px" value="" class="Wdate" onClick="WdatePicker()"/></td>
 					    <td  align="right"  style="width: 8px; ">年&nbsp;&nbsp;&nbsp;&nbsp;龄：</td>
 					    <td width="10%"  nowrap="nowrap" style="width: 59px; ">
 					    	<input id="nianling" type="text" class="text" name="age" style="width:205px" value=""></td>
@@ -243,7 +244,7 @@ function add_customer()
 					    <tr bordercolor="#8FBC8F">
 					    <td nowrap align="right" width="10%" style="height: 47px; ">采集日期:</td>
 					    <td style="width:180px; height: 22px">
-					    	<input id="caijiriqi"  type="text" class="text" name="collDate" style="width: 205px" value="<%=date%>"/></td>
+					    	<input id="caijiriqi"  type="text" name="collDate" style="width: 205px" value="<%=date%>" class="Wdate" onClick="WdatePicker()"/></td>
 					    <td  align="right"  style="width: 8px; ">星&nbsp;&nbsp;&nbsp;&nbsp;座：</td>
 					    <td width="10%"  nowrap="nowrap" style="width: 59px; ">
 					    <select id="xingzuo" name="constellation" style="width: 210px; ">
@@ -279,7 +280,7 @@ function add_customer()
 					    	<input id="fuqinxingming" type="text" class="text" name="fatherName" style="width: 205px" value=""/></td>
 					    <td  align="right"  style="width: 8px; ">出生日期：</td>
 					    <td width="10%"  nowrap="nowrap" style="width: 59px; ">
-					    	<input id="fuqinchushenriqi" ttype="text" class="text" name="farBirthday" style="width:205px" value=""></td>
+					    	<input id="fuqinchushenriqi" type="text" name="farBirthday" style="width:205px" value="" class="Wdate" onClick="WdatePicker()"></td>
 					    <td width="20%" style="width: 25px;"  align="right">手&nbsp;&nbsp;&nbsp;&nbsp;机:</td>
 					    <td  width="20%" style="width: 190px; ">
 					    	<input id="fuqinshouji" type="text"  class="text" name="fphone" style="width: 161px" value=""></td>
@@ -291,7 +292,7 @@ function add_customer()
 					    	<input id="muqinxingming" type="text"  class="text" name="matherName" style="width: 205px" value=""/></td>
 					    <td  align="right"  style="width: 8px; ">出生日期：</td>
 					    <td width="10%"  nowrap="nowrap" style="width: 59px; ">
-					    	<input id="muqinchushenriqi" type="text" class="text" name="marBirthday" style="width:205px" value=""></td>
+					    	<input id="muqinchushenriqi" type="text" name="marBirthday" style="width:205px" value="" class="Wdate" onClick="WdatePicker()"></td>
 					    <td width="20%" style="width: 25px;"  align="right">手&nbsp;&nbsp;&nbsp;&nbsp;机:</td>
 					    <td  width="20%" style="width: 190px; ">
 					    	<input id="muqinshouji"  type="text"   class="text" name=" mphone" style="width: 161px" value=""></td>
@@ -351,7 +352,7 @@ function add_customer()
 					    	<input id="caijishixingming" type="text" class="text" name="collName" style="width:205px" value=""></td>
 					    <td width="20%" style="width: 45px;"  align="right">采样日期</td>
 					    <td  width="20%" style="width: 190px; ">
-					    	<input id="caiyangriqi" type="text" class="text" name="colldate" style="width: 161px" value="<%=date%>"></td>
+					    	<input id="caiyangriqi" type="text" name="colldate" style="width: 161px" value="<%=date%>" class="Wdate" onClick="WdatePicker()"></td>
 					  </tr>
 					   <tr  bordercolor="#8FBC8F">
 					    <td nowrap align="right" width="10%" style="height: 47px; ">判读师编号:</td>
@@ -362,7 +363,7 @@ function add_customer()
 					    	<input id="pandushixingming" type="text" class="text" name="disName" style="width:205px" value=""></td>
 					    <td width="20%" style="width: 56px;"  align="right">判读日期</td>
 					    <td  width="20%" style="width: 190px; ">
-					    	<input id="panduriqi" type="text" class="text" name="disdate" style="width: 161px" value="<%=date%>"></td>
+					    	<input id="panduriqi" type="text" name="disdate" style="width: 161px" value="<%=date%>" class="Wdate" onClick="WdatePicker()"></td>
 					  </tr>
 					  
 					  

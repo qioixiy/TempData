@@ -63,4 +63,10 @@ public class UserDaoImpl extends BaseDataBaseDao implements UserDao {
 		return null;
 	}
 
+	@Override
+	public User getByUserid(int userid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

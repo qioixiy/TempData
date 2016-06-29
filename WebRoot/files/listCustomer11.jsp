@@ -145,12 +145,12 @@ function link(){
     document.getElementById("fom").submit();
 }
 
-function  showCollect(id){
-     location.href="/FPC/CollectServlet?type=Collect&id="+id;
+function  showCollect(userid){
+     location.href="/FPC/CollectServlet?type=Collect&userid="+userid;
 }
 
-function   showListtype(id){
-    location.href="/FPC/CollectServlet?type=Listtype&id="+id;
+function   showListtype(userid){
+    location.href="/FPC/CollectServlet?type=Listtype&userid="+userid;
 }
 
 
@@ -201,7 +201,7 @@ function   showListtype(id){
                 <td height="40" class="font42"><table width="100%" border="1" cellpadding="4" cellspacing="1"  class="newfont03">
 
 					                  <tr>
-                    <td height="30" colspan="15" align="center"  bgcolor="#5F9EA0"  bordercolor="#8FBC8F"  class="tablestyle_title"> <center>客&nbsp;户&nbsp;记&nbsp;录&nbsp;列&nbsp;表</center></td>
+                    <td height="30" colspan="15" align="center"  bgcolor="#5F9EA0"  bordercolor="#8FBC8F"> <center>客&nbsp;户&nbsp;记&nbsp;录&nbsp;列&nbsp;表</center></td>
                     </tr>
                    <tr  bgcolor="#5F9EA0"   bordercolor="#8FBC8F">
 				    <td width="6%" align="center" >选择</td>
@@ -250,7 +250,7 @@ function   showListtype(id){
 					<td height="20" bgcolor="#FFFFFF"   align="center"><%=collName%></td>
 					<td height="20" bgcolor="#FFFFFF"   align="center"><%=colldate%></td>
                     <td  bgcolor="#FFFFFF"   align="center">
-                        <input  type="button"   value="采集指纹"  onclick="showCollect(<%=id%>)" /> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input  type="button"   value="采集指纹"  onclick="showCollect(<%=userid%>)" /> &nbsp;&nbsp;&nbsp;&nbsp;
                          <input  type="button"   value="查看纹型"  onclick="showListtype(<%=userid%>)" />
                         </td>
                     
