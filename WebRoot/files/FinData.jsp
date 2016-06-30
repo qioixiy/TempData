@@ -9,6 +9,7 @@ Customer customer = (Customer)request.getAttribute("customer");
 
 if (FinData == null) {
 	System.out.print("FinData == null");
+	%><h1>请先进行一次完整的指纹判读</h1><%
 	return;
 }
 
