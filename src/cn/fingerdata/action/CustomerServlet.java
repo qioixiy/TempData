@@ -30,7 +30,9 @@ public class CustomerServlet extends HttpServlet {
 	     
 		 RequestDispatcher  rd=null;
 		 String  type=request.getParameter("type");
-		 int userid = Integer.valueOf(request.getParameter("userid"));
+		 String suserid = request.getParameter("userid");
+		 System.out.println("userid:" + suserid);
+		 int userid = Integer.valueOf(suserid);
 		 
 		 System.out.println("type:" + type + ",userid:" + userid);
 		

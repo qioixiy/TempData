@@ -42,16 +42,23 @@ public class IntAnalyS extends HttpServlet {
 
 		IntAnalyBiz intAnalyBiz=new  IntAnalyBizImpl();  
 		
-		List<TempInter>   tempInters=intAnalyBiz.getAllTempInters();
+		List<TempInter> tempInters=intAnalyBiz.getAllTempInters();
 		System.out.println("tempInters.size()=" + tempInters.size());
 		request.setAttribute("tempInters", tempInters);
-		
+
 		TempInter tempInter = intAnalyBiz.getTempInter(userid);
+		for (TempInter item : tempInters) {
+			if (item.getUserid() == userid) {
+				tempInter = item;
+				break;
+			}
+		}
 		request.setAttribute("tempInter", tempInter);
+		System.out.println("tempInters:" + tempInter);
 		
 		CustomerListBiz  customerListBiz=new  CustomerListBizImpl();
 	     Customer  customer= customerListBiz.getCustomer(userid);
-	     request.setAttribute("customer",customer);
+	     request.setAttribute("customer:",customer);
 	     
 		System.out.println("进入files/Finanalysis.jsp");
 		

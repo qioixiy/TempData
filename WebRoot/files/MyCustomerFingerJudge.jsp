@@ -109,12 +109,12 @@ function  showInter(userid){
      location.href="/FPC/CustomerServlet?type=Inter&userid="+userid;
 }
 
-function   showCollect(id){
-    location.href="/FPC/CustomerServlet?type=Collect&id="+id;
+function   showCollect(userid){
+    location.href="/FPC/CustomerServlet?type=Collect&userid="+userid;
 }
 
-function   showAnalysis(id){
-    location.href="/FPC/CustomerServlet?type=Analysis&id="+id;
+function   showAnalysis(userid){
+    location.href="/FPC/CustomerServlet?type=Analysis&userid="+userid;
 }
 
 
@@ -218,7 +218,7 @@ while(ret.next()) {
 	                    		<td bgcolor="#FFFFFF"   align="center"><%=colldate %></td>
 								<td bgcolor="#FFFFFF"   align="center">
 			                        <input type="button" value="判读" onclick="showInter(<%=userid%>)" />
-			                        <input type="button" value="分析"  onclick="showAnalysis(<%=id%>)" />
+			                        <input type="button" value="分析"  onclick="showAnalysis(<%=userid%>)" />
 			                    </td>
                   			</tr>
 <%}%>
