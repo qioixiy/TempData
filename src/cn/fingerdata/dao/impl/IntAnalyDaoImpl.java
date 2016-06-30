@@ -119,9 +119,9 @@ public class IntAnalyDaoImpl extends BaseDataBaseDao implements IntAnalyDao {
 		      tempInter.setL4RCL(rs.getInt("L4RCL"));
 		      tempInter.setL4RCR(rs.getInt("L4RCR"));
 		      tempInter.setL5temp(rs.getString("L5temp"));
-		      tempInter.setL3RCL(rs.getInt("L5RCL"));
-		      tempInter.setL3RCR(rs.getInt("L5RCR"));
-		      tempInter.setL5temp(rs.getString("R1temp"));
+		      tempInter.setL5RCL(rs.getInt("L5RCL"));
+		      tempInter.setL5RCR(rs.getInt("L5RCR"));
+		      tempInter.setR1temp(rs.getString("R1temp"));
 		      tempInter.setR1RCL(rs.getInt("R1RCL"));
 		      tempInter.setR1RCR(rs.getInt("R1RCR"));
 		      tempInter.setR2temp(rs.getString("R2temp"));
