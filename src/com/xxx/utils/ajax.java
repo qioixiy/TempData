@@ -1242,8 +1242,10 @@ int del_customer(HttpServletRequest request, HttpServletResponse response) {
 int export_doc(HttpServletRequest request, HttpServletResponse response) {
 	System.out.println("export_doc start");
 	GenTableAllData mGenTableAllData = new GenTableAllData();
+	String userid = request.getParameter("userid");
+		
 	try {
-		mGenTableAllData.run("20160601");
+		mGenTableAllData.run(userid, FprCap_tmp);
 	} finally {
 		System.out.println("export_doc end");
 	}

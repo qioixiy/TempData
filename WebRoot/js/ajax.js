@@ -165,6 +165,18 @@ function callBack_del_customer() {
 		}
 	}
 }
+
+function callBack_export_doc() {
+	if (xmlHttpRequest.readyState == 4 && xmlHttpRequest.status == 200) {
+		var result = xmlHttpRequest.responseText;
+		if (result != "") {
+			alert("导出doc成功");
+		} else {
+			alert("导出doc失败");
+		}
+	}
+}
+
 //提交ajax请求
 function ajax_request(server, param1, param2) {
 	//alert("param1:" + param1 + ",param2:" + param2);
@@ -206,6 +218,8 @@ function ajax_request(server, param1, param2) {
 		xmlHttpRequest.onreadystatechange = callBack_add_customer;
 	} else if (param1 == "del_customer"){
 		xmlHttpRequest.onreadystatechange = callBack_del_customer;
+	}  else if (param1 == "export_doc"){
+		xmlHttpRequest.onreadystatechange = callBack_export_doc;
 	} else {
 		alert("不支持子功能");
 		return;

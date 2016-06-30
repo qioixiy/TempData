@@ -71,6 +71,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 <link href="<%=basePath %>/css/css.css" rel="stylesheet" type="text/css" />
 <link href="<%=basePath %>/css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="<%=basePath %>/js/xiangmu.js"></script>
+<script type="text/javascript" src="<%=basePath %>/js/ajax.js"></script>
 </head>
 <SCRIPT language=JavaScript>
 function sousuo(){
@@ -118,6 +119,12 @@ function on_load(){
 	loadingmsg.style.display="none";
 	mainpage.style.display="";
 }
+
+function gen_word_pkg() {
+	alert("开始生成文档");
+	ajax_request("<%=basePath%>", "export_doc", "&userid="+<%=userid%>);
+}
+
 </SCRIPT>
 
 <body onload="on_load()">
@@ -141,7 +148,7 @@ function on_load(){
                                          <option>儿童版(无页眉)</option>
                            
                                    </select>&nbsp;&nbsp;&nbsp;	
-			                       <input name="Submit2" type="button" class="right-button08" value="生成报表" onclick="link();"/>
+			                       <input name="Submit2" type="button" class="right-button08" value="生成报表" onclick="gen_word_pkg();"/>
 			                </td>
 			                <td width="132" align="left">&nbsp;
 			                        </a></td>	

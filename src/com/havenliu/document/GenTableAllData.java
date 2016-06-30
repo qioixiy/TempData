@@ -19,7 +19,7 @@ import cn.fingerdata.dao.impl.CustomerDaoImpl;
 
 public class GenTableAllData {
 	
-	public void run(String userid) {
+	public void run(String userid, String path) {
 		int userid_i = Integer.parseInt(userid);
 		
 		CustomerDaoImpl mCustomerDaoImpl = new CustomerDaoImpl();
@@ -28,11 +28,11 @@ public class GenTableAllData {
 		ComputeResult mComputeResult = new ComputeResult();
 		algorithm.algorithmOutput output = mComputeResult.UseAlgorithm(userid);
 
-		genShujuZongbiao(mCustomer, output);
+		genShujuZongbiao(mCustomer, output, path);
 		ChengrenBaobiao(mCustomer, output);
 	}
 	
-	private void genShujuZongbiao(Customer mCustomer, algorithm.algorithmOutput output)
+	private void genShujuZongbiao(Customer mCustomer, algorithm.algorithmOutput output, String path)
 	{
 		System.out.println("genShujuZongbiao start");
 		
@@ -80,7 +80,8 @@ public class GenTableAllData {
 
 		MDoc mdoc = new MDoc();
 		try {
-			mdoc.createDoc(dataMap, "C:/Users/Mu/Desktop/shujuzongbiao.doc", "shujuzongbiao.xml");
+			System.out.println("gen file path:" + path + "/数据总表.doc");
+			mdoc.createDoc(dataMap, path + "/数据总表.doc", "shujuzongbiao.xml");
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
