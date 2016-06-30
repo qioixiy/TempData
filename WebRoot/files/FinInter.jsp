@@ -157,10 +157,9 @@ function select_onchange(value)
             
 		            <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
 		                  <tr>
-			                     <td width="35%"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			                         <input name="Submit" type="submit" class="right-button08" value="打&nbsp;开&nbsp;记&nbsp;录"   style="height: 21px; width: 100px"onclick="link1();  " />
+			                     <td width="35%">
 			                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			                          <input name="Submit" type="submit" class="right-button08" value="判&nbsp;读&nbsp;分&nbsp;析"   style="height: 21px; width: 100px"onclick="link2();  " />
+			                          <input name="Submit" type="submit" class="right-button08" value="判&nbsp;读&nbsp;分&nbsp;析" style="height: 21px; width: 100px"onclick="link2();  " />
 			                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			                          <input type="button" name="Submit2" value="返回" class="right-button02" onclick="window.history.go(-1);" />
 			                     </td >

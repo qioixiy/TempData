@@ -35,23 +35,22 @@ public class IntAnalyS extends HttpServlet {
 	}
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String sid = request.getParameter("id");
-		int id  = Integer.valueOf(sid);
+		String suserid = request.getParameter("userid");
+		int userid  = Integer.valueOf(suserid);
 		
-		System.out.println("进入IntAnalyS");
-		
-		
-		IntAnalyBiz   intAnalyBiz=new  IntAnalyBizImpl();  
+		System.out.println("进入IntAnalyS " + "userid:" + userid);
+
+		IntAnalyBiz intAnalyBiz=new  IntAnalyBizImpl();  
 		
 		List<TempInter>   tempInters=intAnalyBiz.getAllTempInters();
 		System.out.println("tempInters.size()=" + tempInters.size());
 		request.setAttribute("tempInters", tempInters);
 		
-		TempInter tempInter = intAnalyBiz.getTempInter(id);
+		TempInter tempInter = intAnalyBiz.getTempInter(userid);
 		request.setAttribute("tempInter", tempInter);
 		
 		CustomerListBiz  customerListBiz=new  CustomerListBizImpl();
-	     Customer  customer= customerListBiz.getCustomer(id);
+	     Customer  customer= customerListBiz.getCustomer(userid);
 	     request.setAttribute("customer",customer);
 	     
 		System.out.println("进入files/Finanalysis.jsp");

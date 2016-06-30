@@ -121,30 +121,49 @@ public class ajax extends HttpServlet {
 		wenxing[index++] = "Mf";
 		wenxing[index++] = "Ma";
 		int wenxingNum = 1;
-		for (int i = 1; i < wenxing.length; i++) {
-			if (wenxing[i] == wenxing_code) {
+		for (int i = 1; i < wenxing.length && wenxing[i] != null; i++) {
+			System.out.println("wenxing[i]:" + wenxing[i] + ",wenxing_code:" + wenxing_code);
+			if (wenxing[i].equals(wenxing_code)) {
 				wenxingNum = i;
 			}
 		}
+		System.out.println("wenxingNum:" + wenxingNum);
 		String RCL = request.getParameter("RCL");
 		String RCR = request.getParameter("RCR");
 		
 		System.out.println("userid:" + userid + ",zhiwei:" + zhiwei + ",wenxing:" + wenxing_code + ",RCL:" + RCL + ",RCR:" + RCR);
 		
-		Connection conn = BaseDataBaseDao.getConnection();
-		String sql = String.format("SELECT * FROM `tempinter` WHERE userid = %s", userid);
-		sql = String.format("UPDATE `tempdata`.`tempinter` SET `%stemp` = '%d',`%sRCL` = '%s',`%sRCR` = '%s' WHERE `tempinter`.`userid` =%s;",
-				zhiwei, wenxingNum,
-				zhiwei, RCL,
-				zhiwei, RCR,
-				userid);
-		System.out.println(sql);
-		
-		Statement stmt;
 		try {
+			Connection conn = BaseDataBaseDao.getConnection();
+			Statement stmt;
 			stmt = conn.createStatement();
-			int result = stmt.executeUpdate(sql);
-			if(result>0) {
+			String sql = null;
+			// find ?
+			sql = String.format("SELECT count( * ) as rowCount FROM tempinter where userid = %s", userid);
+			ResultSet result = stmt.executeQuery(sql);
+			int count = 0;
+			if (result.next()) {
+				System.out.println("result.next() == true");
+				count = result.getInt("rowCount");
+			}
+			if (count == 0) {
+				// insert
+				sql = String.format("INSERT INTO `tempinter` (`userid`, `%stemp`, `%sRCL`, `%sRCR`) VALUES (%s, '%d', %s, %s);",
+						zhiwei, zhiwei, zhiwei,
+						userid, wenxingNum, RCL, RCR);
+			} else {
+				//update
+				sql = String.format("UPDATE `tempinter` SET `%stemp` = '%d',`%sRCL` = '%s',`%sRCR` = '%s' WHERE `tempinter`.`userid` =%s;",
+						zhiwei, wenxingNum,
+						zhiwei, RCL,
+						zhiwei, RCR,
+						userid);
+			}
+			
+			System.out.println(sql);
+			
+			int result_i = stmt.executeUpdate(sql);
+			if(result_i>0) {
 				System.out.println("executeQuery ok");
 				ret = true;
 			}
