@@ -132,8 +132,8 @@ function select_onchange(value)
 	//alert(url);
 	url_request(url);
 }
-	function link2() {
-		document.getElementById("fom").action = "files/Finanalysis.jsp";
+	function link2(userid) {
+		document.getElementById("fom").action = "/FPC/CustomerServlet?type=Inter&userid="+userid;
 		document.getElementById("fom").submit();
 	}
 
@@ -159,8 +159,6 @@ function select_onchange(value)
 		                  <tr>
 			                     <td width="35%">
 			                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			                          <input name="Submit" type="submit" class="right-button08" value="判&nbsp;读&nbsp;分&nbsp;析" style="height: 21px; width: 100px"onclick="link2();  " />
-			                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			                          <input type="button" name="Submit2" value="返回" class="right-button02" onclick="window.history.go(-1);" />
 			                     </td >
 			                      <td width="35%" "><center><h1>指&nbsp;纹&nbsp;判&nbsp;读&nbsp;区&nbsp;域</h1></center></td>

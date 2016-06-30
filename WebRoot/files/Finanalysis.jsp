@@ -122,11 +122,7 @@ function on_load(){
   <tr>  <td class="CPanel"></td></tr>
   <tr>
       <td class="CPanel" width="5%">	&nbsp;&nbsp;&nbsp;&nbsp;
-		 <input name="Submit" type="button" class="right-button08" value="打&nbsp;开&nbsp;记&nbsp;录"   style="height: 21px; width: 100px"onclick="link1();  " />
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		 <input name="Submit" type="button" class="right-button08" value="判&nbsp;读&nbsp;指&nbsp;纹"   style="height: 21px; width: 100px"onclick="link2();  " />
-	     &nbsp;&nbsp;&nbsp;&nbsp;
-	     <input type="button" name="Submit2" value="返回" class="right-button02" onclick="window.history.go(-1);" />
+		 <input type="button" name="Submit2" value="返回" class="right-button02" onclick="window.history.go(-1);" />
 	  </td >
 			       
   </tr>
