@@ -6,6 +6,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 algorithm.algorithmOutput FinData = (algorithm.algorithmOutput)request.getAttribute("FinData");
 Customer customer = (Customer)request.getAttribute("customer");
+
+if(customer == null) {
+	%><h1>请先打开客户记录</h1><%
+	return;
+}
+
 int userid = customer.getUserid();
 
 if (FinData == null) {
@@ -97,7 +103,7 @@ function unselectAll(){
 }
 
 function openlist(){
-    document.getElementById("fom").action="CollectS";
+    document.getElementById("fom").action="/FPC/files/MyCustomerDataView.jsp";
    document.getElementById("fom").submit();
 }
 function interAnaly(){
