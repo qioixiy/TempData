@@ -12,10 +12,13 @@ import java.util.Map;
 
 import com.xxx.db.jdbc;
 import com.xxx.utils.ComputeResult;
+import com.xxx.utils.TypeUtil;
 import com.xxx.utils.algorithm;
+import com.xxx.utils.TypeUtil.SMSModel;
 
 import cn.fingerdata.bean.Customer;
 import cn.fingerdata.dao.impl.CustomerDaoImpl;
+import net.sf.json.JSONObject;
 
 public class GenTableAllData {
 	class DataShujuZongbiao {
@@ -267,14 +270,15 @@ public class GenTableAllData {
 		DataChengrenBaobiao mDataChengrenBaobiao = new DataChengrenBaobiao();
 
 		// 个人档案
-		mDataChengrenBaobiao.bianhao = "";
-		mDataChengrenBaobiao.xingming = "";
-		mDataChengrenBaobiao.xingbie = "";
-		mDataChengrenBaobiao.chushengnianyue = "";
-		mDataChengrenBaobiao.xingzuo = "";
-		mDataChengrenBaobiao.lianxidianhua = "";
-		mDataChengrenBaobiao.dianziyouxiang = "";
-		mDataChengrenBaobiao.lianxidizhi = "";
+		mDataChengrenBaobiao.bianhao = String.valueOf(mCustomer.getUserid());
+		mDataChengrenBaobiao.xingming = mCustomer.getName();
+		mDataChengrenBaobiao.xingbie = mCustomer.getGender();
+		String birthday = mCustomer.getBirthday();
+		mDataChengrenBaobiao.chushengnianyue = birthday.split("-")[0] + "年" + birthday.split("-")[1] + "月";
+		mDataChengrenBaobiao.xingzuo = mCustomer.getConstellation();
+		mDataChengrenBaobiao.lianxidianhua = mCustomer.getPhone();
+		mDataChengrenBaobiao.dianziyouxiang = mCustomer.getMSN();
+		mDataChengrenBaobiao.lianxidizhi = mCustomer.getAddress();
 		// 先天学习潜能
 		mDataChengrenBaobiao.xiantianxuexiqianneng_fenxi = "";
 		// 操作敏锐度 Atd
@@ -324,6 +328,9 @@ public class GenTableAllData {
 		mDataChengrenBaobiao.gexingtezhi_2_8 = "";
 		mDataChengrenBaobiao.gexingtezhi_2_9 = "";
 		mDataChengrenBaobiao.gexingtezhi_2_10 = "";
+		
+		//System.out.println(JSONObject.fromObject(mDataChengrenBaobiao).toString());
+		 System.out.println(TypeUtil.typeToString("mDataChengrenBaobiao", mDataChengrenBaobiao));
 
 		return mDataChengrenBaobiao;
 	}
@@ -549,72 +556,6 @@ public class GenTableAllData {
 		dataMap.put("xx58", mDataChengrenBaobiao.gexingtezhi_2_9);
 		dataMap.put("xx59", mDataChengrenBaobiao.gexingtezhi_2_10);
 		
-		dataMap.put("xx0", mCustomer.getName());
-		dataMap.put("xx1", mCustomer.getGender());
-		String birthday = mCustomer.getBirthday();
-		String birthday_year = birthday.split("-")[0];
-		String birthday_mouth = birthday.split("-")[1];
-
-		dataMap.put("xx2", "星座");
-		dataMap.put("xx3", birthday_year);
-		dataMap.put("xx4", birthday_mouth);
-		
-		dataMap.put("xx5", output.L1temp);
-		dataMap.put("xx6", output.L2temp);
-		dataMap.put("xx7", output.L3temp);
-		dataMap.put("xx8", output.L4temp);
-		dataMap.put("xx9", output.L5temp);
-		dataMap.put("xx10", output.R1temp);
-		dataMap.put("xx11", output.R2temp);
-		dataMap.put("xx12", output.R3temp);
-		dataMap.put("xx13", output.R4temp);
-		dataMap.put("xx14", output.R5temp);
-		dataMap.put("xx15", "xx");
-		dataMap.put("xx16", "xx");
-		dataMap.put("xx17", output.reason1 + "/" + output.Sensibility1);
-		dataMap.put("xx18", output.reason2 + "/" + output.Sensibility2);
-		dataMap.put("xx19", output.reason3 + "/" + output.Sensibility3);
-		dataMap.put("xx20", output.reason4 + "/" + output.Sensibility4);
-		dataMap.put("xx21", output.reason5 + "/" + output.Sensibility5);
-		dataMap.put("xx22", "xx");
-		dataMap.put("xx23", "xx");
-		dataMap.put("xx24", "xx");
-		dataMap.put("xx25", "xx");
-		dataMap.put("xx26", "xx");
-		dataMap.put("xx27", "xx");
-		dataMap.put("xx28", "xx");
-		dataMap.put("xx29", "xx");
-		dataMap.put("xx30", "xx");
-		dataMap.put("xx31", "xx");
-		dataMap.put("xx32", "xx");
-		dataMap.put("xx33", "xx");
-		dataMap.put("xx34", "xx");
-		dataMap.put("xx35", "xx");
-		dataMap.put("xx36", "xx");
-		dataMap.put("xx37", "xx");
-		dataMap.put("xx38", "xx");
-		dataMap.put("xx39", "xx");
-		dataMap.put("xx40", "xx");
-		dataMap.put("xx41", "xx");
-		dataMap.put("xx42", "xx");
-		dataMap.put("xx43", "xx");
-		dataMap.put("xx44", "xx");
-		dataMap.put("xx45", "xx");
-		dataMap.put("xx46", "xx");
-		dataMap.put("xx47", "xx");
-		dataMap.put("xx48", "xx");
-		dataMap.put("xx49", "xx");
-		dataMap.put("xx50", "xx");
-		dataMap.put("xx51", "xx");
-		dataMap.put("xx52", "xx");
-		dataMap.put("xx53", "xx");
-		dataMap.put("xx54", "xx");
-		dataMap.put("xx55", "xx");
-		dataMap.put("xx56", "xx");
-		dataMap.put("xx57", "xx");
-		dataMap.put("xx58", "xx");
-		dataMap.put("xx59", "xx");
-
 		MDoc mdoc = new MDoc();
 		try {
 			String name = path + "/成人报表.doc";
