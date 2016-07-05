@@ -710,33 +710,33 @@ public class algorithm {
 		retOut.AuditorySense = 100 * (ALn[4] + ARn[4]) / (ALn[3] + ARn[3] + ALn[4] + ARn[4] + ALn[5] + ARn[5]);
 		retOut.Somatosensory = 100 * (ALn[3] + ARn[3]) / (ALn[3] + ARn[3] + ALn[4] + ARn[4] + ALn[5] + ARn[5]);
 
-		retOut.intensityL1 = (float)(Math.round(retOut.intensityL1*1000))/1000; // 强度
-		retOut.intensityL2 = (float)(Math.round(retOut.intensityL2*1000))/1000;
-		retOut.intensityL3 = (float)(Math.round(retOut.intensityL3*1000))/1000;
-		retOut.intensityL4 = (float)(Math.round(retOut.intensityL4*1000))/1000;
-		retOut.intensityL5 = (float)(Math.round(retOut.intensityL5*1000))/1000;
-		retOut.intensityR1 = (float)(Math.round(retOut.intensityR1*1000))/1000;
-		retOut.intensityR2 = (float)(Math.round(retOut.intensityR2*1000))/1000;
-		retOut.intensityR3 = (float)(Math.round(retOut.intensityR3*1000))/1000;
-		retOut.intensityR4 = (float)(Math.round(retOut.intensityR4*1000))/1000;
-		retOut.intensityR5 = (float)(Math.round(retOut.intensityR5*1000))/1000;
-		retOut.LeftBrain = (float)(Math.round(retOut.LeftBrain*1000))/1000;// 左脑
-		retOut.RightBrain = (float)(Math.round(retOut.RightBrain*1000))/1000;// 右脑
-		retOut.reason1 = (float)(Math.round(retOut.reason1*1000))/1000;// 理性
-		retOut.reason2 = (float)(Math.round(retOut.reason2*1000))/1000;
-		retOut.reason3 = (float)(Math.round(retOut.reason3*1000))/1000;
-		retOut.reason4 = (float)(Math.round(retOut.reason4*1000))/1000;
-		retOut.reason5 = (float)(Math.round(retOut.reason5*1000))/1000;
-		retOut.Sensibility1 = (float)(Math.round(retOut.Sensibility1*1000))/1000;// 感性
-		retOut.Sensibility2 = (float)(Math.round(retOut.Sensibility2*1000))/1000;
-		retOut.Sensibility3 = (float)(Math.round(retOut.Sensibility3*1000))/1000;
-		retOut.Sensibility4 = (float)(Math.round(retOut.Sensibility4*1000))/1000;
-		retOut.Sensibility5 = (float)(Math.round(retOut.Sensibility5*1000))/1000;
-		retOut.motivation = (float)(Math.round(retOut.motivation*1000))/1000;// 动机
-		retOut.Idea = (float)(Math.round(retOut.Idea*1000))/1000;// 构思
-		retOut.Visual = (float)(Math.round(retOut.Visual*1000))/1000;// 视觉
-		retOut.AuditorySense = (float)(Math.round(retOut.AuditorySense*1000))/1000;// 听觉
-		retOut.Somatosensory = (float)(Math.round(retOut.Somatosensory*1000))/1000;// 体觉
+		retOut.intensityL1 = GetAffinityValue(retOut.intensityL1*1000); // 强度
+		retOut.intensityL2 = GetAffinityValue(retOut.intensityL2*1000);
+		retOut.intensityL3 = GetAffinityValue(retOut.intensityL3*1000);
+		retOut.intensityL4 = GetAffinityValue(retOut.intensityL4*1000);
+		retOut.intensityL5 = GetAffinityValue(retOut.intensityL5*1000);
+		retOut.intensityR1 = GetAffinityValue(retOut.intensityR1*1000);
+		retOut.intensityR2 = GetAffinityValue(retOut.intensityR2*1000);
+		retOut.intensityR3 = GetAffinityValue(retOut.intensityR3*1000);
+		retOut.intensityR4 = GetAffinityValue(retOut.intensityR4*1000);
+		retOut.intensityR5 = GetAffinityValue(retOut.intensityR5*1000);
+		retOut.LeftBrain = GetAffinityValue(retOut.LeftBrain*1000);// 左脑
+		retOut.RightBrain = GetAffinityValue(retOut.RightBrain*1000);// 右脑
+		retOut.reason1 = GetAffinityValue(retOut.reason1*1000);// 理性
+		retOut.reason2 = GetAffinityValue(retOut.reason2*1000);
+		retOut.reason3 = GetAffinityValue(retOut.reason3*1000);
+		retOut.reason4 = GetAffinityValue(retOut.reason4*1000);
+		retOut.reason5 = GetAffinityValue(retOut.reason5*1000);
+		retOut.Sensibility1 = GetAffinityValue(retOut.Sensibility1*1000);// 感性
+		retOut.Sensibility2 = GetAffinityValue(retOut.Sensibility2*1000);
+		retOut.Sensibility3 = GetAffinityValue(retOut.Sensibility3*1000);
+		retOut.Sensibility4 = GetAffinityValue(retOut.Sensibility4*1000);
+		retOut.Sensibility5 = GetAffinityValue(retOut.Sensibility5*1000);
+		retOut.motivation = GetAffinityValue(retOut.motivation*1000);// 动机
+		retOut.Idea = GetAffinityValue(retOut.Idea*1000);// 构思
+		retOut.Visual = (retOut.Visual*1000);// 视觉
+		retOut.AuditorySense = (retOut.AuditorySense*1000);// 听觉
+		retOut.Somatosensory = (retOut.Somatosensory*1000);// 体觉
 
 		/*
 		1.内省智能：R1
@@ -962,6 +962,12 @@ public class algorithm {
 		return retOut;
 	}
 
+	public float GetAffinityValue(float f)
+	{
+		float ret = 0;
+		ret = (float)(Math.round(f * 100))/100;
+		return ret;
+	}
 	public static int FindOrder(float fArray[], float v)
 	{
 		System.out.println("+++++++++++++++" + v);

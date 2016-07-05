@@ -225,7 +225,7 @@ public class GenTableAllData {
 		DataShujuZongbiao mDataShujuZongbiao = new DataShujuZongbiao();
 		mDataShujuZongbiao.xingming = mCustomer.getName();
 		mDataShujuZongbiao.xingbie = mCustomer.getGender();
-		mDataShujuZongbiao.xingzuo = "星座";
+		mDataShujuZongbiao.xingzuo = mCustomer.getConstellation();
 		String birthday = mCustomer.getBirthday();
 		mDataShujuZongbiao.chushengnianyue_nian = birthday.split("-")[0];
 		mDataShujuZongbiao.chushengnianyue_yue = birthday.split("-")[1];
@@ -239,8 +239,8 @@ public class GenTableAllData {
 		mDataShujuZongbiao.FinCode_R3 = output.R3temp;
 		mDataShujuZongbiao.FinCode_R4 = output.R4temp;
 		mDataShujuZongbiao.FinCode_R5 = output.R5temp;
-		mDataShujuZongbiao.ATD_L = "45";
-		mDataShujuZongbiao.ATD_R = "45";
+		mDataShujuZongbiao.ATD_L = mCustomer.getLeftATD();
+		mDataShujuZongbiao.ATD_R = mCustomer.getRightATD();
 		mDataShujuZongbiao.lixingganxing_duiren = output.reason1 + "/" + output.Sensibility1;
 		mDataShujuZongbiao.lixingganxing_duishi = output.reason2 + "/" + output.Sensibility2;
 		mDataShujuZongbiao.lixingganxing_duizhiti = output.reason3 + "/" + output.Sensibility3;
