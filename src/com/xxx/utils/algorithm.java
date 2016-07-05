@@ -61,6 +61,7 @@ public class algorithm {
 		public float intensityR5;
 		public float LeftBrain;// 左脑
 		public float RightBrain;// 右脑
+		// 细化
 		public float reason1;// 理性
 		public float reason2;
 		public float reason3;
@@ -71,8 +72,10 @@ public class algorithm {
 		public float Sensibility3;
 		public float Sensibility4;
 		public float Sensibility5;
+		// 学习动机
 		public float motivation;// 动机
 		public float Idea;// 构思
+		// 学习风格
 		public float Visual;// 视觉
 		public float AuditorySense;// 听觉
 		public float Somatosensory;// 体觉
