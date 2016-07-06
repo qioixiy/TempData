@@ -268,7 +268,8 @@ public class GenTableAllData {
 	private DataChengrenBaobiao makeDataChengrenBaobiao(Customer mCustomer, algorithm.algorithmOutput output)
 	{
 		DataChengrenBaobiao mDataChengrenBaobiao = new DataChengrenBaobiao();
-
+		MakeDetail mMakeDetail = new MakeDetail(mCustomer, output);
+		
 		// 个人档案
 		mDataChengrenBaobiao.bianhao = String.valueOf(mCustomer.getUserid());
 		mDataChengrenBaobiao.xingming = mCustomer.getName();
@@ -280,10 +281,10 @@ public class GenTableAllData {
 		mDataChengrenBaobiao.dianziyouxiang = mCustomer.getMSN();
 		mDataChengrenBaobiao.lianxidizhi = mCustomer.getAddress();
 		// 先天学习潜能
-		mDataChengrenBaobiao.xiantianxuexiqianneng_fenxi = "";
+		mDataChengrenBaobiao.xiantianxuexiqianneng_fenxi = mMakeDetail.Get_xiantianxuexiqianneng_fenxi();
 		// 操作敏锐度 Atd
-		mDataChengrenBaobiao.caozuominruidu_zuo = "";
-		mDataChengrenBaobiao.caozuominruidu_you = "";
+		mDataChengrenBaobiao.caozuominruidu_zuo = mCustomer.getLeftATD();
+		mDataChengrenBaobiao.caozuominruidu_you = mCustomer.getRightATD();
 		mDataChengrenBaobiao.caozuominruidu_fenxi = "";
 		// 思维习惯
 		mDataChengrenBaobiao.siweixiguan_fenxi_duiren = "";
