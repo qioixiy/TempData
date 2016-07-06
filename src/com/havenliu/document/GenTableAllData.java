@@ -285,7 +285,7 @@ public class GenTableAllData {
 		// 操作敏锐度 Atd
 		mDataChengrenBaobiao.caozuominruidu_zuo = mCustomer.getLeftATD();
 		mDataChengrenBaobiao.caozuominruidu_you = mCustomer.getRightATD();
-		mDataChengrenBaobiao.caozuominruidu_fenxi = "";
+		mDataChengrenBaobiao.caozuominruidu_fenxi = mMakeDetail.Get_caozuominruidu_fenxi();;
 		// 思维习惯
 		mDataChengrenBaobiao.siweixiguan_fenxi_duiren = "";
 		mDataChengrenBaobiao.siweixiguan_fenxi_duishi = "";
