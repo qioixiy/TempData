@@ -71,8 +71,179 @@ public class MakeDetail {
 				Map<String, Object> map = new HashMap<String, Object>();
 				map.put("left", left);
 				map.put("right", right);
-				System.out.println(DyMethodUtil.invokeMethod(condition, map));
-				ret = rs.getString("fenxi");
+				Object r = DyMethodUtil.invokeMethod(condition, map);
+				System.out.println(r);
+				if ((boolean)r == true) {
+					ret = rs.getString("fenxi");
+					break;
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ret;
+	}
+
+	//思维习惯
+	public String Get_siweixiguan_fenxi_duiren() {
+		float lixing = Float.valueOf(output.reason1);
+		float ganxing = Float.valueOf(output.Sensibility1);
+		System.out.println("lixing:" + lixing + ",ganxing:" + ganxing);
+		
+		String ret = null;
+		Connection conn = BaseDataBaseDao.getConnection();
+		Statement stmt;
+		try {
+			stmt = conn.createStatement();
+
+			String sql = String.format("SELECT * FROM `doc_siweixiguan` WHERE `type` = '成人' AND `类别` = '对人' ");
+			System.out.println(sql);
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()) { // loop
+				String condition = rs.getString("condition");
+				System.out.println("condition:" + condition);
+				Map<String, Object> map = new HashMap<String, Object>();
+				map.put("lixing", lixing);
+				map.put("ganxing", ganxing);
+				Object r = DyMethodUtil.invokeMethod(condition, map);
+				System.out.println(r);
+				if ((boolean)r == true) {
+					ret = rs.getString("分析");
+					break;
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ret;
+	}
+	public String Get_siweixiguan_fenxi_duishi() {
+		float lixing = Float.valueOf(output.reason2);
+		float ganxing = Float.valueOf(output.Sensibility2);
+		System.out.println("lixing:" + lixing + ",ganxing:" + ganxing);
+		
+		String ret = null;
+		Connection conn = BaseDataBaseDao.getConnection();
+		Statement stmt;
+		try {
+			stmt = conn.createStatement();
+
+			String sql = String.format("SELECT * FROM `doc_siweixiguan` WHERE `type` = '成人' AND `类别` = '对事' ");
+			System.out.println(sql);
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()) { // loop
+				String condition = rs.getString("condition");
+				System.out.println("condition:" + condition);
+				Map<String, Object> map = new HashMap<String, Object>();
+				map.put("lixing", lixing);
+				map.put("ganxing", ganxing);
+				Object r = DyMethodUtil.invokeMethod(condition, map);
+				System.out.println(r);
+				if ((boolean)r == true) {
+					ret = rs.getString("分析");
+					break;
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ret;
+	}
+	public String Get_siweixiguan_fenxi_duizhiti() {
+		float lixing = Float.valueOf(output.reason3);
+		float ganxing = Float.valueOf(output.Sensibility4);
+		System.out.println("lixing:" + lixing + ",ganxing:" + ganxing);
+		
+		String ret = null;
+		Connection conn = BaseDataBaseDao.getConnection();
+		Statement stmt;
+		try {
+			stmt = conn.createStatement();
+
+			String sql = String.format("SELECT * FROM `doc_siweixiguan` WHERE `type` = '成人' AND `类别` = '对肢体' ");
+			System.out.println(sql);
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()) { // loop
+				String condition = rs.getString("condition");
+				System.out.println("condition:" + condition);
+				Map<String, Object> map = new HashMap<String, Object>();
+				map.put("lixing", lixing);
+				map.put("ganxing", ganxing);
+				Object r = DyMethodUtil.invokeMethod(condition, map);
+				System.out.println(r);
+				if ((boolean)r == true) {
+					ret = rs.getString("分析");
+					break;
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ret;
+	}
+	public String Get_siweixiguan_fenxi_duishengyin() {
+		float lixing = Float.valueOf(output.reason4);
+		float ganxing = Float.valueOf(output.Sensibility4);
+		System.out.println("SELECT * FROM `doc_siweixiguan` WHERE 1");
+		
+		String ret = null;
+		Connection conn = BaseDataBaseDao.getConnection();
+		Statement stmt;
+		try {
+			stmt = conn.createStatement();
+
+			String sql = String.format("SELECT * FROM `doc_siweixiguan` WHERE `type` = '成人' AND `类别` = '对声音' ");
+			System.out.println(sql);
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()) { // loop
+				String condition = rs.getString("condition");
+				System.out.println("condition:" + condition);
+				Map<String, Object> map = new HashMap<String, Object>();
+				map.put("lixing", lixing);
+				map.put("ganxing", ganxing);
+				Object r = DyMethodUtil.invokeMethod(condition, map);
+				System.out.println(r);
+				if ((boolean)r == true) {
+					ret = rs.getString("分析");
+					break;
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ret;
+	}
+	public String Get_siweixiguan_fenxi_duituxiang() {
+		float lixing = Float.valueOf(output.reason5);
+		float ganxing = Float.valueOf(output.Sensibility5);
+		System.out.println("lixing:" + lixing + ",ganxing:" + ganxing);
+		
+		String ret = null;
+		Connection conn = BaseDataBaseDao.getConnection();
+		Statement stmt;
+		try {
+			stmt = conn.createStatement();
+
+			String sql = String.format("SELECT * FROM `doc_siweixiguan` WHERE `type` = '成人' AND `类别` = '对图像' ");
+			System.out.println(sql);
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()) { // loop
+				String condition = rs.getString("condition");
+				System.out.println("condition:" + condition);
+				Map<String, Object> map = new HashMap<String, Object>();
+				map.put("lixing", lixing);
+				map.put("ganxing", ganxing);
+				Object r = DyMethodUtil.invokeMethod(condition, map);
+				System.out.println(r);
+				if ((boolean)r == true) {
+					ret = rs.getString("分析");
+					break;
+				}
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

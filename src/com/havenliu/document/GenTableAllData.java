@@ -287,11 +287,11 @@ public class GenTableAllData {
 		mDataChengrenBaobiao.caozuominruidu_you = mCustomer.getRightATD();
 		mDataChengrenBaobiao.caozuominruidu_fenxi = mMakeDetail.Get_caozuominruidu_fenxi();;
 		// 思维习惯
-		mDataChengrenBaobiao.siweixiguan_fenxi_duiren = "";
-		mDataChengrenBaobiao.siweixiguan_fenxi_duishi = "";
-		mDataChengrenBaobiao.siweixiguan_fenxi_duizhiti = "";
-		mDataChengrenBaobiao.siweixiguan_fenxi_duishengyin = "";
-		mDataChengrenBaobiao.siweixiguan_fenxi_duituxiang = "";
+		mDataChengrenBaobiao.siweixiguan_fenxi_duiren = mMakeDetail.Get_siweixiguan_fenxi_duiren();
+		mDataChengrenBaobiao.siweixiguan_fenxi_duishi = mMakeDetail.Get_siweixiguan_fenxi_duishi();
+		mDataChengrenBaobiao.siweixiguan_fenxi_duizhiti = mMakeDetail.Get_siweixiguan_fenxi_duizhiti();
+		mDataChengrenBaobiao.siweixiguan_fenxi_duishengyin = mMakeDetail.Get_siweixiguan_fenxi_duishengyin();
+		mDataChengrenBaobiao.siweixiguan_fenxi_duituxiang = mMakeDetail.Get_siweixiguan_fenxi_duituxiang();
 		// 先天行为动机
 		mDataChengrenBaobiao.xiantianxingweidongji_mubiao = "";
 		mDataChengrenBaobiao.xiantianxingweidongji_gousi = "";
