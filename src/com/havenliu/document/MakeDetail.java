@@ -251,4 +251,36 @@ public class MakeDetail {
 		}
 		return ret;
 	}
+	
+	public String Get_xiantianxingweidongji_fenxi() {
+		float dongji = Float.valueOf(output.motivation);
+		System.out.println("dongji:" + dongji);
+		
+		String ret = null;
+		Connection conn = BaseDataBaseDao.getConnection();
+		Statement stmt;
+		try {
+			stmt = conn.createStatement();
+
+			String sql = String.format("SELECT * FROM `doc_xingwei_dongji` WHERE `type` = '≥…»À'");
+			System.out.println(sql);
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()) { // loop
+				String condition = rs.getString("condition");
+				System.out.println("condition:" + condition);
+				Map<String, Object> map = new HashMap<String, Object>();
+				map.put("dongji", dongji);
+				Object r = DyMethodUtil.invokeMethod(condition, map);
+				System.out.println(r);
+				if ((boolean)r == true) {
+					ret = rs.getString("fenxi");
+					break;
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ret;
+	}
 }

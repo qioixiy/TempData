@@ -293,9 +293,9 @@ public class GenTableAllData {
 		mDataChengrenBaobiao.siweixiguan_fenxi_duishengyin = mMakeDetail.Get_siweixiguan_fenxi_duishengyin();
 		mDataChengrenBaobiao.siweixiguan_fenxi_duituxiang = mMakeDetail.Get_siweixiguan_fenxi_duituxiang();
 		// 先天行为动机
-		mDataChengrenBaobiao.xiantianxingweidongji_mubiao = "";
-		mDataChengrenBaobiao.xiantianxingweidongji_gousi = "";
-		mDataChengrenBaobiao.xiantianxingweidongji_fenxi = "";
+		mDataChengrenBaobiao.xiantianxingweidongji_mubiao = String.valueOf(output.motivation);
+		mDataChengrenBaobiao.xiantianxingweidongji_gousi = String.valueOf(output.Idea);
+		mDataChengrenBaobiao.xiantianxingweidongji_fenxi = mMakeDetail.Get_xiantianxingweidongji_fenxi();
 		// 先天学习风格
 		mDataChengrenBaobiao.xiantianxuexifengge_shijue = "";
 		mDataChengrenBaobiao.xiantianxuexifengge_tingjue = "";
