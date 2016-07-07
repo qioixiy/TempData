@@ -1460,6 +1460,8 @@ int export_doc(HttpServletRequest request, HttpServletResponse response) {
 			}
 		}
 		response.getWriter().append("");
+		
+		System.gc();
 	}
 
 	/**

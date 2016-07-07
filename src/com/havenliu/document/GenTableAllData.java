@@ -297,12 +297,14 @@ public class GenTableAllData {
 		mDataChengrenBaobiao.xiantianxingweidongji_gousi = String.valueOf(output.Idea);
 		mDataChengrenBaobiao.xiantianxingweidongji_fenxi = mMakeDetail.Get_xiantianxingweidongji_fenxi();
 		// 先天学习风格
-		mDataChengrenBaobiao.xiantianxuexifengge_shijue = "";
-		mDataChengrenBaobiao.xiantianxuexifengge_tingjue = "";
-		mDataChengrenBaobiao.xiantianxuexifengge_tijue = "";
-		mDataChengrenBaobiao.xiantianxuexifengge_leixing = "";
-		mDataChengrenBaobiao.xiantianxuexifengge_fenxi = "";
+		mDataChengrenBaobiao.xiantianxuexifengge_shijue = String.valueOf(output.Visual);
+		mDataChengrenBaobiao.xiantianxuexifengge_tingjue = String.valueOf(output.AuditorySense);
+		mDataChengrenBaobiao.xiantianxuexifengge_tijue = String.valueOf(output.Somatosensory);
+		String [] s = mMakeDetail.Get_xiantianxuexifengge();
+		mDataChengrenBaobiao.xiantianxuexifengge_leixing = s[0];
+		mDataChengrenBaobiao.xiantianxuexifengge_fenxi = s[1];
 		// 个性特质1
+		String ret = mMakeDetail.Get_gexingtezhi1();
 		mDataChengrenBaobiao.gexingtezhi_1_1 = "";
 		mDataChengrenBaobiao.gexingtezhi_1_2 = "";
 		mDataChengrenBaobiao.gexingtezhi_1_3 = "";

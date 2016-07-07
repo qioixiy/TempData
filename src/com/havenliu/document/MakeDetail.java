@@ -283,4 +283,79 @@ public class MakeDetail {
 		}
 		return ret;
 	}
+
+	public String[] Get_xiantianxuexifengge() {
+		float shijue = output.Visual;
+		float tingjue = output.AuditorySense;
+		float tijue = output.Somatosensory;
+		
+		System.out.println("shijue:" + shijue + ",tingjue:" + tingjue + ",tijue:" + tijue);
+		
+		String ret[] = new String[2];
+		Connection conn = BaseDataBaseDao.getConnection();
+		Statement stmt;
+		try {
+			stmt = conn.createStatement();
+
+			String sql = String.format("SELECT * FROM `doc_xuexifengge` WHERE `type` = '≥…»À'");
+			System.out.println(sql);
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()) { // loop
+				String condition = rs.getString("condition");
+				System.out.println("condition:" + condition);
+				Map<String, Object> map = new HashMap<String, Object>();
+				map.put("shijue", shijue);
+				map.put("tingjue", tingjue);
+				map.put("tijue", tijue);
+				Object r = DyMethodUtil.invokeMethod(condition, map);
+				System.out.println(r);
+				if ((boolean)r == true) {
+					ret[0] = rs.getString("fenlei");
+					ret[1] = rs.getString("fenxi"); 
+					break;
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ret;
+	}
+	
+	public String Get_gexingtezhi1() {
+		float shijue = output.Visual;
+		float tingjue = output.AuditorySense;
+		float tijue = output.Somatosensory;
+		
+		System.out.println("shijue:" + shijue + ",tingjue:" + tingjue + ",tijue:" + tijue);
+		
+		String ret = null;
+		Connection conn = BaseDataBaseDao.getConnection();
+		Statement stmt;
+		try {
+			stmt = conn.createStatement();
+
+			String sql = String.format("SELECT * FROM `doc_suoyou_xingge_miaosu` WHERE 1");
+			System.out.println(sql);
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()) { // loop
+				String condition = rs.getString("condition");
+				System.out.println("condition:" + condition);
+				Map<String, Object> map = new HashMap<String, Object>();
+				map.put("shijue", shijue);
+				map.put("tingjue", tingjue);
+				map.put("tijue", tijue);
+				Object r = DyMethodUtil.invokeMethod(condition, map);
+				System.out.println(r);
+				if ((boolean)r == true) {
+					ret = rs.getString("fenlei");
+					break;
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ret;
+	}
 }
