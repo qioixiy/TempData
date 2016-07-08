@@ -222,6 +222,8 @@ public class GenTableAllData {
 		String duoyuanzhineng_ziranganzhinengli_jutibiaoxian;
 		String duoyuanzhineng_ziranganzhinengli_jianyi;
 	}
+
+	MakeDetail mMakeDetail;
 	
 	private DataShujuZongbiao makeDataShujuZongbiao(Customer mCustomer, algorithm.algorithmOutput output)
 	{
@@ -268,7 +270,6 @@ public class GenTableAllData {
 	private DataChengrenBaobiao makeDataChengrenBaobiao(Customer mCustomer, algorithm.algorithmOutput output)
 	{
 		DataChengrenBaobiao mDataChengrenBaobiao = new DataChengrenBaobiao();
-		MakeDetail mMakeDetail = new MakeDetail(mCustomer, output);
 		
 		// 个人档案
 		mDataChengrenBaobiao.bianhao = String.valueOf(mCustomer.getUserid());
@@ -285,22 +286,22 @@ public class GenTableAllData {
 		// 操作敏锐度 Atd
 		mDataChengrenBaobiao.caozuominruidu_zuo = mCustomer.getLeftATD();
 		mDataChengrenBaobiao.caozuominruidu_you = mCustomer.getRightATD();
-		mDataChengrenBaobiao.caozuominruidu_fenxi = mMakeDetail.Get_caozuominruidu_fenxi();;
+		mDataChengrenBaobiao.caozuominruidu_fenxi = mMakeDetail.Get_caozuominruidu_fenxi("成人");
 		// 思维习惯
-		mDataChengrenBaobiao.siweixiguan_fenxi_duiren = mMakeDetail.Get_siweixiguan_fenxi_duiren();
-		mDataChengrenBaobiao.siweixiguan_fenxi_duishi = mMakeDetail.Get_siweixiguan_fenxi_duishi();
-		mDataChengrenBaobiao.siweixiguan_fenxi_duizhiti = mMakeDetail.Get_siweixiguan_fenxi_duizhiti();
-		mDataChengrenBaobiao.siweixiguan_fenxi_duishengyin = mMakeDetail.Get_siweixiguan_fenxi_duishengyin();
-		mDataChengrenBaobiao.siweixiguan_fenxi_duituxiang = mMakeDetail.Get_siweixiguan_fenxi_duituxiang();
+		mDataChengrenBaobiao.siweixiguan_fenxi_duiren = mMakeDetail.Get_siweixiguan_fenxi_duiren("成人");
+		mDataChengrenBaobiao.siweixiguan_fenxi_duishi = mMakeDetail.Get_siweixiguan_fenxi_duishi("成人");
+		mDataChengrenBaobiao.siweixiguan_fenxi_duizhiti = mMakeDetail.Get_siweixiguan_fenxi_duizhiti("成人");
+		mDataChengrenBaobiao.siweixiguan_fenxi_duishengyin = mMakeDetail.Get_siweixiguan_fenxi_duishengyin("成人");
+		mDataChengrenBaobiao.siweixiguan_fenxi_duituxiang = mMakeDetail.Get_siweixiguan_fenxi_duituxiang("成人");
 		// 先天行为动机
 		mDataChengrenBaobiao.xiantianxingweidongji_mubiao = String.valueOf(output.motivation);
 		mDataChengrenBaobiao.xiantianxingweidongji_gousi = String.valueOf(output.Idea);
-		mDataChengrenBaobiao.xiantianxingweidongji_fenxi = mMakeDetail.Get_xiantianxingweidongji_fenxi();
+		mDataChengrenBaobiao.xiantianxingweidongji_fenxi = mMakeDetail.Get_xiantianxingweidongji_fenxi("成人");
 		// 先天学习风格
 		mDataChengrenBaobiao.xiantianxuexifengge_shijue = String.valueOf(output.Visual);
 		mDataChengrenBaobiao.xiantianxuexifengge_tingjue = String.valueOf(output.AuditorySense);
 		mDataChengrenBaobiao.xiantianxuexifengge_tijue = String.valueOf(output.Somatosensory);
-		String [] s = mMakeDetail.Get_xiantianxuexifengge();
+		String [] s = mMakeDetail.Get_xiantianxuexifengge("成人");
 		mDataChengrenBaobiao.xiantianxuexifengge_leixing = s[0];
 		mDataChengrenBaobiao.xiantianxuexifengge_fenxi = s[1];
 		// 个性特质1
@@ -343,36 +344,38 @@ public class GenTableAllData {
 		DataErTongBaobiao mDataErTongBaobiao = new DataErTongBaobiao();
 		
 		// 个人信息
-		mDataErTongBaobiao.bianhao = "";
-		mDataErTongBaobiao.xingming = "";
-		mDataErTongBaobiao.xingbie = "";
-		mDataErTongBaobiao.chushengnianyue = "";
-		mDataErTongBaobiao.xingzuo = "";
-		mDataErTongBaobiao.lianxidianhua = "";
-		mDataErTongBaobiao.dianziyouxiang = "";
-		mDataErTongBaobiao.lianxidizhi = "";
+		mDataErTongBaobiao.bianhao = String.valueOf(mCustomer.getUserid());;
+		mDataErTongBaobiao.xingming = mCustomer.getName();;
+		mDataErTongBaobiao.xingbie = mCustomer.getGender();
+		String birthday = mCustomer.getBirthday();
+		mDataErTongBaobiao.chushengnianyue = birthday.split("-")[0] + "年" + birthday.split("-")[1] + "月";
+		mDataErTongBaobiao.xingzuo = mCustomer.getConstellation();
+		mDataErTongBaobiao.lianxidianhua = mCustomer.getPhone();
+		mDataErTongBaobiao.dianziyouxiang = mCustomer.getMSN();
+		mDataErTongBaobiao.lianxidizhi = mCustomer.getAddress();
 		// 先天学习潜能
-		mDataErTongBaobiao.xiantianxuexiqianneng_fenxi = "";
+		mDataErTongBaobiao.xiantianxuexiqianneng_fenxi = mMakeDetail.Get_xiantianxuexiqianneng_fenxi();
 		// 操作敏锐度
-		mDataErTongBaobiao.caozuominruidu_zuo = "";
-		mDataErTongBaobiao.caozuominruidu_you = "";
-		mDataErTongBaobiao.caozuominruidu_fenxi = "";
+		mDataErTongBaobiao.caozuominruidu_zuo = mCustomer.getLeftATD();
+		mDataErTongBaobiao.caozuominruidu_you = mCustomer.getRightATD();
+		mDataErTongBaobiao.caozuominruidu_fenxi = mMakeDetail.Get_caozuominruidu_fenxi("儿童");
 		// 思维习惯
-		mDataErTongBaobiao.siweixiguan_fenxi_duiren = "";
-		mDataErTongBaobiao.siweixiguan_fenxi_duishi = "";
-		mDataErTongBaobiao.siweixiguan_fenxi_duizhiti = "";
-		mDataErTongBaobiao.siweixiguan_fenxi_duishengyin = "";
-		mDataErTongBaobiao.siweixiguan_fenxi_duituxiang = "";
+		mDataErTongBaobiao.siweixiguan_fenxi_duiren = mMakeDetail.Get_siweixiguan_fenxi_duiren("儿童");
+		mDataErTongBaobiao.siweixiguan_fenxi_duishi = mMakeDetail.Get_siweixiguan_fenxi_duishi("儿童");
+		mDataErTongBaobiao.siweixiguan_fenxi_duizhiti = mMakeDetail.Get_siweixiguan_fenxi_duizhiti("儿童");
+		mDataErTongBaobiao.siweixiguan_fenxi_duishengyin = mMakeDetail.Get_siweixiguan_fenxi_duishengyin("儿童");
+		mDataErTongBaobiao.siweixiguan_fenxi_duituxiang = mMakeDetail.Get_siweixiguan_fenxi_duituxiang("儿童");
 		// 先天行为动机
-		mDataErTongBaobiao.xiantianxingweidongji_mubiao = "";
-		mDataErTongBaobiao.xiantianxingweidongji_gousi = "";
-		mDataErTongBaobiao.xiantianxingweidongji_fenxi = "";
+		mDataErTongBaobiao.xiantianxingweidongji_mubiao = String.valueOf(output.motivation);
+		mDataErTongBaobiao.xiantianxingweidongji_gousi = String.valueOf(output.Idea);
+		mDataErTongBaobiao.xiantianxingweidongji_fenxi = mMakeDetail.Get_xiantianxingweidongji_fenxi("儿童");
 		// 先天学习风格
-		mDataErTongBaobiao.xiantianxuexifengge_shijue = "";
-		mDataErTongBaobiao.xiantianxuexifengge_tingjue = "";
-		mDataErTongBaobiao.xiantianxuexifengge_tijue = "";
-		mDataErTongBaobiao.xiantianxuexifengge_leixing = "";
-		mDataErTongBaobiao.xiantianxuexifengge_fenxi = "";
+		mDataErTongBaobiao.xiantianxuexifengge_shijue = String.valueOf(output.Visual);
+		mDataErTongBaobiao.xiantianxuexifengge_tingjue = String.valueOf(output.AuditorySense);
+		mDataErTongBaobiao.xiantianxuexifengge_tijue = String.valueOf(output.Somatosensory);
+		String [] s = mMakeDetail.Get_xiantianxuexifengge("儿童");
+		mDataErTongBaobiao.xiantianxuexifengge_leixing = s[0];
+		mDataErTongBaobiao.xiantianxuexifengge_fenxi = s[1];
 		// 个性特质一
 		mDataErTongBaobiao.gexingtezhi_1_1 = "";
 		mDataErTongBaobiao.gexingtezhi_1_2 = "";
@@ -655,6 +658,7 @@ public class GenTableAllData {
 		ComputeResult mComputeResult = new ComputeResult();
 		algorithm.algorithmOutput output = mComputeResult.UseAlgorithm(userid);
 
+		mMakeDetail = new MakeDetail(mCustomer, output);
 		
 		// Data
 		DataShujuZongbiao mDataShujuZongbiao = makeDataShujuZongbiao(mCustomer, output);

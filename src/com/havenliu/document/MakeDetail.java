@@ -51,7 +51,7 @@ public class MakeDetail {
 		return ret;
 	}
 	
-	public String Get_caozuominruidu_fenxi() {
+	public String Get_caozuominruidu_fenxi(String type) {
 		int left = Integer.valueOf(mCustomer.getLeftATD());
 		int right = Integer.valueOf(mCustomer.getRightATD());
 		System.out.println("left:" + left + ",right:" + right);
@@ -62,7 +62,7 @@ public class MakeDetail {
 		try {
 			stmt = conn.createStatement();
 
-			String sql = String.format("SELECT * FROM `doc_caozuo_minruidu` WHERE 1");
+			String sql = String.format("SELECT * FROM `doc_caozuo_minruidu` WHERE `type` = '%s'", type);
 			System.out.println(sql);
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()) { // loop
@@ -86,7 +86,7 @@ public class MakeDetail {
 	}
 
 	//思维习惯
-	public String Get_siweixiguan_fenxi_duiren() {
+	public String Get_siweixiguan_fenxi_duiren(String type) {
 		float lixing = Float.valueOf(output.reason1);
 		float ganxing = Float.valueOf(output.Sensibility1);
 		System.out.println("lixing:" + lixing + ",ganxing:" + ganxing);
@@ -97,7 +97,7 @@ public class MakeDetail {
 		try {
 			stmt = conn.createStatement();
 
-			String sql = String.format("SELECT * FROM `doc_siweixiguan` WHERE `type` = '成人' AND `类别` = '对人' ");
+			String sql = String.format("SELECT * FROM `doc_siweixiguan` WHERE `type` = '%s' AND `类别` = '对人' ", type);
 			System.out.println(sql);
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()) { // loop
@@ -119,7 +119,7 @@ public class MakeDetail {
 		}
 		return ret;
 	}
-	public String Get_siweixiguan_fenxi_duishi() {
+	public String Get_siweixiguan_fenxi_duishi(String type) {
 		float lixing = Float.valueOf(output.reason2);
 		float ganxing = Float.valueOf(output.Sensibility2);
 		System.out.println("lixing:" + lixing + ",ganxing:" + ganxing);
@@ -130,7 +130,7 @@ public class MakeDetail {
 		try {
 			stmt = conn.createStatement();
 
-			String sql = String.format("SELECT * FROM `doc_siweixiguan` WHERE `type` = '成人' AND `类别` = '对事' ");
+			String sql = String.format("SELECT * FROM `doc_siweixiguan` WHERE `type` = '%s' AND `类别` = '对事' ", type);
 			System.out.println(sql);
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()) { // loop
@@ -152,7 +152,7 @@ public class MakeDetail {
 		}
 		return ret;
 	}
-	public String Get_siweixiguan_fenxi_duizhiti() {
+	public String Get_siweixiguan_fenxi_duizhiti(String type) {
 		float lixing = Float.valueOf(output.reason3);
 		float ganxing = Float.valueOf(output.Sensibility4);
 		System.out.println("lixing:" + lixing + ",ganxing:" + ganxing);
@@ -163,7 +163,7 @@ public class MakeDetail {
 		try {
 			stmt = conn.createStatement();
 
-			String sql = String.format("SELECT * FROM `doc_siweixiguan` WHERE `type` = '成人' AND `类别` = '对肢体' ");
+			String sql = String.format("SELECT * FROM `doc_siweixiguan` WHERE `type` = '%s' AND `类别` = '对肢体' ", type);
 			System.out.println(sql);
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()) { // loop
@@ -185,7 +185,7 @@ public class MakeDetail {
 		}
 		return ret;
 	}
-	public String Get_siweixiguan_fenxi_duishengyin() {
+	public String Get_siweixiguan_fenxi_duishengyin(String type) {
 		float lixing = Float.valueOf(output.reason4);
 		float ganxing = Float.valueOf(output.Sensibility4);
 		System.out.println("SELECT * FROM `doc_siweixiguan` WHERE 1");
@@ -196,7 +196,7 @@ public class MakeDetail {
 		try {
 			stmt = conn.createStatement();
 
-			String sql = String.format("SELECT * FROM `doc_siweixiguan` WHERE `type` = '成人' AND `类别` = '对声音' ");
+			String sql = String.format("SELECT * FROM `doc_siweixiguan` WHERE `type` = '%s' AND `类别` = '对声音' ", type);
 			System.out.println(sql);
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()) { // loop
@@ -218,7 +218,7 @@ public class MakeDetail {
 		}
 		return ret;
 	}
-	public String Get_siweixiguan_fenxi_duituxiang() {
+	public String Get_siweixiguan_fenxi_duituxiang(String type) {
 		float lixing = Float.valueOf(output.reason5);
 		float ganxing = Float.valueOf(output.Sensibility5);
 		System.out.println("lixing:" + lixing + ",ganxing:" + ganxing);
@@ -229,7 +229,7 @@ public class MakeDetail {
 		try {
 			stmt = conn.createStatement();
 
-			String sql = String.format("SELECT * FROM `doc_siweixiguan` WHERE `type` = '成人' AND `类别` = '对图像' ");
+			String sql = String.format("SELECT * FROM `doc_siweixiguan` WHERE `type` = '%s' AND `类别` = '对图像' ", type);
 			System.out.println(sql);
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()) { // loop
@@ -252,7 +252,7 @@ public class MakeDetail {
 		return ret;
 	}
 	
-	public String Get_xiantianxingweidongji_fenxi() {
+	public String Get_xiantianxingweidongji_fenxi(String type) {
 		float dongji = Float.valueOf(output.motivation);
 		System.out.println("dongji:" + dongji);
 		
@@ -262,7 +262,7 @@ public class MakeDetail {
 		try {
 			stmt = conn.createStatement();
 
-			String sql = String.format("SELECT * FROM `doc_xingwei_dongji` WHERE `type` = '成人'");
+			String sql = String.format("SELECT * FROM `doc_xingwei_dongji` WHERE `type` = '%s'", type);
 			System.out.println(sql);
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()) { // loop
@@ -284,7 +284,7 @@ public class MakeDetail {
 		return ret;
 	}
 
-	public String[] Get_xiantianxuexifengge() {
+	public String[] Get_xiantianxuexifengge(String type) {
 		float shijue = output.Visual;
 		float tingjue = output.AuditorySense;
 		float tijue = output.Somatosensory;
@@ -297,7 +297,7 @@ public class MakeDetail {
 		try {
 			stmt = conn.createStatement();
 
-			String sql = String.format("SELECT * FROM `doc_xuexifengge` WHERE `type` = '成人'");
+			String sql = String.format("SELECT * FROM `doc_xuexifengge` WHERE `type` = '%s'", type);
 			System.out.println(sql);
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()) { // loop
