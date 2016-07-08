@@ -2,8 +2,36 @@ package com.xxx.utils;
 
 public class algorithm {
 	public enum FINGER_TYPE {
-		Wt, Ws, We, Wc, Wd, Wi, Wp, Rp, Wl, Rl, U, R, Lf, Rf, As, Ae, At, Au, Ar, Wx, Ux, Ax,
+		Wt, Ws, We, Wc, Wd, Wi, Wp, Rp, Wl, Rl, U , R , Lf, Rf, As, Ae, At, Au, Ar, Wx, Ux, Ax, // old 
+	  //Wt, Ws, We, Wc, Wd, Wi, Wu, Wr, Uc, Rl, Lu, Lr, Lf, Rf, As, Ae, At, Au, Ar, Wx, Xw, Xa, Mf, Ma // new ?
 		//Ws, Wt, We, Wc, Wd, Wi, Wu, UC, Wr, Rc, Lu, Lr, Rf, Lf, As, Ae, At, AU, Ar, Xw, Xu, Xa, Mf, Ma
+		
+		/*
+		1.	螺旋斗(Ws)
+		2.	靶心斗(Wt)
+		3.	伸长斗(We)
+		4.	双斗(Wc)
+		5.	双箕(Wd)
+		6.	内破斗(Wi)
+		7.	孔雀斗(Wp)，改为：尺偏斗(Wu)（
+		8.	侧向斗(wl),改为，闭口尺箕(UC)（
+		9.	反孔雀(Rp),改为：桡偏斗(Wr)
+		10.	反侧向(Rc)改为：闭口桡箕（Rc）
+		11.	正箕（U）改为:Lu
+		12.	反箕(R)改为：Lr
+		13.	反下降箕(Rf)改为，桡下降箕（Rf）（
+		14.	下降箕(Lf)改为,尺下降箕（Lf）
+		15.	简单孤(As)，
+		16.	围住孤(Ae) 
+		17.	帐弧(At)   
+		18.	孤带正箕(AU)    
+		19.	孤带反箕(Ar)   
+		20.	斗变形(Ux)改为，斗变形(Xw )
+		21.	箕变形（UX）改为 箕变形 (Xu)
+		22.	孤变形(AX )改为，孤变形(Xa ) 
+		23.	无形纹(Mf)
+		24.	断指纹(Ma)
+*/
 	}
 
 	public class algorithmInput {
@@ -79,6 +107,7 @@ public class algorithm {
 		public float Visual;// 视觉
 		public float AuditorySense;// 听觉
 		public float Somatosensory;// 体觉
+		
 		public float N1;//1.内省智能：R1
 		public float N2;//2.自然观察:  R5
 		public float N3;//3.人际智能：L1
