@@ -775,7 +775,8 @@ public class algorithm {
 		fArray[index++] = 0.50526f * (input.mFingerDataRight[0].RcBig / input.mFingerDataRight[0].RcSmall + 1);
 		fArray[index++] = 0.07214f * input.mFingerDataRight[0].RcBig;
 		fArray[index++] = 1.060f;
-		retOut.I1 = FindOrder(fArray, retOut.N1 = fArray[mFINGER_TYPE.ordinal()]);
+		retOut.N1 = GetAffinityValue(fArray[mFINGER_TYPE.ordinal()]);
+		retOut.I1 = FindOrder(fArray, retOut.N1);
 		//2,R5
 		mFINGER_TYPE = input.mFingerDataRight[4].mFINGER_TYPE;
 		index = 0;
@@ -801,7 +802,8 @@ public class algorithm {
 		fArray[index++] =0.52528f*(input.mFingerDataRight[4].RcBig/input.mFingerDataRight[4].RcSmall+1);
 		fArray[index++] =0.10500f*input.mFingerDataRight[4].RcBig;
 		fArray[index++] =1.102f ;
-		retOut.I2 = FindOrder(fArray, retOut.N2 = fArray[mFINGER_TYPE.ordinal()]);
+		retOut.N2 = GetAffinityValue(fArray[mFINGER_TYPE.ordinal()]);
+		retOut.I2 = FindOrder(fArray, retOut.N2);
 		//3,L1
 		mFINGER_TYPE = input.mFingerDataLeft[0].mFINGER_TYPE;
 		index = 0;
@@ -827,7 +829,8 @@ public class algorithm {
 		fArray[index++] = 0.50526f*(input.mFingerDataLeft[0].RcBig/input.mFingerDataLeft[0].RcSmall+1);
 		fArray[index++] = 0.07214f*input.mFingerDataLeft[0].RcBig;
 		fArray[index++] = 1.111f ;
-		retOut.I3 = FindOrder(fArray, retOut.N3 = fArray[mFINGER_TYPE.ordinal()]);
+		retOut.N3 = GetAffinityValue(fArray[mFINGER_TYPE.ordinal()]);
+		retOut.I3 = FindOrder(fArray, retOut.N3);
 		//4,R4
 		mFINGER_TYPE = input.mFingerDataRight[3].mFINGER_TYPE;
 		index = 0;
@@ -853,7 +856,8 @@ public class algorithm {
 		fArray[index++] =	0.51979f*(input.mFingerDataRight[3].RcBig/input.mFingerDataRight[3].RcSmall+1);
 		fArray[index++] =	0.09455f*input.mFingerDataRight[3].RcBig;
 		fArray[index++] =	1.092f ;
-		retOut.I4 = FindOrder(fArray, retOut.N4 = fArray[mFINGER_TYPE.ordinal()]);
+		retOut.N4 = GetAffinityValue(fArray[mFINGER_TYPE.ordinal()]);
+		retOut.I4 = FindOrder(fArray, retOut.N4);
 		//5,R2
 		mFINGER_TYPE = input.mFingerDataRight[1].mFINGER_TYPE;
 		index = 0;
@@ -879,7 +883,8 @@ public class algorithm {
 		fArray[index++] =0.51003f*(input.mFingerDataRight[1].RcBig/input.mFingerDataRight[1].RcSmall+1);
 		fArray[index++] =0.07846f*input.mFingerDataRight[1].RcBig;
 		fArray[index++] =1.071f ;
-		retOut.I5 = FindOrder(fArray, retOut.N5 = fArray[mFINGER_TYPE.ordinal()]);
+		retOut.N5 = GetAffinityValue(fArray[mFINGER_TYPE.ordinal()]);
+		retOut.I5 = FindOrder(fArray, retOut.N5);
 		//6,L4
 		mFINGER_TYPE = input.mFingerDataLeft[3].mFINGER_TYPE;
 		index = 0;
@@ -905,7 +910,8 @@ public class algorithm {
 		fArray[index++] =0.51979f*(input.mFingerDataLeft[3].RcBig/input.mFingerDataLeft[3].RcSmall+1);
 		fArray[index++] =0.09455f*input.mFingerDataLeft[3].RcBig;
 		fArray[index++] =1.144f;
-		retOut.I6 = FindOrder(fArray, retOut.N6 = fArray[mFINGER_TYPE.ordinal()]);
+		retOut.N6 = GetAffinityValue(fArray[mFINGER_TYPE.ordinal()]);
+		retOut.I6 = FindOrder(fArray, retOut.N6);
 		//7,L2
 		mFINGER_TYPE = input.mFingerDataLeft[1].mFINGER_TYPE;
 		index = 0;
@@ -931,7 +937,8 @@ public class algorithm {
 		fArray[index++] = 0.51003f*(input.mFingerDataLeft[1].RcBig/input.mFingerDataLeft[1].RcSmall+1);
 		fArray[index++] = 0.07846f*input.mFingerDataLeft[1].RcBig;
 		fArray[index++] = 1.122f ;
-		retOut.I7 = FindOrder(fArray, retOut.N7 = fArray[mFINGER_TYPE.ordinal()]);
+		retOut.N7 = GetAffinityValue(fArray[mFINGER_TYPE.ordinal()]);
+		retOut.I7 = FindOrder(fArray, retOut.N7);
 		//8,R3
 		mFINGER_TYPE = input.mFingerDataRight[2].mFINGER_TYPE;
 		index = 0;
@@ -957,7 +964,8 @@ public class algorithm {
 		fArray[index++] =	0.51474f*(input.mFingerDataRight[2].RcBig/input.mFingerDataRight[2].RcSmall+1);
 		fArray[index++] =	0.08583f*input.mFingerDataRight[2].RcBig;
 		fArray[index++] =	1.081f;
-		retOut.I8 = FindOrder(fArray, retOut.N8 = fArray[mFINGER_TYPE.ordinal()]);
+		retOut.N8 = GetAffinityValue(fArray[mFINGER_TYPE.ordinal()]);
+		retOut.I8 = FindOrder(fArray, retOut.N8);
 
 		return retOut;
 	}
