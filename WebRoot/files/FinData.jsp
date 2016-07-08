@@ -304,9 +304,9 @@ function gen_word_pkg() {
 				              </tr>
 				                <tr  height="40"   bordercolor="#8FBC8F"  align="center" >
 				                 <td  width="12%"   bgcolor="#5F9EA0">角度</td>
-				                 <td  width="44%" >&nbsp;</td>
+				                 <td  width="44%" ><%=customer.getLeftATD()%></td>
 				                
-				                 <td  width="44%"  >&nbsp;</td>
+				                 <td  width="44%"  ><%=customer.getRightATD()%></td>
 				               
 				              </tr>
 				               <tr  height="25"   bordercolor="#8FBC8F"  align="center"  >
@@ -332,9 +332,9 @@ function gen_word_pkg() {
 				              </tr>
 				                <tr  height="40"   bordercolor="#8FBC8F"  align="center"  >
 				                 <td  width="12%"  bgcolor="#5F9EA0">百分比</td>
-				                 <td  width="44%" >&nbsp;</td>
+				                 <td  width="44%" ><%=FinData.LeftBrain%></td>
 				                 
-				                 <td  width="44%" >&nbsp;</td>
+				                 <td  width="44%" ><%=FinData.RightBrain%></td>
 				               
 				              </tr>
 				               <tr  height="25"   bordercolor="#8FBC8F"  align="center"  >
