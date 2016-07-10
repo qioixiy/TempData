@@ -1,18 +1,18 @@
 <%@page language="java" contentType="application/x-msdownload"
-	pageEncoding="gb2312"
+	pageEncoding="UTF-8"
 	import="java.net.URLEncoder"
 	import="java.io.FileInputStream"%>
 <%
-	//¹ØÓÚÎÄ¼şÏÂÔØÊ±²ÉÓÃÎÄ¼şÁ÷Êä³öµÄ·½Ê½´¦Àí£º 
-	//¼ÓÉÏresponse.reset()£¬²¢ÇÒËùÓĞµÄ£¥>ºóÃæ²»Òª»»ĞĞ£¬°üÀ¨×îºóÒ»¸ö£» 
+	//å…³äºæ–‡ä»¶ä¸‹è½½æ—¶é‡‡ç”¨æ–‡ä»¶æµè¾“å‡ºçš„æ–¹å¼å¤„ç†ï¼š 
+	//åŠ ä¸Šresponse.reset()ï¼Œå¹¶ä¸”æ‰€æœ‰çš„ï¼…>åé¢ä¸è¦æ¢è¡Œï¼ŒåŒ…æ‹¬æœ€åä¸€ä¸ªï¼› 
 
-	response.reset();//¿ÉÒÔ¼ÓÒ²¿ÉÒÔ²»¼Ó 
+	response.reset();//å¯ä»¥åŠ ä¹Ÿå¯ä»¥ä¸åŠ  
 	response.setContentType("application/x-download");
 
-	//application.getRealPath("/main/mvplayer/CapSetup.msi");»ñÈ¡µÄÎïÀíÂ·¾¶ 
+	//application.getRealPath("/main/mvplayer/CapSetup.msi");è·å–çš„ç‰©ç†è·¯å¾„ 
 
-	String filedownload = "Ïë°ì·¨ÕÒµ½ÒªÌá¹©ÏÂÔØµÄÎÄ¼şµÄÎïÀíÂ·¾¶£«ÎÄ¼şÃû";
-	String filedisplay = "¸øÓÃ»§Ìá¹©µÄÏÂÔØÎÄ¼şÃû";
+	String filedownload = "æƒ³åŠæ³•æ‰¾åˆ°è¦æä¾›ä¸‹è½½çš„æ–‡ä»¶çš„ç‰©ç†è·¯å¾„ï¼‹æ–‡ä»¶å";
+	String filedisplay = "ç»™ç”¨æˆ·æä¾›çš„ä¸‹è½½æ–‡ä»¶å";
 	filedisplay = URLEncoder.encode(filedisplay, "UTF-8");
 	response.addHeader("Content-Disposition", "attachment;filename=" + filedisplay);
 
@@ -30,7 +30,7 @@
 		}
 		//   
 		outp.flush();
-		//Òª¼ÓÒÔÏÂÁ½¾ä»°£¬·ñÔò»á±¨´í 
+		//è¦åŠ ä»¥ä¸‹ä¸¤å¥è¯ï¼Œå¦åˆ™ä¼šæŠ¥é”™ 
 		//java.lang.IllegalStateException: getOutputStream() has already been called for //this response   
 		out.clear();
 		out = pageContext.pushBody();
@@ -42,7 +42,7 @@
 			in.close();
 			in = null;
 		}
-		//ÕâÀï²»ÄÜ¹Ø±Õ   
+		//è¿™é‡Œä¸èƒ½å…³é—­   
 		//if(outp != null) 
 		//{ 
 		//outp.close(); 
