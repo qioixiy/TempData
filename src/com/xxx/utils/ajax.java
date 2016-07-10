@@ -1240,18 +1240,48 @@ int del_customer(HttpServletRequest request, HttpServletResponse response) {
 	}
 
 int export_doc(HttpServletRequest request, HttpServletResponse response) {
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path
+			+ "/";
 	System.out.println("export_doc start");
 	GenTableAllData mGenTableAllData = new GenTableAllData();
 	String userid = request.getParameter("userid");
 		
 	try {
-		mGenTableAllData.run(userid, FprCap_tmp);
+		mGenTableAllData.run(userid, FprCap_tmp + "/export_doc/");
 	} finally {
 		System.out.println("export_doc end");
 	}
 
 	try {
-		response.getWriter().append("success");
+		System.out.println("make export_doc zip package start ");
+		String Userid = request.getParameter("userid");
+		System.out.println("Userid:" + Userid);
+		
+		CustomerDaoImpl mCustomerDaoImpl = new CustomerDaoImpl();
+		Customer mCustomer = mCustomerDaoImpl.getByuserid(Integer.parseInt(Userid));
+		String UserName = mCustomer.getName();
+		System.out.println("Userid:" + Userid + ", UserName:" + UserName);
+
+		String fileName = UserName + "_" + Userid;
+		String zipFile = FprCap_tmp + "/" + fileName + ".zip";
+		String zipDir = FprCap_tmp + "/export_doc/";
+		
+		System.out.println("zipFile:" + zipFile);
+		System.out.println("zipDir:" + zipDir);
+		
+		if (!(new File(zipDir)).isDirectory()) {
+			System.out.println(zipDir + " is not a dir");
+			return -1;
+		}
+		
+		exportCustomerInfo(Userid, zipDir);
+		
+		Zip.zip(zipDir, zipFile);
+		String path1 = "images/FprCap/tmp/" + fileName + ".zip";
+		String url = basePath + path1;
+		System.out.println("zip url " + url);
+		response.getWriter().append(path1);
 	} catch (IOException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();

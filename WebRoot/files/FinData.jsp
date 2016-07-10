@@ -33,7 +33,7 @@ if (customer == null) {
      <base href="<%=basePath%>">
     
     <title>My JSP 'FinData.jsp' starting page</title>
-    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -77,7 +77,7 @@ html { overflow-x: auto; overflow-y: auto; border:0;}
 <link href="<%=basePath %>/css/css.css" rel="stylesheet" type="text/css" />
 <link href="<%=basePath %>/css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="<%=basePath %>/js/xiangmu.js"></script>
-<script type="text/javascript" src="<%=basePath %>/js/ajax.js"></script>
+<script type="text/javascript" src="<%=basePath %>/js/ajax.js" charset="UTF-8"></script>
 </head>
 <SCRIPT language=JavaScript>
 function sousuo(){

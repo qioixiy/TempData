@@ -16,7 +16,8 @@
 	//关于文件下载时采用文件流输出的方式处理： 
 	//加上response.reset()，并且所有的％>后面不要换行，包括最后一个； 
 
-	response.reset();//可以加也可以不加 
+	response.reset();//可以加也可以不加  
+	response.setHeader("Charset", "UTF-8");
 	response.setContentType("application/x-download");
 
 	String filedownload = request_filedownload;
