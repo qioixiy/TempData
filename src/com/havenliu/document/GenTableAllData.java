@@ -82,6 +82,16 @@ public class GenTableAllData {
 		String caozuominruidu_you;
 		String caozuominruidu_fenxi;
 		// 思维习惯
+		String siweixiguan_lixing_duiren;
+		String siweixiguan_lixing_duishi;
+		String siweixiguan_lixing_duizhiti;
+		String siweixiguan_lixing_duishengyin;
+		String siweixiguan_lixing_duituxiang;
+		String siweixiguan_ganxing_duiren;
+		String siweixiguan_ganxing_duishi;
+		String siweixiguan_ganxing_duizhiti;
+		String siweixiguan_ganxing_duishengyin;
+		String siweixiguan_ganxing_duituxiang;
 		String siweixiguan_fenxi_duiren;
 		String siweixiguan_fenxi_duishi;
 		String siweixiguan_fenxi_duizhiti;
@@ -143,6 +153,16 @@ public class GenTableAllData {
 		String caozuominruidu_you;
 		String caozuominruidu_fenxi;
 		// 思维习惯
+		String siweixiguan_lixing_duiren;
+		String siweixiguan_lixing_duishi;
+		String siweixiguan_lixing_duizhiti;
+		String siweixiguan_lixing_duishengyin;
+		String siweixiguan_lixing_duituxiang;
+		String siweixiguan_ganxing_duiren;
+		String siweixiguan_ganxing_duishi;
+		String siweixiguan_ganxing_duizhiti;
+		String siweixiguan_ganxing_duishengyin;
+		String siweixiguan_ganxing_duituxiang;
 		String siweixiguan_fenxi_duiren;
 		String siweixiguan_fenxi_duishi;
 		String siweixiguan_fenxi_duizhiti;
@@ -288,6 +308,16 @@ public class GenTableAllData {
 		mDataChengrenBaobiao.caozuominruidu_you = mCustomer.getRightATD();
 		mDataChengrenBaobiao.caozuominruidu_fenxi = mMakeDetail.Get_caozuominruidu_fenxi("成人");
 		// 思维习惯
+		mDataChengrenBaobiao.siweixiguan_lixing_duiren = String.valueOf(output.reason1);
+		mDataChengrenBaobiao.siweixiguan_lixing_duishi = String.valueOf(output.reason2);
+		mDataChengrenBaobiao.siweixiguan_lixing_duizhiti = String.valueOf(output.reason3);
+		mDataChengrenBaobiao.siweixiguan_lixing_duishengyin = String.valueOf(output.reason4);
+		mDataChengrenBaobiao.siweixiguan_lixing_duituxiang = String.valueOf(output.reason5);
+		mDataChengrenBaobiao.siweixiguan_ganxing_duiren = String.valueOf(output.Sensibility1);
+		mDataChengrenBaobiao.siweixiguan_ganxing_duishi = String.valueOf(output.Sensibility2);
+		mDataChengrenBaobiao.siweixiguan_ganxing_duizhiti = String.valueOf(output.Sensibility3);
+		mDataChengrenBaobiao.siweixiguan_ganxing_duishengyin = String.valueOf(output.Sensibility4);
+		mDataChengrenBaobiao.siweixiguan_ganxing_duituxiang = String.valueOf(output.Sensibility5);
 		mDataChengrenBaobiao.siweixiguan_fenxi_duiren = mMakeDetail.Get_siweixiguan_fenxi_duiren("成人");
 		mDataChengrenBaobiao.siweixiguan_fenxi_duishi = mMakeDetail.Get_siweixiguan_fenxi_duishi("成人");
 		mDataChengrenBaobiao.siweixiguan_fenxi_duizhiti = mMakeDetail.Get_siweixiguan_fenxi_duizhiti("成人");
@@ -362,6 +392,16 @@ public class GenTableAllData {
 		mDataErTongBaobiao.caozuominruidu_you = mCustomer.getRightATD();
 		mDataErTongBaobiao.caozuominruidu_fenxi = mMakeDetail.Get_caozuominruidu_fenxi("儿童");
 		// 思维习惯
+		mDataErTongBaobiao.siweixiguan_lixing_duiren = String.valueOf(output.reason1);
+		mDataErTongBaobiao.siweixiguan_lixing_duishi = String.valueOf(output.reason2);
+		mDataErTongBaobiao.siweixiguan_lixing_duizhiti = String.valueOf(output.reason3);
+		mDataErTongBaobiao.siweixiguan_lixing_duishengyin = String.valueOf(output.reason4);
+		mDataErTongBaobiao.siweixiguan_lixing_duituxiang = String.valueOf(output.reason5);
+		mDataErTongBaobiao.siweixiguan_ganxing_duiren = String.valueOf(output.Sensibility1);
+		mDataErTongBaobiao.siweixiguan_ganxing_duishi = String.valueOf(output.Sensibility2);
+		mDataErTongBaobiao.siweixiguan_ganxing_duizhiti = String.valueOf(output.Sensibility3);
+		mDataErTongBaobiao.siweixiguan_ganxing_duishengyin = String.valueOf(output.Sensibility4);
+		mDataErTongBaobiao.siweixiguan_ganxing_duituxiang = String.valueOf(output.Sensibility5);
 		mDataErTongBaobiao.siweixiguan_fenxi_duiren = mMakeDetail.Get_siweixiguan_fenxi_duiren("儿童");
 		mDataErTongBaobiao.siweixiguan_fenxi_duishi = mMakeDetail.Get_siweixiguan_fenxi_duishi("儿童");
 		mDataErTongBaobiao.siweixiguan_fenxi_duizhiti = mMakeDetail.Get_siweixiguan_fenxi_duizhiti("儿童");
@@ -524,6 +564,16 @@ public class GenTableAllData {
 		dataMap.put("xx10", mDataChengrenBaobiao.caozuominruidu_you);
 		dataMap.put("xx11", mDataChengrenBaobiao.caozuominruidu_fenxi);
 		// 思维习惯
+		dataMap.put("xx12", mDataChengrenBaobiao.siweixiguan_lixing_duiren);
+		dataMap.put("xx13", mDataChengrenBaobiao.siweixiguan_ganxing_duiren);
+		dataMap.put("xx14", mDataChengrenBaobiao.siweixiguan_lixing_duishi);
+		dataMap.put("xx15", mDataChengrenBaobiao.siweixiguan_ganxing_duishi);
+		dataMap.put("xx16", mDataChengrenBaobiao.siweixiguan_lixing_duizhiti);
+		dataMap.put("xx17", mDataChengrenBaobiao.siweixiguan_ganxing_duizhiti);
+		dataMap.put("xx18", mDataChengrenBaobiao.siweixiguan_lixing_duishengyin);
+		dataMap.put("xx19", mDataChengrenBaobiao.siweixiguan_ganxing_duishengyin);
+		dataMap.put("xx20", mDataChengrenBaobiao.siweixiguan_lixing_duituxiang);
+		dataMap.put("xx21", mDataChengrenBaobiao.siweixiguan_ganxing_duituxiang);
 		dataMap.put("xx22", mDataChengrenBaobiao.siweixiguan_fenxi_duiren);
 		dataMap.put("xx23", mDataChengrenBaobiao.siweixiguan_fenxi_duishi);
 		dataMap.put("xx24", mDataChengrenBaobiao.siweixiguan_fenxi_duizhiti);
@@ -599,6 +649,17 @@ public class GenTableAllData {
 		dataMap.put("xx9", mDataErTongBaobiao.caozuominruidu_zuo);
 		dataMap.put("xx10", mDataErTongBaobiao.caozuominruidu_you);
 		dataMap.put("xx11", mDataErTongBaobiao.caozuominruidu_fenxi);
+		// 思维习惯
+		dataMap.put("xx12", mDataErTongBaobiao.siweixiguan_lixing_duiren);
+		dataMap.put("xx13", mDataErTongBaobiao.siweixiguan_ganxing_duiren);
+		dataMap.put("xx14", mDataErTongBaobiao.siweixiguan_lixing_duishi);
+		dataMap.put("xx15", mDataErTongBaobiao.siweixiguan_ganxing_duishi);
+		dataMap.put("xx16", mDataErTongBaobiao.siweixiguan_lixing_duizhiti);
+		dataMap.put("xx17", mDataErTongBaobiao.siweixiguan_ganxing_duizhiti);
+		dataMap.put("xx18", mDataErTongBaobiao.siweixiguan_lixing_duishengyin);
+		dataMap.put("xx19", mDataErTongBaobiao.siweixiguan_ganxing_duishengyin);
+		dataMap.put("xx20", mDataErTongBaobiao.siweixiguan_lixing_duituxiang);
+		dataMap.put("xx21", mDataErTongBaobiao.siweixiguan_ganxing_duituxiang);
 		dataMap.put("xx22", mDataErTongBaobiao.siweixiguan_fenxi_duiren);
 		dataMap.put("xx23", mDataErTongBaobiao.siweixiguan_fenxi_duishi);
 		dataMap.put("xx24", mDataErTongBaobiao.siweixiguan_fenxi_duizhiti);
