@@ -1249,7 +1249,13 @@ int export_doc(HttpServletRequest request, HttpServletResponse response) {
 	} finally {
 		System.out.println("export_doc end");
 	}
-	
+
+	try {
+		response.getWriter().append("success");
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 	return 0;
 }
 	
