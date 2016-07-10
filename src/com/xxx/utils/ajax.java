@@ -1263,7 +1263,7 @@ int export_doc(HttpServletRequest request, HttpServletResponse response) {
 		String UserName = mCustomer.getName();
 		System.out.println("Userid:" + Userid + ", UserName:" + UserName);
 
-		String fileName = UserName + "_" + Userid;
+		String fileName = /*UserName + "_" + */Userid;
 		String zipFile = FprCap_tmp + "/" + fileName + ".zip";
 		String zipDir = FprCap_tmp + "/export_doc/";
 		

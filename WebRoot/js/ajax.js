@@ -172,10 +172,10 @@ function callBack_export_doc() {
 		if (result != "") {
 			alert("导出doc成功");
 			result_encode = encodeURI(encodeURI(result));
-			alert(result);
-			alert(result_encode);
+			//alert(result);
+			//alert(result_encode);
 			var url = "http://localhost:8080/FPC/utils/download.jsp?filedownload=" + result;
-			alert(url);
+			//alert(url);
 			window.location = url;
 		} else {
 			alert("导出doc失败");
