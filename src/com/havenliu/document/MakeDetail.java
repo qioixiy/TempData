@@ -347,8 +347,9 @@ public class MakeDetail {
 				map.put("tijue", tijue);
 				Object r = DyMethodUtil.invokeMethod(condition, map);
 				System.out.println(r);
-				if ((boolean)r == true) {
-					ret = rs.getString("fenlei");
+				//if ((boolean)r == true) {
+				if (true) {
+					ret = rs.getString("miaoshu");
 					break;
 				}
 			}
