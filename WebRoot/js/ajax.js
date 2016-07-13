@@ -51,12 +51,13 @@ function callBack_ExportPackage() {
 		var result = xmlHttpRequest.responseText;
 		alert(result);
 		var str = decodeURIComponent(result);
-		alert(str);
+		//alert(str);
 		if (result != "") {
 			if (result == "fail") {
 				alert("导出失败");
 			} else {
-				window.open(encodeURIComponent(str));
+				//window.open(encodeURIComponent(str));
+				window.open(str);
 			}
 		} else {
 			alert("导出失败");

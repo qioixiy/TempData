@@ -795,7 +795,7 @@ public class ajax extends HttpServlet {
 		String UserName = mCustomer.getName();
 		System.out.println("Userid:" + Userid + ", UserName:" + UserName);
 
-		String fileName = UserName + "_" + Userid;
+		String fileName = /*UserName + "_" +*/ Userid;
 		String zipFile = FprCap_data + "/" + fileName + ".zip";
 		String zipDir = FprCap_data + "/" + Userid;
 		
@@ -813,7 +813,8 @@ public class ajax extends HttpServlet {
 		String url = basePath + "images/FprCap/data/" + fileName + ".zip";
 		System.out.println("zip url " + url);
 		try {
-			String url_utf8 = URLEncoder.encode(url.toString(),"UTF-8");
+			String url_utf8;// = URLEncoder.encode(url.toString(),"UTF-8");
+			url_utf8 = url;
 			System.out.println("url_utf8:" + url_utf8);
 			
 			response.getWriter().append(url_utf8);
